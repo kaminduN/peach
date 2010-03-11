@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.defuzzy</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        Module&nbsp;defuzzy
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.defuzzy-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module defuzzy</h1><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html">source&nbsp;code</a></span><br /><br />
+<p>This package implements defuzzification methods for use with fuzzy controllers.</p>
+<p>Defuzzification methods take a set of numerical values, their corresponding
+fuzzy membership values and calculate a defuzzified value for them. They're
+implemented as functions, not as classes. So, to implement your own, use the
+directions below.</p>
+<p>These methods are implemented as functions with the signature <tt class="rst-docutils literal"><span class="pre">(mf,</span> <span class="pre">y)</span></tt>, where
+<tt class="rst-docutils literal"><span class="pre">mf</span></tt> is the fuzzy set, and <tt class="rst-docutils literal"><span class="pre">y</span></tt> is an array of values. That is, <tt class="rst-docutils literal"><span class="pre">mf</span></tt> is a
+fuzzy set containing the membership values of each one in the <tt class="rst-docutils literal"><span class="pre">y</span></tt> array, in
+the respective order. Both arrays should have the same dimensions, or else the
+methods won't work.</p>
+<p>See the example:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; from peach import *
+&gt;&gt;&gt; y = numpy.linspace(0., 5., 100)
+&gt;&gt;&gt; m_y = Triangle(1., 2., 3.)
+&gt;&gt;&gt; Centroid(m_y(y), y)
+2.0001030715316435
+</pre>
+<p>The methods defined here are the most commonly used.</p><br /><br />
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#Centroid" class="summary-sig-name">Centroid</a>(<span class="summary-sig-arg">mf</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Center of gravity method.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Centroid">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#Bissector" class="summary-sig-name">Bissector</a>(<span class="summary-sig-arg">mf</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Bissection method</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Bissector">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#SmallestOfMaxima" class="summary-sig-name">SmallestOfMaxima</a>(<span class="summary-sig-arg">mf</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Smallest of maxima method.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#SmallestOfMaxima">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#LargestOfMaxima" class="summary-sig-name">LargestOfMaxima</a>(<span class="summary-sig-arg">mf</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Largest of maxima method.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#LargestOfMaxima">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#MeanOfMaxima" class="summary-sig-name">MeanOfMaxima</a>(<span class="summary-sig-arg">mf</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Mean of maxima method.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#MeanOfMaxima">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.defuzzy-module.html#__doc__" class="summary-name">__doc__</a> = <code title="&quot;&quot;&quot;
+This package implements defuzzification methods for use with fuzzy con\
+trollers.
+
+Defuzzification methods take a set of numerical values, their correspo\
+nding
+fuzzy membership values and calculate a defuzzified value for them. Th\
+ey're
+..."><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="Centroid"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Centroid</span>(<span class="sig-arg">mf</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Centroid">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Center of gravity method.</p>
+<p>The center of gravity is calculate using the standard formula found in any
+calculus book. The integrals are calculated using the trapezoid method.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mf</code></strong> - Fuzzy set containing the membership values of the elements in the
+vector given in sequence</li>
+        <li><strong class="pname"><code>y</code></strong> - Array of domain values of the defuzzified variable.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The center of gravity of the fuzzy set.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="Bissector"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Bissector</span>(<span class="sig-arg">mf</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Bissector">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Bissection method</p>
+<p>The bissection method finds a coordinate <tt class="rst-docutils literal"><span class="pre">y</span></tt> in domain that divides the
+fuzzy set in two subsets with the same area. Integrals are calculated using
+the trapezoid method. This method only works if the values in <tt class="rst-docutils literal"><span class="pre">y</span></tt> are
+equally spaced, otherwise, the method will fail.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mf</code></strong> - Fuzzy set containing the membership values of the elements in the
+vector given in sequence</li>
+        <li><strong class="pname"><code>y</code></strong> - Array of domain values of the defuzzified variable.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Defuzzified value by the bissection method.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmallestOfMaxima"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SmallestOfMaxima</span>(<span class="sig-arg">mf</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#SmallestOfMaxima">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Smallest of maxima method.</p>
+<p>This method finds all the points in the domain which have maximum membership
+value in the fuzzy set, and returns the smallest of them.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mf</code></strong> - Fuzzy set containing the membership values of the elements in the
+vector given in sequence</li>
+        <li><strong class="pname"><code>y</code></strong> - Array of domain values of the defuzzified variable.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Defuzzified value by the smallest of maxima method.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LargestOfMaxima"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LargestOfMaxima</span>(<span class="sig-arg">mf</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#LargestOfMaxima">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Largest of maxima method.</p>
+<p>This method finds all the points in the domain which have maximum membership
+value in the fuzzy set, and returns the largest of them.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mf</code></strong> - Fuzzy set containing the membership values of the elements in the
+vector given in sequence</li>
+        <li><strong class="pname"><code>y</code></strong> - Array of domain values of the defuzzified variable.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Defuzzified value by the largest of maxima method.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="MeanOfMaxima"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">MeanOfMaxima</span>(<span class="sig-arg">mf</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#MeanOfMaxima">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Mean of maxima method.</p>
+<p>This method finds the smallest and largest of maxima, and returns their
+average.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mf</code></strong> - Fuzzy set containing the membership values of the elements in the
+vector given in sequence</li>
+        <li><strong class="pname"><code>y</code></strong> - Array of domain values of the defuzzified variable.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Defuzzified value by the  of maxima method.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__doc__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__doc__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&quot;&quot;&quot;
+This package implements defuzzification methods for use with fuzzy con<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+trollers.
+
+Defuzzification methods take a set of numerical values, their correspo<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+nding
+fuzzy membership values and calculate a defuzzified value for them. Th<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ey're
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

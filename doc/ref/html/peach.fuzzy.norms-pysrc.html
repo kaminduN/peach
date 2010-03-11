@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.norms</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        Module&nbsp;norms
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.norms-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="peach.fuzzy.norms-module.html">Module peach.fuzzy.norms</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This file: fuzzy/norms.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Norms, conorms and negations</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nn.__doc__=peach.nn.nn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.optm.__doc__=peach.optm.optm-module.html#__doc__,Variable peach.optm.pso.__doc__=peach.optm.pso-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.sa.__doc__=peach.optm.sa-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__"><a title="peach.__doc__
+peach.fuzzy.__doc__
+peach.fuzzy.base.__doc__
+peach.fuzzy.cmeans.__doc__
+peach.fuzzy.control.__doc__
+peach.fuzzy.defuzzy.__doc__
+peach.fuzzy.mf.__doc__
+peach.fuzzy.norms.__doc__
+peach.ga.__doc__
+peach.ga.base.__doc__
+peach.ga.chromosome.__doc__
+peach.ga.crossover.__doc__
+peach.ga.fitness.__doc__
+peach.ga.mutation.__doc__
+peach.ga.selection.__doc__
+peach.nn.__doc__
+peach.nn.af.__doc__
+peach.nn.base.__doc__
+peach.nn.lrules.__doc__
+peach.nn.nn.__doc__
+peach.optm.__doc__
+peach.optm.linear.__doc__
+peach.optm.multivar.__doc__
+peach.optm.optm.__doc__
+peach.optm.pso.__doc__
+peach.optm.quasinewton.__doc__
+peach.optm.sa.__doc__
+peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">This package implements operations of fuzzy logic.</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">Basic operations are ``and (&amp;)``, ``or (|)`` and ``not (~)``. Those are</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">implemented as functions of, respectively, two, two and one values. The ``and``</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">is the t-norm of the fuzzy logic, and it is a function that takes two values and</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">returns the result of the ``and`` operation. The ``or`` is a function that takes</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">two values and returns the result of the ``or`` operation. the ``not`` is a</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">function that takes one value and returns the result of the ``not`` operation.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">To implement your own operations there is no need to subclass -- just create the</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">functions and use them where appropriate.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">Also, implication and aglutination functions are defined here. Implication is</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">the result of the generalized modus ponens used in fuzzy inference systems.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">Aglutination is the generalization from two different conclusions used in fuzzy</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">inference systems. Both are implemented as functions that take two values and</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">return the result of the operation. As above, to implement your own operations,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">there is no need to subclass -- just create the functions and use them where</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">appropriate.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">The functions here are provided as convenience.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Lofti Zadeh's basic operations</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="ZadehAnd"></a><div id="ZadehAnd-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="ZadehAnd-toggle" onclick="return toggle('ZadehAnd');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ZadehAnd">ZadehAnd</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ZadehAnd-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ZadehAnd-expanded"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">    And operation as defined by Lofti Zadeh.</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    And operation is the minimum of the two values.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the and operation.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">minimum</tt><tt class="py-op">(</tt><tt id="link-1" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.x=peach.fuzzy.cmeans.FuzzyCMeans-class.html#x"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-1', 'x', 'link-1');">x</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Variable peach.fuzzy.control.Controller.y=peach.fuzzy.control.Controller-class.html#y,Variable peach.nn.base.Layer.y=peach.nn.base.Layer-class.html#y,Variable peach.nn.nn.FeedForward.y=peach.nn.nn.FeedForward-class.html#y,Variable peach.nn.nn.SOM.y=peach.nn.nn.SOM-class.html#y"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-2', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="ZadehOr"></a><div id="ZadehOr-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="ZadehOr-toggle" onclick="return toggle('ZadehOr');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ZadehOr">ZadehOr</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ZadehOr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ZadehOr-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    Or operation as defined by Lofti Zadeh.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    Or operation is the maximum of the two values.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the or operation.</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">maximum</tt><tt class="py-op">(</tt><tt id="link-3" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-3', 'x', 'link-1');">x</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-4', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="ZadehNot"></a><div id="ZadehNot-def"><a name="L64"></a><tt class="py-lineno"> 64</tt> <a class="py-toggle" href="#" id="ZadehNot-toggle" onclick="return toggle('ZadehNot');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ZadehNot">ZadehNot</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ZadehNot-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ZadehNot-expanded"><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    Not operation as defined by Lofti Zadeh.</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">    Not operation is the complement to 1 of the given value, that is, ``1 - x``.</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the not operation.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> <tt class="py-op">-</tt> <tt id="link-5" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-5', 'x', 'link-1');">x</a></tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="ZadehImplication"></a><div id="ZadehImplication-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="ZadehImplication-toggle" onclick="return toggle('ZadehImplication');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ZadehImplication">ZadehImplication</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ZadehImplication-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ZadehImplication-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    Implication operation as defined by Zadeh.</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the implication.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">maximum</tt><tt class="py-op">(</tt><tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">minimum</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-6', 'x', 'link-1');">x</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-7', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt> <tt class="py-op">-</tt> <tt id="link-8" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-8', 'x', 'link-1');">x</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable peach.fuzzy.control.ZADEH_NORMS=peach.fuzzy.control-module.html#ZADEH_NORMS,Variable peach.fuzzy.norms.ZADEH_NORMS=peach.fuzzy.norms-module.html#ZADEH_NORMS"><a title="peach.fuzzy.control.ZADEH_NORMS
+peach.fuzzy.norms.ZADEH_NORMS" class="py-name" href="#" onclick="return doclink('link-9', 'ZADEH_NORMS', 'link-9');">ZADEH_NORMS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Function peach.fuzzy.norms.ZadehAnd()=peach.fuzzy.norms-module.html#ZadehAnd"><a title="peach.fuzzy.norms.ZadehAnd" class="py-name" href="#" onclick="return doclink('link-10', 'ZadehAnd', 'link-10');">ZadehAnd</a></tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name" targets="Function peach.fuzzy.norms.ZadehOr()=peach.fuzzy.norms-module.html#ZadehOr"><a title="peach.fuzzy.norms.ZadehOr" class="py-name" href="#" onclick="return doclink('link-11', 'ZadehOr', 'link-11');">ZadehOr</a></tt><tt class="py-op">,</tt> <tt id="link-12" class="py-name" targets="Function peach.fuzzy.norms.ZadehNot()=peach.fuzzy.norms-module.html#ZadehNot"><a title="peach.fuzzy.norms.ZadehNot" class="py-name" href="#" onclick="return doclink('link-12', 'ZadehNot', 'link-12');">ZadehNot</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-string">'Tuple containing, in order, Zadeh and, or and not operations'</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Drastic product and sum</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="DrasticProduct"></a><div id="DrasticProduct-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="DrasticProduct-toggle" onclick="return toggle('DrasticProduct');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#DrasticProduct">DrasticProduct</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DrasticProduct-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DrasticProduct-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">    Drastic product that can be used as and operation</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the and operation</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">select</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt id="link-13" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-13', 'x', 'link-1');">x</a></tt> <tt class="py-op">==</tt> <tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-14', 'y', 'link-2');">y</a></tt> <tt class="py-op">==</tt> <tt class="py-number">1.</tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt> <tt id="link-15" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-15', 'y', 'link-2');">y</a></tt><tt class="py-op">,</tt> <tt id="link-16" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-16', 'x', 'link-1');">x</a></tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="DrasticSum"></a><div id="DrasticSum-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="DrasticSum-toggle" onclick="return toggle('DrasticSum');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#DrasticSum">DrasticSum</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DrasticSum-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DrasticSum-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    Drastic sum that can be used as or operation</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the or operation</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">select</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt id="link-17" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-17', 'x', 'link-1');">x</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-18', 'y', 'link-2');">y</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0.</tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt> <tt id="link-19" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-19', 'y', 'link-2');">y</a></tt><tt class="py-op">,</tt> <tt id="link-20" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-20', 'x', 'link-1');">x</a></tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt id="link-21" class="py-name" targets="Variable peach.fuzzy.control.DRASTIC_NORMS=peach.fuzzy.control-module.html#DRASTIC_NORMS,Variable peach.fuzzy.norms.DRASTIC_NORMS=peach.fuzzy.norms-module.html#DRASTIC_NORMS"><a title="peach.fuzzy.control.DRASTIC_NORMS
+peach.fuzzy.norms.DRASTIC_NORMS" class="py-name" href="#" onclick="return doclink('link-21', 'DRASTIC_NORMS', 'link-21');">DRASTIC_NORMS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-22" class="py-name" targets="Function peach.fuzzy.norms.DrasticProduct()=peach.fuzzy.norms-module.html#DrasticProduct"><a title="peach.fuzzy.norms.DrasticProduct" class="py-name" href="#" onclick="return doclink('link-22', 'DrasticProduct', 'link-22');">DrasticProduct</a></tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name" targets="Function peach.fuzzy.norms.DrasticSum()=peach.fuzzy.norms-module.html#DrasticSum"><a title="peach.fuzzy.norms.DrasticSum" class="py-name" href="#" onclick="return doclink('link-23', 'DrasticSum', 'link-23');">DrasticSum</a></tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name"><a title="peach.fuzzy.norms.ZadehNot" class="py-name" href="#" onclick="return doclink('link-24', 'ZadehNot', 'link-12');">ZadehNot</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-string">'''Tuple containing, in order, Drastic product (and), Drastic sum (or) and Zadeh</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-string">not operations'''</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Einstein product and sum</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="EinsteinProduct"></a><div id="EinsteinProduct-def"><a name="L117"></a><tt class="py-lineno">117</tt> <a class="py-toggle" href="#" id="EinsteinProduct-toggle" onclick="return toggle('EinsteinProduct');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#EinsteinProduct">EinsteinProduct</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EinsteinProduct-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="EinsteinProduct-expanded"><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">    Einstein product that can be used as and operation.</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the and operation.</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-25', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-26" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-26', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-op">(</tt><tt class="py-number">2.</tt> <tt class="py-op">-</tt> <tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-27', 'x', 'link-1');">x</a></tt> <tt class="py-op">+</tt> <tt id="link-28" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-28', 'y', 'link-2');">y</a></tt> <tt class="py-op">-</tt> <tt id="link-29" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-29', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-30" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-30', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="EinsteinSum"></a><div id="EinsteinSum-def"><a name="L126"></a><tt class="py-lineno">126</tt> <a class="py-toggle" href="#" id="EinsteinSum-toggle" onclick="return toggle('EinsteinSum');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#EinsteinSum">EinsteinSum</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EinsteinSum-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="EinsteinSum-expanded"><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">    Einstein sum that can be used as or operation.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the or operation.</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-31', 'x', 'link-1');">x</a></tt> <tt class="py-op">+</tt> <tt id="link-32" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-32', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-op">(</tt><tt class="py-number">1.</tt> <tt class="py-op">+</tt> <tt id="link-33" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-33', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-34" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-34', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt id="link-35" class="py-name" targets="Variable peach.fuzzy.control.EINSTEIN_NORMS=peach.fuzzy.control-module.html#EINSTEIN_NORMS,Variable peach.fuzzy.norms.EINSTEIN_NORMS=peach.fuzzy.norms-module.html#EINSTEIN_NORMS"><a title="peach.fuzzy.control.EINSTEIN_NORMS
+peach.fuzzy.norms.EINSTEIN_NORMS" class="py-name" href="#" onclick="return doclink('link-35', 'EINSTEIN_NORMS', 'link-35');">EINSTEIN_NORMS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-36" class="py-name" targets="Function peach.fuzzy.norms.EinsteinProduct()=peach.fuzzy.norms-module.html#EinsteinProduct"><a title="peach.fuzzy.norms.EinsteinProduct" class="py-name" href="#" onclick="return doclink('link-36', 'EinsteinProduct', 'link-36');">EinsteinProduct</a></tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name" targets="Function peach.fuzzy.norms.EinsteinSum()=peach.fuzzy.norms-module.html#EinsteinSum"><a title="peach.fuzzy.norms.EinsteinSum" class="py-name" href="#" onclick="return doclink('link-37', 'EinsteinSum', 'link-37');">EinsteinSum</a></tt><tt class="py-op">,</tt> <tt id="link-38" class="py-name"><a title="peach.fuzzy.norms.ZadehNot" class="py-name" href="#" onclick="return doclink('link-38', 'ZadehNot', 'link-12');">ZadehNot</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-string">'''Tuple containing, in order, Einstein product (and), Einstein sum (or) and</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-string">Zadeh not operations'''</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Mamdani's basic operations</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="MamdaniImplication"></a><div id="MamdaniImplication-def"><a name="L143"></a><tt class="py-lineno">143</tt> <a class="py-toggle" href="#" id="MamdaniImplication-toggle" onclick="return toggle('MamdaniImplication');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#MamdaniImplication">MamdaniImplication</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MamdaniImplication-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MamdaniImplication-expanded"><a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    Implication operation as defined by Mamdani.</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">    Implication is the minimum of the two values.</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the implication.</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">minimum</tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-39', 'x', 'link-1');">x</a></tt><tt class="py-op">,</tt> <tt id="link-40" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-40', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"> </tt>
+<a name="MamdaniAglutination"></a><div id="MamdaniAglutination-def"><a name="L154"></a><tt class="py-lineno">154</tt> <a class="py-toggle" href="#" id="MamdaniAglutination-toggle" onclick="return toggle('MamdaniAglutination');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#MamdaniAglutination">MamdaniAglutination</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MamdaniAglutination-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MamdaniAglutination-expanded"><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">    Aglutination as defined by Mamdani.</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">    Aglutination is the maximum of the two values.</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the aglutination.</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">maximum</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-41', 'x', 'link-1');">x</a></tt><tt class="py-op">,</tt> <tt id="link-42" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-42', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt id="link-43" class="py-name" targets="Variable peach.fuzzy.control.MAMDANI_INFERENCE=peach.fuzzy.control-module.html#MAMDANI_INFERENCE,Variable peach.fuzzy.norms.MAMDANI_INFERENCE=peach.fuzzy.norms-module.html#MAMDANI_INFERENCE"><a title="peach.fuzzy.control.MAMDANI_INFERENCE
+peach.fuzzy.norms.MAMDANI_INFERENCE" class="py-name" href="#" onclick="return doclink('link-43', 'MAMDANI_INFERENCE', 'link-43');">MAMDANI_INFERENCE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-44" class="py-name" targets="Function peach.fuzzy.norms.MamdaniImplication()=peach.fuzzy.norms-module.html#MamdaniImplication"><a title="peach.fuzzy.norms.MamdaniImplication" class="py-name" href="#" onclick="return doclink('link-44', 'MamdaniImplication', 'link-44');">MamdaniImplication</a></tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name" targets="Function peach.fuzzy.norms.MamdaniAglutination()=peach.fuzzy.norms-module.html#MamdaniAglutination"><a title="peach.fuzzy.norms.MamdaniAglutination" class="py-name" href="#" onclick="return doclink('link-45', 'MamdaniAglutination', 'link-45');">MamdaniAglutination</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-string">'Tuple containing, in order, Mamdani implication and algutination'</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Probabilistic operations</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="ProbabilisticAnd"></a><div id="ProbabilisticAnd-def"><a name="L172"></a><tt class="py-lineno">172</tt> <a class="py-toggle" href="#" id="ProbabilisticAnd-toggle" onclick="return toggle('ProbabilisticAnd');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ProbabilisticAnd">ProbabilisticAnd</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ProbabilisticAnd-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ProbabilisticAnd-expanded"><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">    And operation as a probabilistic operation.</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">    And operation is the product of the two values.</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the and operation.</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-46" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-46', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-47" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-47', 'y', 'link-2');">y</a></tt> </tt>
+</div><a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"> </tt>
+<a name="ProbabilisticOr"></a><div id="ProbabilisticOr-def"><a name="L183"></a><tt class="py-lineno">183</tt> <a class="py-toggle" href="#" id="ProbabilisticOr-toggle" onclick="return toggle('ProbabilisticOr');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ProbabilisticOr">ProbabilisticOr</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ProbabilisticOr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ProbabilisticOr-expanded"><a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-docstring">    Or operation as a probabilistic operation.</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-docstring">    Or operation is given as the probability of the intersection of two events,</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-docstring">    that is, x + y - xy.</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the or operation.</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-48" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-48', 'x', 'link-1');">x</a></tt> <tt class="py-op">+</tt> <tt id="link-49" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-49', 'y', 'link-2');">y</a></tt> <tt class="py-op">-</tt> <tt id="link-50" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-50', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-51" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-51', 'y', 'link-2');">y</a></tt> </tt>
+</div><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"> </tt>
+<a name="ProbabilisticNot"></a><div id="ProbabilisticNot-def"><a name="L195"></a><tt class="py-lineno">195</tt> <a class="py-toggle" href="#" id="ProbabilisticNot-toggle" onclick="return toggle('ProbabilisticNot');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ProbabilisticNot">ProbabilisticNot</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ProbabilisticNot-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ProbabilisticNot-expanded"><a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring">    Not operation as a probabilistic operation.</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring">    Not operation is the complement to 1 of the given value, that is, ``1 - x``.</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the not operation.</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> <tt class="py-op">-</tt> <tt id="link-52" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-52', 'x', 'link-1');">x</a></tt> </tt>
+</div><a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="ProbabilisticImplication"></a><div id="ProbabilisticImplication-def"><a name="L206"></a><tt class="py-lineno">206</tt> <a class="py-toggle" href="#" id="ProbabilisticImplication-toggle" onclick="return toggle('ProbabilisticImplication');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ProbabilisticImplication">ProbabilisticImplication</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ProbabilisticImplication-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ProbabilisticImplication-expanded"><a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-docstring">    Implication as a probabilistic operation.</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-docstring">    Implication is the product of the two values.</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the and implication.</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-53" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-53', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-54" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-54', 'y', 'link-2');">y</a></tt> </tt>
+</div><a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"> </tt>
+<a name="ProbabilisticAglutination"></a><div id="ProbabilisticAglutination-def"><a name="L217"></a><tt class="py-lineno">217</tt> <a class="py-toggle" href="#" id="ProbabilisticAglutination-toggle" onclick="return toggle('ProbabilisticAglutination');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#ProbabilisticAglutination">ProbabilisticAglutination</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ProbabilisticAglutination-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ProbabilisticAglutination-expanded"><a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring">    Implication as a probabilistic operation.</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-docstring">    Implication is given as the probability of the intersection of two events,</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-docstring">    that is, x + y - xy.</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the and algutination.</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-55" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-55', 'x', 'link-1');">x</a></tt> <tt class="py-op">+</tt> <tt id="link-56" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-56', 'y', 'link-2');">y</a></tt> <tt class="py-op">-</tt> <tt id="link-57" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-57', 'x', 'link-1');">x</a></tt><tt class="py-op">*</tt><tt id="link-58" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-58', 'y', 'link-2');">y</a></tt> </tt>
+</div><a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line"><tt id="link-59" class="py-name" targets="Variable peach.fuzzy.control.PROB_NORMS=peach.fuzzy.control-module.html#PROB_NORMS,Variable peach.fuzzy.norms.PROB_NORMS=peach.fuzzy.norms-module.html#PROB_NORMS"><a title="peach.fuzzy.control.PROB_NORMS
+peach.fuzzy.norms.PROB_NORMS" class="py-name" href="#" onclick="return doclink('link-59', 'PROB_NORMS', 'link-59');">PROB_NORMS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-60" class="py-name" targets="Function peach.fuzzy.norms.ProbabilisticAnd()=peach.fuzzy.norms-module.html#ProbabilisticAnd"><a title="peach.fuzzy.norms.ProbabilisticAnd" class="py-name" href="#" onclick="return doclink('link-60', 'ProbabilisticAnd', 'link-60');">ProbabilisticAnd</a></tt><tt class="py-op">,</tt> <tt id="link-61" class="py-name" targets="Function peach.fuzzy.norms.ProbabilisticOr()=peach.fuzzy.norms-module.html#ProbabilisticOr"><a title="peach.fuzzy.norms.ProbabilisticOr" class="py-name" href="#" onclick="return doclink('link-61', 'ProbabilisticOr', 'link-61');">ProbabilisticOr</a></tt><tt class="py-op">,</tt> <tt id="link-62" class="py-name" targets="Function peach.fuzzy.norms.ProbabilisticNot()=peach.fuzzy.norms-module.html#ProbabilisticNot"><a title="peach.fuzzy.norms.ProbabilisticNot" class="py-name" href="#" onclick="return doclink('link-62', 'ProbabilisticNot', 'link-62');">ProbabilisticNot</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"><tt class="py-string">'Tuple containing, in order, probabilistic and, or and not operations'</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"><tt id="link-63" class="py-name" targets="Variable peach.fuzzy.control.PROB_INFERENCE=peach.fuzzy.control-module.html#PROB_INFERENCE,Variable peach.fuzzy.norms.PROB_INFERENCE=peach.fuzzy.norms-module.html#PROB_INFERENCE"><a title="peach.fuzzy.control.PROB_INFERENCE
+peach.fuzzy.norms.PROB_INFERENCE" class="py-name" href="#" onclick="return doclink('link-63', 'PROB_INFERENCE', 'link-63');">PROB_INFERENCE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-64" class="py-name" targets="Function peach.fuzzy.norms.ProbabilisticImplication()=peach.fuzzy.norms-module.html#ProbabilisticImplication"><a title="peach.fuzzy.norms.ProbabilisticImplication" class="py-name" href="#" onclick="return doclink('link-64', 'ProbabilisticImplication', 'link-64');">ProbabilisticImplication</a></tt><tt class="py-op">,</tt> <tt id="link-65" class="py-name" targets="Function peach.fuzzy.norms.ProbabilisticAglutination()=peach.fuzzy.norms-module.html#ProbabilisticAglutination"><a title="peach.fuzzy.norms.ProbabilisticAglutination" class="py-name" href="#" onclick="return doclink('link-65', 'ProbabilisticAglutination', 'link-65');">ProbabilisticAglutination</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-string">'Tuple containing, in order, probabilistic implication and algutination'</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Other implications</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="DienesRescherImplication"></a><div id="DienesRescherImplication-def"><a name="L239"></a><tt class="py-lineno">239</tt> <a class="py-toggle" href="#" id="DienesRescherImplication-toggle" onclick="return toggle('DienesRescherImplication');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#DienesRescherImplication">DienesRescherImplication</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DienesRescherImplication-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DienesRescherImplication-expanded"><a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line"><tt class="py-docstring">    Natural implication as in truth table, defined by Dienes-Rescher</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the implication.</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">maximum</tt><tt class="py-op">(</tt><tt class="py-number">1.</tt><tt class="py-op">-</tt><tt id="link-66" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-66', 'x', 'link-1');">x</a></tt><tt class="py-op">,</tt> <tt id="link-67" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-67', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"> </tt>
+<a name="LukasiewiczImplication"></a><div id="LukasiewiczImplication-def"><a name="L248"></a><tt class="py-lineno">248</tt> <a class="py-toggle" href="#" id="LukasiewiczImplication-toggle" onclick="return toggle('LukasiewiczImplication');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#LukasiewiczImplication">LukasiewiczImplication</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LukasiewiczImplication-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LukasiewiczImplication-expanded"><a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-docstring">    Implication of the Lukasiewicz three-valued logic.</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the implication.</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">minimum</tt><tt class="py-op">(</tt><tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt> <tt class="py-op">-</tt> <tt id="link-68" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-68', 'x', 'link-1');">x</a></tt> <tt class="py-op">+</tt> <tt id="link-69" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-69', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"> </tt>
+<a name="GodelImplication"></a><div id="GodelImplication-def"><a name="L257"></a><tt class="py-lineno">257</tt> <a class="py-toggle" href="#" id="GodelImplication-toggle" onclick="return toggle('GodelImplication');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.fuzzy.norms-module.html#GodelImplication">GodelImplication</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GodelImplication-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GodelImplication-expanded"><a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-docstring">    Implication as defined by Godel.</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-docstring">      The result of the implication.</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">select</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt id="link-70" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-70', 'x', 'link-1');">x</a></tt> <tt class="py-op">&lt;</tt> <tt id="link-71" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-71', 'y', 'link-2');">y</a></tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt> <tt class="py-number">1.</tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-72" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nn.FeedForward.y
+peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-72', 'y', 'link-2');">y</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Test</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:39 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

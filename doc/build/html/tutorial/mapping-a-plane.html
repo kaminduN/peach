@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mapping of a Plane &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="The XOR Problem" href="xor-problem.html" />
+    <link rel="prev" title="Using Custom Activation Functions" href="custom-activation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="xor-problem.html" title="The XOR Problem"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="custom-activation.html" title="Using Custom Activation Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mapping-of-a-plane">
+<h1>Mapping of a Plane<a class="headerlink" href="#mapping-of-a-plane" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial, we will use a very simple linear neuron to map a plane. The
+general equation of a plane is given below:</p>
+<div class="math">
+<p><img src="../_images/math/aa620caad954523dbdfd4407fa29acdcc4b94834.png" alt="ax + by + cz + d = 0" />
+</div></p><p>We can put the <em>z</em> variable as a function of <em>x</em> and <em>y</em>, so we get:</p>
+<div class="math">
+<p><img src="../_images/math/8a1f19869087605f50837d1aaf4b49d3ec71a530.png" alt="z = - \frac{a}{c}x - \frac{b}{c} y - \frac{d}{c}" />
+</div></p><p>It is easy to see that this is exactly the response of a single neuron with two
+inputs, bias and a linear activation function. If that is the case, the response
+of a neuron will be given by (notice that the <em>y</em> variable here is not the same
+s in the previous equation):</p>
+<div class="math">
+<p><img src="../_images/math/8c80537c43b30aaf90a6ebfd1f01ea5e26a6e8bf.png" alt="y = w_0 + w_1 x_1 + w_2 x_2" />
+</div></p><p>where <img class="math" src="../_images/math/ccada11db7b2b90693e2fac4f887a57fce6f96bf.png" alt="x_1"/> and <img class="math" src="../_images/math/6a7d010bbff66a0c41e43310a51efbaa6bf63396.png" alt="x_2"/> are the inputs to the neuron.</p>
+<p>So, we can use a neuron to map a plane. The reason to use a neuron instead of
+using simple calculations to find the values of the coefficients is that input
+data may be noisy, but a neuron has the ability to supress noise, given the
+statistical nature of its learning.</p>
+<p>We will assume that we are in the Python command line, and that both <tt class="docutils literal"><span class="pre">numpy</span></tt>
+and <tt class="docutils literal"><span class="pre">peach</span></tt> were imported. To create a neuron as described above, we issue the
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">((</span><span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">lrule</span><span class="o">=</span><span class="n">LMS</span><span class="p">(</span><span class="mf">0.02</span><span class="p">),</span> <span class="n">bias</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create a <tt class="docutils literal"><span class="pre">FeedForward</span></tt> with only one layer, with 2 inputs and 1
+neuron in it. The default activation function is <tt class="docutils literal"><span class="pre">Linear</span></tt>, so we don&#8217;t need to
+inform that in the creation of the instance. We use the <tt class="docutils literal"><span class="pre">LMS</span></tt> learning rule,
+setting the learning rate to 0.02 &#8211; but notice that we must, here, specify the
+argument name, since it is not in its correct position. Last, we set the
+<tt class="docutils literal"><span class="pre">bias</span></tt> property as <tt class="xref docutils literal"><span class="pre">True</span></tt>.</p>
+<p>Now we need to create the training set to present to the network. Although there
+are ways to present a complete training set to the network, we will use the same
+<tt class="docutils literal"><span class="pre">feed</span></tt> method of the previous tutorial. We do this so we can track the
+convergence of the synaptic weights (we won&#8217;t show the code to do that, but it
+is very easy to adapt it):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">error</span> <span class="o">=</span> <span class="mf">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-7</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="n">x1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">10</span><span class="p">,</span> <span class="mf">10</span><span class="p">)</span>
+<span class="gp">... </span>   <span class="n">x2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">10</span><span class="p">,</span> <span class="mf">10</span><span class="p">)</span>
+<span class="gp">... </span>   <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="p">])</span>
+<span class="gp">... </span>   <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1</span> <span class="o">-</span> <span class="mf">3</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="mf">2</span><span class="o">*</span><span class="n">x2</span>
+<span class="gp">... </span>   <span class="n">error</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We create a loop to generate random points in the plane and calculate the
+respective value of the mapped function. We don&#8217;t add noise here, since the
+objective of this tutorial is only to show how to work with the neuron. Notice
+that the loop is repeated until the error, returned by the <tt class="docutils literal"><span class="pre">feed</span></tt> method, is
+lower than a fixed value.</p>
+<p>At the end of the loop, we can inspect what we got as synaptic weights. Notice
+that, given the equation in the code, we expect <img class="math" src="../_images/math/68bf87262f04e708565e3b5633de9fd03e371168.png" alt="w_0 = -1"/>,
+<img class="math" src="../_images/math/4f46b150b6bb277ce3bee13f1d8ad68429b59d43.png" alt="w_1 = 3"/> and <img class="math" src="../_images/math/cddf06a327ad58b9c03fbfaa06a9d9b084074095.png" alt="w_2 = 2"/>. What we get is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span>
+<span class="go">array([[-1.00000409,  2.99999864,  2.00000068]])</span>
+</pre></div>
+</div>
+<p>which is pretty close to what we expect. Notice that there is some error. This
+can&#8217;t be avoided when dealing with stochastic algorithms (such as learning
+algorithms for neural networks).</p>
+<p>If we use the <tt class="docutils literal"><span class="pre">matplotlib</span></tt> module, we can plot the convergence of the error
+and synaptic weights of the neuron. We get something like the figure below:</p>
+<div align="center" class="align-center"><img alt="../_images/mapping-a-plane.png" class="align-center" src="../_images/mapping-a-plane.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="custom-activation.html"
+                                  title="previous chapter">Using Custom Activation Functions</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="xor-problem.html"
+                                  title="next chapter">The XOR Problem</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/mapping-a-plane.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="xor-problem.html" title="The XOR Problem"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="custom-activation.html" title="Using Custom Activation Functions"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

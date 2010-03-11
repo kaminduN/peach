@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.control.Controller</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        <a href="peach.fuzzy.control-module.html">Module&nbsp;control</a> ::
+        Class&nbsp;Controller
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.control.Controller-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Controller</h1><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_fu_3" name="uml_class_diagram_for_peach_fu_3">
+<area shape="rect" href="peach.fuzzy.control.Mamdani&#45;class.html" title="Mandani is an alias to Controller" alt="" coords="919,304,985,330"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#rules" title="Property that returns the list of decision rules." alt="" coords="17,28,1887,46"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#y" title="Property that returns the output variable interval." alt="" coords="17,46,1887,65"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#set_implication" title="Sets the implication to be used." alt="" coords="17,68,1887,86"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#set_negation" title="Sets the negation (not) to be used." alt="" coords="17,86,1887,105"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#set_norm" title="Sets the norm (and) to be used." alt="" coords="17,105,1887,124"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#__init__" title="Creates and initialize the controller." alt="" coords="17,124,1887,142"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#__call__" title="Apply the controller to the set of input variables" alt="" coords="17,142,1887,161"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#eval_all" title="Evaluates all the rules and aglutinates the results." alt="" coords="17,161,1887,180"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#set_aglutination" title="Sets the aglutination to be used." alt="" coords="17,180,1887,198"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#set_conorm" title="Sets the conorm (or) to be used." alt="" coords="17,198,1887,217"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#eval" title="Evaluates one decision rule in this controller" alt="" coords="17,217,1887,236"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#add_table" title="Adds a table of decision rules in a two variable controller." alt="" coords="17,236,1887,254"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html#add_rule" title="Adds a decision rule to the knowledge base." alt="" coords="17,254,1887,273"/>
+<area shape="rect" href="peach.fuzzy.control.Controller&#45;class.html" title="Basic Mamdani controller" alt="" coords="16,10,1888,274"/>
+</map>
+  <img src="uml_class_diagram_for_peach_fu_3.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_3" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Basic Mamdani controller</p>
+<p>This class implements a standard Mamdani controller. A controller based on
+fuzzy logic has a somewhat complex behaviour, so it is not explained here.
+There are numerous references that can be consulted.</p>
+<p>It is essential to understand the format that decision rules must follow to
+obtain correct behaviour of the controller. A rule is a tuple given by:</p>
+<pre class="rst-literal-block">
+((mx0, mx1, ..., mxn), my)
+</pre>
+<p>where <tt class="rst-docutils literal"><span class="pre">mx0</span></tt> is a membership function of the first input variable, <tt class="rst-docutils literal"><span class="pre">mx1</span></tt>
+is a membership function of the second input variable and so on; and <tt class="rst-docutils literal"><span class="pre">my</span></tt>
+is a membership function or a fuzzy set of the output variable.</p>
+<p>Notice that <tt class="rst-docutils literal"><span class="pre">mx</span></tt>'s are <em>functions</em> not fuzzy sets! They will be applied to
+the values of the input variables given in the function call, so, if they
+are anything different from a membership function, an exception will be
+raised. Please, consult the examples to see how they must be used.</p><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">yrange</span>,
+        <span class="summary-sig-arg">rules</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">defuzzy</span>=<span class="summary-sig-default">&lt;function Centroid at 0x886a8ec&gt;</span>,
+        <span class="summary-sig-arg">norm</span>=<span class="summary-sig-default">&lt;function ZadehAnd at 0x886a1ec&gt;</span>,
+        <span class="summary-sig-arg">conorm</span>=<span class="summary-sig-default">&lt;function ZadehOr at 0x886a224&gt;</span>,
+        <span class="summary-sig-arg">negation</span>=<span class="summary-sig-default">&lt;function ZadehNot at 0x886a25c&gt;</span>,
+        <span class="summary-sig-arg">imply</span>=<span class="summary-sig-default">&lt;function MamdaniImplication at 0x886a3ac&gt;</span>,
+        <span class="summary-sig-arg">aglutinate</span>=<span class="summary-sig-default">&lt;function MamdaniAglutination at 0x886a3e4&gt;</span>)</span><br />
+      Creates and initialize the controller.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__gety"></a><span class="summary-sig-name">__gety</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.__gety">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getrules"></a><span class="summary-sig-name">__getrules</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.__getrules">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#set_norm" class="summary-sig-name">set_norm</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Sets the norm (<tt class="rst-docutils literal"><span class="pre">and</span></tt>) to be used.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_norm">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#set_conorm" class="summary-sig-name">set_conorm</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Sets the conorm (<tt class="rst-docutils literal"><span class="pre">or</span></tt>) to be used.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_conorm">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#set_negation" class="summary-sig-name">set_negation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Sets the negation (<tt class="rst-docutils literal"><span class="pre">not</span></tt>) to be used.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_negation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#set_implication" class="summary-sig-name">set_implication</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Sets the implication to be used.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_implication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#set_aglutination" class="summary-sig-name">set_aglutination</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Sets the aglutination to be used.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_aglutination">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#add_rule" class="summary-sig-name">add_rule</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rule</span>)</span><br />
+      Adds a decision rule to the knowledge base.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.add_rule">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#add_table" class="summary-sig-name">add_table</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">lx1</span>,
+        <span class="summary-sig-arg">lx2</span>,
+        <span class="summary-sig-arg">table</span>)</span><br />
+      Adds a table of decision rules in a two variable controller.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.add_table">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#eval" class="summary-sig-name">eval</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">xs</span>)</span><br />
+      Evaluates one decision rule in this controller</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.eval">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#eval_all" class="summary-sig-name">eval_all</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*xs</span>)</span><br />
+      Evaluates all the rules and aglutinates the results.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.eval_all">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*xs</span>)</span><br />
+      Apply the controller to the set of input variables</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.control.Controller-class.html#y" class="summary-name">y</a><br />
+      Property that returns the output variable interval.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.control.Controller-class.html#rules" class="summary-name">rules</a><br />
+      Property that returns the list of decision rules.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">yrange</span>,
+        <span class="sig-arg">rules</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">defuzzy</span>=<span class="sig-default">&lt;function Centroid at 0x886a8ec&gt;</span>,
+        <span class="sig-arg">norm</span>=<span class="sig-default">&lt;function ZadehAnd at 0x886a1ec&gt;</span>,
+        <span class="sig-arg">conorm</span>=<span class="sig-default">&lt;function ZadehOr at 0x886a224&gt;</span>,
+        <span class="sig-arg">negation</span>=<span class="sig-default">&lt;function ZadehNot at 0x886a25c&gt;</span>,
+        <span class="sig-arg">imply</span>=<span class="sig-default">&lt;function MamdaniImplication at 0x886a3ac&gt;</span>,
+        <span class="sig-arg">aglutinate</span>=<span class="sig-default">&lt;function MamdaniAglutination at 0x886a3e4&gt;</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Creates and initialize the controller.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>yrange</code></strong> - The range of the output variable. This must be given as a set of
+points belonging to the interval where the output variable is
+defined, not only the start and end points. It is strongly suggested
+that the interval is divided in some (eg.: 100) points equally
+spaced;</li>
+        <li><strong class="pname"><code>rules</code></strong> - The set of decision rules, as defined above. If none is given, an
+empty set of rules is assumed;</li>
+        <li><strong class="pname"><code>defuzzy</code></strong> - The defuzzification method to be used. If none is given, the
+Centroid method is used;</li>
+        <li><strong class="pname"><code>norm</code></strong> - The norm (<tt class="rst-docutils literal"><span class="pre">and</span></tt> operation) to be used. Defaults to Zadeh and.</li>
+        <li><strong class="pname"><code>conorm</code></strong> - The conorm (<tt class="rst-docutils literal"><span class="pre">or</span></tt> operation) to be used. Defaults to Zadeh or.</li>
+        <li><strong class="pname"><code>negation</code></strong> - The negation (<tt class="rst-docutils literal"><span class="pre">not</span></tt> operation) to be used. Defaults to Zadeh not.</li>
+        <li><strong class="pname"><code>imply</code></strong> - The implication method to be used. Defaults to Mamdani implication.</li>
+        <li><strong class="pname"><code>aglutinate</code></strong> - The aglutination method to be used. Defaults to Mamdani
+aglutination.</li>
+    </ul></dd>
+    <dt>Overrides:
+      object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_norm"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_norm</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_norm">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sets the norm (<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">and</span></tt>) to be used.</p>
+<p>This method must be used to change the behavior of the <tt class="rst-docutils literal"><span class="pre">and</span></tt> operation
+of the controller.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the <tt class="rst-docutils literal"><span class="pre">and</span></tt> result.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_conorm"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_conorm</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_conorm">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sets the conorm (<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">or</span></tt>) to be used.</p>
+<p>This method must be used to change the behavior of the <tt class="rst-docutils literal"><span class="pre">or</span></tt> operation
+of the controller.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the <tt class="rst-docutils literal"><span class="pre">or</span></tt> result.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_negation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_negation</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_negation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sets the negation (<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">not</span></tt>) to be used.</p>
+<p>This method must be used to change the behavior of the <tt class="rst-docutils literal"><span class="pre">not</span></tt> operation
+of the controller.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The function can be any function that takes one numerical value and
+return one numerical value, that corresponds to the <tt class="rst-docutils literal"><span class="pre">not</span></tt> result.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_implication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_implication</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_implication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sets the implication to be used.</p>
+<p>This method must be used to change the behavior of the implication
+operation of the controller.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the implication
+result.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_aglutination"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_aglutination</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.set_aglutination">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sets the aglutination to be used.</p>
+<p>This method must be used to change the behavior of the aglutination
+operation of the controller.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the aglutination
+result.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_rule"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_rule</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">rule</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.add_rule">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Adds a decision rule to the knowledge base.</p>
+<p>It is essential to understand the format that decision rules must follow
+to obtain correct behaviour of the controller. A rule is a tuple must
+have the following format:</p>
+<pre class="rst-literal-block">
+((mx0, mx1, ..., mxn), my)
+</pre>
+<p>where <tt class="rst-docutils literal"><span class="pre">mx0</span></tt> is a membership function of the first input variable,
+<tt class="rst-docutils literal"><span class="pre">mx1</span></tt> is a membership function of the second input variable and so on;
+and <tt class="rst-docutils literal"><span class="pre">my</span></tt> is a membership function or a fuzzy set of the output
+variable.</p>
+<p>Notice that <tt class="rst-docutils literal"><span class="pre">mx</span></tt>'s are <em>functions</em> not fuzzy sets! They will be
+applied to the values of the input variables given in the function call,
+so, if they are anything different from a membership function, an
+exception will be raised when the controller is used. Please, consult
+the examples to see how they must be used.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_table"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_table</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">lx1</span>,
+        <span class="sig-arg">lx2</span>,
+        <span class="sig-arg">table</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.add_table">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Adds a table of decision rules in a two variable controller.</p>
+<p>Typically, fuzzy controllers are used to control two variables. In that
+case, the set of decision rules are given in the form of a table, since
+that is a more compact format and very easy to visualize. This is a
+convenience function that allows to add decision rules in the form of a
+table. Notice that the resulting knowledge base will be the same if this
+function is used or the <tt class="rst-docutils literal"><span class="pre">add_rule</span></tt> method is used with every single
+rule. The second method is in general easier to read in a script, so
+consider well.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>lx1</code></strong> - The set of membership functions to the variable <tt class="rst-docutils literal"><span class="pre">x1</span></tt>, or the
+lines of the table</li>
+        <li><strong class="pname"><code>lx2</code></strong> - The set of membership functions to the variable <tt class="rst-docutils literal"><span class="pre">x2</span></tt>, or the
+columns of the table</li>
+        <li><strong class="pname"><code>table</code></strong> - The consequent of the rule where the condition is the line <tt class="rst-docutils literal"><span class="pre">and</span></tt>
+the column. These can be the membership functions or fuzzy sets.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="eval"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">eval</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">r</span>,
+        <span class="sig-arg">xs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.eval">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Evaluates one decision rule in this controller</p>
+<p>Takes a rule from the controller and evaluates it given the values of
+the input variables.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>r</code></strong> - The rule in the standard format, or an integer number. If <tt class="rst-docutils literal"><span class="pre">r</span></tt> is
+an integer, then the <tt class="rst-docutils literal"><span class="pre">r</span></tt> th rule in the knowledge base will be
+evaluated.</li>
+        <li><strong class="pname"><code>xs</code></strong> - A tuple, a list or an array containing the values of the input
+variables. The dimension must be coherent with the given rule.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>This method evaluates each membership function in the rule for each
+given value, and <tt class="rst-docutils literal"><span class="pre">and</span></tt> 's the results to obtain the condition. If
+the condition is zero, a tuple <tt class="rst-docutils literal"><span class="pre">(0.0,</span> <span class="pre">None)</span> <span class="pre">is</span> <span class="pre">returned.</span> <span class="pre">Otherwise,</span>
+<span class="pre">the</span> <span class="pre">condition</span> <span class="pre">is</span> <span class="pre">``imply</span></tt> ed in the membership function of the output
+variable. A tuple containing <tt class="rst-docutils literal"><span class="pre">(condition,</span> <span class="pre">imply)</span></tt> (the membership
+value associated to the condition and the result of the implication)
+is returned.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="eval_all"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">eval_all</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*xs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.eval_all">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Evaluates all the rules and aglutinates the results.</p>
+<p>Given the values of the input variables, evaluate and apply every rule
+in the knowledge base (with the <tt class="rst-docutils literal"><span class="pre">eval</span></tt> method) and aglutinates the
+results.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>xs</code></strong> - A tuple, a list or an array with the values of the input variables.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A fuzzy set containing the result of the evaluation of every rule in
+the knowledge base, with the results aglutinated.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*xs</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Controller.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Apply the controller to the set of input variables</p>
+<p>Given the values of the input variables, evaluates every decision rule,
+aglutinates the results and defuzzify it. Returns the response of the
+controller.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>xs</code></strong> - A tuple, a list or an array with the values of the input variables.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The response of the controller.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="y"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">y</h3>
+  Property that returns the output variable interval. Not writable
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#__gety" class="summary-sig-name">peach.fuzzy.control.Controller.__gety</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="rules"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">rules</h3>
+  Property that returns the list of decision rules. Not writable
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.control.Controller-class.html#__getrules" class="summary-sig-name">peach.fuzzy.control.Controller.__getrules</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:27 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

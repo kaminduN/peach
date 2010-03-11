@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.fuzzy.FuzzySet</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        <a href="peach.fuzzy.fuzzy-module.html">Module&nbsp;fuzzy</a> ::
+        Class&nbsp;FuzzySet
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.fuzzy.FuzzySet-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class FuzzySet</h1><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_fu_6" name="uml_class_diagram_for_peach_fu_6">
+<area shape="rect" href="javascript: void(0);" title="Tuple of array dimensions." alt="" coords="17,28,303,47"/>
+<area shape="rect" href="javascript: void(0);" title="The real part of the array." alt="" coords="17,47,303,65"/>
+<area shape="rect" href="javascript: void(0);" title="Tuple of bytes to step in each dimension." alt="" coords="17,65,303,84"/>
+<area shape="rect" href="javascript: void(0);" title="Base object if memory is from some other object." alt="" coords="17,84,303,103"/>
+<area shape="rect" href="javascript: void(0);" title="A ctypes interface object." alt="" coords="17,103,303,121"/>
+<area shape="rect" href="javascript: void(0);" title="Number of array dimensions." alt="" coords="17,121,303,140"/>
+<area shape="rect" href="javascript: void(0);" title="Data&#45;type for the array." alt="" coords="17,140,303,159"/>
+<area shape="rect" href="javascript: void(0);" title="Number of elements in the array." alt="" coords="17,159,303,177"/>
+<area shape="rect" href="javascript: void(0);" title="The imaginary part of the array." alt="" coords="17,177,303,196"/>
+<area shape="rect" href="javascript: void(0);" title="Array priority." alt="" coords="17,196,303,215"/>
+<area shape="rect" href="javascript: void(0);" title="A 1&#45;d flat iterator." alt="" coords="17,215,303,233"/>
+<area shape="rect" href="javascript: void(0);" title="None." alt="" coords="17,233,303,252"/>
+<area shape="rect" href="javascript: void(0);" title="Array protocol: C&#45;struct side." alt="" coords="17,252,303,271"/>
+<area shape="rect" href="javascript: void(0);" title="Same as self.transpose() except self is returned for self.ndim &lt; 2." alt="" coords="17,289,303,308"/>
+<area shape="rect" href="javascript: void(0);" title="int(x)" alt="" coords="17,311,303,329"/>
+<area shape="rect" href="javascript: void(0);" title="y|x" alt="" coords="17,329,303,348"/>
+<area shape="rect" href="javascript: void(0);" title="str(x)" alt="" coords="17,348,303,367"/>
+<area shape="rect" href="javascript: void(0);" title="Returns True if all elements evaluate to True." alt="" coords="17,367,303,385"/>
+<area shape="rect" href="javascript: void(0);" title="x&gt;&gt;y" alt="" coords="17,385,303,404"/>
+<area shape="rect" href="javascript: void(0);" title="y/x" alt="" coords="17,404,303,423"/>
+<area shape="rect" href="javascript: void(0);" title="y*x" alt="" coords="17,423,303,441"/>
+<area shape="rect" href="javascript: void(0);" title="x&lt;y" alt="" coords="17,441,303,460"/>
+<area shape="rect" href="javascript: void(0);" title="Return the cumulative sum of the elements along the given axis." alt="" coords="17,460,303,479"/>
+<area shape="rect" href="javascript: void(0);" title="Peak to peak (maximum &#45; minimum) value along a given axis." alt="" coords="17,479,303,497"/>
+<area shape="rect" href="javascript: void(0);" title="x&gt;&gt;y" alt="" coords="17,497,303,516"/>
+<area shape="rect" href="javascript: void(0);" title="Return a copy of the array." alt="" coords="17,516,303,535"/>
+<area shape="rect" href="javascript: void(0);" title="y//x" alt="" coords="17,535,303,553"/>
+<area shape="rect" href="javascript: void(0);" title="x[y:z] &lt;==&gt; x[y.__index__():z.__index__()]" alt="" coords="17,572,303,591"/>
+<area shape="rect" href="javascript: void(0);" title="strides=None, order=None)" alt="" coords="16,11,304,592"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#set_negation" title="Selects a negation (not operation)" alt="" coords="96,647,224,665"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#set_norm" title="Selects a t&#45;norm (and operation)" alt="" coords="96,665,224,684"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#set_conorm" title="Selects a t&#45;conorm (or operation)" alt="" coords="96,684,224,703"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#__and__" title="Fuzzy and (&amp;) operation." alt="" coords="96,703,224,721"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#__invert__" title="Fuzzy not (~) operation." alt="" coords="96,721,224,740"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#__init__" title="Initializes the object." alt="" coords="96,740,224,759"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#__new__" title="Allocates space for the array." alt="" coords="96,759,224,777"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html#__or__" title="Fuzzy or (|) operation." alt="" coords="96,777,224,796"/>
+<area shape="rect" href="peach.fuzzy.fuzzy.FuzzySet&#45;class.html" title="Array containing fuzzy values for a set." alt="" coords="95,621,225,797"/>
+</map>
+  <img src="uml_class_diagram_for_peach_fu_6.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_6" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Array containing fuzzy values for a set.</p>
+<p>This class defines the behavior of a fuzzy set. It is an array of values in
+the range from 0 to 1, and the basic operations of the logic -- and (using
+the <tt class="rst-docutils literal"><span class="pre">&amp;</span></tt> operator); or (using the <tt class="rst-docutils literal"><span class="pre">|</span></tt> operator); not (using <tt class="rst-docutils literal"><span class="pre">~</span></tt>
+operator) -- can be defined according to a set of norms. The norms can be
+redefined using the appropriated methods.</p>
+<p>To create a FuzzySet, instantiate this class with a sequence as argument,
+for example:</p>
+<pre class="rst-literal-block">
+fuzzy_set = FuzzySet([ 0., 0.25, 0.5, 0.75, 1.0 ])
+</pre><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>)</span><br />
+      Initializes the object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#__and__" class="summary-sig-name">__and__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">a</span>)</span><br />
+      Fuzzy and (<tt class="rst-docutils literal"><span class="pre">&amp;</span></tt>) operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__and__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#__or__" class="summary-sig-name">__or__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">a</span>)</span><br />
+      Fuzzy or (<tt class="rst-docutils literal"><span class="pre">|</span></tt>) operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__or__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#__invert__" class="summary-sig-name">__invert__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Fuzzy not (<tt class="rst-docutils literal"><span class="pre">~</span></tt>) operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__invert__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#set_norm" class="summary-sig-name">set_norm</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Selects a t-norm (and operation)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.set_norm">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#set_conorm" class="summary-sig-name">set_conorm</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Selects a t-conorm (or operation)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.set_conorm">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#set_negation" class="summary-sig-name">set_negation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Selects a negation (not operation)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.set_negation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>numpy.ndarray</code></b>:
+      <code>__abs__</code>,
+      <code>__add__</code>,
+      <code>__array__</code>,
+      <code>__array_wrap__</code>,
+      <code>__contains__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
+      <code>__delitem__</code>,
+      <code>__delslice__</code>,
+      <code>__div__</code>,
+      <code>__divmod__</code>,
+      <code>__eq__</code>,
+      <code>__float__</code>,
+      <code>__floordiv__</code>,
+      <code>__ge__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__gt__</code>,
+      <code>__hex__</code>,
+      <code>__iadd__</code>,
+      <code>__iand__</code>,
+      <code>__idiv__</code>,
+      <code>__ifloordiv__</code>,
+      <code>__ilshift__</code>,
+      <code>__imod__</code>,
+      <code>__imul__</code>,
+      <code>__index__</code>,
+      <code>__int__</code>,
+      <code>__ior__</code>,
+      <code>__ipow__</code>,
+      <code>__irshift__</code>,
+      <code>__isub__</code>,
+      <code>__iter__</code>,
+      <code>__itruediv__</code>,
+      <code>__ixor__</code>,
+      <code>__le__</code>,
+      <code>__len__</code>,
+      <code>__long__</code>,
+      <code>__lshift__</code>,
+      <code>__lt__</code>,
+      <code>__mod__</code>,
+      <code>__mul__</code>,
+      <code>__ne__</code>,
+      <code>__neg__</code>,
+      <code>__nonzero__</code>,
+      <code>__oct__</code>,
+      <code>__pos__</code>,
+      <code>__pow__</code>,
+      <code>__radd__</code>,
+      <code>__rand__</code>,
+      <code>__rdiv__</code>,
+      <code>__rdivmod__</code>,
+      <code>__reduce__</code>,
+      <code>__repr__</code>,
+      <code>__rfloordiv__</code>,
+      <code>__rlshift__</code>,
+      <code>__rmod__</code>,
+      <code>__rmul__</code>,
+      <code>__ror__</code>,
+      <code>__rpow__</code>,
+      <code>__rrshift__</code>,
+      <code>__rshift__</code>,
+      <code>__rsub__</code>,
+      <code>__rtruediv__</code>,
+      <code>__rxor__</code>,
+      <code>__setitem__</code>,
+      <code>__setslice__</code>,
+      <code>__setstate__</code>,
+      <code>__str__</code>,
+      <code>__sub__</code>,
+      <code>__truediv__</code>,
+      <code>__xor__</code>,
+      <code>all</code>,
+      <code>any</code>,
+      <code>argmax</code>,
+      <code>argmin</code>,
+      <code>argsort</code>,
+      <code>astype</code>,
+      <code>byteswap</code>,
+      <code>choose</code>,
+      <code>clip</code>,
+      <code>compress</code>,
+      <code>conj</code>,
+      <code>conjugate</code>,
+      <code>copy</code>,
+      <code>cumprod</code>,
+      <code>cumsum</code>,
+      <code>diagonal</code>,
+      <code>dump</code>,
+      <code>dumps</code>,
+      <code>fill</code>,
+      <code>flatten</code>,
+      <code>getfield</code>,
+      <code>item</code>,
+      <code>itemset</code>,
+      <code>max</code>,
+      <code>mean</code>,
+      <code>min</code>,
+      <code>newbyteorder</code>,
+      <code>nonzero</code>,
+      <code>prod</code>,
+      <code>ptp</code>,
+      <code>put</code>,
+      <code>ravel</code>,
+      <code>repeat</code>,
+      <code>reshape</code>,
+      <code>resize</code>,
+      <code>round</code>,
+      <code>searchsorted</code>,
+      <code>setfield</code>,
+      <code>setflags</code>,
+      <code>sort</code>,
+      <code>squeeze</code>,
+      <code>std</code>,
+      <code>sum</code>,
+      <code>swapaxes</code>,
+      <code>take</code>,
+      <code>tofile</code>,
+      <code>tolist</code>,
+      <code>tostring</code>,
+      <code>trace</code>,
+      <code>transpose</code>,
+      <code>var</code>,
+      <code>view</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.fuzzy.FuzzySet-class.html#__new__" class="summary-sig-name">__new__</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">data</span>)</span><br />
+      Allocates space for the array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__new__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>numpy.ndarray</code></b>:
+      <code>T</code>,
+      <code>__array_finalize__</code>,
+      <code>__array_interface__</code>,
+      <code>__array_priority__</code>,
+      <code>__array_struct__</code>,
+      <code>base</code>,
+      <code>ctypes</code>,
+      <code>data</code>,
+      <code>dtype</code>,
+      <code>flags</code>,
+      <code>flat</code>,
+      <code>imag</code>,
+      <code>itemsize</code>,
+      <code>nbytes</code>,
+      <code>ndim</code>,
+      <code>real</code>,
+      <code>shape</code>,
+      <code>size</code>,
+      <code>strides</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__new__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__new__</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">data</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__new__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Allocates space for the array.</p>
+<p>A fuzzy set is derived from the basic NumPy array, so the appropriate
+functions and methods are called to allocate the space. In theory, the
+values for a fuzzy set should be in the range <tt class="rst-docutils literal"><span class="pre">0.0</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">1.0</span></tt>, but
+to increase efficiency, no verification is made.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>A new array object with the fuzzy set definitions.</dd>
+    <dt>Overrides:
+      numpy.ndarray.__new__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Initializes the object.</p>
+<p>Operations are defaulted to Zadeh norms <tt class="rst-docutils literal"><span class="pre">(max,</span> <span class="pre">min,</span> <span class="pre">1-x)</span></tt></p>
+  <dl class="fields">
+    <dt>Overrides:
+      object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__and__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__and__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">a</span>)</span>
+    <br /><em class="fname">(And operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__and__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Fuzzy and (<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">&amp;</span></tt>) operation.
+  <dl class="fields">
+    <dt>Overrides:
+      numpy.ndarray.__and__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__or__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__or__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">a</span>)</span>
+    <br /><em class="fname">(Or operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__or__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Fuzzy or (<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">|</span></tt>) operation.
+  <dl class="fields">
+    <dt>Overrides:
+      numpy.ndarray.__or__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__invert__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__invert__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.__invert__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Fuzzy not (<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">~</span></tt>) operation.
+  <dl class="fields">
+    <dt>Overrides:
+      numpy.ndarray.__invert__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_norm"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_norm</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.set_norm">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Selects a t-norm (and operation)</p>
+<p>Use this method to change the behaviour of the and operation.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A function of two parameters which must return the <tt class="rst-docutils literal"><span class="pre">and</span></tt> of the
+values.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_conorm"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_conorm</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.set_conorm">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Selects a t-conorm (or operation)</p>
+<p>Use this method to change the behaviour of the or operation.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A function of two parameters which must return the <tt class="rst-docutils literal"><span class="pre">or</span></tt> of the
+values.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_negation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_negation</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.fuzzy-pysrc.html#FuzzySet.set_negation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Selects a negation (not operation)</p>
+<p>Use this method to change the behaviour of the not operation.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A function of one parameter which must return the <tt class="rst-docutils literal"><span class="pre">not</span></tt> of the
+value.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Mon Mar  8 16:49:15 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

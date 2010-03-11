@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.optm.optm.Optimizer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.optm-module.html">Package&nbsp;optm</a> ::
+        <a href="peach.optm.optm-module.html">Module&nbsp;optm</a> ::
+        Class&nbsp;Optimizer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.optm.optm.Optimizer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Optimizer</h1><span class="codelink"><a href="peach.optm.optm-pysrc.html#Optimizer">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_op_8" name="uml_class_diagram_for_peach_op_8">
+<area shape="rect" href="peach.optm.linear.Interpolation&#45;class.html" title="Optimization by quadractic interpolation." alt="" coords="16,123,136,149"/>
+<area shape="rect" href="peach.optm.quasinewton.DFP&#45;class.html" title="DFP (Davidon&#45;Fletcher&#45;Powell) search" alt="" coords="187,123,304,149"/>
+<area shape="rect" href="peach.optm.multivar.Gradient&#45;class.html" title="Gradient search" alt="" coords="355,123,467,149"/>
+<area shape="rect" href="peach.optm.sa.ContinuousSA&#45;class.html" title="Simulated Annealing continuous optimization." alt="" coords="517,123,632,149"/>
+<area shape="rect" href="peach.optm.linear.Fibonacci&#45;class.html" title="Optimization by the Golden Rule Section, estimated by Fibonacci numbers." alt="" coords="683,123,787,149"/>
+<area shape="rect" href="peach.optm.multivar.Newton&#45;class.html" title="Newton search" alt="" coords="837,123,947,149"/>
+<area shape="rect" href="peach.optm.sa.DiscreteSA&#45;class.html" title="Simulated Annealing discrete optimization." alt="" coords="997,123,1096,149"/>
+<area shape="rect" href="peach.optm.quasinewton.SR1&#45;class.html" title="SR1 (Symmetric Rank 1 )search method" alt="" coords="1147,123,1264,149"/>
+<area shape="rect" href="peach.optm.linear.Direct1D&#45;class.html" title="1&#45;D direct search." alt="" coords="1315,123,1416,149"/>
+<area shape="rect" href="peach.optm.stochastic.CrossEntropy&#45;class.html" title="Multidimensional search based on cross&#45;entropy technique." alt="" coords="1467,123,1624,149"/>
+<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html#step" title="peach.optm.optm.Optimizer.step" alt="" coords="905,36,1188,55"/>
+<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html#__call__" title="peach.optm.optm.Optimizer.__call__" alt="" coords="905,55,1188,73"/>
+<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="905,73,1188,92"/>
+<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html" title="Base class for all optimizers." alt="" coords="904,11,1189,93"/>
+<area shape="rect" href="peach.optm.linear.GoldenRule&#45;class.html" title="Optimizer by the Golden Section Rule" alt="" coords="1675,123,1792,149"/>
+<area shape="rect" href="peach.optm.quasinewton.BFGS&#45;class.html" title="BFGS (Broyden&#45;Fletcher&#45;Goldfarb&#45;Shanno) search" alt="" coords="1843,123,1968,149"/>
+<area shape="rect" href="peach.optm.multivar.Direct&#45;class.html" title="Multidimensional direct search" alt="" coords="2019,123,2117,149"/>
+</map>
+  <img src="uml_class_diagram_for_peach_op_8.gif" alt='' usemap="#uml_class_diagram_for_peach_op_8" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Base class for all optimizers.</p>
+<p>This class does nothing, and shouldn't be instantiated. Its only purpose is
+to serve as a template (or interface) to implemented optimizers. To create
+your own optimizer, subclass this.</p>
+<p>This class defines 3 methods that should be present in any subclass. They
+are defined here:</p>
+<blockquote>
+<dl class="rst-docutils">
+<dt>__init__</dt>
+<dd><p class="rst-first">Initializes the optimizer. There are three usual parameters in this
+method, which signature should be:</p>
+<pre class="rst-literal-block">
+__init__(self, f, ..., emax=1e-8, imax=1000)
+</pre>
+<dl class="rst-last rst-docutils">
+<dt>where:</dt>
+<dd><ul class="rst-first rst-last rst-simple">
+<li><tt class="rst-docutils literal"><span class="pre">f</span></tt> is the cost function to be minimized;</li>
+<li><tt class="rst-docutils literal"><span class="pre">...</span></tt> represent additional configuration of the optimizer, and it
+is dependent of the technique implemented;</li>
+<li><tt class="rst-docutils literal"><span class="pre">emax</span></tt> is the maximum allowed error. The default value above is
+only a suggestion;</li>
+<li><tt class="rst-docutils literal"><span class="pre">imax</span></tt> is the maximum number of iterations of the method. The
+default value above is only a suggestions.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>step</dt>
+<dd><p class="rst-first">This method should take an estimate and calculate the next, possibly
+better, estimate. Notice that the next estimate is strongly dependent of
+the method, the optimizer state and configuration, and two calls to this
+method with the same estimate might not give the same results. The
+method signature is:</p>
+<pre class="rst-literal-block">
+step(self, x)
+</pre>
+<p class="rst-last">and the implementation should keep track of all the needed parameters.
+The method should return a tuple <tt class="rst-docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt> with the new estimate of the
+solution and the estimate of the error.</p>
+</dd>
+<dt>__call__</dt>
+<dd><p class="rst-first">This method should take an estimate and iterate the optimizer until one
+of the stop criteria is met: either less than the maximum error or more
+than the maximum number of iterations. Error is usually calculated as an
+estimate using the previous estimate, but any technique might be used.
+Use a counter to keep track of the number of iterations. The method
+signature is:</p>
+<pre class="rst-literal-block">
+__call__(self, x)
+</pre>
+<p class="rst-last">and the implementation should keep track of all the needed parameters.
+The method should return a tuple <tt class="rst-docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt> with the final estimate of
+the solution and the estimate of the error.</p>
+</dd>
+</dl>
+</blockquote><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__call__"></a><span class="summary-sig-name">__call__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.optm-pysrc.html#Optimizer.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.optm.Optimizer-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-08</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">1000</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.optm-pysrc.html#Optimizer.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="step"></a><span class="summary-sig-name">step</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.optm-pysrc.html#Optimizer.step">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-08</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">1000</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.optm-pysrc.html#Optimizer.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  x.__init__(...) initializes x; see x.__class__.__doc__ for signature
+  <dl class="fields">
+    <dt>Overrides:
+      object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:36 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

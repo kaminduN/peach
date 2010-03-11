@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.optm.quasinewton.DFP</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.optm-module.html">Package&nbsp;optm</a> ::
+        <a href="peach.optm.quasinewton-module.html">Module&nbsp;quasinewton</a> ::
+        Class&nbsp;DFP
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.optm.quasinewton.DFP-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DFP</h1><span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_op_12" name="uml_class_diagram_for_peach_op_12">
+<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html" title="Base class for all optimizers." alt="" coords="171,10,261,42"/>
+<area shape="rect" href="peach.optm.quasinewton.DFP&#45;class.html#step" title="One step of the search." alt="" coords="17,97,415,116"/>
+<area shape="rect" href="peach.optm.quasinewton.DFP&#45;class.html#__call__" title="Transparently executes the search until the minimum is found." alt="" coords="17,116,415,134"/>
+<area shape="rect" href="peach.optm.quasinewton.DFP&#45;class.html#__init__" title="Initializes the optimizer." alt="" coords="17,134,415,153"/>
+<area shape="rect" href="peach.optm.quasinewton.DFP&#45;class.html" title="DFP (Davidon&#45;Fletcher&#45;Powell) search" alt="" coords="16,72,416,154"/>
+</map>
+  <img src="uml_class_diagram_for_peach_op_12.gif" alt='' usemap="#uml_class_diagram_for_peach_op_12" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+DFP (<em>Davidon-Fletcher-Powell</em>) search<br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.quasinewton.DFP-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">df</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">B</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">h</span>=<span class="summary-sig-default">0.1</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">1000</span>)</span><br />
+      Initializes the optimizer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.quasinewton.DFP-class.html#step" class="summary-sig-name">step</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      One step of the search.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP.step">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.quasinewton.DFP-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Transparently executes the search until the minimum is found.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>,
+        <span class="sig-arg">df</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">B</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">h</span>=<span class="sig-default">0.1</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">1000</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Initializes the optimizer.</p>
+<p>To create an optimizer of this type, instantiate the class with the
+parameters given below:</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A multivariable function to be optimized. The function should have
+only one parameter, a multidimensional line-vector, and return the
+function value, a scalar.</li>
+        <li><strong class="pname"><code>df</code></strong> - A function to calculate the gradient vector of the cost function
+<tt class="rst-docutils literal"><span class="pre">f</span></tt>. Defaults to <tt class="rst-docutils literal"><span class="pre">None</span></tt>, if no gradient is supplied, then it is
+estimated from the cost function using Euler equations.</li>
+        <li><strong class="pname"><code>B</code></strong> - A first estimate of the inverse hessian. Note that, differently from
+the Newton method, the elements in this matrix are numbers, not
+functions. So, it is an estimate at a given point, and its values
+<em>should</em> be coherent with the first estimate (that is, <tt class="rst-docutils literal"><span class="pre">B</span></tt> should
+be the inverse of the hessian evaluated at the first estimate), or
+else the algorithm might diverge. Defaults to <tt class="rst-docutils literal"><span class="pre">None</span></tt>, if none is
+given, it is estimated. Note that, given the same reasons as before,
+the estimate of <tt class="rst-docutils literal"><span class="pre">B</span></tt> is deferred to the first calling of the
+<tt class="rst-docutils literal"><span class="pre">step</span></tt> method, where it is handled automatically.</li>
+        <li><strong class="pname"><code>h</code></strong> - Convergence step. This method does not takes into consideration the
+possibility of varying the convergence step, to avoid Stiefel cages.</li>
+        <li><strong class="pname"><code>emax</code></strong> - Maximum allowed error. The algorithm stops as soon as the error is
+below this level. The error is absolute.</li>
+        <li><strong class="pname"><code>imax</code></strong> - Maximum number of iterations, the algorithm stops as soon this
+number of iterations are executed, no matter what the error is at
+the moment.</li>
+    </ul></dd>
+    <dt>Overrides:
+      <a href="peach.optm.optm.Optimizer-class.html#__init__">optm.Optimizer.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="step"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">step</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP.step">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>One step of the search.</p>
+<p>In this method, the result of the step is dependent of parameters
+calculated before (namely, the estimate of the inverse hessian), so it
+is not recomended that different investigations are used with the same
+optimizer in the same cost function.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - The value from where the new estimate should be calculated. This can
+of course be the result of a previous iteration of the algorithm.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">x</span></tt> is the updated
+estimate of the minimum, and <tt class="rst-docutils literal"><span class="pre">e</span></tt> is the estimated error.</dd>
+    <dt>Overrides:
+      <a href="peach.optm.optm.Optimizer-class.html#step">optm.Optimizer.step</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.quasinewton-pysrc.html#DFP.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, with the best estimate of the minimum and the error.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - The initial triplet of values from where the search must start.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">x</span></tt> is the best
+estimate of the minimum, and <tt class="rst-docutils literal"><span class="pre">e</span></tt> is the estimated error.</dd>
+    <dt>Overrides:
+      <a href="peach.optm.optm.Optimizer-class.html#__call__">optm.Optimizer.__call__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:36 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linear Prediction of a Number Sequence &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Polynomial Regression" href="polynomial-regression.html" />
+    <link rel="prev" title="The XOR Problem" href="xor-problem.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="polynomial-regression.html" title="Polynomial Regression"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="xor-problem.html" title="The XOR Problem"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="linear-prediction-of-a-number-sequence">
+<h1>Linear Prediction of a Number Sequence<a class="headerlink" href="#linear-prediction-of-a-number-sequence" title="Permalink to this headline">¶</a></h1>
+<p>A neural network can be used to predict future values of a sequence of numbers.
+<em>Wold&#8217;s Decomposition Theorem</em> stablishes that any sequence can be split in a
+regular and predictable part and an innovation process (which is discrete white
+noise, and thus impredictable). Basically, any sequence <img class="math" src="../_images/math/0a6360d88e0afb82c64824ea7dc9cc09e8c4a39a.png" alt="x[n]"/> can be
+plit in two other sequences, such that:</p>
+<div class="math">
+<p><img src="../_images/math/7d55afe5d7e9d360908bb34312890806f24d61a5.png" alt="x[n] = s[n] + v[n]" />
+</div></p><p>where <img class="math" src="../_images/math/deb27640c7ae1d77a0512a2aae88e4a1100cdb58.png" alt="s[n]"/> is the predictable part, and <img class="math" src="../_images/math/97872897711302bec7c479d6ec33900aeb617bef.png" alt="v[n]"/> is white gaussian
+noise. The <img class="math" src="../_images/math/deb27640c7ae1d77a0512a2aae88e4a1100cdb58.png" alt="s[n]"/> sequence can be written as</p>
+<div class="math">
+<p><img src="../_images/math/249c1b327a08f6fb10cc0d6010a4f743e17b42cf.png" alt="s[n+1] = a_0 s[n] + a_1 s[n-1] + \ldots + a_N s[n-N]" />
+</div></p><p>where <em>N</em> is the order of the prediction. It is easy to see that this can be
+mapped in the output of a single neuron with <em>N</em> inputs, one output and
+activation function given as identity. This kind of neuron is usually known as
+<em>ADALINE</em> (<em>Adaptive Linear Neuron</em>, later <em>Adaptive Linear Element</em>). The goal
+of this tutorial is to show how to use the neural network implementation of
+Peach to do this.</p>
+<p>As always, we first import <tt class="docutils literal"><span class="pre">numpy</span></tt> for arrays and <tt class="docutils literal"><span class="pre">peach</span></tt> for the library.
+Actually, <tt class="docutils literal"><span class="pre">peach</span></tt> also the <tt class="docutils literal"><span class="pre">numpy</span></tt> module, but we want it in a separate
+namespace. We will also use the <tt class="docutils literal"><span class="pre">random</span></tt> module to generate noise:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>Our next move will be to create the network with the characteristics given
+above. To customize a neural network to work that way, we only have to pass the
+constructor the correct parameters. We will use 32 samples to make the
+prediction, so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="mf">32</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">FeedForward</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">phi</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">Identity</span><span class="p">,</span> <span class="n">lrule</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">LMS</span><span class="p">(</span><span class="mf">0.05</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Some initialization is needed. Instead of presenting a traning set and
+converging the network, we will present example by example. While it is possible
+to present a training set and let the network take care of the learning process,
+we want to track the error to plot its convergence. We will not show here how to
+do that (it can be done with a list, for example):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">error</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mf">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that the input to the network is a column vector. We will fill this
+vector with the sequence of numbers, the smallest index refering to newer
+samples. To <em>delay</em> the sequence, we just shift it one index back.</p>
+<p>The sequence we will predict is the one generated by a cossinus and its value is
+given to the <cite>d</cite> (<em>desired value</em>). This value is not known by the neuron, and
+it will try to predict it (of course, in the first samples there will be a lot
+of errors, but the network is expected to give better results as time passes and
+new examples are shown). The neuron will use <cite>N</cite> (= 32) past values to predict
+the unknown value. To spice things, we add some gaussian noise (actually, it
+might help the convergence):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mf">2000</span> <span class="ow">and</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mf">1.e-10</span><span class="p">:</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">128.</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+    <span class="c"># Here, we activate the network to calculate the prediction.</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">]</span>             <span class="c"># Notice that we need to access the output</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>          <span class="c"># as a vector, since that&#39;s how the NN work.</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+    <span class="c"># Here, we apply a delay in the sequence by shifting every value one</span>
+    <span class="c"># position back. The newest value of the sequence is put in the [0] position</span>
+    <span class="c"># of the vector.</span>
+    <span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mf">1</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mf">1</span>
+</pre></div>
+</div>
+<p>And in the end of this loop, the network will have converged and will be
+predicting correctly (as possible) the future values of the sequence of numbers.
+Using the <tt class="docutils literal"><span class="pre">matplotlib</span></tt> package we can plot the result of the prediction, the
+convergence of the prediction error, and in the second plot, the value of the
+prediction coefficients after convergence.</p>
+<div align="center" class="align-center"><img alt="../_images/linear-prediction.png" class="align-center" src="../_images/linear-prediction.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="xor-problem.html"
+                                  title="previous chapter">The XOR Problem</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="polynomial-regression.html"
+                                  title="next chapter">Polynomial Regression</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/linear-prediction.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="polynomial-regression.html" title="Polynomial Regression"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="xor-problem.html" title="The XOR Problem"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.norms</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        Module&nbsp;norms
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.norms-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module norms</h1><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html">source&nbsp;code</a></span><br /><br />
+<p>This package implements operations of fuzzy logic.</p>
+<p>Basic operations are <tt class="rst-docutils literal"><span class="pre">and</span> <span class="pre">(&amp;)</span></tt>, <tt class="rst-docutils literal"><span class="pre">or</span> <span class="pre">(|)</span></tt> and <tt class="rst-docutils literal"><span class="pre">not</span> <span class="pre">(~)</span></tt>. Those are
+implemented as functions of, respectively, two, two and one values. The <tt class="rst-docutils literal"><span class="pre">and</span></tt>
+is the t-norm of the fuzzy logic, and it is a function that takes two values and
+returns the result of the <tt class="rst-docutils literal"><span class="pre">and</span></tt> operation. The <tt class="rst-docutils literal"><span class="pre">or</span></tt> is a function that takes
+two values and returns the result of the <tt class="rst-docutils literal"><span class="pre">or</span></tt> operation. the <tt class="rst-docutils literal"><span class="pre">not</span></tt> is a
+function that takes one value and returns the result of the <tt class="rst-docutils literal"><span class="pre">not</span></tt> operation.
+To implement your own operations there is no need to subclass -- just create the
+functions and use them where appropriate.</p>
+<p>Also, implication and aglutination functions are defined here. Implication is
+the result of the generalized modus ponens used in fuzzy inference systems.
+Aglutination is the generalization from two different conclusions used in fuzzy
+inference systems. Both are implemented as functions that take two values and
+return the result of the operation. As above, to implement your own operations,
+there is no need to subclass -- just create the functions and use them where
+appropriate.</p>
+<p>The functions here are provided as convenience.</p><br /><br />
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ZadehAnd" class="summary-sig-name">ZadehAnd</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      And operation as defined by Lofti Zadeh.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehAnd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ZadehOr" class="summary-sig-name">ZadehOr</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Or operation as defined by Lofti Zadeh.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehOr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ZadehNot" class="summary-sig-name">ZadehNot</a>(<span class="summary-sig-arg">x</span>)</span><br />
+      Not operation as defined by Lofti Zadeh.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehNot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ZadehImplication" class="summary-sig-name">ZadehImplication</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Implication operation as defined by Zadeh.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehImplication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#DrasticProduct" class="summary-sig-name">DrasticProduct</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Drastic product that can be used as and operation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DrasticProduct">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#DrasticSum" class="summary-sig-name">DrasticSum</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Drastic sum that can be used as or operation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DrasticSum">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#EinsteinProduct" class="summary-sig-name">EinsteinProduct</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Einstein product that can be used as and operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#EinsteinProduct">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#EinsteinSum" class="summary-sig-name">EinsteinSum</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Einstein sum that can be used as or operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#EinsteinSum">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#MamdaniImplication" class="summary-sig-name">MamdaniImplication</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Implication operation as defined by Mamdani.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#MamdaniImplication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#MamdaniAglutination" class="summary-sig-name">MamdaniAglutination</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Aglutination as defined by Mamdani.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#MamdaniAglutination">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ProbabilisticAnd" class="summary-sig-name">ProbabilisticAnd</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      And operation as a probabilistic operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticAnd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ProbabilisticOr" class="summary-sig-name">ProbabilisticOr</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Or operation as a probabilistic operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticOr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ProbabilisticNot" class="summary-sig-name">ProbabilisticNot</a>(<span class="summary-sig-arg">x</span>)</span><br />
+      Not operation as a probabilistic operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticNot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ProbabilisticImplication" class="summary-sig-name">ProbabilisticImplication</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Implication as a probabilistic operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticImplication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#ProbabilisticAglutination" class="summary-sig-name">ProbabilisticAglutination</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Implication as a probabilistic operation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticAglutination">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#DienesRescherImplication" class="summary-sig-name">DienesRescherImplication</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Natural implication as in truth table, defined by Dienes-Rescher</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DienesRescherImplication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#LukasiewiczImplication" class="summary-sig-name">LukasiewiczImplication</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Implication of the Lukasiewicz three-valued logic.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#LukasiewiczImplication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.norms-module.html#GodelImplication" class="summary-sig-name">GodelImplication</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span><br />
+      Implication as defined by Godel.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#GodelImplication">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.norms-module.html#__doc__" class="summary-name">__doc__</a> = <code title="&quot;&quot;&quot;
+This package implements operations of fuzzy logic.
+
+Basic operations are ``and (&amp;)``, ``or (|)`` and ``not (~)``. Those ar\
+e
+implemented as functions of, respectively, two, two and one values. Th\
+e ``and``
+is the t-norm of the fuzzy logic, and it is a function that takes two \
+..."><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ZADEH_NORMS"></a><span class="summary-name">ZADEH_NORMS</span> = <code title="ZadehAnd, ZadehOr, ZadehNot">ZadehAnd, ZadehOr, ZadehNot</code><br />
+      Tuple containing, in order, Zadeh and, or and not operations
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DRASTIC_NORMS"></a><span class="summary-name">DRASTIC_NORMS</span> = <code title="DrasticProduct, DrasticSum, ZadehNot">DrasticProduct, DrasticSum, ZadehNot</code><br />
+      Tuple containing, in order, Drastic product (and), Drastic sum (or) and Zadeh
+not operations
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EINSTEIN_NORMS"></a><span class="summary-name">EINSTEIN_NORMS</span> = <code title="EinsteinProduct, EinsteinSum, ZadehNot">EinsteinProduct, EinsteinSum, ZadehNot</code><br />
+      Tuple containing, in order, Einstein product (and), Einstein sum (or) and
+Zadeh not operations
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MAMDANI_INFERENCE"></a><span class="summary-name">MAMDANI_INFERENCE</span> = <code title="MamdaniImplication, MamdaniAglutination">MamdaniImplication, MamdaniAglutination</code><br />
+      Tuple containing, in order, Mamdani implication and algutination
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PROB_NORMS"></a><span class="summary-name">PROB_NORMS</span> = <code title="ProbabilisticAnd, ProbabilisticOr, ProbabilisticNot">ProbabilisticAnd, ProbabilisticOr, ProbabilisticNot</code><br />
+      Tuple containing, in order, probabilistic and, or and not operations
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.norms-module.html#PROB_INFERENCE" class="summary-name">PROB_INFERENCE</a> = <code title="ProbabilisticImplication, ProbabilisticAglutination"><code class="variable-group">(</code>&lt;function ProbabilisticImplication at 0x886a<code class="variable-ellipsis">...</code></code><br />
+      Tuple containing, in order, probabilistic implication and algutination
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="ZadehAnd"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ZadehAnd</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehAnd">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>And operation as defined by Lofti Zadeh.</p>
+<p>And operation is the minimum of the two values.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the and operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ZadehOr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ZadehOr</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehOr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Or operation as defined by Lofti Zadeh.</p>
+<p>Or operation is the maximum of the two values.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the or operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ZadehNot"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ZadehNot</span>(<span class="sig-arg">x</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehNot">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Not operation as defined by Lofti Zadeh.</p>
+<p>Not operation is the complement to 1 of the given value, that is, <tt class="rst-docutils literal"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">x</span></tt>.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the not operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ZadehImplication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ZadehImplication</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehImplication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Implication operation as defined by Zadeh.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the implication.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrasticProduct"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrasticProduct</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DrasticProduct">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Drastic product that can be used as and operation
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the and operation</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrasticSum"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrasticSum</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DrasticSum">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Drastic sum that can be used as or operation
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the or operation</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EinsteinProduct"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EinsteinProduct</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#EinsteinProduct">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Einstein product that can be used as and operation.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the and operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EinsteinSum"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EinsteinSum</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#EinsteinSum">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Einstein sum that can be used as or operation.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the or operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="MamdaniImplication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">MamdaniImplication</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#MamdaniImplication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Implication operation as defined by Mamdani.</p>
+<p>Implication is the minimum of the two values.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the implication.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="MamdaniAglutination"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">MamdaniAglutination</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#MamdaniAglutination">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Aglutination as defined by Mamdani.</p>
+<p>Aglutination is the maximum of the two values.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the aglutination.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ProbabilisticAnd"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ProbabilisticAnd</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticAnd">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>And operation as a probabilistic operation.</p>
+<p>And operation is the product of the two values.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the and operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ProbabilisticOr"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ProbabilisticOr</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticOr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Or operation as a probabilistic operation.</p>
+<p>Or operation is given as the probability of the intersection of two events,
+that is, x + y - xy.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the or operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ProbabilisticNot"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ProbabilisticNot</span>(<span class="sig-arg">x</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticNot">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Not operation as a probabilistic operation.</p>
+<p>Not operation is the complement to 1 of the given value, that is, <tt class="rst-docutils literal"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">x</span></tt>.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the not operation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ProbabilisticImplication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ProbabilisticImplication</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticImplication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Implication as a probabilistic operation.</p>
+<p>Implication is the product of the two values.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the and implication.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ProbabilisticAglutination"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ProbabilisticAglutination</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticAglutination">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Implication as a probabilistic operation.</p>
+<p>Implication is given as the probability of the intersection of two events,
+that is, x + y - xy.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the and algutination.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DienesRescherImplication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DienesRescherImplication</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DienesRescherImplication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Natural implication as in truth table, defined by Dienes-Rescher
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the implication.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LukasiewiczImplication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LukasiewiczImplication</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#LukasiewiczImplication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Implication of the Lukasiewicz three-valued logic.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the implication.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="GodelImplication"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GodelImplication</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#GodelImplication">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Implication as defined by Godel.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The result of the implication.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__doc__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__doc__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&quot;&quot;&quot;
+This package implements operations of fuzzy logic.
+
+Basic operations are ``and (&amp;)``, ``or (|)`` and ``not (~)``. Those ar<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e
+implemented as functions of, respectively, two, two and one values. Th<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e ``and``
+is the t-norm of the fuzzy logic, and it is a function that takes two <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="PROB_INFERENCE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">PROB_INFERENCE</h3>
+  Tuple containing, in order, probabilistic implication and algutination
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+ProbabilisticImplication, ProbabilisticAglutination
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

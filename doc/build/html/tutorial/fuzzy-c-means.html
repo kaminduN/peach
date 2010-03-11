@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Fuzzy C-Means &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Demos" href="../demos/demos.html" />
+    <link rel="prev" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../demos/demos.html" title="Demos"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="fuzzy-c-means">
+<h1>Fuzzy C-Means<a class="headerlink" href="#fuzzy-c-means" title="Permalink to this headline">¶</a></h1>
+<p><em>Fuzzy C-Means</em> is a clustering and classification technique based on
+traditional clustering algorithms, but using concepts of fuzzy logic. The
+algorithm has a learning procedure and can be used in any situation where a
+clustering algorithm could be used. The development of the fuzzy C-means
+algorithm is not difficult, and, although very interesting, is beyond the scope
+of this tutorial. We strongly suggest consulting the literature on the subject.</p>
+<p>To run the algorithm, we must supply a list of <em>N</em>-dimensional vectors to be
+clustered, and the initial conditions of the clustering in the form of
+membership values of each vector in each class. Suppose that we want to cluster
+a set of <em>M</em> vectors given by</p>
+<div class="math">
+<p><img src="../_images/math/023c13008c82dd48026288fe9f079fa020382e48.png" alt="\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3, \ldots, \mathbf{x}_M" />
+</div></p><p>in <em>C</em> classes. Here, the bold face font represents a N-dimensional vector. We
+associate to each vector and each class a membership value, given by</p>
+<div class="math">
+<p><img src="../_images/math/c7661f92889fb42f1925585ee2e75338454df241.png" alt="\mu_i(\mathbf{x}_j)" />
+</div></p><p>which represents the membership of the vector <img class="math" src="../_images/math/512f1064202d67195403a7919daa9f8f26209990.png" alt="\mathbf{x}_j"/> in the class
+<em>i</em>. The clustering consists in dividing the <em>N</em>-dimensional space in <em>C</em>
+regions, represented by its centers given by <img class="math" src="../_images/math/4026c122505d7f1dc2bb318aa164dde6ea7727cc.png" alt="\mathbf{c}_i"/>. The fuzzy
+C-means algorithm calculates those centers. Notice that the sum of the
+memberships for any given vector must be exactly 1.</p>
+<p>In this tutorial, we will use the fuzzy C-means to split two-dimensional vectors
+in two classes. To the values given below, we can intuitively find the centers
+of the two clusters at <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></tt> and <tt class="docutils literal"><span class="pre">(6,</span> <span class="pre">6)</span></tt> and we would be correct. It is
+a good idea to try first to solve problems to which we already know the solution
+&#8211; that way we can check if what we are doing is correct or not.</p>
+<p>We start by importing the needed libraries, as always:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>We create the vector list and the corresponding membership values for each
+vector. There are 18 two-dimensional examples, and 18 pairs of membership
+values. This means that each example will be classified in two classes, with
+the corresponding membership values. This means that the vector [ 0, 0 ] will be
+classified with membership values 0.7 in the first class and membership values
+0.3 in the second class and so on:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span>
+  <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span> <span class="p">],</span>
+  <span class="p">[</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">7.</span> <span class="p">],</span>
+  <span class="p">[</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">5.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">6.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">5.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">6.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span>
+  <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span>
+  <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span>
+  <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span>
+  <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that the starting values for the memberships could be randomly choosen,
+at least for simple cases like this. You could try the lines below to initialize
+the membership array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">random</span><span class="p">((</span><span class="mf">18</span><span class="p">,</span> <span class="mf">1</span><span class="p">))</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">((</span><span class="n">mu</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">mu</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This parameter measures the smoothness of convergence. Please, consult the
+literature on the subject. Basically, <tt class="docutils literal"><span class="pre">m</span></tt> is a value bigger than 1, and the
+closer it is to unity, the more drastic is the separation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">m</span> <span class="o">=</span> <span class="mf">1.25</span>
+</pre></div>
+</div>
+<p>We instantiate the <tt class="docutils literal"><span class="pre">FuzzyCMeans</span></tt> class to generate the algorithm. We must
+pass, in this order, the vector set, the corresponding membership values, and
+the parameter <tt class="docutils literal"><span class="pre">m</span></tt>. This parameter is optional, though, and if not given, will
+default to 2:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fcm</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">FuzzyCMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">FuzzyCMeans</span></tt> object has a series of attributes, properties and methods
+that can be useful. Please, check the reference for more information. Some of
+these information is listed below:</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">c</span></tt></dt>
+<dd>A <tt class="docutils literal"><span class="pre">numpy</span></tt> array containing the centers of the classes in the algorithm.
+Each line represents a center, and the number of lines is the number of
+classes. This property is read and write, but care must be taken when
+setting new centers: if the dimensions are not exactly the same as given in
+the instantiation of the class (<em>ie</em>, <em>C</em> centers of dimension <em>N</em>, an
+exception will be raised.</dd>
+<dt><tt class="docutils literal"><span class="pre">mu</span></tt></dt>
+<dd>The membership values for every vector in the training set. This property is
+modified at each step of the execution of the algorithm. This property is
+not writable.</dd>
+<dt><tt class="docutils literal"><span class="pre">x</span></tt></dt>
+<dd>The vectors in which the algorithm bases its convergence. This property is
+not writable.</dd>
+<dt><tt class="docutils literal"><span class="pre">centers()</span></tt></dt>
+<dd>Given the present state of the algorithm, recalculates the centers, that is,
+the position of the vectors representing each of the classes. Notice that
+this method modifies the state of the algorithm if any change was made to
+any parameter. This method receives no arguments and will seldom be used
+externally. It can be useful if you want to step over the algorithm. <em>This
+method has a colateral effect!</em> If you use it, the <tt class="docutils literal"><span class="pre">c</span></tt> property (see
+above) will be modified.</dd>
+<dt><tt class="docutils literal"><span class="pre">membership()</span></tt></dt>
+<dd>Given the present state of the algorithm, recalculates the membership of
+each example on each class. That is, it modifies the initial conditions to
+represent an evolved state of the algorithm. Notice that this method
+modifies the state of the algorithm if any change was made to any parameter.
+It can be useful if you want to step over the algorithm. <em>This method has a
+colateral effect!</em> If you use it, the <tt class="docutils literal"><span class="pre">mu</span></tt> property (see above) will be
+modified..</dd>
+<dt><tt class="docutils literal"><span class="pre">step()</span></tt></dt>
+<dd>This method runs one step of the algorithm. It might be useful to track the
+changes in the parameters. It automatically calls the <tt class="docutils literal"><span class="pre">centers()</span></tt> and
+<tt class="docutils literal"><span class="pre">membership()</span></tt> methods (see above) when needed. It returns the norm of the
+change in the membership values in the examples, which can be useful to
+track the convergence of the algorithm.</dd>
+<dt><tt class="docutils literal"><span class="pre">__call__(emax=1.e-10,</span> <span class="pre">imax=20)</span></tt></dt>
+<dd>The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface is used to run the algorithm until convergence is
+found. It returns the centers of the clustered regions.</dd>
+</dl>
+</blockquote>
+<p>As seen above, all we need to do now is to call the instantiated object to
+obtain the results. We can also inspect the final membership for every vector in
+the example set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;After 20 iterations, the algorithm converged to the centers:&quot;</span>
+<span class="k">print</span> <span class="n">fcm</span><span class="p">(</span><span class="n">emax</span><span class="o">=</span><span class="mf">0</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="s">&quot;The membership values for the examples are given below:&quot;</span>
+<span class="k">print</span> <span class="n">fcm</span><span class="o">.</span><span class="n">mu</span>
+<span class="k">print</span>
+</pre></div>
+</div>
+<p>The output of the algorithm is given below:</p>
+<div class="highlight-python"><pre>After 20 iterations, the algorithm converged to the centers:
+[[ 0.99999846  0.99999846]
+ [ 6.00000154  6.00000154]]
+
+The membership values for the examples are given below:
+[[  9.99999405e-01   5.95365284e-07]
+ [  9.99999928e-01   7.22228005e-08]
+ [  9.99997812e-01   2.18828877e-06]
+ [  9.99999928e-01   7.22228005e-08]
+ [  1.00000000e+00   7.98237469e-53]
+ [  9.99999646e-01   3.53890242e-07]
+ [  9.99997812e-01   2.18828877e-06]
+ [  9.99999646e-01   3.53890242e-07]
+ [  9.99984741e-01   1.52586970e-05]
+ [  1.52586970e-05   9.99984741e-01]
+ [  3.53890242e-07   9.99999646e-01]
+ [  2.18828877e-06   9.99997812e-01]
+ [  3.53890242e-07   9.99999646e-01]
+ [  7.98237469e-53   1.00000000e+00]
+ [  7.22228005e-08   9.99999928e-01]
+ [  2.18828877e-06   9.99997812e-01]
+ [  7.22228005e-08   9.99999928e-01]
+ [  5.95365284e-07   9.99999405e-01]]</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="self-organizing-maps.html"
+                                  title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../demos/demos.html"
+                                  title="next chapter">Demos</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/fuzzy-c-means.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../demos/demos.html" title="Demos"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

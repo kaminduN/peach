@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.ga.ga</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.ga-module.html">Package&nbsp;ga</a> ::
+        Module&nbsp;ga
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.ga.ga-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="peach.ga.ga-module.html">Module peach.ga.ga</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This file: ga/ga.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Basic genetic algorithm</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.fuzzy.__doc__=peach.fuzzy.fuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.ga.__doc__=peach.ga.ga-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nn.__doc__=peach.nn.nn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.optm.__doc__=peach.optm.optm-module.html#__doc__,Variable peach.optm.pso.__doc__=peach.optm.pso-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.sa.__doc__=peach.optm.sa-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__"><a title="peach.__doc__
+peach.fuzzy.__doc__
+peach.fuzzy.cmeans.__doc__
+peach.fuzzy.control.__doc__
+peach.fuzzy.defuzzy.__doc__
+peach.fuzzy.fuzzy.__doc__
+peach.fuzzy.mf.__doc__
+peach.fuzzy.norms.__doc__
+peach.ga.__doc__
+peach.ga.chromosome.__doc__
+peach.ga.crossover.__doc__
+peach.ga.fitness.__doc__
+peach.ga.ga.__doc__
+peach.ga.mutation.__doc__
+peach.ga.selection.__doc__
+peach.nn.__doc__
+peach.nn.af.__doc__
+peach.nn.base.__doc__
+peach.nn.lrules.__doc__
+peach.nn.nn.__doc__
+peach.optm.__doc__
+peach.optm.linear.__doc__
+peach.optm.multivar.__doc__
+peach.optm.optm.__doc__
+peach.optm.pso.__doc__
+peach.optm.quasinewton.__doc__
+peach.optm.sa.__doc__
+peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">Basic Genetic Algorithm (GA)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">This sub-package implements a traditional genetic algorithm as described in</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">books and papers. It consists of selecting, breeding and mutating a population</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">of chromosomes (arrays of bits) and reinserting the fittest individual from the</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">previous generation if the GA is elitist. Please, consult a good reference on</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">the subject, for the subject is way too complicated to be explained here.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">Within the algorithm implemented here, it is possible to specify and configure</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">the selection, crossover and mutation methods using the classes in the</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">respective sub-modules and custom methods can be implemented (check</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">``selection``, ``crossover`` and ``mutation`` modules).</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">A GA object is actually a list of chromosomes. Please, refer to the</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">documentation of the class below for more information.</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">zeros</tt><tt class="py-op">,</tt> <tt class="py-name">argmax</tt><tt class="py-op">,</tt> <tt class="py-name">any</tt><tt class="py-op">,</tt> <tt class="py-name">isnan</tt><tt class="py-op">,</tt> <tt class="py-name">array</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">uniform</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">types</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module peach.ga.chromosome=peach.ga.chromosome-module.html"><a title="peach.ga.chromosome" class="py-name" href="#" onclick="return doclink('link-1', 'chromosome', 'link-1');">chromosome</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module peach.ga.fitness=peach.ga.fitness-module.html"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-2', 'fitness', 'link-2');">fitness</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module peach.ga.selection=peach.ga.selection-module.html"><a title="peach.ga.selection" class="py-name" href="#" onclick="return doclink('link-3', 'selection', 'link-3');">selection</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Module peach.ga.crossover=peach.ga.crossover-module.html"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-4', 'crossover', 'link-4');">crossover</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Module peach.ga.mutation=peach.ga.mutation-module.html"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-5', 'mutation', 'link-5');">mutation</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Classes</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
+<a name="GA"></a><div id="GA-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="GA-toggle" onclick="return toggle('GA');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.ga.GA-class.html">GA</a><tt class="py-op">(</tt><tt class="py-base-class">list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GA-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GA-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    A standard Genetic Algorithm</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    This class implements the methods to generate, initialize and evolve a</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    population of chromosomes according to a given fitness function. A standard</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    GA implements, in this order:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">      - A selection method, to choose, from this generation, which individuals</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">        will be present in the next generation;</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">      - A crossover method, to exchange information between selected individuals</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        to add diversity to the population;</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">      - A mutation method, to change information in a selected individual, also</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">        to add diversity to the population;</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">      - The reinsertion of the fittest individual, if the population is elitist</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        (which is almost always the case).</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    A population is actually a list of chromosomes, and individuals can be</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    read and set as in a normal list. Use the ``[ ]`` operators to access</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    individual chromosomes but please be aware that modifying the information on</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">    the list before the end of convergence can cause unpredictable results. The</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">    population and the algorithm have also other properties, check below to see</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    more information on them.    '''</tt> </tt>
+<a name="GA.__init__"></a><div id="GA.__init__-def"><a name="L67"></a><tt class="py-lineno"> 67</tt> <a class="py-toggle" href="#" id="GA.__init__-toggle" onclick="return toggle('GA.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.ga.ga.GA-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fitness</tt><tt class="py-op">,</tt> <tt class="py-param">fmt</tt><tt class="py-op">,</tt> <tt class="py-param">ranges</tt><tt class="py-op">=</tt><tt class="py-op">[</tt> <tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-param">size</tt><tt class="py-op">=</tt><tt class="py-number">50</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                 <tt class="py-param">selection</tt><tt class="py-op">=</tt><tt id="link-6" class="py-name" targets="Class peach.ga.selection.RouletteWheel=peach.ga.selection.RouletteWheel-class.html"><a title="peach.ga.selection.RouletteWheel" class="py-name" href="#" onclick="return doclink('link-6', 'RouletteWheel', 'link-6');">RouletteWheel</a></tt><tt class="py-op">,</tt> <tt class="py-param">crossover</tt><tt class="py-op">=</tt><tt id="link-7" class="py-name" targets="Class peach.ga.crossover.TwoPoint=peach.ga.crossover.TwoPoint-class.html"><a title="peach.ga.crossover.TwoPoint" class="py-name" href="#" onclick="return doclink('link-7', 'TwoPoint', 'link-7');">TwoPoint</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                 <tt class="py-param">mutation</tt><tt class="py-op">=</tt><tt id="link-8" class="py-name" targets="Class peach.ga.mutation.BitToBit=peach.ga.mutation.BitToBit-class.html"><a title="peach.ga.mutation.BitToBit" class="py-name" href="#" onclick="return doclink('link-8', 'BitToBit', 'link-8');">BitToBit</a></tt><tt class="py-op">,</tt> <tt class="py-param">elitist</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GA.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="GA.__init__-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        Initializes the population and the algorithm.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        On the initialization of the population, a lot of parameters can be set.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">        Those will deeply affect the results. The parameters are:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">          fitness</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">            A fitness function to serve as an objective function. In general, a</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">            GA is used for maximizing a function. This parameter can be a</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">            standard Python function or a ``Fitness`` instance.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">            In the first case, the GA will convert the function in a</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">            ``Fitness`` instance and call it internally when needed. The</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">            function should receive a tuple or vector of data according to the</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">            given ``Chromosome`` format (see below) and return a numeric value.</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">            In the second case, you can use any of the fitness methods of the</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">            ``fitness`` sub-module, or create your own. If you want to use your</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">            own fitness method (for experimentation or simulation, for example),</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">            it must be an instance of a ``Fitness`` or of a subclass, or an</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">            exception will be raised. Please consult the documentation on the</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">            ``fitness`` sub-module.</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">          fmt</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">            A ``struct``-format string. The ``struct`` module is a standard</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">            Python module that packs and unpacks informations in bits. These</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">            are used to inform the algorithm what types of data are to be used.</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">            For example, if you are maximizing a function of three real</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">            variables, the format should be something like ``"fff"``. Any type</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">            supported by the ``struct`` module can be used. The GA will decode</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">            the bit array according to this format and send it as is to your </tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">            fitness function -- your function *must* know what to do with them.</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">            Alternatively, the format can be an integer. In that case, the GA</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">            will not try to decode the bit sequence. Instead, the bits are</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">            passed without modification to the objective function, which must</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">            deal with them. Notice that, if this is used this way, the</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">            ``ranges`` property (see below) makes no sense, so it is set to</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">            ``None``. Also, no sanity checks will be performed.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">          ranges</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">            Since messing with the bits can change substantially the values</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">            obtained can diverge a lot from the maximum point. To avoid this,</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">            you can specify a range for each of the variables. ``range``</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">            defaults to ``[ ]``, this means that no range checkin will be done.</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">            If given, then every variable will be checked. There are two ways to</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">            specify the ranges.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">            It might be a tuple of two values, ``(x0, x1)``, where ``x0`` is the</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">            start of the interval, and ``x1`` its end. Obviously, ``x0`` should</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">            be smaller than ``x1``. If ``range`` is given in this way, then this</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">            range will be used for every variable.</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">            If can be specified as a list of tuples with the same format as</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">            given above. In that case, the list must have one range for every</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">            variable specified in the format and the ranges must appear in the</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">            same order as there. That is, every variable must have a range</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">            associated to it.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">          size</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">            This is the size of the population. It defaults to 50.</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">          selection</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">            This specifies the selection method. You can use one given in the</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">            ``selection`` sub-module, or you can implement your own. In any</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">            case, the ``selection`` parameter must be an instance of</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">            ``Selection`` or of a subclass. Please, see the documentation on the</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">            ``selection`` module for more information. Defaults to</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">            ``RouletteWheel``. If made ``None``, then selection will not be</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">            present in the GA.</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">          crossover</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">            This specifies the crossover method. You can use one given in the</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">            ``crossover`` sub-module, or you can implement your own. In any</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">            case, the ``crossover`` parameter must be an instance of</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">            ``Crossover`` or of a subclass. Please, see the documentation on the</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">            ``crossover`` module for more information. Defaults to</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">            ``TwoPoint``. If made ``None``, then crossover will not be</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">            present in the GA.</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">          mutation</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">            This specifies the mutation method. You can use one given in the</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">            ``mutation`` sub-module, or you can implement your own. In any</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">            case, the ``mutation`` parameter must be an instance of ``Mutation``</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">            or of a subclass. Please, see the documentation on the ``mutation``</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">            module for more information. Defaults to ``BitToBit``.  If made</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">            ``None``, then mutation will not be present in the GA.</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">          elitist</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">            Defines if the population is elitist or not. An elitist population</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">            will never discard the fittest individual when a new generation is</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">            computed. Defaults to ``True``.</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">list</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method peach.fuzzy.cmeans.FuzzyCMeans.__init__()=peach.fuzzy.cmeans.FuzzyCMeans-class.html#__init__,Method peach.fuzzy.control.Controller.__init__()=peach.fuzzy.control.Controller-class.html#__init__,Method peach.fuzzy.control.Parametric.__init__()=peach.fuzzy.control.Parametric-class.html#__init__,Method peach.fuzzy.fuzzy.FuzzySet.__init__()=peach.fuzzy.fuzzy.FuzzySet-class.html#__init__,Method peach.fuzzy.mf.Bell.__init__()=peach.fuzzy.mf.Bell-class.html#__init__,Method peach.fuzzy.mf.DecreasingRamp.__init__()=peach.fuzzy.mf.DecreasingRamp-class.html#__init__,Method peach.fuzzy.mf.DecreasingSigmoid.__init__()=peach.fuzzy.mf.DecreasingSigmoid-class.html#__init__,Method peach.fuzzy.mf.Gaussian.__init__()=peach.fuzzy.mf.Gaussian-class.html#__init__,Method peach.fuzzy.mf.IncreasingRamp.__init__()=peach.fuzzy.mf.IncreasingRamp-class.html#__init__,Method peach.fuzzy.mf.IncreasingSigmoid.__init__()=peach.fuzzy.mf.IncreasingSigmoid-class.html#__init__,Method peach.fuzzy.mf.Membership.__init__()=peach.fuzzy.mf.Membership-class.html#__init__,Method peach.fuzzy.mf.RaisedCosine.__init__()=peach.fuzzy.mf.RaisedCosine-class.html#__init__,Method peach.fuzzy.mf.Smf.__init__()=peach.fuzzy.mf.Smf-class.html#__init__,Method peach.fuzzy.mf.Trapezoid.__init__()=peach.fuzzy.mf.Trapezoid-class.html#__init__,Method peach.fuzzy.mf.Triangle.__init__()=peach.fuzzy.mf.Triangle-class.html#__init__,Method peach.fuzzy.mf.Zmf.__init__()=peach.fuzzy.mf.Zmf-class.html#__init__,Method peach.ga.chromosome.Chromosome.__init__()=peach.ga.chromosome.Chromosome-class.html#__init__,Method peach.ga.crossover.OnePoint.__init__()=peach.ga.crossover.OnePoint-class.html#__init__,Method peach.ga.crossover.TwoPoint.__init__()=peach.ga.crossover.TwoPoint-class.html#__init__,Method peach.ga.crossover.Uniform.__init__()=peach.ga.crossover.Uniform-class.html#__init__,Method peach.ga.fitness.Fitness.__init__()=peach.ga.fitness.Fitness-class.html#__init__,Method peach.ga.fitness.Ranking.__init__()=peach.ga.fitness.Ranking-class.html#__init__,Method peach.ga.ga.GA.__init__()=peach.ga.ga.GA-class.html#__init__,Method peach.ga.mutation.BitToBit.__init__()=peach.ga.mutation.BitToBit-class.html#__init__,Method peach.nn.af.Activation.__init__()=peach.nn.af.Activation-class.html#__init__,Method peach.nn.af.ArcTan.__init__()=peach.nn.af.ArcTan-class.html#__init__,Method peach.nn.af.Linear.__init__()=peach.nn.af.Linear-class.html#__init__,Method peach.nn.af.Ramp.__init__()=peach.nn.af.Ramp-class.html#__init__,Method peach.nn.af.Sigmoid.__init__()=peach.nn.af.Sigmoid-class.html#__init__,Method peach.nn.af.Signum.__init__()=peach.nn.af.Signum-class.html#__init__,Method peach.nn.af.TanH.__init__()=peach.nn.af.TanH-class.html#__init__,Method peach.nn.af.Threshold.__init__()=peach.nn.af.Threshold-class.html#__init__,Method peach.nn.base.Layer.__init__()=peach.nn.base.Layer-class.html#__init__,Method peach.nn.lrules.BackPropagation.__init__()=peach.nn.lrules.BackPropagation-class.html#__init__,Method peach.nn.lrules.Competitive.__init__()=peach.nn.lrules.Competitive-class.html#__init__,Method peach.nn.lrules.Cooperative.__init__()=peach.nn.lrules.Cooperative-class.html#__init__,Method peach.nn.lrules.LMS.__init__()=peach.nn.lrules.LMS-class.html#__init__,Method peach.nn.lrules.WinnerTakesAll.__init__()=peach.nn.lrules.WinnerTakesAll-class.html#__init__,Method peach.nn.nn.FeedForward.__init__()=peach.nn.nn.FeedForward-class.html#__init__,Method peach.nn.nn.SOM.__init__()=peach.nn.nn.SOM-class.html#__init__,Method peach.optm.linear.Direct1D.__init__()=peach.optm.linear.Direct1D-class.html#__init__,Method peach.optm.linear.Fibonacci.__init__()=peach.optm.linear.Fibonacci-class.html#__init__,Method peach.optm.linear.GoldenRule.__init__()=peach.optm.linear.GoldenRule-class.html#__init__,Method peach.optm.linear.Interpolation.__init__()=peach.optm.linear.Interpolation-class.html#__init__,Method peach.optm.multivar.Direct.__init__()=peach.optm.multivar.Direct-class.html#__init__,Method peach.optm.multivar.Gradient.__init__()=peach.optm.multivar.Gradient-class.html#__init__,Method peach.optm.multivar.Newton.__init__()=peach.optm.multivar.Newton-class.html#__init__,Method peach.optm.optm.Optimizer.__init__()=peach.optm.optm.Optimizer-class.html#__init__,Method peach.optm.pso.ParticleSwarmOptimizer.__init__()=peach.optm.pso.ParticleSwarmOptimizer-class.html#__init__,Method peach.optm.quasinewton.BFGS.__init__()=peach.optm.quasinewton.BFGS-class.html#__init__,Method peach.optm.quasinewton.DFP.__init__()=peach.optm.quasinewton.DFP-class.html#__init__,Method peach.optm.quasinewton.SR1.__init__()=peach.optm.quasinewton.SR1-class.html#__init__,Method peach.optm.sa.ContinuousSA.__init__()=peach.optm.sa.ContinuousSA-class.html#__init__,Method peach.optm.sa.DiscreteSA.__init__()=peach.optm.sa.DiscreteSA-class.html#__init__,Method peach.optm.stochastic.CrossEntropy.__init__()=peach.optm.stochastic.CrossEntropy-class.html#__init__"><a title="peach.fuzzy.cmeans.FuzzyCMeans.__init__
+peach.fuzzy.control.Controller.__init__
+peach.fuzzy.control.Parametric.__init__
+peach.fuzzy.fuzzy.FuzzySet.__init__
+peach.fuzzy.mf.Bell.__init__
+peach.fuzzy.mf.DecreasingRamp.__init__
+peach.fuzzy.mf.DecreasingSigmoid.__init__
+peach.fuzzy.mf.Gaussian.__init__
+peach.fuzzy.mf.IncreasingRamp.__init__
+peach.fuzzy.mf.IncreasingSigmoid.__init__
+peach.fuzzy.mf.Membership.__init__
+peach.fuzzy.mf.RaisedCosine.__init__
+peach.fuzzy.mf.Smf.__init__
+peach.fuzzy.mf.Trapezoid.__init__
+peach.fuzzy.mf.Triangle.__init__
+peach.fuzzy.mf.Zmf.__init__
+peach.ga.chromosome.Chromosome.__init__
+peach.ga.crossover.OnePoint.__init__
+peach.ga.crossover.TwoPoint.__init__
+peach.ga.crossover.Uniform.__init__
+peach.ga.fitness.Fitness.__init__
+peach.ga.fitness.Ranking.__init__
+peach.ga.ga.GA.__init__
+peach.ga.mutation.BitToBit.__init__
+peach.nn.af.Activation.__init__
+peach.nn.af.ArcTan.__init__
+peach.nn.af.Linear.__init__
+peach.nn.af.Ramp.__init__
+peach.nn.af.Sigmoid.__init__
+peach.nn.af.Signum.__init__
+peach.nn.af.TanH.__init__
+peach.nn.af.Threshold.__init__
+peach.nn.base.Layer.__init__
+peach.nn.lrules.BackPropagation.__init__
+peach.nn.lrules.Competitive.__init__
+peach.nn.lrules.Cooperative.__init__
+peach.nn.lrules.LMS.__init__
+peach.nn.lrules.WinnerTakesAll.__init__
+peach.nn.nn.FeedForward.__init__
+peach.nn.nn.SOM.__init__
+peach.optm.linear.Direct1D.__init__
+peach.optm.linear.Fibonacci.__init__
+peach.optm.linear.GoldenRule.__init__
+peach.optm.linear.Interpolation.__init__
+peach.optm.multivar.Direct.__init__
+peach.optm.multivar.Gradient.__init__
+peach.optm.multivar.Newton.__init__
+peach.optm.optm.Optimizer.__init__
+peach.optm.pso.ParticleSwarmOptimizer.__init__
+peach.optm.quasinewton.BFGS.__init__
+peach.optm.quasinewton.DFP.__init__
+peach.optm.quasinewton.SR1.__init__
+peach.optm.sa.ContinuousSA.__init__
+peach.optm.sa.DiscreteSA.__init__
+peach.optm.stochastic.CrossEntropy.__init__" class="py-name" href="#" onclick="return doclink('link-9', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Variable peach.ga.chromosome.Chromosome.size=peach.ga.chromosome.Chromosome-class.html#size,Variable peach.nn.base.Layer.size=peach.nn.base.Layer-class.html#size"><a title="peach.ga.chromosome.Chromosome.size
+peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link-10', 'size', 'link-10');">size</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name" targets="Class peach.ga.chromosome.Chromosome=peach.ga.chromosome.Chromosome-class.html"><a title="peach.ga.chromosome.Chromosome" class="py-name" href="#" onclick="return doclink('link-11', 'Chromosome', 'link-11');">Chromosome</a></tt><tt class="py-op">(</tt><tt class="py-name">fmt</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">format</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nargs</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nargs</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method peach.ga.chromosome.Chromosome.decode()=peach.ga.chromosome.Chromosome-class.html#decode"><a title="peach.ga.chromosome.Chromosome.decode" class="py-name" href="#" onclick="return doclink('link-12', 'decode', 'link-12');">decode</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">ranges</tt><tt class="py-op">:</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt><tt class="py-op">)</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">                <tt class="py-string">'''Holds the ranges for every variable. Although it is a writable</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-string">                property, care should be taken in changing parameters before ending</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-string">                the convergence.'''</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__csize</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="peach.ga.chromosome.Chromosome.size
+peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link-13', 'size', 'link-10');">size</a></tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">elitist</tt> <tt class="py-op">=</tt> <tt class="py-name">elitist</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-string">'''If ``True``, then the population is elitist.'''</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-14', 'fitness', 'link-2');">fitness</a></tt> <tt class="py-op">=</tt> <tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">dtype</tt><tt class="py-op">=</tt><tt class="py-name">float</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-string">'''Vector containing the computed fitness value for every individual.'''</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-comment"># Sanitizes the generated values randomly created for the chromosomes.</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method peach.ga.ga.GA.sanity()=peach.ga.ga.GA-class.html#sanity"><a title="peach.ga.ga.GA.sanity" class="py-name" href="#" onclick="return doclink('link-15', 'sanity', 'link-15');">sanity</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-comment"># Verifies the validity of the fitness method</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-16', 'fitness', 'link-2');">fitness</a></tt><tt class="py-op">,</tt> <tt class="py-name">types</tt><tt class="py-op">.</tt><tt class="py-name">FunctionType</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt id="link-17" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-17', 'fitness', 'link-2');">fitness</a></tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name" targets="Class peach.ga.fitness.Fitness=peach.ga.fitness.Fitness-class.html"><a title="peach.ga.fitness.Fitness" class="py-name" href="#" onclick="return doclink('link-18', 'Fitness', 'link-18');">Fitness</a></tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-19', 'fitness', 'link-2');">fitness</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-20', 'fitness', 'link-2');">fitness</a></tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="peach.ga.fitness.Fitness" class="py-name" href="#" onclick="return doclink('link-21', 'Fitness', 'link-18');">Fitness</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">,</tt> <tt class="py-string">'not a valid fitness function'</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fit</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-22', 'fitness', 'link-2');">fitness</a></tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fit</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-comment"># Verifies the validity of the selection method</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">            <tt class="py-name">issubclass</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="peach.ga.selection" class="py-name" href="#" onclick="return doclink('link-23', 'selection', 'link-3');">selection</a></tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name" targets="Class peach.ga.selection.Selection=peach.ga.selection.Selection-class.html"><a title="peach.ga.selection.Selection" class="py-name" href="#" onclick="return doclink('link-24', 'Selection', 'link-24');">Selection</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">            <tt id="link-25" class="py-name"><a title="peach.ga.selection" class="py-name" href="#" onclick="return doclink('link-25', 'selection', 'link-3');">selection</a></tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="peach.ga.selection" class="py-name" href="#" onclick="return doclink('link-26', 'selection', 'link-3');">selection</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="peach.ga.selection" class="py-name" href="#" onclick="return doclink('link-27', 'selection', 'link-3');">selection</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="peach.ga.selection.Selection" class="py-name" href="#" onclick="return doclink('link-28', 'Selection', 'link-24');">Selection</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">,</tt> <tt class="py-string">'not a valid selection method'</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__select</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="peach.ga.selection" class="py-name" href="#" onclick="return doclink('link-29', 'selection', 'link-3');">selection</a></tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-comment"># Verifies the validity of the crossover method</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">            <tt class="py-name">issubclass</tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-30', 'crossover', 'link-4');">crossover</a></tt><tt class="py-op">,</tt> <tt id="link-31" class="py-name" targets="Class peach.ga.crossover.Crossover=peach.ga.crossover.Crossover-class.html"><a title="peach.ga.crossover.Crossover" class="py-name" href="#" onclick="return doclink('link-31', 'Crossover', 'link-31');">Crossover</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">            <tt id="link-32" class="py-name"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-32', 'crossover', 'link-4');">crossover</a></tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-33', 'crossover', 'link-4');">crossover</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-34" class="py-name"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-34', 'crossover', 'link-4');">crossover</a></tt><tt class="py-op">,</tt> <tt id="link-35" class="py-name"><a title="peach.ga.crossover.Crossover" class="py-name" href="#" onclick="return doclink('link-35', 'Crossover', 'link-31');">Crossover</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt id="link-36" class="py-name"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-36', 'crossover', 'link-4');">crossover</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">,</tt> <tt class="py-string">'not a valid crossover method'</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__crossover</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="peach.ga.crossover" class="py-name" href="#" onclick="return doclink('link-37', 'crossover', 'link-4');">crossover</a></tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-comment"># Verifies the validity of the mutation method</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">            <tt class="py-name">issubclass</tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-38', 'mutation', 'link-5');">mutation</a></tt><tt class="py-op">,</tt> <tt id="link-39" class="py-name" targets="Class peach.ga.mutation.Mutation=peach.ga.mutation.Mutation-class.html"><a title="peach.ga.mutation.Mutation" class="py-name" href="#" onclick="return doclink('link-39', 'Mutation', 'link-39');">Mutation</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">            <tt id="link-40" class="py-name"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-40', 'mutation', 'link-5');">mutation</a></tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-41', 'mutation', 'link-5');">mutation</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-42', 'mutation', 'link-5');">mutation</a></tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="peach.ga.mutation.Mutation" class="py-name" href="#" onclick="return doclink('link-43', 'Mutation', 'link-39');">Mutation</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt id="link-44" class="py-name"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-44', 'mutation', 'link-5');">mutation</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">,</tt> <tt class="py-string">'not a valid mutation method'</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__mutate</tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="peach.ga.mutation" class="py-name" href="#" onclick="return doclink('link-45', 'mutation', 'link-5');">mutation</a></tt> </tt>
+</div><a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"> </tt>
+<a name="GA.__get_csize"></a><div id="GA.__get_csize-def"><a name="L233"></a><tt class="py-lineno">233</tt> <a class="py-toggle" href="#" id="GA.__get_csize-toggle" onclick="return toggle('GA.__get_csize');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.ga.ga.GA-class.html#__get_csize">__get_csize</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GA.__get_csize-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="GA.__get_csize-expanded"><a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__csize</tt> </tt>
+</div><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">    <tt id="link-46" class="py-name" targets="Variable peach.ga.ga.GA.chromosome_size=peach.ga.ga.GA-class.html#chromosome_size"><a title="peach.ga.ga.GA.chromosome_size" class="py-name" href="#" onclick="return doclink('link-46', 'chromosome_size', 'link-46');">chromosome_size</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-47" class="py-name" targets="Method peach.ga.ga.GA.__get_csize()=peach.ga.ga.GA-class.html#__get_csize"><a title="peach.ga.ga.GA.__get_csize" class="py-name" href="#" onclick="return doclink('link-47', '__get_csize', 'link-47');">__get_csize</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">    <tt class="py-string">'''This property hold the chromosome size for the population. Not</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"><tt class="py-string">    writable.'''</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"> </tt>
+<a name="GA.sanity"></a><div id="GA.sanity-def"><a name="L240"></a><tt class="py-lineno">240</tt> <a class="py-toggle" href="#" id="GA.sanity-toggle" onclick="return toggle('GA.sanity');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.ga.ga.GA-class.html#sanity">sanity</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GA.sanity-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="GA.sanity-expanded"><a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"><tt class="py-docstring">        Sanitizes the chromosomes in the population.</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-docstring">        Since not every individual generated by the crossover and mutation</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-docstring">        operations might be a valid result, this method verifies if they are</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-docstring">        inside the allowed ranges (or if it is a number at all). Each invalid</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-docstring">        individual is discarded and a new one is generated.</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-docstring">        This method has no parameters and returns no values.</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">        <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">        <tt class="py-name">x0</tt> <tt class="py-op">=</tt> <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">        <tt class="py-name">x1</tt> <tt class="py-op">=</tt> <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-48" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.c=peach.fuzzy.cmeans.FuzzyCMeans-class.html#c"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c" class="py-name" href="#" onclick="return doclink('link-48', 'c', 'link-48');">c</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">:</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-49" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c" class="py-name" href="#" onclick="return doclink('link-49', 'c', 'link-48');">c</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="peach.ga.chromosome.Chromosome.decode" class="py-name" href="#" onclick="return doclink('link-50', 'decode', 'link-12');">decode</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">any</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">x0</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">any</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">x1</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">any</tt><tt class="py-op">(</tt><tt class="py-name">isnan</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">                <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">uniform</tt><tt class="py-op">(</tt><tt class="py-name">r0</tt><tt class="py-op">,</tt> <tt class="py-name">r1</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">r0</tt><tt class="py-op">,</tt> <tt class="py-name">r1</tt> <tt class="py-keyword">in</tt> <tt class="py-name">r</tt> <tt class="py-op">]</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">                <tt id="link-51" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c" class="py-name" href="#" onclick="return doclink('link-51', 'c', 'link-48');">c</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method peach.ga.chromosome.Chromosome.encode()=peach.ga.chromosome.Chromosome-class.html#encode"><a title="peach.ga.chromosome.Chromosome.encode" class="py-name" href="#" onclick="return doclink('link-52', 'encode', 'link-52');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">tuple</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"> </tt>
+<a name="GA.fit"></a><div id="GA.fit-def"><a name="L261"></a><tt class="py-lineno">261</tt> <a class="py-toggle" href="#" id="GA.fit-toggle" onclick="return toggle('GA.fit');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.ga.ga.GA-class.html#fit">fit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GA.fit-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="GA.fit-expanded"><a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"><tt class="py-docstring">        Computes the fitness for each individual of the population.</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-docstring">        This method is only an interface to the ``fitness`` function passed in</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-docstring">        the initialization. It calls the ``Fitness`` instance.</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-docstring">        This method has no parameters and returns no values.</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fit</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line"> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line"> </tt>
+<a name="GA.step"></a><div id="GA.step-def"><a name="L273"></a><tt class="py-lineno">273</tt> <a class="py-toggle" href="#" id="GA.step-toggle" onclick="return toggle('GA.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.ga.ga.GA-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GA.step-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="GA.step-expanded"><a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line"><tt class="py-docstring">        Computes a new generation of the population, a step of the adaptation.</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line"><tt class="py-docstring">        This method goes through all the steps of the GA, as described above. If</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line"><tt class="py-docstring">        the selection, crossover and mutation operators are defined, they are</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"><tt class="py-docstring">        applied over the population. If the population is elitist, then the</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line"><tt class="py-docstring">        fittest individual of the past generation is reinserted.</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"><tt class="py-docstring">        This method has no parameters and returns no values. The GA itself can</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line"><tt class="py-docstring">        be consulted (using ``[ ]``) to find the fittest individual which is the</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"><tt class="py-docstring">        result of the process.</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">elitist</tt><tt class="py-op">:</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">            <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-name">argmax</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="peach.ga.fitness" class="py-name" href="#" onclick="return doclink('link-53', 'fitness', 'link-2');">fitness</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line">            <tt class="py-name">max_fit</tt> <tt class="py-op">=</tt> <tt id="link-54" class="py-name"><a title="peach.ga.chromosome.Chromosome" class="py-name" href="#" onclick="return doclink('link-54', 'Chromosome', 'link-11');">Chromosome</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-name">m</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__select</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__crossover</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__crossover</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__mutate</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__mutate</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="peach.ga.ga.GA.sanity" class="py-name" href="#" onclick="return doclink('link-55', 'sanity', 'link-15');">sanity</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">elitist</tt><tt class="py-op">:</tt> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">max_fit</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fit</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line"> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Mon Mar  8 16:49:28 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

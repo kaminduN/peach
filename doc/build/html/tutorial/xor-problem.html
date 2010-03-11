@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The XOR Problem &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Linear Prediction of a Number Sequence" href="linear-prediction.html" />
+    <link rel="prev" title="Mapping of a Plane" href="mapping-a-plane.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="linear-prediction.html" title="Linear Prediction of a Number Sequence"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mapping-a-plane.html" title="Mapping of a Plane"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-xor-problem">
+<h1>The XOR Problem<a class="headerlink" href="#the-xor-problem" title="Permalink to this headline">¶</a></h1>
+<p>The exclusive-or (XOR) is a well known problem with neural networks. In 1969,
+Marvin Minsky published a book, named <em>Perceptrons</em>, in which he showed that a
+single neuron cannot map the exclusive-or between two inputs. The pessimistic
+nature of the books conclusion resulted in a set-back in the research of neural
+networks that lasted until the backpropagation was created. Every book on neural
+network has a description and the proof of the problem.</p>
+<p>But we can solve this problem if we are allowing a network with more than one
+neuron and more than one layer, and using an appropriate learning rule to make
+the synaptic weights of the neurons converge to values that allow the XOR
+operation to be mapped. We will do this in this tutorial.</p>
+<p>It can be done with a two-layer biased feed forward network with two inputs, two
+neurons in the hidden layer and one neuron in the output layer. The activation
+function should be sigmoidal, and the learning rule the backpropagation
+algorithm. As before, we will assume that the <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">peach</span></tt> modules
+were imported in the command line. We create the network:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">((</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">Sigmoid</span><span class="p">,</span> <span class="n">BackPropagation</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of presenting every single example, we will create a training set and
+present the training set to the network. The training set is easy: it should be
+that truth table of the exclusive-or operation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">train_set</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span> <span class="n">array</span><span class="p">((</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="mf">0.0</span> <span class="p">),</span>
+<span class="go">                  ( array(( 0.0, 1.0)), 1.0 ),</span>
+<span class="go">                  ( array(( 1.0, 0.0)), 1.0 ),</span>
+<span class="go">                  ( array(( 1.0, 1.0)), 0.0 ) ]</span>
+</pre></div>
+</div>
+<p>A training set is a list of examples. Every example is a tuple with two
+elements: the first one is the input vector, and the second is the desired
+response. We present a complete training set to the network using the <tt class="docutils literal"><span class="pre">train</span></tt>
+method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will iterate over the training set. The complete signature of this method
+is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mf">2000</span><span class="p">,</span> <span class="n">emax</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">randomize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <tt class="docutils literal"><span class="pre">train_set</span></tt> is the list of examples as described above; <tt class="docutils literal"><span class="pre">imax</span></tt> is the
+maximum number of iterations over the training set; <tt class="docutils literal"><span class="pre">emax</span></tt> is the maximum
+error allowed. The iteration over the training set will end when any of these
+conditions are met. If the <tt class="docutils literal"><span class="pre">randomize</span></tt> is <tt class="xref docutils literal"><span class="pre">False</span></tt>, the iteration over the
+training set is sequential, else every example is randomly chosen.</p>
+<p>In this tutorial, after presenting the network with the examples, we can inspect
+the results with a simple loop:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">train_set</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="s">&#39; =&gt; &#39;</span><span class="p">,</span> <span class="n">nn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">[ 0.  0.]  =&gt;  [[ 0.04868284]]</span>
+<span class="go">[ 0.  1.]  =&gt;  [[ 0.94078034]]</span>
+<span class="go">[ 1.  0.]  =&gt;  [[ 0.9422161]]</span>
+<span class="go">[ 1.  1.]  =&gt;  [[ 0.07817926]]</span>
+</pre></div>
+</div>
+<p>Notice that we don&#8217;t get exactly 0 or 1 as the response of the network. This
+happens because we are using a sigmoid as activation function, and it reaches
+these values only when input is infinity. But notice that the output is very
+near 0 when the answer should be 0, and very near 1 when the answer should be 1.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="mapping-a-plane.html"
+                                  title="previous chapter">Mapping of a Plane</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="linear-prediction.html"
+                                  title="next chapter">Linear Prediction of a Number Sequence</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/xor-problem.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="linear-prediction.html" title="Linear Prediction of a Number Sequence"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mapping-a-plane.html" title="Mapping of a Plane"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

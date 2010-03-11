@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.ga.chromosome.Chromosome</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.ga-module.html">Package&nbsp;ga</a> ::
+        <a href="peach.ga.chromosome-module.html">Module&nbsp;chromosome</a> ::
+        Class&nbsp;Chromosome
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.ga.chromosome.Chromosome-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Chromosome</h1><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_ga_2" name="uml_class_diagram_for_peach_ga_2">
+<area shape="rect" href="javascript: void(0);" title="bitarray([initial][endian=string])" alt="" coords="75,347,168,379"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#size" title="Property that returns the chromosome size." alt="" coords="17,425,225,444"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#format" title="Property that contains the chromosome struct format." alt="" coords="17,444,225,463"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#__new__" title="Allocates new memory space for the chromosome" alt="" coords="17,465,225,484"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#decode" title="This method decodes the information given in the chromosome." alt="" coords="17,484,225,503"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#__init__" title="Initializes the chromosome." alt="" coords="17,503,225,521"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#encode" title="This method encodes the information into the chromosome." alt="" coords="17,521,225,540"/>
+<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html" title="Implements a chromosome as a bit array." alt="" coords="16,408,227,541"/>
+<area shape="rect" href="javascript: void(0);" title="Returns True when all bits in the array are True." alt="" coords="63,36,180,55"/>
+<area shape="rect" href="javascript: void(0);" title="Set all bits in the bitarray to bool(x)." alt="" coords="63,55,180,73"/>
+<area shape="rect" href="javascript: void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="63,73,180,92"/>
+<area shape="rect" href="javascript: void(0);" title="Return the i&#45;th element and delete it from the bitarray." alt="" coords="63,92,180,111"/>
+<area shape="rect" href="javascript: void(0);" title="bitarray._bitarray.__and__" alt="" coords="63,111,180,129"/>
+<area shape="rect" href="javascript: void(0);" title="Write all bits (as machine values) to the file object f." alt="" coords="63,129,180,148"/>
+<area shape="rect" href="javascript: void(0);" title="Remove the first occurrence of x in the bitarray." alt="" coords="63,148,180,167"/>
+<area shape="rect" href="javascript: void(0);" title="For all bytes representing the bitarray, reverse the bit order (in&#45;place)." alt="" coords="63,167,180,185"/>
+<area shape="rect" href="javascript: void(0);" title="bitarray._bitarray.__rmul__" alt="" coords="63,185,180,204"/>
+<area shape="rect" href="javascript: void(0);" title="x&lt;y" alt="" coords="63,204,180,223"/>
+<area shape="rect" href="javascript: void(0);" title="Returns True when any bit in the array is True." alt="" coords="63,223,180,241"/>
+<area shape="rect" href="javascript: void(0);" title="Append the value bool(x) to the end of the bitarray." alt="" coords="63,241,180,260"/>
+<area shape="rect" href="javascript: void(0);" title="Returns the number of bits added (0..7) at the end of the array." alt="" coords="63,260,180,279"/>
+<area shape="rect" href="javascript: void(0);" title="Extend the bitarray from a string, where each characters corresponds to a single bit." alt="" coords="63,297,180,316"/>
+<area shape="rect" href="javascript: void(0);" title="bitarray._bitarray" alt="" coords="61,11,181,317"/>
+</map>
+  <img src="uml_class_diagram_for_peach_ga_2.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_2" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Implements a chromosome as a bit array.</p>
+<p>Data is structured according to the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> module that exists in the
+Python standard library. Internally, data used in optimization with a
+genetic algorithm are represented as arrays of bits, so the <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt>
+module must be installed. Please consult the Python package index for more
+information on how to install <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt>. In general, the user don't need
+to worry about how the data is manipulated internally, but a specification
+of the format as in the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> module is needed.</p>
+<p>If the internal format of the data is specified as an <tt class="rst-docutils literal"><span class="pre">struct</span></tt> format, the
+genetic algorithm will take care of encoding and decoding data from and to
+the optimizer. However, it is possible to specify, instead of a format, the
+length of the chromosome. In that case, the fitness function must deal with
+the encoding and decoding of the information. It is strongly suggested that
+you use <tt class="rst-docutils literal"><span class="pre">struct</span></tt> format strings, as they are much easier. This second
+option is provided as a convenience.</p>
+<p>The <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt> class is derived from the <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> class. So, every
+property and method of this class should be accessible.</p><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">fmt</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Initializes the chromosome.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__get_size"></a><span class="summary-sig-name">__get_size</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__get_size">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#decode" class="summary-sig-name">decode</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      This method decodes the information given in the chromosome.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.decode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#encode" class="summary-sig-name">encode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">values</span>)</span><br />
+      This method encodes the information into the chromosome.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.encode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>bitarray._bitarray</code></b>:
+      <code>__add__</code>,
+      <code>__and__</code>,
+      <code>__contains__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
+      <code>__delitem__</code>,
+      <code>__eq__</code>,
+      <code>__ge__</code>,
+      <code>__getattribute__</code>,
+      <code>__getitem__</code>,
+      <code>__gt__</code>,
+      <code>__iadd__</code>,
+      <code>__iand__</code>,
+      <code>__imul__</code>,
+      <code>__invert__</code>,
+      <code>__ior__</code>,
+      <code>__iter__</code>,
+      <code>__ixor__</code>,
+      <code>__le__</code>,
+      <code>__len__</code>,
+      <code>__lt__</code>,
+      <code>__mul__</code>,
+      <code>__ne__</code>,
+      <code>__or__</code>,
+      <code>__reduce__</code>,
+      <code>__repr__</code>,
+      <code>__rmul__</code>,
+      <code>__setitem__</code>,
+      <code>__xor__</code>,
+      <code>all</code>,
+      <code>any</code>,
+      <code>append</code>,
+      <code>buffer_info</code>,
+      <code>bytereverse</code>,
+      <code>copy</code>,
+      <code>count</code>,
+      <code>endian</code>,
+      <code>extend</code>,
+      <code>fill</code>,
+      <code>fromfile</code>,
+      <code>fromstring</code>,
+      <code>index</code>,
+      <code>insert</code>,
+      <code>invert</code>,
+      <code>length</code>,
+      <code>pack</code>,
+      <code>pop</code>,
+      <code>remove</code>,
+      <code>reverse</code>,
+      <code>search</code>,
+      <code>setall</code>,
+      <code>sort</code>,
+      <code>to01</code>,
+      <code>tofile</code>,
+      <code>tolist</code>,
+      <code>tostring</code>,
+      <code>unpack</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__hash__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#__new__" class="summary-sig-name">__new__</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">fmt</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">endian</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">little</code><code class="variable-quote">'</code></span>)</span><br />
+      Allocates new memory space for the chromosome</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__new__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="format"></a><span class="summary-name">format</span><br />
+      Property that contains the chromosome <tt class="rst-docutils literal"><span class="pre">struct</span></tt> format.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.ga.chromosome.Chromosome-class.html#size" class="summary-name">size</a><br />
+      Property that returns the chromosome size.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__new__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__new__</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">fmt</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">endian</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">little</code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__new__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Allocates new memory space for the chromosome</p>
+<p>This function overrides the <tt class="rst-docutils literal"><span class="pre">bitarray.__new__</span></tt> function to deal with
+the length of the chromosome. It should never be directly used, as it is
+automatically called by the Python interpreter in the moment of object
+creation.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>A new <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt> object.</dd>
+    <dt>Overrides:
+      bitarray._bitarray.__new__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">fmt</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Initializes the chromosome.</p>
+<p>This method is automatically called by the Python interpreter and
+initializes the data in the chromosome. No data should be provided to be
+encoded in the chromosome, as it is usually better start with random
+estimates. This method, in particular, does not clear the memory used in
+the time of creation of the <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> from which a <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt>
+derives -- so the random noise in the memory is used as initial value.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><p><strong class="pname"><code>fmt</code></strong> - This parameter can be passed in two different ways. If <tt class="rst-docutils literal"><span class="pre">fmt</span></tt> is a
+string, then it is assumed to be a <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-format string. Its
+size is calculated and a <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> of the corresponding size is
+created. Please, consult the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> documentation, since what is
+explained there is exactly what is used here. For example, if you
+are going to use the optimizer to deal with three-dimensional
+vectors of continuous variables, the format would be something
+like:</p>
+<pre class="rst-literal-block">
+fmt = 'fff'
+</pre>
+<p>If <tt class="rst-docutils literal"><span class="pre">fmt</span></tt>, however, is an integer, then a <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> of the given
+length is created. Note that, in this case, no format is given to
+the chromosome, and it is responsability of the programmer and the
+fitness function to provide for it.</p>
+<p>Default value is an empty string.</p></li>
+    </ul></dd>
+    <dt>Overrides:
+      object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="decode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">decode</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.decode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>This method decodes the information given in the chromosome.</p>
+<p>Data in the chromosome is encoded as a <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-formated string in a
+<tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> object. This method decodes the information and returns the
+encoded values. If a format string is not given, then it is assumed that
+this chromosome is just an array of bits, which is returned.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>A tuple containing the decoded values, in the order specified by the
+format string.</dd>
+    <dt>Overrides:
+      bitarray._bitarray.decode
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="encode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">encode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">values</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.encode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>This method encodes the information into the chromosome.</p>
+<p>Data in the chromosome is encoded as a <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-formated string in a
+<tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> object. This method encodes the given information in the
+bitarray. If a format string is not given, this method raises a
+<tt class="rst-docutils literal"><span class="pre">TypeError</span></tt> exception.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>values</code></strong> - A tuple containing the values to be encoded in an order consistent
+with the given <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-format.</li>
+    </ul></dd>
+    <dt>Overrides:
+      bitarray._bitarray.encode
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="size"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">size</h3>
+  Property that returns the chromosome size. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#__get_size" class="summary-sig-name">peach.ga.chromosome.Chromosome.__get_size</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

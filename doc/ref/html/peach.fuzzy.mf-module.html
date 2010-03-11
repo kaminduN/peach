@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.mf</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        Module&nbsp;mf
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.mf-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module mf</h1><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html">source&nbsp;code</a></span><br /><br />
+<p>Membership functions</p>
+<p>Membership functions are actually subclasses of a main class called Membership,
+see below. Instantiate a class to generate a function, optional arguments can be
+specified to configure the function as needed. For example, to create a triangle
+function starting at 0, with peak in 3, and ending in 4, use:</p>
+<pre class="rst-literal-block">
+mu = Triangle(0, 3, 4)
+</pre>
+<p>Please notice that the return value is a <em>function</em>. To use it, apply it as a
+normal function. For example, the function above, applied to the value 1.5
+should return 0.5:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; print mu(1.5)
+0.5
+</pre><br /><br />
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Membership-class.html" class="summary-name">Membership</a><br />
+      Base class of all membership functions.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.IncreasingRamp-class.html" class="summary-name">IncreasingRamp</a><br />
+      Increasing ramp.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.DecreasingRamp-class.html" class="summary-name">DecreasingRamp</a><br />
+      Decreasing ramp.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Triangle-class.html" class="summary-name">Triangle</a><br />
+      Triangle function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Trapezoid-class.html" class="summary-name">Trapezoid</a><br />
+      Trapezoid function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Gaussian-class.html" class="summary-name">Gaussian</a><br />
+      Gaussian function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.IncreasingSigmoid-class.html" class="summary-name">IncreasingSigmoid</a><br />
+      Increasing Sigmoid function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.DecreasingSigmoid-class.html" class="summary-name">DecreasingSigmoid</a><br />
+      Decreasing Sigmoid function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.RaisedCosine-class.html" class="summary-name">RaisedCosine</a><br />
+      Raised Cosine function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Bell-class.html" class="summary-name">Bell</a><br />
+      Generalized Bell function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Smf-class.html" class="summary-name">Smf</a><br />
+      Increasing smooth curve with 0 and 1 minimum and maximum values outside a
+given range.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf.Zmf-class.html" class="summary-name">Zmf</a><br />
+      Decreasing smooth curve with 0 and 1 minimum and maximum values outside a
+given range.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.mf-module.html#Saw" class="summary-sig-name">Saw</a>(<span class="summary-sig-arg">interval</span>,
+        <span class="summary-sig-arg">n</span>)</span><br />
+      Splits an <tt class="rst-docutils literal"><span class="pre">interval</span></tt> into <tt class="rst-docutils literal"><span class="pre">n</span></tt> triangle functions.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Saw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.mf-module.html#FlatSaw" class="summary-sig-name">FlatSaw</a>(<span class="summary-sig-arg">interval</span>,
+        <span class="summary-sig-arg">n</span>)</span><br />
+      Splits an <tt class="rst-docutils literal"><span class="pre">interval</span></tt> into a decreasing ramp, <tt class="rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions
+and an increasing ramp.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#FlatSaw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.fuzzy.mf-module.html#__doc__" class="summary-name">__doc__</a> = <code title="&quot;&quot;&quot;
+Membership functions
+
+Membership functions are actually subclasses of a main class called Me\
+mbership,
+see below. Instantiate a class to generate a function, optional argume\
+nts can be
+specified to configure the function as needed. For example, to create \
+..."><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="Saw"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Saw</span>(<span class="sig-arg">interval</span>,
+        <span class="sig-arg">n</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Saw">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Splits an <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">interval</span></tt> into <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">n</span></tt> triangle functions.</p>
+<p>Given an interval in any domain, this function will create <tt class="rst-docutils literal"><span class="pre">n</span></tt> triangle
+functions of the same size equally spaced in the interval. It is very
+useful to create membership functions for controllers. The command below
+will create 3 triangle functions equally spaced in the interval (0, 4):</p>
+<pre class="rst-literal-block">
+mf1, mf2, mf3 = Saw((0, 4), 3)
+</pre>
+<p>This is the same as the following commands:</p>
+<pre class="rst-literal-block">
+mf1 = Triangle(0, 1, 2)
+mf2 = Triangle(1, 2, 3)
+mf3 = Triangle(2, 3, 4)
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>interval</code></strong> - A tuple containing the start and the end of the interval, in the format
+<tt class="rst-docutils literal"><span class="pre">(start,</span> <span class="pre">end)</span></tt>;</li>
+        <li><strong class="pname"><code>n</code></strong> - The number of functions in which the interval must be split.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list of triangle membership functions, in order.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="FlatSaw"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FlatSaw</span>(<span class="sig-arg">interval</span>,
+        <span class="sig-arg">n</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#FlatSaw">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Splits an <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">interval</span></tt> into a decreasing ramp, <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions
+and an increasing ramp.</p>
+<p>Given an interval in any domain, this function will create a decreasing ramp
+in the start of the interval, <tt class="rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions of the same size
+equally spaced in the interval, and a increasing ramp in the end of the
+interval. It is very useful to create membership functions for controllers.
+The command below will create a decreasing ramp, a triangle function and an
+increasing ramp equally spaced in the interval (0, 2):</p>
+<pre class="rst-literal-block">
+mf1, mf2, mf3 = FlatSaw((0, 2), 3)
+</pre>
+<p>This is the same as the following commands:</p>
+<pre class="rst-literal-block">
+mf1 = DecreasingRamp(0, 1)
+mf2 = Triangle(0, 1, 2)
+mf3 = Increasingramp(1, 2)
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>interval</code></strong> - A tuple containing the start and the end of the interval, in the format
+<tt class="rst-docutils literal"><span class="pre">(start,</span> <span class="pre">end)</span></tt>;</li>
+        <li><strong class="pname"><code>n</code></strong> - The number of functions in which the interval must be split.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list of corresponding functions, in order.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__doc__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__doc__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&quot;&quot;&quot;
+Membership functions
+
+Membership functions are actually subclasses of a main class called Me<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+mbership,
+see below. Instantiate a class to generate a function, optional argume<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+nts can be
+specified to configure the function as needed. For example, to create <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

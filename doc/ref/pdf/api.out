@@ -1,0 +1,352 @@
+\BOOKMARK [1][-]{section*.2}{Contents}{}
+\BOOKMARK [1][-]{section.1}{Package peach}{}
+\BOOKMARK [2][-]{subsection.1.1}{Modules}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Variables}{section.1}
+\BOOKMARK [1][-]{section.2}{Package peach.fuzzy}{}
+\BOOKMARK [2][-]{subsection.2.1}{Modules}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Variables}{section.2}
+\BOOKMARK [1][-]{section.3}{Module peach.fuzzy.control}{}
+\BOOKMARK [2][-]{subsection.3.1}{Variables}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Class Controller}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Methods}{subsection.3.2}
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Properties}{subsection.3.2}
+\BOOKMARK [2][-]{subsection.3.3}{Class Mamdani}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Methods}{subsection.3.3}
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Properties}{subsection.3.3}
+\BOOKMARK [2][-]{subsection.3.4}{Class Parametric}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Methods}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Properties}{subsection.3.4}
+\BOOKMARK [2][-]{subsection.3.5}{Class Sugeno}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Methods}{subsection.3.5}
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Properties}{subsection.3.5}
+\BOOKMARK [1][-]{section.4}{Module peach.fuzzy.defuzzy}{}
+\BOOKMARK [2][-]{subsection.4.1}{Functions}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Variables}{section.4}
+\BOOKMARK [1][-]{section.5}{Module peach.fuzzy.fuzzy}{}
+\BOOKMARK [2][-]{subsection.5.1}{Variables}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Class FuzzySet}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Methods}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{returns.3}{Returns}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{returns.3}{Returns}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{returns.3}{Returns}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{returns.3}{Returns}{subsection.5.2}
+\BOOKMARK [3][-]{raises.3}{Raises}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{notes.3}{Notes}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{returns.3}{Returns}{subsection.5.2}
+\BOOKMARK [3][-]{notes.3}{Notes}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{see-also.3}{See Also}{subsection.5.2}
+\BOOKMARK [3][-]{parameters.3}{Parameters}{subsection.5.2}
+\BOOKMARK [3][-]{examples.3}{Examples}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Properties}{subsection.5.2}
+\BOOKMARK [1][-]{section.6}{Module peach.fuzzy.mf}{}
+\BOOKMARK [2][-]{subsection.6.1}{Functions}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Variables}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{Class Membership}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Methods}{subsection.6.3}
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Properties}{subsection.6.3}
+\BOOKMARK [2][-]{subsection.6.4}{Class IncreasingRamp}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Methods}{subsection.6.4}
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Properties}{subsection.6.4}
+\BOOKMARK [2][-]{subsection.6.5}{Class DecreasingRamp}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.5.1}{Methods}{subsection.6.5}
+\BOOKMARK [3][-]{subsubsection.6.5.2}{Properties}{subsection.6.5}
+\BOOKMARK [2][-]{subsection.6.6}{Class Triangle}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Methods}{subsection.6.6}
+\BOOKMARK [3][-]{subsubsection.6.6.2}{Properties}{subsection.6.6}
+\BOOKMARK [2][-]{subsection.6.7}{Class Trapezoid}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Methods}{subsection.6.7}
+\BOOKMARK [3][-]{subsubsection.6.7.2}{Properties}{subsection.6.7}
+\BOOKMARK [2][-]{subsection.6.8}{Class Gaussian}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.8.1}{Methods}{subsection.6.8}
+\BOOKMARK [3][-]{subsubsection.6.8.2}{Properties}{subsection.6.8}
+\BOOKMARK [2][-]{subsection.6.9}{Class IncreasingSigmoid}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.9.1}{Methods}{subsection.6.9}
+\BOOKMARK [3][-]{subsubsection.6.9.2}{Properties}{subsection.6.9}
+\BOOKMARK [2][-]{subsection.6.10}{Class DecreasingSigmoid}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.10.1}{Methods}{subsection.6.10}
+\BOOKMARK [3][-]{subsubsection.6.10.2}{Properties}{subsection.6.10}
+\BOOKMARK [2][-]{subsection.6.11}{Class RaisedCosine}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.11.1}{Methods}{subsection.6.11}
+\BOOKMARK [3][-]{subsubsection.6.11.2}{Properties}{subsection.6.11}
+\BOOKMARK [2][-]{subsection.6.12}{Class Bell}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.12.1}{Methods}{subsection.6.12}
+\BOOKMARK [3][-]{subsubsection.6.12.2}{Properties}{subsection.6.12}
+\BOOKMARK [1][-]{section.7}{Module peach.fuzzy.norms}{}
+\BOOKMARK [2][-]{subsection.7.1}{Functions}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Variables}{section.7}
+\BOOKMARK [1][-]{section.8}{Package peach.ga}{}
+\BOOKMARK [2][-]{subsection.8.1}{Modules}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{Variables}{section.8}
+\BOOKMARK [1][-]{section.9}{Module peach.ga.chromosome}{}
+\BOOKMARK [2][-]{subsection.9.1}{Variables}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{Class Chromosome}{section.9}
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Methods}{subsection.9.2}
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Properties}{subsection.9.2}
+\BOOKMARK [3][-]{subsubsection.9.2.3}{Instance Variables}{subsection.9.2}
+\BOOKMARK [1][-]{section.10}{Module peach.ga.crossover}{}
+\BOOKMARK [2][-]{subsection.10.1}{Variables}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Class Crossover}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.2.1}{Methods}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.2}{Properties}{subsection.10.2}
+\BOOKMARK [2][-]{subsection.10.3}{Class OnePoint}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.3.1}{Methods}{subsection.10.3}
+\BOOKMARK [3][-]{subsubsection.10.3.2}{Properties}{subsection.10.3}
+\BOOKMARK [3][-]{subsubsection.10.3.3}{Instance Variables}{subsection.10.3}
+\BOOKMARK [2][-]{subsection.10.4}{Class TwoPoint}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.4.1}{Methods}{subsection.10.4}
+\BOOKMARK [3][-]{subsubsection.10.4.2}{Properties}{subsection.10.4}
+\BOOKMARK [3][-]{subsubsection.10.4.3}{Instance Variables}{subsection.10.4}
+\BOOKMARK [2][-]{subsection.10.5}{Class Uniform}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.5.1}{Methods}{subsection.10.5}
+\BOOKMARK [3][-]{subsubsection.10.5.2}{Properties}{subsection.10.5}
+\BOOKMARK [3][-]{subsubsection.10.5.3}{Instance Variables}{subsection.10.5}
+\BOOKMARK [1][-]{section.11}{Module peach.ga.fitness}{}
+\BOOKMARK [2][-]{subsection.11.1}{Variables}{section.11}
+\BOOKMARK [2][-]{subsection.11.2}{Class Fitness}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.2.1}{Methods}{subsection.11.2}
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Properties}{subsection.11.2}
+\BOOKMARK [3][-]{subsubsection.11.2.3}{Instance Variables}{subsection.11.2}
+\BOOKMARK [2][-]{subsection.11.3}{Class Ranking}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Methods}{subsection.11.3}
+\BOOKMARK [3][-]{subsubsection.11.3.2}{Properties}{subsection.11.3}
+\BOOKMARK [3][-]{subsubsection.11.3.3}{Instance Variables}{subsection.11.3}
+\BOOKMARK [1][-]{section.12}{Module peach.ga.ga}{}
+\BOOKMARK [2][-]{subsection.12.1}{Variables}{section.12}
+\BOOKMARK [2][-]{subsection.12.2}{Class GA}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.2.1}{Methods}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.2}{Properties}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.3}{Instance Variables}{subsection.12.2}
+\BOOKMARK [1][-]{section.13}{Module peach.ga.mutation}{}
+\BOOKMARK [2][-]{subsection.13.1}{Variables}{section.13}
+\BOOKMARK [2][-]{subsection.13.2}{Class Mutation}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.2.1}{Methods}{subsection.13.2}
+\BOOKMARK [3][-]{subsubsection.13.2.2}{Properties}{subsection.13.2}
+\BOOKMARK [2][-]{subsection.13.3}{Class BitToBit}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.3.1}{Methods}{subsection.13.3}
+\BOOKMARK [3][-]{subsubsection.13.3.2}{Properties}{subsection.13.3}
+\BOOKMARK [3][-]{subsubsection.13.3.3}{Instance Variables}{subsection.13.3}
+\BOOKMARK [1][-]{section.14}{Module peach.ga.selection}{}
+\BOOKMARK [2][-]{subsection.14.1}{Variables}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Class Selection}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.2.1}{Methods}{subsection.14.2}
+\BOOKMARK [3][-]{subsubsection.14.2.2}{Properties}{subsection.14.2}
+\BOOKMARK [2][-]{subsection.14.3}{Class RouletteWheel}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.3.1}{Methods}{subsection.14.3}
+\BOOKMARK [3][-]{subsubsection.14.3.2}{Properties}{subsection.14.3}
+\BOOKMARK [2][-]{subsection.14.4}{Class BinaryTournament}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.4.1}{Methods}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.2}{Properties}{subsection.14.4}
+\BOOKMARK [2][-]{subsection.14.5}{Class Baker}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.5.1}{Methods}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.2}{Properties}{subsection.14.5}
+\BOOKMARK [1][-]{section.15}{Package peach.nn}{}
+\BOOKMARK [2][-]{subsection.15.1}{Modules}{section.15}
+\BOOKMARK [2][-]{subsection.15.2}{Variables}{section.15}
+\BOOKMARK [1][-]{section.16}{Module peach.nn.af}{}
+\BOOKMARK [2][-]{subsection.16.1}{Variables}{section.16}
+\BOOKMARK [2][-]{subsection.16.2}{Class Activation}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.2.1}{Methods}{subsection.16.2}
+\BOOKMARK [3][-]{subsubsection.16.2.2}{Properties}{subsection.16.2}
+\BOOKMARK [3][-]{subsubsection.16.2.3}{Instance Variables}{subsection.16.2}
+\BOOKMARK [2][-]{subsection.16.3}{Class Threshold}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.3.1}{Methods}{subsection.16.3}
+\BOOKMARK [3][-]{subsubsection.16.3.2}{Properties}{subsection.16.3}
+\BOOKMARK [3][-]{subsubsection.16.3.3}{Instance Variables}{subsection.16.3}
+\BOOKMARK [2][-]{subsection.16.4}{Class Threshold}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.4.1}{Methods}{subsection.16.4}
+\BOOKMARK [3][-]{subsubsection.16.4.2}{Properties}{subsection.16.4}
+\BOOKMARK [3][-]{subsubsection.16.4.3}{Instance Variables}{subsection.16.4}
+\BOOKMARK [2][-]{subsection.16.5}{Class Linear}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.5.1}{Methods}{subsection.16.5}
+\BOOKMARK [3][-]{subsubsection.16.5.2}{Properties}{subsection.16.5}
+\BOOKMARK [3][-]{subsubsection.16.5.3}{Instance Variables}{subsection.16.5}
+\BOOKMARK [2][-]{subsection.16.6}{Class Linear}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.6.1}{Methods}{subsection.16.6}
+\BOOKMARK [3][-]{subsubsection.16.6.2}{Properties}{subsection.16.6}
+\BOOKMARK [3][-]{subsubsection.16.6.3}{Instance Variables}{subsection.16.6}
+\BOOKMARK [2][-]{subsection.16.7}{Class Ramp}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.7.1}{Methods}{subsection.16.7}
+\BOOKMARK [3][-]{subsubsection.16.7.2}{Properties}{subsection.16.7}
+\BOOKMARK [3][-]{subsubsection.16.7.3}{Instance Variables}{subsection.16.7}
+\BOOKMARK [2][-]{subsection.16.8}{Class Sigmoid}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.8.1}{Methods}{subsection.16.8}
+\BOOKMARK [3][-]{subsubsection.16.8.2}{Properties}{subsection.16.8}
+\BOOKMARK [3][-]{subsubsection.16.8.3}{Instance Variables}{subsection.16.8}
+\BOOKMARK [2][-]{subsection.16.9}{Class Sigmoid}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.9.1}{Methods}{subsection.16.9}
+\BOOKMARK [3][-]{subsubsection.16.9.2}{Properties}{subsection.16.9}
+\BOOKMARK [3][-]{subsubsection.16.9.3}{Instance Variables}{subsection.16.9}
+\BOOKMARK [2][-]{subsection.16.10}{Class Signum}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.10.1}{Methods}{subsection.16.10}
+\BOOKMARK [3][-]{subsubsection.16.10.2}{Properties}{subsection.16.10}
+\BOOKMARK [3][-]{subsubsection.16.10.3}{Instance Variables}{subsection.16.10}
+\BOOKMARK [2][-]{subsection.16.11}{Class ArcTan}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.11.1}{Methods}{subsection.16.11}
+\BOOKMARK [3][-]{subsubsection.16.11.2}{Properties}{subsection.16.11}
+\BOOKMARK [3][-]{subsubsection.16.11.3}{Instance Variables}{subsection.16.11}
+\BOOKMARK [2][-]{subsection.16.12}{Class TanH}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.12.1}{Methods}{subsection.16.12}
+\BOOKMARK [3][-]{subsubsection.16.12.2}{Properties}{subsection.16.12}
+\BOOKMARK [3][-]{subsubsection.16.12.3}{Instance Variables}{subsection.16.12}
+\BOOKMARK [1][-]{section.17}{Module peach.nn.base}{}
+\BOOKMARK [2][-]{subsection.17.1}{Variables}{section.17}
+\BOOKMARK [2][-]{subsection.17.2}{Class Layer}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.2.1}{Methods}{subsection.17.2}
+\BOOKMARK [3][-]{subsubsection.17.2.2}{Properties}{subsection.17.2}
+\BOOKMARK [1][-]{section.18}{Module peach.nn.lrules}{}
+\BOOKMARK [2][-]{subsection.18.1}{Variables}{section.18}
+\BOOKMARK [2][-]{subsection.18.2}{Class FFLearning}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.2.1}{Methods}{subsection.18.2}
+\BOOKMARK [3][-]{subsubsection.18.2.2}{Properties}{subsection.18.2}
+\BOOKMARK [2][-]{subsection.18.3}{Class LMS}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.3.1}{Methods}{subsection.18.3}
+\BOOKMARK [3][-]{subsubsection.18.3.2}{Properties}{subsection.18.3}
+\BOOKMARK [3][-]{subsubsection.18.3.3}{Instance Variables}{subsection.18.3}
+\BOOKMARK [2][-]{subsection.18.4}{Class LMS}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.4.1}{Methods}{subsection.18.4}
+\BOOKMARK [3][-]{subsubsection.18.4.2}{Properties}{subsection.18.4}
+\BOOKMARK [3][-]{subsubsection.18.4.3}{Instance Variables}{subsection.18.4}
+\BOOKMARK [2][-]{subsection.18.5}{Class LMS}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.5.1}{Methods}{subsection.18.5}
+\BOOKMARK [3][-]{subsubsection.18.5.2}{Properties}{subsection.18.5}
+\BOOKMARK [3][-]{subsubsection.18.5.3}{Instance Variables}{subsection.18.5}
+\BOOKMARK [2][-]{subsection.18.6}{Class BackPropagation}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.6.1}{Methods}{subsection.18.6}
+\BOOKMARK [3][-]{subsubsection.18.6.2}{Properties}{subsection.18.6}
+\BOOKMARK [3][-]{subsubsection.18.6.3}{Instance Variables}{subsection.18.6}
+\BOOKMARK [2][-]{subsection.18.7}{Class SOMLearning}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.7.1}{Methods}{subsection.18.7}
+\BOOKMARK [3][-]{subsubsection.18.7.2}{Properties}{subsection.18.7}
+\BOOKMARK [2][-]{subsection.18.8}{Class WinnerTakesAll}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.8.1}{Methods}{subsection.18.8}
+\BOOKMARK [3][-]{subsubsection.18.8.2}{Properties}{subsection.18.8}
+\BOOKMARK [3][-]{subsubsection.18.8.3}{Instance Variables}{subsection.18.8}
+\BOOKMARK [2][-]{subsection.18.9}{Class WinnerTakesAll}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.9.1}{Methods}{subsection.18.9}
+\BOOKMARK [3][-]{subsubsection.18.9.2}{Properties}{subsection.18.9}
+\BOOKMARK [3][-]{subsubsection.18.9.3}{Instance Variables}{subsection.18.9}
+\BOOKMARK [2][-]{subsection.18.10}{Class Competitive}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.10.1}{Methods}{subsection.18.10}
+\BOOKMARK [3][-]{subsubsection.18.10.2}{Properties}{subsection.18.10}
+\BOOKMARK [2][-]{subsection.18.11}{Class Cooperative}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.11.1}{Methods}{subsection.18.11}
+\BOOKMARK [3][-]{subsubsection.18.11.2}{Properties}{subsection.18.11}
+\BOOKMARK [1][-]{section.19}{Module peach.nn.nn}{}
+\BOOKMARK [2][-]{subsection.19.1}{Functions}{section.19}
+\BOOKMARK [2][-]{subsection.19.2}{Variables}{section.19}
+\BOOKMARK [2][-]{subsection.19.3}{Class FeedForward}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.3.1}{Methods}{subsection.19.3}
+\BOOKMARK [3][-]{subsubsection.19.3.2}{Properties}{subsection.19.3}
+\BOOKMARK [2][-]{subsection.19.4}{Class SOM}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.4.1}{Methods}{subsection.19.4}
+\BOOKMARK [3][-]{subsubsection.19.4.2}{Properties}{subsection.19.4}
+\BOOKMARK [1][-]{section.20}{Package peach.optm}{}
+\BOOKMARK [2][-]{subsection.20.1}{Modules}{section.20}
+\BOOKMARK [2][-]{subsection.20.2}{Variables}{section.20}
+\BOOKMARK [1][-]{section.21}{Module peach.optm.linear}{}
+\BOOKMARK [2][-]{subsection.21.1}{Variables}{section.21}
+\BOOKMARK [2][-]{subsection.21.2}{Class Direct1D}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.2.1}{Methods}{subsection.21.2}
+\BOOKMARK [3][-]{subsubsection.21.2.2}{Properties}{subsection.21.2}
+\BOOKMARK [2][-]{subsection.21.3}{Class Interpolation}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.3.1}{Methods}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.2}{Properties}{subsection.21.3}
+\BOOKMARK [2][-]{subsection.21.4}{Class GoldenRule}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.4.1}{Methods}{subsection.21.4}
+\BOOKMARK [3][-]{subsubsection.21.4.2}{Properties}{subsection.21.4}
+\BOOKMARK [2][-]{subsection.21.5}{Class Fibonacci}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.5.1}{Methods}{subsection.21.5}
+\BOOKMARK [3][-]{subsubsection.21.5.2}{Properties}{subsection.21.5}
+\BOOKMARK [1][-]{section.22}{Module peach.optm.multivar}{}
+\BOOKMARK [2][-]{subsection.22.1}{Variables}{section.22}
+\BOOKMARK [2][-]{subsection.22.2}{Class Direct}{section.22}
+\BOOKMARK [3][-]{subsubsection.22.2.1}{Methods}{subsection.22.2}
+\BOOKMARK [3][-]{subsubsection.22.2.2}{Properties}{subsection.22.2}
+\BOOKMARK [2][-]{subsection.22.3}{Class Gradient}{section.22}
+\BOOKMARK [3][-]{subsubsection.22.3.1}{Methods}{subsection.22.3}
+\BOOKMARK [3][-]{subsubsection.22.3.2}{Properties}{subsection.22.3}
+\BOOKMARK [2][-]{subsection.22.4}{Class Newton}{section.22}
+\BOOKMARK [3][-]{subsubsection.22.4.1}{Methods}{subsection.22.4}
+\BOOKMARK [3][-]{subsubsection.22.4.2}{Properties}{subsection.22.4}
+\BOOKMARK [1][-]{section.23}{Module peach.optm.optm}{}
+\BOOKMARK [2][-]{subsection.23.1}{Functions}{section.23}
+\BOOKMARK [2][-]{subsection.23.2}{Variables}{section.23}
+\BOOKMARK [2][-]{subsection.23.3}{Class Optimizer}{section.23}
+\BOOKMARK [3][-]{subsubsection.23.3.1}{Methods}{subsection.23.3}
+\BOOKMARK [3][-]{subsubsection.23.3.2}{Properties}{subsection.23.3}
+\BOOKMARK [1][-]{section.24}{Module peach.optm.quasinewton}{}
+\BOOKMARK [2][-]{subsection.24.1}{Variables}{section.24}
+\BOOKMARK [2][-]{subsection.24.2}{Class DFP}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.2.1}{Methods}{subsection.24.2}
+\BOOKMARK [3][-]{subsubsection.24.2.2}{Properties}{subsection.24.2}
+\BOOKMARK [2][-]{subsection.24.3}{Class BFGS}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.3.1}{Methods}{subsection.24.3}
+\BOOKMARK [3][-]{subsubsection.24.3.2}{Properties}{subsection.24.3}
+\BOOKMARK [2][-]{subsection.24.4}{Class SR1}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.4.1}{Methods}{subsection.24.4}
+\BOOKMARK [3][-]{subsubsection.24.4.2}{Properties}{subsection.24.4}
+\BOOKMARK [1][-]{section.25}{Module peach.optm.sa}{}
+\BOOKMARK [2][-]{subsection.25.1}{Variables}{section.25}
+\BOOKMARK [2][-]{subsection.25.2}{Class ContinuousSA}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.2.1}{Methods}{subsection.25.2}
+\BOOKMARK [3][-]{subsubsection.25.2.2}{Properties}{subsection.25.2}
+\BOOKMARK [2][-]{subsection.25.3}{Class DiscreteSA}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.3.1}{Methods}{subsection.25.3}
+\BOOKMARK [3][-]{subsubsection.25.3.2}{Properties}{subsection.25.3}
+\BOOKMARK [1][-]{section.26}{Module peach.optm.stochastic}{}
+\BOOKMARK [2][-]{subsection.26.1}{Variables}{section.26}
+\BOOKMARK [2][-]{subsection.26.2}{Class CrossEntropy}{section.26}
+\BOOKMARK [3][-]{subsubsection.26.2.1}{Methods}{subsection.26.2}
+\BOOKMARK [3][-]{subsubsection.26.2.2}{Properties}{subsection.26.2}
+\BOOKMARK [1][-]{section*.66}{Index}{}

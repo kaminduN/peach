@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.nn.nn.FeedForward</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.nn-module.html">Package&nbsp;nn</a> ::
+        <a href="peach.nn.nn-module.html">Module&nbsp;nn</a> ::
+        Class&nbsp;FeedForward
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.nn.nn.FeedForward-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class FeedForward</h1><span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_nn_17" name="uml_class_diagram_for_peach_nn_17">
+<area shape="rect" href="javascript: void(0);" title="x[i:j]" alt="" coords="299,36,416,55"/>
+<area shape="rect" href="javascript: void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="299,55,416,74"/>
+<area shape="rect" href="javascript: void(0);" title="remove and return item at index (default last)" alt="" coords="299,74,416,92"/>
+<area shape="rect" href="javascript: void(0);" title="x+=y" alt="" coords="299,92,416,111"/>
+<area shape="rect" href="javascript: void(0);" title="n*x" alt="" coords="299,111,416,130"/>
+<area shape="rect" href="javascript: void(0);" title="x&lt;y" alt="" coords="299,130,416,148"/>
+<area shape="rect" href="javascript: void(0);" title="append object to end" alt="" coords="299,148,416,167"/>
+<area shape="rect" href="javascript: void(0);" title="L.index(value, [start, [stop]]) &#45;&gt; integer &#45;&#45; return first index of value" alt="" coords="299,167,416,186"/>
+<area shape="rect" href="javascript: void(0);" title="del x[i:j]" alt="" coords="299,186,416,204"/>
+<area shape="rect" href="javascript: void(0);" title="Returns:  a new object with type S, a subtype of T" alt="" coords="299,204,416,223"/>
+<area shape="rect" href="javascript: void(0);" title="y in x" alt="" coords="299,223,416,242"/>
+<area shape="rect" href="javascript: void(0);" title="len(x)" alt="" coords="299,242,416,260"/>
+<area shape="rect" href="javascript: void(0);" title="repr(x)" alt="" coords="299,260,416,279"/>
+<area shape="rect" href="javascript: void(0);" title="x&gt;=y" alt="" coords="299,298,416,316"/>
+<area shape="rect" href="javascript: void(0);" title="list() &#45;&gt; new list list(sequence) &#45;&gt; new list initialized from sequence&#39;s items" alt="" coords="297,11,417,318"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#bias" title="A tuple containing the bias of each layer." alt="" coords="17,364,697,383"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#phi" title="Activation functions for every layer in the network." alt="" coords="17,383,697,402"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#nlayers" title="Number of layers of the neural network." alt="" coords="17,402,697,420"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#y" title="A list of activation values for each neuron in the last layer of the network, ie., the answer of the network." alt="" coords="17,420,697,439"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#feed" title="Feed the network and applies one example of the training set to the network." alt="" coords="17,442,697,460"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#__init__" title="Initializes a feedforward neural network." alt="" coords="17,460,697,479"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#__call__" title="The feedforward method of the network." alt="" coords="17,479,697,498"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#train" title="Presents a training set to the network." alt="" coords="17,498,697,516"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html#learn" title="Applies one example of the training set to the network." alt="" coords="17,516,697,535"/>
+<area shape="rect" href="peach.nn.nn.FeedForward&#45;class.html" title="Classic completely connected neural network." alt="" coords="16,347,699,536"/>
+</map>
+  <img src="uml_class_diagram_for_peach_nn_17.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_17" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Classic completely connected neural network.</p>
+<p>A feedforward neural network is implemented as a list of layers, each layer
+being a <tt class="rst-docutils literal"><span class="pre">Layer</span></tt> object (please consult the documentation on the <tt class="rst-docutils literal"><span class="pre">base</span></tt>
+module for more information on layers). The layers are completely connected,
+which means that every neuron in one layers is connected to every other
+neuron in the following layer.</p>
+<p>There is a number of learning methods that are already implemented, but in
+general, any learning class derived from <tt class="rst-docutils literal"><span class="pre">FFLearning</span></tt> can be used. No
+other kind of learning can be used. Please, consult the documentation on the
+<tt class="rst-docutils literal"><span class="pre">lrules</span></tt> (<em>learning rules</em>) module.</p><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">layers</span>,
+        <span class="summary-sig-arg">phi</span>=<span class="summary-sig-default">&lt;class 'peach.nn.af.Linear'&gt;</span>,
+        <span class="summary-sig-arg">lrule</span>=<span class="summary-sig-default">&lt;class 'peach.nn.lrules.BackPropagation'&gt;</span>,
+        <span class="summary-sig-arg">bias</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Initializes a feedforward neural network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getnlayers"></a><span class="summary-sig-name">__getnlayers</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__getnlayers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getbias"></a><span class="summary-sig-name">__getbias</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__getbias">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__gety"></a><span class="summary-sig-name">__gety</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__gety">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getphi"></a><span class="summary-sig-name">__getphi</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__getphi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setphi"></a><span class="summary-sig-name">__setphi</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phis</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__setphi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      The feedforward method of the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#learn" class="summary-sig-name">learn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">d</span>)</span><br />
+      Applies one example of the training set to the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.learn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#feed" class="summary-sig-name">feed</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">d</span>)</span><br />
+      Feed the network and applies one example of the training set to the
+network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.feed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#train" class="summary-sig-name">train</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">train_set</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">2000</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">randomize</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Presents a training set to the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.train">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>list</code></b>:
+      <code>__add__</code>,
+      <code>__contains__</code>,
+      <code>__delitem__</code>,
+      <code>__delslice__</code>,
+      <code>__eq__</code>,
+      <code>__ge__</code>,
+      <code>__getattribute__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__gt__</code>,
+      <code>__hash__</code>,
+      <code>__iadd__</code>,
+      <code>__imul__</code>,
+      <code>__iter__</code>,
+      <code>__le__</code>,
+      <code>__len__</code>,
+      <code>__lt__</code>,
+      <code>__mul__</code>,
+      <code>__ne__</code>,
+      <code>__new__</code>,
+      <code>__repr__</code>,
+      <code>__reversed__</code>,
+      <code>__rmul__</code>,
+      <code>__setitem__</code>,
+      <code>__setslice__</code>,
+      <code>append</code>,
+      <code>count</code>,
+      <code>extend</code>,
+      <code>index</code>,
+      <code>insert</code>,
+      <code>pop</code>,
+      <code>remove</code>,
+      <code>reverse</code>,
+      <code>sort</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.nn.FeedForward-class.html#nlayers" class="summary-name">nlayers</a><br />
+      Number of layers of the neural network.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.nn.FeedForward-class.html#bias" class="summary-name">bias</a><br />
+      A tuple containing the bias of each layer.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.nn.FeedForward-class.html#y" class="summary-name">y</a><br />
+      A list of activation values for each neuron in the last layer of the
+network, ie., the answer of the network.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.nn.FeedForward-class.html#phi" class="summary-name">phi</a><br />
+      Activation functions for every layer in the network.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">layers</span>,
+        <span class="sig-arg">phi</span>=<span class="sig-default">&lt;class 'peach.nn.af.Linear'&gt;</span>,
+        <span class="sig-arg">lrule</span>=<span class="sig-default">&lt;class 'peach.nn.lrules.BackPropagation'&gt;</span>,
+        <span class="sig-arg">bias</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Initializes a feedforward neural network.</p>
+<p>A feedforward network is implemented as a list of layers, completely
+connected.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>layers</code></strong> - A list of integers containing the shape of the network. The first
+element of the list is the number of inputs of the network (or, as
+somebody prefer, the number of input neurons); the number of outputs
+is the number of neurons in the last layer. Thus, at least two
+numbers should be given.</li>
+        <li><strong class="pname"><code>phi</code></strong> - The activation functions to be used with each layer of the network.
+Please consult the <tt class="rst-docutils literal"><span class="pre">Layer</span></tt> documentation in the <tt class="rst-docutils literal"><span class="pre">base</span></tt> module
+for more information. This parameter can be a single function or a
+list of functions. If only one function is given, then the same
+function is used in every layer. If a list of functions is given,
+then the layers use the functions in the sequence given. Note that
+heterogeneous networks can be created that way. Defaults to
+<tt class="rst-docutils literal"><span class="pre">Linear</span></tt>.</li>
+        <li><strong class="pname"><code>lrule</code></strong> - The learning rule used. Only <tt class="rst-docutils literal"><span class="pre">FFLearning</span></tt> objects (instances of
+the class or of the subclasses) are allowed. Defaults to
+<tt class="rst-docutils literal"><span class="pre">BackPropagation</span></tt>. Check the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> documentation for more
+information.</li>
+        <li><strong class="pname"><code>bias</code></strong> - If <tt class="rst-docutils literal"><span class="pre">True</span></tt>, then the neurons are biased.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd><pre class="literalblock">
+new list
+
+</pre></dd>
+    <dt>Overrides:
+      list.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>The feedforward method of the network.</p>
+<p>The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface should be called if the answer of the neuron
+network to a given input vector <tt class="rst-docutils literal"><span class="pre">x</span></tt> is desired. <em>This method has
+collateral effects</em>, so beware. After the calling of this method, the
+<tt class="rst-docutils literal"><span class="pre">y</span></tt> property is set with the activation potential and the answer of
+the neurons, respectivelly.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - The input vector to the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The vector containing the answer of every neuron in the last layer, in
+the respective order.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="learn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">learn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">d</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.learn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Applies one example of the training set to the network.</p>
+<p>Using this method, one iteration of the learning procedure is made with
+the neurons of this network. This method presents one example (not
+necessarilly of a training set) and applies the learning rule over the
+network. The learning rule is defined in the initialization of the
+network, and some are implemented on the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> method. New methods
+can be created, consult the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> documentation but, for
+<tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> instances, only <tt class="rst-docutils literal"><span class="pre">FFLearning</span></tt> learning is allowed.</p>
+<p>Also, notice that <em>this method only applies the learning method!</em> The
+network should be fed with the same input vector before trying to learn
+anything first. Consult the <tt class="rst-docutils literal"><span class="pre">feed</span></tt> and <tt class="rst-docutils literal"><span class="pre">train</span></tt> methods below for
+more ways to train a network.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - Input vector of the example. It should be a column vector of the
+correct dimension, that is, the number of input neurons.</li>
+        <li><strong class="pname"><code>d</code></strong> - The desired answer of the network for this particular input vector.
+Notice that the desired answer should have the same dimension of the
+last layer of the network. This means that a desired answer should
+be given for every output of the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The error obtained by the network.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="feed"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">feed</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">d</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.feed">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Feed the network and applies one example of the training set to the
+network.</p>
+<p>Using this method, one iteration of the learning procedure is made with
+the neurons of this network. This method presents one example (not
+necessarilly of a training set) and applies the learning rule over the
+network. The learning rule is defined in the initialization of the
+network, and some are implemented on the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> method. New methods
+can be created, consult the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> documentation but, for
+<tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> instances, only <tt class="rst-docutils literal"><span class="pre">FFLearning</span></tt> learning is allowed.</p>
+<p>Also, notice that <em>this method feeds the network</em> before applying the
+learning rule. Feeding the network has collateral effects, and some
+properties change when this happens. Namely, the <tt class="rst-docutils literal"><span class="pre">y</span></tt> property is set.
+Please consult the <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - Input vector of the example. It should be a column vector of the
+correct dimension, that is, the number of input neurons.</li>
+        <li><strong class="pname"><code>d</code></strong> - The desired answer of the network for this particular input vector.
+Notice that the desired answer should have the same dimension of the
+last layer of the network. This means that a desired answer should
+be given for every output of the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The error obtained by the network.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="train"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">train</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">train_set</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">2000</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">randomize</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#FeedForward.train">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Presents a training set to the network.</p>
+<p>This method automatizes the training of the network. Given a training
+set, the examples are shown to the network (possibly in a randomized
+way). A maximum number of iterations or a maximum admitted error should
+be given as a stop condition.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>train_set</code></strong> - The training set is a list of examples. It can have any size and can
+contain repeated examples. In fact, the definition of the training
+set is open. Each element of the training set, however, should be a
+two-tuple <tt class="rst-docutils literal"><span class="pre">(x,</span> <span class="pre">d)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">x</span></tt> is the input vector, and <tt class="rst-docutils literal"><span class="pre">d</span></tt> is
+the desired response of the network for this particular input. See
+the <tt class="rst-docutils literal"><span class="pre">learn</span></tt> and <tt class="rst-docutils literal"><span class="pre">feed</span></tt> for more information.</li>
+        <li><strong class="pname"><code>imax</code></strong> - The maximum number of iterations. Examples from the training set
+will be presented to the network while this limit is not reached.
+Defaults to 2000.</li>
+        <li><strong class="pname"><code>emax</code></strong> - The maximum admitted error. Examples from the training set will be
+presented to the network until the error obtained is lower than this
+limit. Defaults to 1e-5.</li>
+        <li><strong class="pname"><code>randomize</code></strong> - If this is <tt class="rst-docutils literal"><span class="pre">True</span></tt>, then the examples are shown in a randomized
+order. If <tt class="rst-docutils literal"><span class="pre">False</span></tt>, then the examples are shown in the same order
+that they appear in the <tt class="rst-docutils literal"><span class="pre">train_set</span></tt> list. Defaults to <tt class="rst-docutils literal"><span class="pre">False</span></tt>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="nlayers"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">nlayers</h3>
+  Number of layers of the neural network. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__getnlayers" class="summary-sig-name">peach.nn.nn.FeedForward.__getnlayers</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="bias"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">bias</h3>
+  A tuple containing the bias of each layer. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__getbias" class="summary-sig-name">peach.nn.nn.FeedForward.__getbias</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="y"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">y</h3>
+  A list of activation values for each neuron in the last layer of the
+network, ie., the answer of the network. This property is available only
+after the network is fed some input.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__gety" class="summary-sig-name">peach.nn.nn.FeedForward.__gety</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="phi"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">phi</h3>
+  Activation functions for every layer in the network. It is a list of
+<tt class="rst-docutils literal"><span class="pre">Activation</span></tt> objects, but can be set with only one function. In this case,
+the same function is used for every layer.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__getphi" class="summary-sig-name">peach.nn.nn.FeedForward.__getphi</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.nn.FeedForward-class.html#__setphi" class="summary-sig-name">peach.nn.nn.FeedForward.__setphi</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phis</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:34 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Membership Functions &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Using Custom Membership Functions" href="custom-membership.html" />
+    <link rel="prev" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="custom-membership.html" title="Using Custom Membership Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-membership-functions">
+<h1>Using Membership Functions<a class="headerlink" href="#using-membership-functions" title="Permalink to this headline">¶</a></h1>
+<p>The aim of this tutorial is to show how to create and use membership functions
+with the fuzzy logic package of Peach. Most of the more used membership
+functions are already implemented, but there are ways to use different functions
+if it is needed.</p>
+<p>Membership functions in Peach are implemented as classes. You can instance a
+class, passing some parameters to it, to create a function that can be used with
+scalar numbers or arrays in general. To create a function, just instance it,
+passing whatever parameters are needed. To use it, just call the function you
+just created. Suppose we have already imported Peach in the command line. Then,
+you can create (say) an increasing ramp starting in <tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">-1</span></tt> and ending in
+<tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></tt>, and use it, just by issuing the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">IncreasingRamp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span>
+<span class="go">FuzzySet(0.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="go">FuzzySet(1.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
+<span class="go">FuzzySet(0.5)</span>
+</pre></div>
+</div>
+<p>Notice that the membership function returns a <tt class="docutils literal"><span class="pre">FuzzySet</span></tt> object. A
+<tt class="docutils literal"><span class="pre">FuzzySet</span></tt> object is a scalar or array with the logic operations defined to
+work as in fuzzy logic.</p>
+<p>Below we have some of the implemented functions with the corresponding
+parameters. In these, consider <tt class="docutils literal"><span class="pre">x</span></tt> as the parameter passed when calling the
+function:</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">IncreasingRamp(x0,</span> <span class="pre">x1)</span></tt></dt>
+<dd>An increasing ramp, returning 0 if <tt class="docutils literal"><span class="pre">x</span></tt> is less than <tt class="docutils literal"><span class="pre">x0</span></tt>, 1 if <tt class="docutils literal"><span class="pre">x</span></tt>
+is greater than <tt class="docutils literal"><span class="pre">x1</span></tt>, and a straight line linking these points if <tt class="docutils literal"><span class="pre">x</span></tt>
+is inbetween. Notice that <tt class="docutils literal"><span class="pre">x0</span></tt> must be lower than <tt class="docutils literal"><span class="pre">x1</span></tt>.</dd>
+<dt><tt class="docutils literal"><span class="pre">DecreasingRamp(x0,</span> <span class="pre">x1)</span></tt></dt>
+<dd>A increasing ramp, returning 1 if <tt class="docutils literal"><span class="pre">x</span></tt> is less than <tt class="docutils literal"><span class="pre">x0</span></tt>, 0 if <tt class="docutils literal"><span class="pre">x</span></tt>
+is greater than <tt class="docutils literal"><span class="pre">x1</span></tt>, and a straight line linking these points if <tt class="docutils literal"><span class="pre">x</span></tt>
+is inbetween. Notice that <tt class="docutils literal"><span class="pre">x0</span></tt> must be lower than <tt class="docutils literal"><span class="pre">x1</span></tt>.</dd>
+<dt><tt class="docutils literal"><span class="pre">Triangle(x0,</span> <span class="pre">x1,</span> <span class="pre">x2)</span></tt></dt>
+<dd>A triangle function, returning 0 if <tt class="docutils literal"><span class="pre">x</span></tt> is less than <tt class="docutils literal"><span class="pre">x0</span></tt> of greater
+than <tt class="docutils literal"><span class="pre">x2</span></tt>, a maximum value of 1 if <tt class="docutils literal"><span class="pre">x</span></tt> is equal to <tt class="docutils literal"><span class="pre">x1</span></tt> and straight
+lines connecting these points. Notice that <tt class="docutils literal"><span class="pre">x0</span></tt> must be lower than
+<tt class="docutils literal"><span class="pre">x1</span></tt>, and that both must be lower than <tt class="docutils literal"><span class="pre">x2</span></tt>.</dd>
+<dt><tt class="docutils literal"><span class="pre">Trapezoid(x0,</span> <span class="pre">x1,</span> <span class="pre">x2,</span> <span class="pre">x3)</span></tt></dt>
+<dd>A trapezoid function, returning 0 if <tt class="docutils literal"><span class="pre">x</span></tt> is less than <tt class="docutils literal"><span class="pre">x0</span></tt> of greater
+than <tt class="docutils literal"><span class="pre">x3</span></tt>, a value of 1 if <tt class="docutils literal"><span class="pre">x</span></tt> is between <tt class="docutils literal"><span class="pre">x1</span></tt> and <tt class="docutils literal"><span class="pre">x2</span></tt> and
+straight lines connecting these points. Notice that we must assure that
+<tt class="docutils literal"><span class="pre">x0</span></tt> &lt; <tt class="docutils literal"><span class="pre">x1</span></tt> &lt; <tt class="docutils literal"><span class="pre">x2</span></tt> &lt; <tt class="docutils literal"><span class="pre">x3</span></tt>.</dd>
+<dt><tt class="docutils literal"><span class="pre">Gaussian(x0,</span> <span class="pre">a)</span></tt></dt>
+<dd>A gaussian function centered at <tt class="docutils literal"><span class="pre">x0</span></tt> and width <tt class="docutils literal"><span class="pre">a</span></tt>. Notice that <tt class="docutils literal"><span class="pre">a</span></tt>
+is not the variance of the gaussian, but behaves in the same way. That
+means that the bigger the value of <tt class="docutils literal"><span class="pre">a</span></tt>, the more open will be the
+function. The default value of <tt class="docutils literal"><span class="pre">x0</span></tt> is 0, and of <tt class="docutils literal"><span class="pre">a</span></tt> is 1.</dd>
+<dt><tt class="docutils literal"><span class="pre">IncreasingSigmoid(x0,</span> <span class="pre">a)</span></tt></dt>
+<dd>An increasing sigmoid with middle point at <tt class="docutils literal"><span class="pre">x0</span></tt> and inclination <tt class="docutils literal"><span class="pre">a</span></tt>.
+The bigger the value of <tt class="docutils literal"><span class="pre">a</span></tt>, the steepest will be the sigmoid. The
+default value of <tt class="docutils literal"><span class="pre">x0</span></tt> is 0, and of <tt class="docutils literal"><span class="pre">a</span></tt> is 1.</dd>
+<dt><tt class="docutils literal"><span class="pre">DecreasingSigmoid(x0,</span> <span class="pre">a)</span></tt></dt>
+<dd>A decreasing sigmoid with middle point at <tt class="docutils literal"><span class="pre">x0</span></tt> and inclination <tt class="docutils literal"><span class="pre">a</span></tt>.
+The bigger the value of <tt class="docutils literal"><span class="pre">a</span></tt>, the steepest will be the sigmoid. The
+default value of <tt class="docutils literal"><span class="pre">x0</span></tt> is 0, and of <tt class="docutils literal"><span class="pre">a</span></tt> is 1.</dd>
+<dt><tt class="docutils literal"><span class="pre">Bell(x0,</span> <span class="pre">a,</span> <span class="pre">b)</span></tt></dt>
+<dd>A generalized bell centered at <tt class="docutils literal"><span class="pre">x0</span></tt>, width <tt class="docutils literal"><span class="pre">a</span></tt> and exponent <tt class="docutils literal"><span class="pre">2*b</span></tt>.
+The default value of <tt class="docutils literal"><span class="pre">x0</span></tt> is 0, of <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> is 1.</dd>
+</dl>
+</blockquote>
+<p>There are other predefined membership functions. Please, consult the reference
+for more information. The figure below shows the aspect of the functions, in
+the following order: in the first plot: a decreasing ramp, a triangle, a
+trapezoid and an increasing ramp; in the second plot, a decreasing sigmoid, a
+gaussian, a generalized bell and an increasing sigmoid.</p>
+<div align="center" class="align-center"><img alt="../_images/membership-functions.png" class="align-center" src="../_images/membership-functions.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="self-organizing-maps.html"
+                                  title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="custom-membership.html"
+                                  title="next chapter">Using Custom Membership Functions</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/membership-functions.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="custom-membership.html" title="Using Custom Membership Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

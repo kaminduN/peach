@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Inverted Pendulum demo &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Demos" href="demos.html" />
+    <link rel="prev" title="Demos" href="demos.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="demos.html" title="Demos"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="demos.html" accesskey="U">Demos</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-inverted-pendulum-demo">
+<h1>The Inverted Pendulum demo<a class="headerlink" href="#the-inverted-pendulum-demo" title="Permalink to this headline">¶</a></h1>
+<p>This program implements an animation of the control of an inverted pendulum
+using the <em>fuzzy</em> package. To run it, you must have the <a class="reference" href="http://www.riverbankcomputing.co.uk/">PyQt4</a> and the <a class="reference" href="http:/pyqwt.sourceforge.net/">PyQwt5</a> libraries installed. It presents a window with
+a representation of a inverted pendulum out of balance, and some controls to put
+a fuzzy logic controller to control and balance it. The controls offered allow
+to choose from different types of norms (<em>and</em>, <em>or</em> and <em>not</em> operations), as
+well as different implication, aglutination and defuzzification methods. Besides
+animating the inverted pendulum, it is possible to graphically track the
+controlled variables and follow the membership functions.</p>
+<div class="section" id="starting-the-program">
+<h2>Starting the Program<a class="headerlink" href="#starting-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Before trying to run the program, please make sure that the required libraries
+are installed and working. Usually, they are not difficult to install: Windows
+builds come with an installer, and Linux versions can be installed using a
+package manager.</p>
+<p>The program resides in the <tt class="docutils literal"><span class="pre">demos\ip</span></tt> folder. If you use Windows, use the
+file browser to navigate to that folder and double-click the <tt class="docutils literal"><span class="pre">IPApp.py</span></tt> file,
+and the program should start. In Linux, you can start it by the command line
+interface, navigating to the program folder and typing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># python IPApp.py</span>
+</pre></div>
+</div>
+<p>The main window of the program will be shown as in the picture below.</p>
+<img alt="../_images/inverted-pendulum.png" src="../_images/inverted-pendulum.png" style="width: 700px;" />
+</div>
+<div class="section" id="the-visualization-tabs">
+<h2>The Visualization Tabs<a class="headerlink" href="#the-visualization-tabs" title="Permalink to this headline">¶</a></h2>
+<p>Occupying the biggest portion of the window there is a set of three tabs that
+allow to visualize what&#8217;s happening with the pendulum. When the program starts,
+an out-of-balance pendulum is shown, and the animation is stopped. There are
+three tabs with different visualizations:</p>
+<blockquote>
+<dl class="docutils">
+<dt>Pendulum</dt>
+<dd>This tab shows the animation of the pendulum. In addition to showing the
+present position of the pendulum, it also shows the values of the
+variables involved in the control. In green, the angular position of the
+pendulum is shown, relative to the vertical (indicated by a vertical
+dashed line). In blue, the angular velocity of the pendulum is given.
+In red the resulting force applied to the cart.</dd>
+<dt>Graphics</dt>
+<dd>This tab shows graphically the progression of the variables according to
+time. In red is shown the angular position of the pendulum; in dark blue
+the angular speed; in light green the position of the cart relative to
+the center of the window; and in dark yellow the speed of the cart.</dd>
+<dt>Membership</dt>
+<dd><p class="first">This tab shows the membership of the controlled and manipulated
+variables. The top left set of plots are the membership functions of the
+angular position of the pendulum. The bottom left set of plots are the
+membership functions of the angular speed of the pendulum. In these
+plots a vertical black bar shows the present value of the respective
+variable.</p>
+<p class="last">The central plots are the membership functions of the applied force
+(which is the result of the controller). The result of the aglutination
+is shown in light gray, while a given production rule can be seen in
+dark gray. It is possible to change the specific rule that is
+highlighted in this view (see <a class="reference" href="#show-rule">Show Rule</a> below).</p>
+</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section" id="control-panel">
+<h2>Control Panel<a class="headerlink" href="#control-panel" title="Permalink to this headline">¶</a></h2>
+<p>With this panel it is possible to control the animation. Three buttons allow to
+start, stop and step over the animation, and the visualization in the active
+tab is updated accordingly.</p>
+<blockquote>
+<dl class="docutils">
+<dt>Start</dt>
+<dd>Starts the animation. When the animation is running, this button is
+made inactive.</dd>
+<dt>Stop</dt>
+<dd>Stops the animation if it is running. This button is normally inactive,
+but is made active when the animation is running.</dd>
+<dt>Step</dt>
+<dd>Performs a single step of the control: given the values of the angular
+position and speed, calculates the force that should be applied to the
+cart and updates the view. This button is made inactive when the
+animation is running.</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section" id="reset-panel">
+<h2>Reset Panel<a class="headerlink" href="#reset-panel" title="Permalink to this headline">¶</a></h2>
+<p>This panel gives feedback of the variables in the control and allows to modify
+them. When the animation is running, this entire panel is made inactive, so
+modification is allowed only when the animation is stopped. To modify the
+values, just type the new value of a variable in the respective box and press
+the <strong>Reset</strong> button.</p>
+</div>
+<div class="section" id="configuration-panel">
+<h2>Configuration Panel<a class="headerlink" href="#configuration-panel" title="Permalink to this headline">¶</a></h2>
+<p>The configuration allows to change some parameters of the controller. It is
+possible to change the behaviour of the fuzzy logic, as seen below. When the
+animation is running, these controls are made inactive, so modification is only
+possible with the animation stopped.</p>
+<blockquote>
+<dl class="docutils">
+<dt>Fuzzy logic</dt>
+<dd>The fuzzy logic combo box allows to specify how the <em>and</em>, <em>or</em> and
+<em>not</em> operations are calculated. There are, presently, two options: the
+traditional <strong>Zadeh</strong> logic (using <tt class="docutils literal"><span class="pre">max</span></tt> and <tt class="docutils literal"><span class="pre">min</span></tt>
+operations) and the <strong>Probabilistic</strong> logic. Please, consult a
+good reference on fuzzy logic, or the <em>fuzzy</em> package
+documentation.</dd>
+<dt>Inference</dt>
+<dd>The inference and aglutination methods used. There are two options: the
+traditional <strong>Mamdani</strong> inference (using <tt class="docutils literal"><span class="pre">max</span></tt> and <tt class="docutils literal"><span class="pre">min</span></tt>)
+and the <strong>Probabilistic</strong> logic. Please, consult a good
+reference on fuzzy logic, or the <em>fuzzy</em> package documentation.</dd>
+<dt>Defuzzification</dt>
+<dd>The defuzzification method. There are five possibilities: the usual
+<strong>Centroid</strong> method, the <strong>Bissector</strong> method and the
+less used <strong>SOM</strong> (Smallest of Maxima), <strong>LOM</strong> (Largest
+of Maxima) and <strong>MOM</strong> (Mean of Maxima) methods.</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section" id="show-rule">
+<h2>Show Rule<a class="headerlink" href="#show-rule" title="Permalink to this headline">¶</a></h2>
+<p>This combo box allow to visualize the action of a specific rule. That selects a
+production rule of the controller that is plotted with dark gray color in the
+aglutination plot of the <strong>Membership</strong> tab.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference" href="">The Inverted Pendulum demo</a><ul>
+<li><a class="reference" href="#starting-the-program">Starting the Program</a></li>
+<li><a class="reference" href="#the-visualization-tabs">The Visualization Tabs</a></li>
+<li><a class="reference" href="#control-panel">Control Panel</a></li>
+<li><a class="reference" href="#reset-panel">Reset Panel</a></li>
+<li><a class="reference" href="#configuration-panel">Configuration Panel</a></li>
+<li><a class="reference" href="#show-rule">Show Rule</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="demos.html"
+                                  title="previous chapter">Demos</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/demos/inverted-pendulum.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="demos.html" title="Demos"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="demos.html" >Demos</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

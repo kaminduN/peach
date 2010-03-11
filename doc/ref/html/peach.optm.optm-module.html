@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.optm.optm</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.optm-module.html">Package&nbsp;optm</a> ::
+        Module&nbsp;optm
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.optm.optm-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module optm</h1><span class="codelink"><a href="peach.optm.optm-pysrc.html">source&nbsp;code</a></span><br /><br />
+<p>Basic definitons and base class for optimizers</p>
+<p>This sub-package exports some auxiliary functions to work with cost functions,
+namely, a function to calculate gradient vectors and hessian matrices, which are
+extremely important in optimization.</p>
+<p>Also, a base class, <tt class="rst-docutils literal"><span class="pre">Optimizer</span></tt>, for all optimizers. Sub-class this class if
+you want to create your own optmizer, and follow the interface. This will allow
+easy configuration of your own scripts and comparison between methods.</p><br /><br />
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.optm.optm.Optimizer-class.html" class="summary-name">Optimizer</a><br />
+      Base class for all optimizers.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.optm-module.html#gradient" class="summary-sig-name">gradient</a>(<span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">dx</span>=<span class="summary-sig-default">1e-05</span>)</span><br />
+      Creates a function that calculates the gradient vector of a scalar field.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.optm-pysrc.html#gradient">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.optm-module.html#hessian" class="summary-sig-name">hessian</a>(<span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">dx</span>=<span class="summary-sig-default">1e-05</span>)</span><br />
+      Creates a function that calculates the hessian matrix of a scalar field.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.optm-pysrc.html#hessian">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.optm.optm-module.html#__doc__" class="summary-name">__doc__</a> = <code title="&quot;&quot;&quot;
+Basic definitons and base class for optimizers
+
+This sub-package exports some auxiliary functions to work with cost fu\
+nctions,
+namely, a function to calculate gradient vectors and hessian matrices,\
+ which are
+extremely important in optimization.
+..."><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="gradient"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">gradient</span>(<span class="sig-arg">f</span>,
+        <span class="sig-arg">dx</span>=<span class="sig-default">1e-05</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.optm-pysrc.html#gradient">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Creates a function that calculates the gradient vector of a scalar field.</p>
+<p>This function takes as a parameter a scalar function and creates a new
+function that is able to calculate the derivative (in case of single
+variable functions) or the gradient vector (in case of multivariable
+functions. Please, note that this function takes as a parameter a
+<em>function</em>, and returns as a result <em>another function</em>. Calling the returned
+function on a point will give the gradient vector of the original function
+at that point:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; def f(x):
+        return x^2
+
+&gt;&gt;&gt; df = gradient(f)
+&gt;&gt;&gt; df(1)
+2
+</pre>
+<p>In the above example, <tt class="rst-docutils literal"><span class="pre">df</span></tt> is a generated function which will return the
+result of the expression <tt class="rst-docutils literal"><span class="pre">2*x</span></tt>, the derivative of the original function.
+In the case <tt class="rst-docutils literal"><span class="pre">f</span></tt> is a multivariable function, it is assumed that its
+argument is a line vector.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - Any function, one- or multivariable. The function must be an scalar
+function, though there is no checking at the moment the function is
+created. If <tt class="rst-docutils literal"><span class="pre">f</span></tt> is not an scalar function, an exception will be
+raised at the moment the returned function is used.</li>
+        <li><strong class="pname"><code>dx</code></strong> - Optional argument that gives the precision of the calculation. It is
+recommended that <tt class="rst-docutils literal"><span class="pre">dx</span> <span class="pre">=</span> <span class="pre">sqrt(D)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">D</span></tt> is the machine precision.
+It defaults to <tt class="rst-docutils literal"><span class="pre">1e-5</span></tt>, which usually gives a good estimate.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A new function which, upon calling, gives the derivative or gradient
+vector of the original function on the analised point. The parameter of
+the returned function is a real number or a line vector where the gradient
+should be calculated.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="hessian"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">hessian</span>(<span class="sig-arg">f</span>,
+        <span class="sig-arg">dx</span>=<span class="sig-default">1e-05</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.optm-pysrc.html#hessian">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Creates a function that calculates the hessian matrix of a scalar field.</p>
+<p>This function takes as a parameter a scalar function and creates a new
+function that is able to calculate the second derivative (in case of single
+variable functions) or the hessian matrix (in case of multivariable
+functions. Please, note that this function takes as a parameter a
+<em>function</em>, and returns as a result <em>another function</em>. Calling the returned
+function on a point will give the hessian matrix of the original function
+at that point:</p>
+<pre class="rst-literal-block">
+&gt;&gt;&gt; def f(x):
+        return x^4
+
+&gt;&gt;&gt; ddf = hessian(f)
+&gt;&gt;&gt; ddf(1)
+12
+</pre>
+<p>In the above example, <tt class="rst-docutils literal"><span class="pre">ddf</span></tt> is a generated function which will return the
+result of the expression <tt class="rst-docutils literal"><span class="pre">12*x**2</span></tt>, the second derivative of the original
+function. In the case <tt class="rst-docutils literal"><span class="pre">f</span></tt> is a multivariable function, it is assumed that
+its argument is a line vector.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - Any function, one- or multivariable. The function must be an scalar
+function, though there is no checking at the moment the function is
+created. If <tt class="rst-docutils literal"><span class="pre">f</span></tt> is not an scalar function, an exception will be
+raised at the moment the returned function is used.</li>
+        <li><strong class="pname"><code>dx</code></strong> - Optional argument that gives the precision of the calculation. It is
+recommended that <tt class="rst-docutils literal"><span class="pre">dx</span> <span class="pre">=</span> <span class="pre">sqrt(D)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">D</span></tt> is the machine precision.
+It defaults to <tt class="rst-docutils literal"><span class="pre">1e-5</span></tt>, which usually gives a good estimate.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A new function which, upon calling, gives the second derivative or hessian
+matrix of the original function on the analised point. The parameter of
+the returned function is a real number or a line vector where the hessian
+should be calculated.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__doc__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">__doc__</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&quot;&quot;&quot;
+Basic definitons and base class for optimizers
+
+This sub-package exports some auxiliary functions to work with cost fu<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+nctions,
+namely, a function to calculate gradient vectors and hessian matrices,<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ which are
+extremely important in optimization.
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

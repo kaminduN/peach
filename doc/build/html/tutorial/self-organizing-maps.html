@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Extended Example on Self-Organizing Maps &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Fuzzy C-Means" href="fuzzy-c-means.html" />
+    <link rel="prev" title="Basic Self-Organizing Maps" href="basic-som.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basic-som.html" title="Basic Self-Organizing Maps"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="extended-example-on-self-organizing-maps">
+<h1>Extended Example on Self-Organizing Maps<a class="headerlink" href="#extended-example-on-self-organizing-maps" title="Permalink to this headline">¶</a></h1>
+<p>A self-organizing map is a neural network that can be used to solve a number of
+problems including clustering and classification. The goal of this tutorial is
+to show how the synaptic weights of a SOM converge to the mass center of a cloud
+of points, thus allowing for clustering and classification of patterns.</p>
+<p>We will create clouds of points around five centers by adding a random number
+with gaussian distribution (zero average and small variance) to the vectors
+representing the center. Then we will create a SOM that will converge five
+neurons to the clouds. While this is a graphical tutorial, we won&#8217;t show the
+commands to create the plot.</p>
+<p>We start, as always, by importing <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">peach</span></tt>. We will need the
+<tt class="docutils literal"><span class="pre">random</span></tt> module also to generate the training set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>The most important part on this tutorial is the creation of the training set. We
+will use five centers, positioned at the coordinates <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">0)</span></tt>, <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></tt>,
+<tt class="docutils literal"><span class="pre">(0,</span> <span class="pre">1)</span></tt>, <tt class="docutils literal"><span class="pre">(-1,</span> <span class="pre">1)</span></tt>, <tt class="docutils literal"><span class="pre">(-1,</span> <span class="pre">0)</span></tt>. Our training set will have 300 points.
+Each point of the training set is found by adding a gaussian generated number to
+each coordinate of the corresponding center. The following sequence of commands
+does the job:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">train_size</span> <span class="o">=</span> <span class="mf">300</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[</span> <span class="n">array</span><span class="p">([</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">train_size</span><span class="p">):</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="mf">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">array</span><span class="p">([</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Since we are working on the plane, each example and each neuron will have two
+coordinates. We will use five neurons (since we have five centers). The
+self-organizing map is created by the line below. Our goal is to show how the
+weights converge to the mass center of the point clouds, so we initialize the
+weights near the center, but in a way that we are sure that will converge to
+the centers. It is not a realistic condition, but in the tutorial we want to
+inspect the behaviour of the <tt class="docutils literal"><span class="pre">SOM</span></tt>, so we will use it here:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">SOM</span><span class="p">((</span><span class="mf">5</span><span class="p">,</span> <span class="mf">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">5</span><span class="p">):</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">4</span><span class="p">)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mf">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will use lists to track the variation of each neuron:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">wlog</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Here we feed and update the network. We could use the <tt class="docutils literal"><span class="pre">train</span></tt> method to
+present the whole set, but we want to track the weights. So, we feed the network
+using the <tt class="docutils literal"><span class="pre">__call__()</span></tt> interface, using each example as the argument; and then
+we instruct the network to learn that example. We track the values of the
+winning neuron to show it later:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">nn</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">wlog</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">y</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>The figure shows the result. In black dots we see the training set, and in
+crosses of different colors we see the synaptic weights approaching the center
+of the clouds.</p>
+<div align="center" class="align-center"><img alt="../_images/self-organizing-maps.png" class="align-center" src="../_images/self-organizing-maps.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="basic-som.html"
+                                  title="previous chapter">Basic Self-Organizing Maps</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="fuzzy-c-means.html"
+                                  title="next chapter">Fuzzy C-Means</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/self-organizing-maps.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basic-som.html" title="Basic Self-Organizing Maps"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.nn.nn.SOM</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.nn-module.html">Package&nbsp;nn</a> ::
+        <a href="peach.nn.nn-module.html">Module&nbsp;nn</a> ::
+        Class&nbsp;SOM
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.nn.nn.SOM-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SOM</h1><span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_nn_18" name="uml_class_diagram_for_peach_nn_18">
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#shape" title="Shape of the layer, given in the format of a tuple (m, n), where m is the number of neurons in the layer, and n is the number of inputs in each neuron." alt="" coords="139,28,277,46"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#bias" title="True if the neuron is biased." alt="" coords="139,46,277,65"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#size" title="Number of neurons in the layer." alt="" coords="139,65,277,84"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#inputs" title="Number of inputs for each neuron in the layer." alt="" coords="139,84,277,102"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#phi" title="The activation function." alt="" coords="139,102,277,121"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#weights" title="A numpy array containing the synaptic weights of the network." alt="" coords="139,121,277,140"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#v" title="The activation potential of the neuron." alt="" coords="139,140,277,158"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#__getitem__" title="The [ ] get interface." alt="" coords="139,161,277,180"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#__setitem__" title="The [ ] set interface." alt="" coords="139,180,277,198"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html" title="Base class for neural networks." alt="" coords="137,10,279,200"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html#y" title="The winning neuron for a given input, the answer of the network." alt="" coords="17,246,399,265"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html#feed" title="Feed the network and applies one example of the training set to the network." alt="" coords="17,268,399,286"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html#__init__" title="Initializes a self&#45;organizing map." alt="" coords="17,286,399,305"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html#__call__" title="The response of the network to a given input." alt="" coords="17,305,399,324"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html#learn" title="Applies one example of the training set to the network." alt="" coords="17,324,399,342"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html#train" title="Presents a training set to the network." alt="" coords="17,342,399,361"/>
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html" title="A Self&#45;Organizing Map (SOM)." alt="" coords="16,229,400,362"/>
+</map>
+  <img src="uml_class_diagram_for_peach_nn_18.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_18" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>A Self-Organizing Map (SOM).</p>
+<p>A self-organizing map is a type of neural network that is trained via
+unsupervised learning. In particular, the self-organizing map finds the
+neuron closest to an input vector -- this neuron is the winning neuron, and
+it is the answer of the network. Thus, the SOM is usually used for
+classification and pattern recognition.</p>
+<p>The SOM is a single-layer network, so this class subclasses the <tt class="rst-docutils literal"><span class="pre">Layer</span></tt>
+class. But some of the properties of a <tt class="rst-docutils literal"><span class="pre">Layer</span></tt> object are not available or
+make no sense in this context.</p><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.SOM-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">shape</span>,
+        <span class="summary-sig-arg">lrule</span>=<span class="summary-sig-default">&lt;class 'peach.nn.lrules.Competitive'&gt;</span>)</span><br />
+      Initializes a self-organizing map.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__gety"></a><span class="summary-sig-name">__gety</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.__gety">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.SOM-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      The response of the network to a given input.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.SOM-class.html#learn" class="summary-sig-name">learn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Applies one example of the training set to the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.learn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.SOM-class.html#feed" class="summary-sig-name">feed</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Feed the network and applies one example of the training set to the
+network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.feed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.nn.SOM-class.html#train" class="summary-sig-name">train</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">train_set</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">2000</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">randomize</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Presents a training set to the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.train">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.nn.base.Layer-class.html">base.Layer</a></code></b>:
+      <code><a href="peach.nn.base.Layer-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#__setitem__">__setitem__</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.nn.SOM-class.html#y" class="summary-name">y</a><br />
+      The winning neuron for a given input, the answer of the network.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.nn.base.Layer-class.html">base.Layer</a></code></b>:
+      <code><a href="peach.nn.base.Layer-class.html#bias">bias</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#inputs">inputs</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#phi">phi</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#shape">shape</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#size">size</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#v">v</a></code>,
+      <code><a href="peach.nn.base.Layer-class.html#weights">weights</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">shape</span>,
+        <span class="sig-arg">lrule</span>=<span class="sig-default">&lt;class 'peach.nn.lrules.Competitive'&gt;</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Initializes a self-organizing map.</p>
+<p>A self-organizing map is implemented as a layer of neurons. There is no
+connection among the neurons. The answer to a given input is the neuron
+closer to the given input. <tt class="rst-docutils literal"><span class="pre">phi</span></tt> (the activation function) <tt class="rst-docutils literal"><span class="pre">v</span></tt> (the
+activation potential) and <tt class="rst-docutils literal"><span class="pre">bias</span></tt> are not used.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>shape</code></strong> - Stablishes the size of the SOM. It must be a two-tuple of the
+format <tt class="rst-docutils literal"><span class="pre">(m,</span> <span class="pre">n)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">m</span></tt> is the number of neurons in the
+layer, and <tt class="rst-docutils literal"><span class="pre">n</span></tt> is the number of inputs of each neuron. The neurons
+in the layer all have the same number of inputs.</li>
+        <li><strong class="pname"><code>lrule</code></strong> - The learning rule used. Only <tt class="rst-docutils literal"><span class="pre">SOMLearning</span></tt> objects (instances of
+the class or of the subclasses) are allowed. Defaults to
+<tt class="rst-docutils literal"><span class="pre">Competitive</span></tt>. Check the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> documentation for more
+information.</li>
+    </ul></dd>
+    <dt>Overrides:
+      <a href="peach.nn.base.Layer-class.html#__init__">base.Layer.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>The response of the network to a given input.</p>
+<p>The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface should be called if the answer of the neuron
+network to a given input vector <tt class="rst-docutils literal"><span class="pre">x</span></tt> is desired. <em>This method has
+collateral effects</em>, so beware. After the calling of this method, the
+<tt class="rst-docutils literal"><span class="pre">y</span></tt> property is set with the activation potential and the answer of
+the neurons, respectivelly.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - The input vector to the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The winning neuron.</dd>
+    <dt>Overrides:
+      <a href="peach.nn.base.Layer-class.html#__call__">base.Layer.__call__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="learn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">learn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.learn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Applies one example of the training set to the network.</p>
+<p>Using this method, one iteration of the learning procedure is made with
+the neurons of this network. This method presents one example (not
+necessarilly of a training set) and applies the learning rule over the
+network. The learning rule is defined in the initialization of the
+network, and some are implemented on the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> method. New methods
+can be created, consult the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> documentation but, for
+<tt class="rst-docutils literal"><span class="pre">SOM</span></tt> instances, only <tt class="rst-docutils literal"><span class="pre">SOMLearning</span></tt> learning is allowed.</p>
+<p>Also, notice that <em>this method only applies the learning method!</em> The
+network should be fed with the same input vector before trying to learn
+anything first. Consult the <tt class="rst-docutils literal"><span class="pre">feed</span></tt> and <tt class="rst-docutils literal"><span class="pre">train</span></tt> methods below for
+more ways to train a network.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - Input vector of the example. It should be a column vector of the
+correct dimension, that is, the number of input neurons.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The error obtained by the network.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="feed"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">feed</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.feed">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Feed the network and applies one example of the training set to the
+network.</p>
+<p>Using this method, one iteration of the learning procedure is made with
+the neurons of this network. This method presents one example (not
+necessarilly of a training set) and applies the learning rule over the
+network. The learning rule is defined in the initialization of the
+network, and some are implemented on the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> method. New methods
+can be created, consult the <tt class="rst-docutils literal"><span class="pre">lrules</span></tt> documentation but, for
+<tt class="rst-docutils literal"><span class="pre">SOM</span></tt> instances, only <tt class="rst-docutils literal"><span class="pre">SOMLearning</span></tt> learning is allowed.</p>
+<p>Also, notice that <em>this method feeds the network</em> before applying the
+learning rule. Feeding the network has collateral effects, and some
+properties change when this happens. Namely, the <tt class="rst-docutils literal"><span class="pre">y</span></tt> property is set.
+Please consult the <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - Input vector of the example. It should be a column vector of the
+correct dimension, that is, the number of input neurons.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The error obtained by the network.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="train"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">train</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">train_set</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">2000</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">randomize</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.nn-pysrc.html#SOM.train">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Presents a training set to the network.</p>
+<p>This method automatizes the training of the network. Given a training
+set, the examples are shown to the network (possibly in a randomized
+way). A maximum number of iterations or a maximum admitted error should
+be given as a stop condition.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>train_set</code></strong> - The training set is a list of examples. It can have any size and can
+contain repeated examples. In fact, the definition of the training
+set is open. Each element of the training set, however, should be a
+input vector of the correct dimensions, See the <tt class="rst-docutils literal"><span class="pre">learn</span></tt> and
+<tt class="rst-docutils literal"><span class="pre">feed</span></tt> for more information.</li>
+        <li><strong class="pname"><code>imax</code></strong> - The maximum number of iterations. Examples from the training set
+will be presented to the network while this limit is not reached.
+Defaults to 2000.</li>
+        <li><strong class="pname"><code>emax</code></strong> - The maximum admitted error. Examples from the training set will be
+presented to the network until the error obtained is lower than this
+limit. Defaults to 1e-5.</li>
+        <li><strong class="pname"><code>randomize</code></strong> - If this is <tt class="rst-docutils literal"><span class="pre">True</span></tt>, then the examples are shown in a randomized
+order. If <tt class="rst-docutils literal"><span class="pre">False</span></tt>, then the examples are shown in the same order
+that they appear in the <tt class="rst-docutils literal"><span class="pre">train_set</span></tt> list. Defaults to <tt class="rst-docutils literal"><span class="pre">False</span></tt>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="y"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">y</h3>
+  The winning neuron for a given input, the answer of the network. This
+property is available only after the network is fed some input.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.nn.SOM-class.html#__gety" class="summary-sig-name">peach.nn.nn.SOM.__gety</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:35 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

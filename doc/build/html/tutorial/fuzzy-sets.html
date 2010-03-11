@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Fuzzy Sets &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Using Membership Functions" href="membership-functions.html" />
+    <link rel="prev" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="membership-functions.html" title="Using Membership Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="fuzzy-sets">
+<h1>Fuzzy Sets<a class="headerlink" href="#fuzzy-sets" title="Permalink to this headline">¶</a></h1>
+<p>The basic type used in the fuzzy logic package is the <tt class="docutils literal"><span class="pre">FuzzySet</span></tt>. In a very
+basic manner, a <tt class="docutils literal"><span class="pre">FuzzySet</span></tt> is a scalar or an array of any shape, where the
+logic operations where adapted to work with the usual definitions of fuzzy
+logic.</p>
+<p>Although you will probably never need to use this class, but there is a tutorial
+for it anyway for a simple reason: there are methods to allow the change of the
+norms used in fuzzy logic operations. But, in general, a <tt class="docutils literal"><span class="pre">FuzzySet</span></tt> will be
+returned by any function that should return a fuzzy set as a result (for
+example, a membership function).</p>
+<p>To create a <tt class="docutils literal"><span class="pre">FuzzySet</span></tt>, just instance it with any numeric iterable, such as an
+array. Notice, however, that a fuzzy set shouldn&#8217;t have values smaller than 0 or
+bigger than 1. The instantiation will not check this &#8211; it is up to you to make
+sure your array doesn&#8217;t have forbidden values. Suppose the Peach module is
+already imported in the command line. You can create a <tt class="docutils literal"><span class="pre">FuzzySet</span></tt> by issuing
+the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">FuzzySet([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">FuzzySet([ 0. ,  0.5,  1. ,  0.5,  0. ])</span>
+</pre></div>
+</div>
+<p>The fuzzy logic operations are mapped in the corresponding logic operators
+already used by Python. That is, the <em>and</em> operation is done by the <tt class="docutils literal"><span class="pre">&amp;</span></tt>
+operator, the <em>or</em> operation is done by the <tt class="docutils literal"><span class="pre">|</span></tt> operator, and the <em>not</em>
+operation is done by the <tt class="docutils literal"><span class="pre">~</span></tt> operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+<span class="go">FuzzySet([ 0.  ,  0.25,  0.5 ,  0.5 ,  0.  ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+<span class="go">FuzzySet([ 0.  ,  0.5 ,  1.  ,  0.75,  1.  ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">~</span><span class="n">a</span>
+<span class="go">FuzzySet([ 1.  ,  0.75,  0.5 ,  0.25,  0.  ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">~</span><span class="n">b</span>
+<span class="go">FuzzySet([ 1. ,  0.5,  0. ,  0.5,  1. ])</span>
+</pre></div>
+</div>
+<p>As you can see, the default norms are the Zadeh norms, that is: max, min and
+one complement. You can change this by using the following methods. Notice that
+these are class methods, which means that they will change the way operations
+are done for all <tt class="docutils literal"><span class="pre">FuzzySets</span></tt>. They can be called from an instance (<em>eg.</em>:
+<tt class="docutils literal"><span class="pre">a.set_norm(...)</span></tt> or from the class itself (that is,
+<tt class="docutils literal"><span class="pre">FuzzySet.set_norm(...)</span></tt>):</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">set_norm(f)</span></tt></dt>
+<dd>Sets the <em>and</em> operation to that indicated by the <tt class="docutils literal"><span class="pre">f</span></tt> function. The
+<tt class="docutils literal"><span class="pre">f</span></tt> function must take two arguments and return the <em>and</em> value of the
+operation.</dd>
+<dt><tt class="docutils literal"><span class="pre">set_conorm(f)</span></tt></dt>
+<dd>Sets the <em>or</em> operation to that indicated by the <tt class="docutils literal"><span class="pre">f</span></tt> function. The
+<tt class="docutils literal"><span class="pre">f</span></tt> function must take two arguments and return the <em>or</em> value of the
+operation.</dd>
+<dt><tt class="docutils literal"><span class="pre">set_negation(f)</span></tt></dt>
+<dd>Sets the <em>not</em> operation to that indicated by the <tt class="docutils literal"><span class="pre">f</span></tt> function. The
+<tt class="docutils literal"><span class="pre">f</span></tt> function must take one argument and return the <em>not</em> value of the
+operation.</dd>
+</dl>
+</blockquote>
+<p>There are a number of available norms, conorms and negations to use. Some of
+them are described below:</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">ZadehAnd</span></tt>, <tt class="docutils literal"><span class="pre">ZadehOr</span></tt>, <tt class="docutils literal"><span class="pre">ZadehNot</span></tt></dt>
+<dd>The logic operations as defined by Lofti Zadeh, that is, respectively, the
+minimum, maximum and one complement.</dd>
+<dt><tt class="docutils literal"><span class="pre">DrasticProduct</span></tt>, <tt class="docutils literal"><span class="pre">DrasticSum</span></tt></dt>
+<dd>The drastic <em>and</em> and <em>or</em> operations.</dd>
+<dt><tt class="docutils literal"><span class="pre">EinsteinProduct</span></tt>, <tt class="docutils literal"><span class="pre">EinsteinSum</span></tt></dt>
+<dd>The <em>and</em> and <em>or</em> operations based on the relativity results.</dd>
+<dt><tt class="docutils literal"><span class="pre">ProbabilisticAnd</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticOr</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticNot</span></tt></dt>
+<dd>Logic operations based on the definitions of the respective operations in
+the probabilistic theory, that is: the product, the independent sum and the
+one complement.</dd>
+</dl>
+</blockquote>
+<p>See the example below on how to use them. We will set the norm and conorm for
+fuzzy set <tt class="docutils literal"><span class="pre">a</span></tt> as the probabilistic norms:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">set_norm</span><span class="p">(</span><span class="n">ProbabilisticAnd</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">set_conorm</span><span class="p">(</span><span class="n">ProbabilisticOr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+<span class="go">FuzzySet([ 0.   ,  0.125,  0.5  ,  0.375,  0.   ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+<span class="go">FuzzySet([ 0.   ,  0.625,  1.   ,  0.875,  1.   ])</span>
+</pre></div>
+</div>
+<p>If you need, however, to use different norms and conorms at the same time, use
+the norms described above directly as functions, since that&#8217;s what they are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">EinsteinProduct</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">FuzzySet([ 0.        ,  0.09090909,  0.5       ,  0.33333333,  0.        ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">EinsteinSum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">FuzzySet([ 0.        ,  0.66666667,  1.        ,  0.90909091,  1.        ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">DrasticProduct</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">array([ 0. ,  0. ,  0.5,  0. ,  0. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">DrasticSum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">array([ 0.,  1.,  1.,  1.,  1.])</span>
+</pre></div>
+</div>
+<p>When you use them in that way, the logic operators (<tt class="docutils literal"><span class="pre">&amp;</span></tt>, <tt class="docutils literal"><span class="pre">|</span></tt> and <tt class="docutils literal"><span class="pre">~</span></tt>) will
+suffer no change. You can, if you need, define your own norms. Suppose you want
+to use the Sugeno negation, defined as</p>
+<div class="math">
+<p><img src="../_images/math/355107db900bf20816c1beb2851b7668340981b3.png" alt="\mu_{\bar{A}}(x) = \frac{1 - \mu_A(x)}{1 + \mu_A(x)}" />
+</div></p><p>All you have to do is create a function that takes the value and calculates the
+result, and set it as the negation of the set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">sugeno_negation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">return</span> <span class="p">(</span><span class="mf">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">set_negation</span><span class="p">(</span><span class="n">sugeno_negation</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">~</span><span class="n">a</span>
+<span class="go">FuzzySet([ 1.        ,  0.6       ,  0.33333333,  0.14285714,  0.        ])</span>
+</pre></div>
+</div>
+<p>You can do that with the norms and conorms too. Notice that there is no need to
+work with the commands in the function definition to make it work with arrays:
+by setting the function, the methods take care that it is modified to work with
+arrays. So, simple functions are okay.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="self-organizing-maps.html"
+                                  title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="membership-functions.html"
+                                  title="next chapter">Using Membership Functions</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/fuzzy-sets.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="membership-functions.html" title="Using Membership Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

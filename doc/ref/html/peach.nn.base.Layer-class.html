@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.nn.base.Layer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.nn-module.html">Package&nbsp;nn</a> ::
+        <a href="peach.nn.base-module.html">Module&nbsp;base</a> ::
+        Class&nbsp;Layer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.nn.base.Layer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Layer</h1><span class="codelink"><a href="peach.nn.base-pysrc.html#Layer">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_nn_9" name="uml_class_diagram_for_peach_nn_9">
+<area shape="rect" href="peach.nn.nn.SOM&#45;class.html" title="A Self&#45;Organizing Map (SOM)." alt="" coords="183,286,244,312"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#shape" title="Shape of the layer, given in the format of a tuple (m, n), where m is the number of neurons in the layer, and n is the number of inputs in each neuron." alt="" coords="17,28,409,47"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#bias" title="True if the neuron is biased." alt="" coords="17,47,409,66"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#size" title="Number of neurons in the layer." alt="" coords="17,66,409,84"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#inputs" title="Number of inputs for each neuron in the layer." alt="" coords="17,84,409,103"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#phi" title="The activation function." alt="" coords="17,103,409,122"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#weights" title="A numpy array containing the synaptic weights of the network." alt="" coords="17,122,409,140"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#v" title="The activation potential of the neuron." alt="" coords="17,140,409,159"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#y" title="The activation value of the neuron." alt="" coords="17,159,409,178"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#__init__" title="Initializes the layer." alt="" coords="17,180,409,199"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#__call__" title="The feedforward method to the layer." alt="" coords="17,199,409,218"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#__getitem__" title="The [ ] get interface." alt="" coords="17,218,409,236"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html#__setitem__" title="The [ ] set interface." alt="" coords="17,236,409,255"/>
+<area shape="rect" href="peach.nn.base.Layer&#45;class.html" title="Base class for neural networks." alt="" coords="16,11,411,256"/>
+</map>
+  <img src="uml_class_diagram_for_peach_nn_9.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_9" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Base class for neural networks.</p>
+<p>This class implements a layer of neurons. It is represented by a array of
+real values. Each line of the array represents the weight vector of a
+single neuron. If the neurons on the layer are biased, then the first
+element of the weight vector is the bias weight, and the bias input is
+always valued 1. Also, to each layer is associated an activation function,
+that determines if the neuron is fired or not. Please, consult the module
+<tt class="rst-docutils literal"><span class="pre">af</span></tt> to see more about activation functions.</p>
+<p>In general, this class shoulb be subclassed if you want to use neural nets.
+But, as neural nets are very different one from the other, check carefully
+the documentation to see if the attributes, properties and methods are
+suited to your task.</p><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      The feedforward method to the layer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getbias"></a><span class="summary-sig-name">__getbias</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getbias">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getinputs"></a><span class="summary-sig-name">__getinputs</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getinputs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>)</span><br />
+      The <tt class="rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> get interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getitem__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getphi"></a><span class="summary-sig-name">__getphi</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getphi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getshape"></a><span class="summary-sig-name">__getshape</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getshape">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getsize"></a><span class="summary-sig-name">__getsize</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getsize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getv"></a><span class="summary-sig-name">__getv</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getv">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getweights"></a><span class="summary-sig-name">__getweights</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getweights">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__gety"></a><span class="summary-sig-name">__gety</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__gety">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">shape</span>,
+        <span class="summary-sig-arg">phi</span>=<span class="summary-sig-default">&lt;class 'peach.nn.af.Linear'&gt;</span>,
+        <span class="summary-sig-arg">bias</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Initializes the layer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__setitem__" class="summary-sig-name">__setitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">w</span>)</span><br />
+      The <tt class="rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> set interface.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__setitem__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setphi"></a><span class="summary-sig-name">__setphi</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phi</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__setphi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setweights"></a><span class="summary-sig-name">__setweights</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">m</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__setweights">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#bias" class="summary-name">bias</a><br />
+      True if the neuron is biased.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#inputs" class="summary-name">inputs</a><br />
+      Number of inputs for each neuron in the layer.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#phi" class="summary-name">phi</a><br />
+      The activation function.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#shape" class="summary-name">shape</a><br />
+      Shape of the layer, given in the format of a tuple <tt class="rst-docutils literal"><span class="pre">(m,</span> <span class="pre">n)</span></tt>, where
+<tt class="rst-docutils literal"><span class="pre">m</span></tt> is the number of neurons in the layer, and <tt class="rst-docutils literal"><span class="pre">n</span></tt> is the number of
+inputs in each neuron.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#size" class="summary-name">size</a><br />
+      Number of neurons in the layer.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#v" class="summary-name">v</a><br />
+      The activation potential of the neuron.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#weights" class="summary-name">weights</a><br />
+      A <tt class="rst-docutils literal"><span class="pre">numpy</span></tt> array containing the synaptic weights of the network.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.base.Layer-class.html#y" class="summary-name">y</a><br />
+      The activation value of the neuron.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>The feedforward method to the layer.</p>
+<p>The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface should be called if the answer of the neuron
+to a given input vector <tt class="rst-docutils literal"><span class="pre">x</span></tt> is desired. <em>This method has collateral
+effects</em>, so beware. After the calling of this method, the <tt class="rst-docutils literal"><span class="pre">v</span></tt> and
+<tt class="rst-docutils literal"><span class="pre">y</span></tt> properties are set with the activation potential and the answer of
+the neurons, respectivelly.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - The input vector to the layer.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The vector containing the answer of every neuron in the layer, in the
+respective order.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getitem__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>)</span>
+    <br /><em class="fname">(Indexing operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__getitem__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> get interface.</p>
+<p>The input to this method is forwarded to the <tt class="rst-docutils literal"><span class="pre">weights</span></tt> property. That
+means that it will return the respective line/element of the weight
+array.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> - A slice object containing the elements referenced. Since it is
+forwarded to an array, it behaves exactly as one.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The element or elements in the referenced indices.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">shape</span>,
+        <span class="sig-arg">phi</span>=<span class="sig-default">&lt;class 'peach.nn.af.Linear'&gt;</span>,
+        <span class="sig-arg">bias</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Initializes the layer.</p>
+<p>A layer is represented by a array where each line is the weight vector
+of a single neuron. The first element of the vector is the bias weight,
+in case the neuron is biased. Associated with the layer is an activation
+function defined in an appropriate way.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>shape</code></strong> - Stablishes the size of the layer. It must be a two-tuple of the
+format <tt class="rst-docutils literal"><span class="pre">(m,</span> <span class="pre">n)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">m</span></tt> is the number of neurons in the
+layer, and <tt class="rst-docutils literal"><span class="pre">n</span></tt> is the number of inputs of each neuron. The neurons
+in the layer all have the same number of inputs.</li>
+        <li><strong class="pname"><code>phi</code></strong> - The activation function. It can be an <tt class="rst-docutils literal"><span class="pre">Activation</span></tt> object (please,
+consult the <tt class="rst-docutils literal"><span class="pre">af</span></tt> module) or a standard Python function. In this
+case, it must receive a single real value and return a single real
+value which determines if the neuron is activated or not. Defaults
+to <tt class="rst-docutils literal"><span class="pre">Linear</span></tt>.</li>
+        <li><strong class="pname"><code>bias</code></strong> - If <tt class="rst-docutils literal"><span class="pre">True</span></tt>, then the neurons on the layer are biased. That means
+that an additional weight is added to each neuron to represent the
+bias. If <tt class="rst-docutils literal"><span class="pre">False</span></tt>, no modification is made.</li>
+    </ul></dd>
+    <dt>Overrides:
+      object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__setitem__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__setitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">w</span>)</span>
+    <br /><em class="fname">(Index assignment operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.base-pysrc.html#Layer.__setitem__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> set interface.</p>
+<p>The inputs to this method are forwarded to the <tt class="rst-docutils literal"><span class="pre">weights</span></tt> property.
+That means that it will set the respective line/element of the weight
+array.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> - A slice object containing the elements referenced. Since it is
+forwarded to an array, it behaves exactly as one.</li>
+        <li><strong class="pname"><code>w</code></strong> - A value or array of values to be set in the given indices.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="bias"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">bias</h3>
+  True if the neuron is biased. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getbias" class="summary-sig-name">peach.nn.base.Layer.__getbias</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="inputs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">inputs</h3>
+  Number of inputs for each neuron in the layer. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getinputs" class="summary-sig-name">peach.nn.base.Layer.__getinputs</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="phi"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">phi</h3>
+  The activation function. It can be set with an <tt class="rst-docutils literal"><span class="pre">Activation</span></tt> instance or
+a standard Python function. If a standard function is given, it must receive
+a real value and return a real value that is the activation value of the
+neuron. In that case, it is adjusted to work accordingly with the internals
+of the layer.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getphi" class="summary-sig-name">peach.nn.base.Layer.__getphi</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__setphi" class="summary-sig-name">peach.nn.base.Layer.__setphi</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phi</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="shape"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">shape</h3>
+  Shape of the layer, given in the format of a tuple <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">(m,</span> <span class="pre">n)</span></tt>, where
+<tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">m</span></tt> is the number of neurons in the layer, and <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">n</span></tt> is the number of
+inputs in each neuron. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getshape" class="summary-sig-name">peach.nn.base.Layer.__getshape</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="size"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">size</h3>
+  Number of neurons in the layer. Not writable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getsize" class="summary-sig-name">peach.nn.base.Layer.__getsize</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="v"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">v</h3>
+  The activation potential of the neuron. Not writable, and only available
+after the neuron is fed some input.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getv" class="summary-sig-name">peach.nn.base.Layer.__getv</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="weights"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">weights</h3>
+  A <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">numpy</span></tt> array containing the synaptic weights of the network. Each
+line is the weight vector of a neuron. It is writable, but the new weight
+array must be the same shape of the neuron, or an exception is raised.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__getweights" class="summary-sig-name">peach.nn.base.Layer.__getweights</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__setweights" class="summary-sig-name">peach.nn.base.Layer.__setweights</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">m</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="y"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">y</h3>
+  The activation value of the neuron. Not writable, and only available
+after the neuron is fed some input.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.base.Layer-class.html#__gety" class="summary-sig-name">peach.nn.base.Layer.__gety</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:33 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

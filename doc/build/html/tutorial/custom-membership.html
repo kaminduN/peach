@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Custom Membership Functions &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Fuzzy C-Means" href="fuzzy-c-means.html" />
+    <link rel="prev" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-custom-membership-functions">
+<h1>Using Custom Membership Functions<a class="headerlink" href="#using-custom-membership-functions" title="Permalink to this headline">¶</a></h1>
+<p>The aim of this tutorial is to show how to create your own membership functions
+to use with the fuzzy logic package. Almost all of the most used membership
+functions are already programmed within Peach, so you will seldom need this use,
+but in case you want to try something different to see what happens, take a look
+in this tutorial.</p>
+<p>This tutorial won&#8217;t take into account that you are using the command line, but
+what is said here will work there, of course. The first thing to do is to be
+sure that the modules are imported:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">peach</span>
+</pre></div>
+</div>
+<p>Peach can work with custom membership functions, if you need to use them. There
+are a number of ways of doing that. Please, use this file as a template to
+create your own.</p>
+<p>The first thing you should try is to use an existing membership function, since
+those can be customized during its instantiation. For example, there is a
+<tt class="docutils literal"><span class="pre">IncreasingRamp</span></tt> class that implements an increasing ramp function. If you
+want to use this kind of ramp, just configure the correct parameters. Suppose
+the ramp you need starts in -1 and ends in 1. Then you can use the simple
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CustomMembershipFunction1</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">IncreasingRamp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want something completelly different from what is implemented, you can
+also create your membership function as a simple function, and turn it into a
+membership function. Let&#8217;s use the ramp example as above. You can create a
+simple membership function like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">custom_ramp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span> <span class="p">:</span> <span class="k">return</span> <span class="mf">0.</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">:</span> <span class="k">return</span> <span class="mf">1.</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span>
+
+<span class="n">CustomMembershipFunction2</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">Membership</span><span class="p">(</span><span class="n">custom_ramp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The last way to create an activation function is by subclassing <tt class="docutils literal"><span class="pre">Membership</span></tt>.
+To do that, you will have to implement the <tt class="docutils literal"><span class="pre">__init__</span></tt> and <tt class="docutils literal"><span class="pre">__call__</span></tt>
+methods. Use the code below (where we implement, again, a ramp) as a
+template:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CustomMembershipFunction3</span><span class="p">(</span><span class="n">peach</span><span class="o">.</span><span class="n">Membership</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Don&#39;t forget to document your code!</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        We won&#39;t pass any parameter to the initializer of the class, since we</span>
+<span class="sd">        don&#39;t want further customization.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">peach</span><span class="o">.</span><span class="n">Membership</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        The __call__ interface should receive a (vector of) scalar and return a</span>
+<span class="sd">        scalar. Remember that activation functions should be able to deal with</span>
+<span class="sd">        vectors, if needed, so using the ``numpy`` functions will really help!</span>
+<span class="sd">        Please consult the numpy documentation to understand what ``select``</span>
+<span class="sd">        does.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span> <span class="p">],</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">peach</span><span class="o">.</span><span class="n">FuzzySet</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The functions thus generated can be used in any place where a membership
+function or a membership class would be used, for example, in a fuzzy logic
+based controller.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="self-organizing-maps.html"
+                                  title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="fuzzy-c-means.html"
+                                  title="next chapter">Fuzzy C-Means</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/custom-membership.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

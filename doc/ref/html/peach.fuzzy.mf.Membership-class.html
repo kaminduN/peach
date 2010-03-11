@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.mf.Membership</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        <a href="peach.fuzzy.mf-module.html">Module&nbsp;mf</a> ::
+        Class&nbsp;Membership
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.mf.Membership-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Membership</h1><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership">source&nbsp;code</a></span><br /><br />
+<center>
+<center>  <map id="uml_class_diagram_for_peach_fu_13" name="uml_class_diagram_for_peach_fu_13">
+<area shape="rect" href="peach.fuzzy.mf.Triangle&#45;class.html" title="Triangle function." alt="" coords="16,104,75,130"/>
+<area shape="rect" href="peach.fuzzy.mf.IncreasingSigmoid&#45;class.html" title="Increasing Sigmoid function." alt="" coords="125,104,245,130"/>
+<area shape="rect" href="peach.fuzzy.mf.DecreasingSigmoid&#45;class.html" title="Decreasing Sigmoid function." alt="" coords="296,104,421,130"/>
+<area shape="rect" href="peach.fuzzy.mf.RaisedCosine&#45;class.html" title="Raised Cosine function." alt="" coords="472,104,568,130"/>
+<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html#__call__" title="Maps the function on a vector" alt="" coords="752,36,851,54"/>
+<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html#__init__" title="Builds a membership function from a regular function" alt="" coords="752,54,851,73"/>
+<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html" title="Base class of all membership functions." alt="" coords="751,10,852,74"/>
+<area shape="rect" href="peach.fuzzy.mf.DecreasingRamp&#45;class.html" title="Decreasing ramp." alt="" coords="619,104,733,130"/>
+<area shape="rect" href="peach.fuzzy.mf.Bell&#45;class.html" title="Generalized Bell function." alt="" coords="784,104,819,130"/>
+<area shape="rect" href="peach.fuzzy.mf.Gaussian&#45;class.html" title="Gaussian function." alt="" coords="869,104,939,130"/>
+<area shape="rect" href="peach.fuzzy.mf.Zmf&#45;class.html" title="Decreasing smooth curve with 0 and 1 minimum and maximum values outside a given range." alt="" coords="989,104,1027,130"/>
+<area shape="rect" href="peach.fuzzy.mf.IncreasingRamp&#45;class.html" title="Increasing ramp." alt="" coords="1077,104,1187,130"/>
+<area shape="rect" href="peach.fuzzy.mf.Smf&#45;class.html" title="Increasing smooth curve with 0 and 1 minimum and maximum values outside a given range." alt="" coords="1237,104,1275,130"/>
+<area shape="rect" href="peach.fuzzy.mf.Trapezoid&#45;class.html" title="Trapezoid function." alt="" coords="1325,104,1395,130"/>
+</map>
+  <img src="uml_class_diagram_for_peach_fu_13.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_13" ismap="ismap" class="graph-without-title" />
+</center></center>
+<hr />
+<p>Base class of all membership functions.</p>
+<p>This class is used as base of the implemented membership functions, and can
+also be used to transform a regular function in a membership function that
+can be used with the fuzzy logic package.</p>
+<p>To create a membership function from a regular function <tt class="rst-docutils literal"><span class="pre">f</span></tt>, use:</p>
+<pre class="rst-literal-block">
+mf = Membership(f)
+</pre>
+<p>A function this converted can be used with vectors and matrices and always
+return a FuzzySet object. Notice that the value range is not verified so
+that it fits in the range [ 0, 1 ]. It is responsibility of the programmer
+to warrant that.</p>
+<p>To subclass Membership, just use it as a base class. It is suggested that
+the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method of the derived class allows configuration, and the
+<tt class="rst-docutils literal"><span class="pre">__call__</span></tt> method is used to apply the function over its arguments.</p><br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.mf.Membership-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>)</span><br />
+      Builds a membership function from a regular function</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.fuzzy.mf.Membership-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Maps the function on a vector</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Builds a membership function from a regular function
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - Function to be transformed into a membership function. It must be
+given, and it must be a <tt class="rst-docutils literal"><span class="pre">FunctionType</span></tt> object, otherwise, a
+<tt class="rst-docutils literal"><span class="pre">ValueError</span></tt> is raised.</li>
+    </ul></dd>
+    <dt>Overrides:
+      object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Maps the function on a vector
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - A value, vector or matrix over which the function is evaluated.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A <tt class="rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal"><span class="pre">FuzzySet</span></tt> object containing the evaluation of the function over
+each of the components of the input.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:29 2010
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

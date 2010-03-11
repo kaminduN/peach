@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Custom Activation Functions &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Mapping of a Plane" href="mapping-a-plane.html" />
+    <link rel="prev" title="Basic Neural Network Manipulation" href="basic-neural-network.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mapping-a-plane.html" title="Mapping of a Plane"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basic-neural-network.html" title="Basic Neural Network Manipulation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-custom-activation-functions">
+<h1>Using Custom Activation Functions<a class="headerlink" href="#using-custom-activation-functions" title="Permalink to this headline">¶</a></h1>
+<p>The aim of this tutorial is to show how to create your own activation functions
+to use with the neural network package. Almost all of the most used activation
+functions are already programmed within Peach, so you will seldom need this use,
+but in case you want to try something different to see what happens, take a look
+in this tutorial.</p>
+<p>This tutorial won&#8217;t take into account that you are using the command line, but
+what is said here will work there, of course. The first thing to do is to be
+sure that the modules are imported:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">peach</span>
+</pre></div>
+</div>
+<p>Peach can work with custom activation functions, if you need to use them. There
+are a number of ways of doing that. Please, use this file as a template to
+create your own.</p>
+<p>The first thing you should try is to use an existing activation function, since
+those can be customized during its instantiation. For example, there is a
+<tt class="docutils literal"><span class="pre">Ramp</span></tt> class that implements a ramp function. If you want to use a diferent
+ramp, starting in <tt class="docutils literal"><span class="pre">(-1,</span> <span class="pre">-1)</span></tt> and ending in <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></tt>, you can use the simple
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">CustomActivationFunction1</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">Ramp</span><span class="p">((</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>If you want something completelly different from what is implemented, you can
+also create your activation function as a simple function, and turn it into an
+activation function. Let&#8217;s use the ramp example as above. You can create a
+simple activation function like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">custom_ramp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span> <span class="p">:</span> <span class="k">return</span> <span class="o">-</span><span class="mf">1.</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">:</span> <span class="k">return</span> <span class="mf">1.</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">CustomActivationFunction2</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">custom_ramp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But, please, notice that the derivative for a function create as above will not
+be exact, only estimated. While it is not a problem for a ramp function, it
+might be a problem with diferent functions, and it can be less efficient too.</p>
+<p>The last way to create an activation function is by subclassing <tt class="docutils literal"><span class="pre">Activation</span></tt>.
+To do that, you will have to implement the <tt class="docutils literal"><span class="pre">__init__</span></tt>, <tt class="docutils literal"><span class="pre">__call__</span></tt> and
+derivative methods. Use the code below (where we implement, again, a ramp) as a
+template:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CustomActivationFunction3</span><span class="p">(</span><span class="n">peach</span><span class="o">.</span><span class="n">Activation</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Don&#39;t forget to document your code!</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        We won&#39;t pass any parameter to the initializer of the class, since we</span>
+<span class="sd">        don&#39;t want further customization.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">peach</span><span class="o">.</span><span class="n">Activation</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        The __call__ interface should receive a (vector of) scalar and return a</span>
+<span class="sd">        scalar. Remember that activation functions should be able to deal with</span>
+<span class="sd">        vectors, if needed, so using the ``numpy`` functions will really help!</span>
+<span class="sd">        Please consult the numpy documentation to understand what ``select``</span>
+<span class="sd">        does.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">peach</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="p">],</span> <span class="mf">1.</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        The derivative of your function must be implemented in this method,</span>
+<span class="sd">        because a lot of the convergence methods use it. The method should</span>
+<span class="sd">        receive a (vector of) scalar and return a scalar. The second parameter</span>
+<span class="sd">        will be the precision of the derivative, and it is seldom used. It is</span>
+<span class="sd">        a good measure to put it as a named parameter, just to make it sure.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">],</span> <span class="mf">0.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The functions thus generated can be used in any place where an activation
+function or an activation class would be used, for example, in the creation of a
+neural network.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="basic-neural-network.html"
+                                  title="previous chapter">Basic Neural Network Manipulation</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="mapping-a-plane.html"
+                                  title="next chapter">Mapping of a Plane</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/custom-activation.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mapping-a-plane.html" title="Mapping of a Plane"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basic-neural-network.html" title="Basic Neural Network Manipulation"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

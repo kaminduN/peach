@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Basic Self-Organizing Maps &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" />
+    <link rel="prev" title="Polynomial Regression" href="polynomial-regression.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="polynomial-regression.html" title="Polynomial Regression"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="basic-self-organizing-maps">
+<h1>Basic Self-Organizing Maps<a class="headerlink" href="#basic-self-organizing-maps" title="Permalink to this headline">¶</a></h1>
+<p>A self-organizing map is a neural network that can be used to solve a number of
+problems including clustering and classification. The goal of this tutorial is
+to show how to use Peach to deal with self-organizing maps. We start by creating
+a small map with only five neurons, with two inputs each. To inspect the
+behaviour of the map, we will set the weights to known values.</p>
+<p>We start, as always, by importing <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">peach</span></tt>. We will assume that
+we are working in the command line to check what we are doing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">peach</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Since we are using the command line, there is no problem in using this, but
+remember that, usually, it is recommended that a module is not imported in the
+main namespace.</p>
+<p>To create a self-organizing map, we instantiate the <tt class="docutils literal"><span class="pre">SOM</span></tt> class. Its
+initializer receives as arguments the dimensions of the network and the learning
+rule. The shape of the network is given as a tuple <tt class="docutils literal"><span class="pre">(M,</span> <span class="pre">N)</span></tt>, meaning a map
+with <tt class="docutils literal"><span class="pre">M</span></tt> neurons with <tt class="docutils literal"><span class="pre">N</span></tt> inputs each. We won&#8217;t worry about the learning
+rule at this moment:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">SOM</span><span class="p">((</span><span class="mf">5</span><span class="p">,</span> <span class="mf">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The complete list of parameters in the class instantiation is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">SOM</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">lrule</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, the <tt class="docutils literal"><span class="pre">shape</span></tt> are the dimensions as given above. <tt class="docutils literal"><span class="pre">lrule</span></tt> can be one of
+<tt class="docutils literal"><span class="pre">WinnerTakesAll</span></tt>, <tt class="docutils literal"><span class="pre">Competitive</span></tt> or <tt class="docutils literal"><span class="pre">Cooperative</span></tt>. Please, check the
+learning rules documentation for more information. The default value for the
+learning rule is the <tt class="docutils literal"><span class="pre">Competitive</span></tt> method.</p>
+<p>There are a number of properties that we can consult to inspect the neural
+network. Some of these are given below:</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">y</span></tt></dt>
+<dd>This property is the activation of the network. It corresponds to an array
+with the outputs of every neuron in the map. This property can only be used,
+however, after the network is fed some input vector.</dd>
+<dt><tt class="docutils literal"><span class="pre">[n]</span></tt></dt>
+<dd>The <tt class="docutils literal"><span class="pre">[]</span></tt> operator can be used to access a specific neuron of the map.</dd>
+<dt><tt class="docutils literal"><span class="pre">size</span></tt></dt>
+<dd>The number of neurons on the layer.</dd>
+<dt><tt class="docutils literal"><span class="pre">inputs</span></tt></dt>
+<dd>The number of inputs in each neuron.</dd>
+<dt><tt class="docutils literal"><span class="pre">shape</span></tt></dt>
+<dd>A tuple in the form <tt class="docutils literal"><span class="pre">(size,</span> <span class="pre">inputs)</span></tt> with the two information above.</dd>
+<dt><tt class="docutils literal"><span class="pre">weights</span></tt></dt>
+<dd>A <tt class="docutils literal"><span class="pre">numpy</span></tt> array containing the synaptic weights of the neurons on the
+layer. Each line of this array is the weight vector of the corresponding
+neuron.</dd>
+</dl>
+</blockquote>
+<p>We want to see how the map behaves, so we feed the network with one vector.
+We create it as the next step. Notice that it is a simple <tt class="docutils literal"><span class="pre">numpy</span></tt> array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is expected that the winning neuron is the one represented in the third line.
+We will check to see if that&#8217;s the case. To activate the network and see which
+of the neurons is the winner, we use the <tt class="docutils literal"><span class="pre">__call__</span></tt> interface, with the input
+vector as an argument. This is the main way to use the network:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Just feeding the network is not enough to make it learn. The learning process is
+separated from the feeding to allow for stability, since we don&#8217;t want to modify
+the network once it is in production. The <tt class="docutils literal"><span class="pre">SOM</span></tt> retains information about the
+winning neuron for the last input vector presented to the network, so all we
+need to do is to pass the input vector to update it. Since the learning is
+<tt class="docutils literal"><span class="pre">Competitive</span></tt>, only the winning neuron will be updated:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can check the results by inspecting the map itself:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="o">.</span><span class="n">y</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="o">.</span><span class="n">weights</span>
+<span class="go">[[ 0.5    0.   ]</span>
+<span class="go"> [-0.5    0.   ]</span>
+<span class="go"> [ 0.    -0.025]</span>
+<span class="go"> [ 0.5    0.5  ]</span>
+<span class="go"> [-0.5    0.5  ]]</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="polynomial-regression.html"
+                                  title="previous chapter">Polynomial Regression</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="self-organizing-maps.html"
+                                  title="next chapter">Extended Example on Self-Organizing Maps</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/tutorial/basic-som.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="polynomial-regression.html" title="Polynomial Regression"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>
