@@ -61,14 +61,14 @@
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module norms</h1><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Module norms</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html">source&nbsp;code</a></span></p>
 <p>This package implements operations of fuzzy logic.</p>
-<p>Basic operations are <tt class="rst-docutils literal"><span class="pre">and</span> <span class="pre">(&amp;)</span></tt>, <tt class="rst-docutils literal"><span class="pre">or</span> <span class="pre">(|)</span></tt> and <tt class="rst-docutils literal"><span class="pre">not</span> <span class="pre">(~)</span></tt>. Those are
-implemented as functions of, respectively, two, two and one values. The <tt class="rst-docutils literal"><span class="pre">and</span></tt>
+<p>Basic operations are <tt class="rst-docutils literal">and (&amp;)</tt>, <tt class="rst-docutils literal">or (|)</tt> and <tt class="rst-docutils literal">not (~)</tt>. Those are
+implemented as functions of, respectively, two, two and one values. The <tt class="rst-docutils literal">and</tt>
 is the t-norm of the fuzzy logic, and it is a function that takes two values and
-returns the result of the <tt class="rst-docutils literal"><span class="pre">and</span></tt> operation. The <tt class="rst-docutils literal"><span class="pre">or</span></tt> is a function that takes
-two values and returns the result of the <tt class="rst-docutils literal"><span class="pre">or</span></tt> operation. the <tt class="rst-docutils literal"><span class="pre">not</span></tt> is a
-function that takes one value and returns the result of the <tt class="rst-docutils literal"><span class="pre">not</span></tt> operation.
+returns the result of the <tt class="rst-docutils literal">and</tt> operation. The <tt class="rst-docutils literal">or</tt> is a function that takes
+two values and returns the result of the <tt class="rst-docutils literal">or</tt> operation. the <tt class="rst-docutils literal">not</tt> is a
+function that takes one value and returns the result of the <tt class="rst-docutils literal">not</tt> operation.
 To implement your own operations there is no need to subclass -- just create the
 functions and use them where appropriate.</p>
 <p>Also, implication and aglutination functions are defined here. Implication is
@@ -78,7 +78,7 @@ inference systems. Both are implemented as functions that take two values and
 return the result of the operation. As above, to implement your own operations,
 there is no need to subclass -- just create the functions and use them where
 appropriate.</p>
-<p>The functions here are provided as convenience.</p><br /><br />
+<p>The functions here are provided as convenience.</p>
 
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -498,8 +498,15 @@ Zadeh not operations
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="peach.fuzzy.norms-module.html#PROB_INFERENCE" class="summary-name">PROB_INFERENCE</a> = <code title="ProbabilisticImplication, ProbabilisticAglutination"><code class="variable-group">(</code>&lt;function ProbabilisticImplication at 0x886a<code class="variable-ellipsis">...</code></code><br />
+        <a href="peach.fuzzy.norms-module.html#PROB_INFERENCE" class="summary-name">PROB_INFERENCE</a> = <code title="ProbabilisticImplication, ProbabilisticAglutination">ProbabilisticImplication, ProbabilisticAgluti<code class="variable-ellipsis">...</code></code><br />
       Tuple containing, in order, probabilistic implication and algutination
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'peach.fuzzy'"><code class="variable-quote">'</code><code class="variable-string">peach.fuzzy</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 </table>
@@ -534,7 +541,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehAnd">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>And operation as defined by Lofti Zadeh.</p>
 <p>And operation is the minimum of the two values.</p>
@@ -557,7 +564,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehOr">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Or operation as defined by Lofti Zadeh.</p>
 <p>Or operation is the maximum of the two values.</p>
@@ -579,10 +586,10 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehNot">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Not operation as defined by Lofti Zadeh.</p>
-<p>Not operation is the complement to 1 of the given value, that is, <tt class="rst-docutils literal"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">x</span></tt>.</p>
+<p>Not operation is the complement to 1 of the given value, that is, <tt class="rst-docutils literal">1 - x</tt>.</p>
   <dl class="fields">
     <dt>Returns:</dt>
         <dd>The result of the not operation.</dd>
@@ -602,7 +609,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ZadehImplication">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Implication operation as defined by Zadeh.
   <dl class="fields">
@@ -624,7 +631,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DrasticProduct">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Drastic product that can be used as and operation
   <dl class="fields">
@@ -646,7 +653,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DrasticSum">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Drastic sum that can be used as or operation
   <dl class="fields">
@@ -668,7 +675,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#EinsteinProduct">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Einstein product that can be used as and operation.
   <dl class="fields">
@@ -690,7 +697,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#EinsteinSum">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Einstein sum that can be used as or operation.
   <dl class="fields">
@@ -712,7 +719,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#MamdaniImplication">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Implication operation as defined by Mamdani.</p>
 <p>Implication is the minimum of the two values.</p>
@@ -735,7 +742,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#MamdaniAglutination">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Aglutination as defined by Mamdani.</p>
 <p>Aglutination is the maximum of the two values.</p>
@@ -758,7 +765,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticAnd">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>And operation as a probabilistic operation.</p>
 <p>And operation is the product of the two values.</p>
@@ -781,7 +788,7 @@ Zadeh not operations
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticOr">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Or operation as a probabilistic operation.</p>
 <p>Or operation is given as the probability of the intersection of two events,
@@ -804,10 +811,10 @@ that is, x + y - xy.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticNot">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Not operation as a probabilistic operation.</p>
-<p>Not operation is the complement to 1 of the given value, that is, <tt class="rst-docutils literal"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">x</span></tt>.</p>
+<p>Not operation is the complement to 1 of the given value, that is, <tt class="rst-docutils literal">1 - x</tt>.</p>
   <dl class="fields">
     <dt>Returns:</dt>
         <dd>The result of the not operation.</dd>
@@ -827,7 +834,7 @@ that is, x + y - xy.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticImplication">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Implication as a probabilistic operation.</p>
 <p>Implication is the product of the two values.</p>
@@ -850,7 +857,7 @@ that is, x + y - xy.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#ProbabilisticAglutination">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Implication as a probabilistic operation.</p>
 <p>Implication is given as the probability of the intersection of two events,
@@ -874,7 +881,7 @@ that is, x + y - xy.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#DienesRescherImplication">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Natural implication as in truth table, defined by Dienes-Rescher
   <dl class="fields">
@@ -896,7 +903,7 @@ that is, x + y - xy.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#LukasiewiczImplication">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Implication of the Lukasiewicz three-valued logic.
   <dl class="fields">
@@ -918,7 +925,7 @@ that is, x + y - xy.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.norms-pysrc.html#GodelImplication">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Implication as defined by Godel.
   <dl class="fields">
@@ -1022,10 +1029,11 @@ ProbabilisticImplication, ProbabilisticAglutination
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:51 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -1036,9 +1044,8 @@ ProbabilisticImplication, ProbabilisticAglutination
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

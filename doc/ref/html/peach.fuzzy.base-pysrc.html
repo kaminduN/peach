@@ -63,15 +63,15 @@
 <h1 class="epydoc">Source Code for <a href="peach.fuzzy.base-module.html">Module peach.fuzzy.base</a></h1>
 <pre class="py-src">
 <a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
-<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
-<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
-<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This file: fuzzy/fuzzy.py</tt> </tt>
-<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Fuzzy logic basic definitions</tt> </tt>
-<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file: fuzzy/fuzzy.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Fuzzy logic basic definitions</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
 <a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
-<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nn.__doc__=peach.nn.nn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.optm.__doc__=peach.optm.optm-module.html#__doc__,Variable peach.optm.pso.__doc__=peach.optm.pso-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.sa.__doc__=peach.optm.sa-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__"><a title="peach.__doc__
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nnet.__doc__=peach.nn.nnet-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.base.__doc__=peach.optm.base-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__,Variable peach.pso.__doc__=peach.pso-module.html#__doc__,Variable peach.pso.acc.__doc__=peach.pso.acc-module.html#__doc__,Variable peach.pso.base.__doc__=peach.pso.base-module.html#__doc__,Variable peach.sa.__doc__=peach.sa-module.html#__doc__,Variable peach.sa.base.__doc__=peach.sa.base-module.html#__doc__,Variable peach.sa.neighbor.__doc__=peach.sa.neighbor-module.html#__doc__"><a title="peach.__doc__
 peach.fuzzy.__doc__
 peach.fuzzy.base.__doc__
 peach.fuzzy.cmeans.__doc__
@@ -90,30 +90,34 @@ peach.nn.__doc__
 peach.nn.af.__doc__
 peach.nn.base.__doc__
 peach.nn.lrules.__doc__
-peach.nn.nn.__doc__
+peach.nn.nnet.__doc__
 peach.optm.__doc__
+peach.optm.base.__doc__
 peach.optm.linear.__doc__
 peach.optm.multivar.__doc__
-peach.optm.optm.__doc__
-peach.optm.pso.__doc__
 peach.optm.quasinewton.__doc__
-peach.optm.sa.__doc__
-peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+peach.optm.stochastic.__doc__
+peach.pso.__doc__
+peach.pso.acc.__doc__
+peach.pso.base.__doc__
+peach.sa.__doc__
+peach.sa.base.__doc__
+peach.sa.neighbor.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
 <a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">This package implements basic definitions for fuzzy logic</tt> </tt>
 <a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
 <a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
 <a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
 <a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> </tt>
 <a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">types</tt> </tt>
 <a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
 <a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module peach.fuzzy.norms=peach.fuzzy.norms-module.html"><a title="peach.fuzzy.norms" class="py-name" href="#" onclick="return doclink('link-1', 'norms', 'link-1');">norms</a></tt> </tt>
-<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="FuzzySet"></a><div id="FuzzySet-def"><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
 <a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
 <a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Classes</tt> </tt>
-<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
-<a name="FuzzySet"></a><div id="FuzzySet-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="FuzzySet-toggle" onclick="return toggle('FuzzySet');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.fuzzy.base.FuzzySet-class.html">FuzzySet</a><tt class="py-op">(</tt><tt class="py-base-class">numpy</tt><tt class="py-op">.</tt><tt class="py-base-class">ndarray</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"># Classes</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="FuzzySet-toggle" onclick="return toggle('FuzzySet');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.fuzzy.base.FuzzySet-class.html">FuzzySet</a><tt class="py-op">(</tt><tt class="py-base-class">numpy</tt><tt class="py-op">.</tt><tt class="py-base-class">ndarray</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="FuzzySet-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FuzzySet-expanded"><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    Array containing fuzzy values for a set.</tt> </tt>
 <a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -241,8 +245,8 @@ peach.ga.chromosome.Chromosome.__new__" class="py-name" href="#" onclick="return
 </div></div><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
 <a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
 <a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Test</tt> </tt>
-<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-comment"># Test</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
 <a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
 <a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
@@ -282,10 +286,11 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:37 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:09 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -296,9 +301,8 @@ expandto(location.href);
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

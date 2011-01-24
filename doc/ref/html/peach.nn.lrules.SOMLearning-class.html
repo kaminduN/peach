@@ -62,42 +62,43 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class SOMLearning</h1><span class="codelink"><a href="peach.nn.lrules-pysrc.html#SOMLearning">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class SOMLearning</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.lrules-pysrc.html#SOMLearning">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn_15" name="uml_class_diagram_for_peach_nn_15">
-<area shape="rect" href="peach.nn.lrules.Competitive&#45;class.html" title="Competitive learning with time adjust of the learning rate." alt="" coords="16,86,99,112"/>
-<area shape="rect" href="peach.nn.lrules.SOMLearning&#45;class.html#__call__" title="The __call__ interface." alt="" coords="124,36,257,55"/>
-<area shape="rect" href="peach.nn.lrules.SOMLearning&#45;class.html" title="Base class for Self&#45;Organizing Maps." alt="" coords="123,11,259,56"/>
-<area shape="rect" href="peach.nn.lrules.Cooperative&#45;class.html" title="Cooperative learning with time adjust of the learning rate and neighborhood function to propagate cooperation" alt="" coords="149,86,232,112"/>
-<area shape="rect" href="peach.nn.lrules.WinnerTakesAll&#45;class.html" title="Purely competitive learning method without learning rate adjust." alt="" coords="283,86,389,112"/>
+<area shape="rect" id="node1" href="peach.nn.lrules.Competitive-class.html" title="Competitive learning with time adjust of the learning rate." alt="" coords="5,83,112,122"/>
+<area shape="rect" id="node2" href="peach.nn.lrules.Cooperative-class.html" title="Cooperative learning with time adjust of the learning rate and neighborhood function to propagate cooperation" alt="" coords="141,83,248,122"/>
+<area shape="rect" id="node117" href="peach.nn.lrules.SOMLearning-class.html#__call__" title="The __call__ interface." alt="" coords="127,39,263,57"/>
+<area shape="rect" id="node3" href="peach.nn.lrules.SOMLearning-class.html" title="Base class for Self&#45;Organizing Maps." alt="" coords="115,6,275,63"/>
+<area shape="rect" id="node4" href="peach.nn.lrules.WinnerTakesAll-class.html" title="Purely competitive learning method without learning rate adjust." alt="" coords="277,83,405,122"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn_15.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_15" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Base class for Self-Organizing Maps.</p>
 <p>As a base class, this class doesn't do anything. You should subclass this
 class if you want to implement a learning method for self-organizing maps.</p>
-<p>A learning method for a neural net of this kind must deal with a <tt class="rst-docutils literal"><span class="pre">SOM</span></tt>
-instance. A <tt class="rst-docutils literal"><span class="pre">SOM</span></tt> object is a <tt class="rst-docutils literal"><span class="pre">Layer</span></tt> (consulting the documentation of
+<p>A learning method for a neural net of this kind must deal with a <tt class="rst-docutils literal">SOM</tt>
+instance. A <tt class="rst-docutils literal">SOM</tt> object is a <tt class="rst-docutils literal">Layer</tt> (consulting the documentation of
 these classes is important!).</p>
 <p>A class implementing a learning method should have at least two methods:</p>
 <blockquote>
 <dl class="rst-docutils">
 <dt>__init__</dt>
-<dd>The <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method should initialize the object. It is in general
+<dd>The <tt class="rst-docutils literal">__init__</tt> method should initialize the object. It is in general
 used to configure some property of the learning algorithm, such as the
 learning rate.</dd>
 <dt>__call__</dt>
-<dd><p class="rst-first">The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface is how the method should interact with the
+<dd><p class="rst-first">The <tt class="rst-docutils literal">__call__</tt> interface is how the method should interact with the
 neural network. It should have the following signature:</p>
 <pre class="rst-literal-block">
 __call__(self, nn, x)
 </pre>
-<p class="rst-last">where <tt class="rst-docutils literal"><span class="pre">nn</span></tt> is the <tt class="rst-docutils literal"><span class="pre">SOM</span></tt> instance to be modified <em>in loco</em>, and <tt class="rst-docutils literal"><span class="pre">x</span></tt>
+<p class="rst-last">where <tt class="rst-docutils literal">nn</tt> is the <tt class="rst-docutils literal">SOM</tt> instance to be modified <em>in loco</em>, and <tt class="rst-docutils literal">x</tt>
 is the input vector. It should return nothing.</p>
 </dd>
 </dl>
-</blockquote><br /><br />
+</blockquote>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -126,7 +127,7 @@ is the input vector. It should return nothing.</p>
         <span class="summary-sig-arg">nn</span>,
         <span class="summary-sig-arg">x</span>,
         <span class="summary-sig-arg">d</span>)</span><br />
-      The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface.</td>
+      The <tt class="rst-docutils literal">__call__</tt> interface.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.nn.lrules-pysrc.html#SOMLearning.__call__">source&nbsp;code</a></span>
             
@@ -140,6 +141,7 @@ is the input vector. It should return nothing.</p>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__init__</code>,
@@ -148,7 +150,9 @@ is the input vector. It should return nothing.</p>
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -212,17 +216,17 @@ is the input vector. It should return nothing.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.lrules-pysrc.html#SOMLearning.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">__call__</span></tt> interface.</p>
+  <p>The <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> interface.</p>
 <p>Read the documentation for this class for more information. A call to
 the class should have the following parameters:</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal"><span class="pre">SOM</span></tt> neural network instance that is going to be modified by
+        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal">SOM</tt> neural network instance that is going to be modified by
 the learning algorithm. The modification is made <em>in loco</em>, that is,
-the synaptic weights of <tt class="rst-docutils literal"><span class="pre">nn</span></tt> should be modified in place, and not
+the synaptic weights of <tt class="rst-docutils literal">nn</tt> should be modified in place, and not
 returned from this function.</li>
         <li><strong class="pname"><code>x</code></strong> - The input vector from the training set.</li>
     </ul></dd>
@@ -261,10 +265,11 @@ returned from this function.</li>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:34 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:02 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -275,9 +280,8 @@ returned from this function.</li>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

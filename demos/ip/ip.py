@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ################################################################################
 # Mathematical model of an inverted pendulum
 # Jose Alexandre Nalon
@@ -41,7 +42,7 @@ class InvertedPendulum(object):
         self.m = m
         self.mc = mc
         self.dt = dt
-        self.O = 0.        # Pendulum angular positionn in rad
+        self.O = 0.        # Pendulum angular position in rad
         self.w = 0.        # Pendulum angular velocity in rad/s
         self.x = 0.        # Cart position in meters
         self.v = 0.        # Cart speed in meters/second
@@ -54,7 +55,7 @@ class InvertedPendulum(object):
         return (x + pi)%(2*pi) - pi
 
 
-    def setState(self, O = 0., w = 0., x = 0., v = 0.):
+    def set_state(self, O = 0., w = 0., x = 0., v = 0.):
         '''
         Sets the state of the pendulum.
 
@@ -72,6 +73,18 @@ class InvertedPendulum(object):
         self.w = w
         self.x = x
         self.v = v
+
+
+    def get_state(self):
+        '''
+        Get the state of the pendulum, in the form of a tuple.
+
+        :Returns:
+          A tuple containing, in order, the angular position in radians, the
+          angular velocity in radians/seconds, the cart position in meters, the
+          cart speed in meters/second.
+        '''
+        return (self.O, self.w, self.x, self.v)
 
 
     def apply(self, F):
@@ -104,19 +117,7 @@ class InvertedPendulum(object):
         self.v = v + a*dt
         self.x = x + self.v*dt
 
-        return self.getState()
-
-
-    def getState(self):
-        '''
-        Get the state of the pendulum, in the form of a tuple.
-
-        :Returns:
-          A tuple containing, in order, the angular position in radians, the
-          angular velocity in radians/seconds, the cart position in meters, the
-          cart speed in meters/second.
-        '''
-        return (self.O, self.w, self.x, self.v)
+        return self.get_state()
 
 
 ################################################################################

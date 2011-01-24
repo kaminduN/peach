@@ -84,5 +84,5 @@ try:
     pylab.savefig("linear-prediction.png")
 
 except ImportError:
-    print "After %d iteratrions:" % (len(elog),)
+    print "After %d iterations:" % (len(elog),)
     print nn[0].weights

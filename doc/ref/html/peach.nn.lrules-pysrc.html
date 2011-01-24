@@ -63,15 +63,15 @@
 <h1 class="epydoc">Source Code for <a href="peach.nn.lrules-module.html">Module peach.nn.lrules</a></h1>
 <pre class="py-src">
 <a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
-<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
-<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
-<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This file: nn/lrules.py</tt> </tt>
-<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Learning rules for neural networks</tt> </tt>
-<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file: nn/lrules.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Learning rules for neural networks</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
 <a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
-<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nn.__doc__=peach.nn.nn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.optm.__doc__=peach.optm.optm-module.html#__doc__,Variable peach.optm.pso.__doc__=peach.optm.pso-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.sa.__doc__=peach.optm.sa-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__"><a title="peach.__doc__
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nnet.__doc__=peach.nn.nnet-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.base.__doc__=peach.optm.base-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__,Variable peach.pso.__doc__=peach.pso-module.html#__doc__,Variable peach.pso.acc.__doc__=peach.pso.acc-module.html#__doc__,Variable peach.pso.base.__doc__=peach.pso.base-module.html#__doc__,Variable peach.sa.__doc__=peach.sa-module.html#__doc__,Variable peach.sa.base.__doc__=peach.sa.base-module.html#__doc__,Variable peach.sa.neighbor.__doc__=peach.sa.neighbor-module.html#__doc__"><a title="peach.__doc__
 peach.fuzzy.__doc__
 peach.fuzzy.base.__doc__
 peach.fuzzy.cmeans.__doc__
@@ -90,15 +90,19 @@ peach.nn.__doc__
 peach.nn.af.__doc__
 peach.nn.base.__doc__
 peach.nn.lrules.__doc__
-peach.nn.nn.__doc__
+peach.nn.nnet.__doc__
 peach.optm.__doc__
+peach.optm.base.__doc__
 peach.optm.linear.__doc__
 peach.optm.multivar.__doc__
-peach.optm.optm.__doc__
-peach.optm.pso.__doc__
 peach.optm.quasinewton.__doc__
-peach.optm.sa.__doc__
-peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+peach.optm.stochastic.__doc__
+peach.pso.__doc__
+peach.pso.acc.__doc__
+peach.pso.base.__doc__
+peach.sa.__doc__
+peach.sa.base.__doc__
+peach.sa.neighbor.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
 <a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">Learning rules for neural networks and base classes for custom learning.</tt> </tt>
 <a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">This sub-package implements learning methods commonly used with neural networks.</tt> </tt>
@@ -116,8 +120,8 @@ peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink(
 <a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
 <a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
 <a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ones</tt><tt class="py-op">,</tt> <tt class="py-name">hstack</tt><tt class="py-op">,</tt> <tt class="py-name">reshape</tt><tt class="py-op">,</tt> <tt class="py-name">dot</tt><tt class="py-op">,</tt> <tt class="py-name">sum</tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name" targets="Variable peach.fuzzy.control.exp=peach.fuzzy.control-module.html#exp,Variable peach.nn.nn.exp=peach.nn.nn-module.html#exp"><a title="peach.fuzzy.control.exp
-peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-1', 'exp', 'link-1');">exp</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ones</tt><tt class="py-op">,</tt> <tt class="py-name">hstack</tt><tt class="py-op">,</tt> <tt class="py-name">reshape</tt><tt class="py-op">,</tt> <tt class="py-name">dot</tt><tt class="py-op">,</tt> <tt class="py-name">sum</tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name" targets="Variable peach.fuzzy.control.exp=peach.fuzzy.control-module.html#exp,Variable peach.nn.nnet.exp=peach.nn.nnet-module.html#exp"><a title="peach.fuzzy.control.exp
+peach.nn.nnet.exp" class="py-name" href="#" onclick="return doclink('link-1', 'exp', 'link-1');">exp</a></tt> </tt>
 <a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
 <a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
 <a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable peach.nn.base._BIAS=peach.nn.base-module.html#_BIAS,Variable peach.nn.lrules._BIAS=peach.nn.lrules-module.html#_BIAS"><a title="peach.nn.base._BIAS
@@ -127,9 +131,9 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-2'
 <a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
 <a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
 <a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Classes</tt> </tt>
-<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
-<a name="FFLearning"></a><div id="FFLearning-def"><a name="L39"></a><tt class="py-lineno"> 39</tt> <a class="py-toggle" href="#" id="FFLearning-toggle" onclick="return toggle('FFLearning');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.FFLearning-class.html">FFLearning</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># Classes</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="FFLearning"></a><div id="FFLearning-def"><a name="L39"></a><tt class="py-lineno"> 39</tt> <a class="py-toggle" href="#" id="FFLearning-toggle" onclick="return toggle('FFLearning');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.FFLearning-class.html">FFLearning</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="FFLearning-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FFLearning-expanded"><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    Base class for FeedForwarding Multilayer neural networks.</tt> </tt>
 <a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -183,7 +187,7 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-2'
 </div></div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
 <a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
 <a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="LMS"></a><div id="LMS-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="LMS-toggle" onclick="return toggle('LMS');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.LMS-class.html">LMS</a><tt class="py-op">(</tt><tt class="py-base-class">FFLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="LMS"></a><div id="LMS-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="LMS-toggle" onclick="return toggle('LMS');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.LMS-class.html">LMS</a><tt class="py-op">(</tt><tt class="py-base-class">FFLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="LMS-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LMS-expanded"><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    The Least-Mean-Square (LMS) learning method.</tt> </tt>
 <a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -224,33 +228,29 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-2'
 <a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">            The desired response for the given input vector.</tt> </tt>
 <a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-comment"># g would be like the local error gradient for each neuron. In LMS, this</tt> </tt>
-<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># serves only to propagate the error</tt> </tt>
-<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-3" class="py-name" targets="Package peach.nn=peach.nn-module.html,Module peach.nn.nn=peach.nn.nn-module.html"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-3', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Variable peach.fuzzy.control.Controller.y=peach.fuzzy.control.Controller-class.html#y,Variable peach.nn.base.Layer.y=peach.nn.base.Layer-class.html#y,Variable peach.nn.nn.FeedForward.y=peach.nn.nn.FeedForward-class.html#y,Variable peach.nn.nn.SOM.y=peach.nn.nn.SOM-class.html#y"><a title="peach.fuzzy.control.Controller.y
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-comment"># serves only to propagate the error</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-3" class="py-name" targets="Package peach.nn=peach.nn-module.html"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-3', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Variable peach.fuzzy.control.Controller.y=peach.fuzzy.control.Controller-class.html#y,Variable peach.nn.base.Layer.y=peach.nn.base.Layer-class.html#y,Variable peach.nn.nnet.FeedForward.y=peach.nn.nnet.FeedForward-class.html#y,Variable peach.nn.nnet.SOM.y=peach.nn.nnet.SOM-class.html#y"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-4', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Variable peach.nn.base.Layer.shape=peach.nn.base.Layer-class.html#shape"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-5', 'shape', 'link-5');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">d</tt> <tt class="py-op">-</tt> <tt id="link-6" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-6', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-4', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Variable peach.nn.base.Layer.shape=peach.nn.base.Layer-class.html#shape"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-5', 'shape', 'link-5');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">d</tt> <tt class="py-op">-</tt> <tt id="link-6" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-6', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-7', 'y', 'link-4');">y</a></tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-7', 'y', 'link-4');">y</a></tt> </tt>
 <a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
 <a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-comment"># The error is backpropagated, thus the lists are inverted. To combine</tt> </tt>
-<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># each layer, we ``zip`` them.</tt> </tt>
-<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">for</tt> <tt class="py-name">w1</tt><tt class="py-op">,</tt> <tt class="py-name">w2</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-8', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-9', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-comment"># each layer, we ``zip`` them.</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">w1</tt><tt class="py-op">,</tt> <tt class="py-name">w2</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-8', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-9', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
 <a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">            <tt class="py-comment"># xs is the input vector, transposed because of backpropagation.</tt> </tt>
-<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="peach.fuzzy.control.Controller.y
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-10', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-10', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"> </tt>
 <a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-comment"># Adjusts for bias.</tt> </tt>
-<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable peach.nn.base.Layer.bias=peach.nn.base.Layer-class.html#bias,Variable peach.nn.nn.FeedForward.bias=peach.nn.nn.FeedForward-class.html#bias"><a title="peach.nn.base.Layer.bias
-peach.nn.nn.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-11', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable peach.nn.base.Layer.bias=peach.nn.base.Layer-class.html#bias,Variable peach.nn.nnet.FeedForward.bias=peach.nn.nnet.FeedForward-class.html#bias"><a title="peach.nn.base.Layer.bias
+peach.nn.nnet.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-11', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
 <a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">hstack</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="peach.nn.base._BIAS
 peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-12', '_BIAS', 'link-2');">_BIAS</a></tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                <tt class="py-name">wt</tt> <tt class="py-op">=</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Variable peach.nn.base.Layer.weights=peach.nn.base.Layer-class.html#weights"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-13', 'weights', 'link-13');">weights</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
@@ -258,18 +258,28 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-12
 <a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                <tt class="py-name">wt</tt> <tt class="py-op">=</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-14', 'weights', 'link-13');">weights</a></tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
 <a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-comment"># Update synaptic weights</tt> </tt>
-<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">            <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
 <a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">            <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-15', 'weights', 'link-13');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-16', 'weights', 'link-13');">weights</a></tt> <tt class="py-op">+</tt> <tt class="py-name">dw</tt> </tt>
 <a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
 <a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">            <tt class="py-comment"># Backpropagate the error.</tt> </tt>
-<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">wt</tt><tt class="py-op">,</tt> <tt class="py-name">g</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">            <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">wt</tt><tt class="py-op">,</tt> <tt class="py-name">g</tt><tt class="py-op">)</tt> </tt>
 <a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
 <a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-comment"># Repeat the procedure for the first layer.</tt> </tt>
-<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-17', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
-<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.x=peach.fuzzy.cmeans.FuzzyCMeans-class.html#x"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-18', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable peach.nn.base.Layer.inputs=peach.nn.base.Layer-class.html#inputs"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-19', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-17', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.x=peach.fuzzy.cmeans.FuzzyCMeans-class.html#x,Variable peach.optm.linear.Direct1D.x=peach.optm.linear.Direct1D-class.html#x,Variable peach.optm.linear.GoldenRule.x=peach.optm.linear.GoldenRule-class.html#x,Variable peach.optm.linear.Interpolation.x=peach.optm.linear.Interpolation-class.html#x,Variable peach.optm.multivar.Direct.x=peach.optm.multivar.Direct-class.html#x,Variable peach.optm.multivar.Gradient.x=peach.optm.multivar.Gradient-class.html#x,Variable peach.optm.multivar.MomentumGradient.x=peach.optm.multivar.MomentumGradient-class.html#x,Variable peach.optm.multivar.Newton.x=peach.optm.multivar.Newton-class.html#x,Variable peach.optm.quasinewton.DFP.x=peach.optm.quasinewton.DFP-class.html#x,Variable peach.optm.quasinewton.SR1.x=peach.optm.quasinewton.SR1-class.html#x,Variable peach.sa.base.BinarySA.x=peach.sa.base.BinarySA-class.html#x,Variable peach.sa.base.ContinuousSA.x=peach.sa.base.ContinuousSA-class.html#x"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-18', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable peach.nn.base.Layer.inputs=peach.nn.base.Layer-class.html#inputs"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-19', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="peach.nn.base.Layer.bias
-peach.nn.nn.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-20', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
+peach.nn.nnet.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-20', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
 <a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">hstack</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="peach.nn.base._BIAS
 peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-21', '_BIAS', 'link-2');">_BIAS</a></tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
@@ -284,7 +294,7 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-21
 <a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
 <a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"> </tt>
 <a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="BackPropagation"></a><div id="BackPropagation-def"><a name="L176"></a><tt class="py-lineno">176</tt> <a class="py-toggle" href="#" id="BackPropagation-toggle" onclick="return toggle('BackPropagation');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.BackPropagation-class.html">BackPropagation</a><tt class="py-op">(</tt><tt class="py-base-class">FFLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="BackPropagation"></a><div id="BackPropagation-def"><a name="L176"></a><tt class="py-lineno">176</tt> <a class="py-toggle" href="#" id="BackPropagation-toggle" onclick="return toggle('BackPropagation');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.BackPropagation-class.html">BackPropagation</a><tt class="py-op">(</tt><tt class="py-base-class">FFLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="BackPropagation-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="BackPropagation-expanded"><a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-docstring">    The BackPropagation learning method.</tt> </tt>
 <a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -325,35 +335,29 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-21
 <a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">            The desired response for the given input vector.</tt> </tt>
 <a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">        <tt class="py-comment"># g is the local error gradient for each neuron.</tt> </tt>
-<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-26', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="peach.fuzzy.control.Controller.y
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-26', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-27', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-28', 'shape', 'link-5');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">d</tt> <tt class="py-op">-</tt> <tt id="link-29" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-29', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-27', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-28', 'shape', 'link-5');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">d</tt> <tt class="py-op">-</tt> <tt id="link-29" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-29', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-30', 'y', 'link-4');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt id="link-31" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-31', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable peach.nn.base.Layer.phi=peach.nn.base.Layer-class.html#phi,Variable peach.nn.nn.FeedForward.phi=peach.nn.nn.FeedForward-class.html#phi"><a title="peach.nn.base.Layer.phi
-peach.nn.nn.FeedForward.phi" class="py-name" href="#" onclick="return doclink('link-32', 'phi', 'link-32');">phi</a></tt><tt class="py-op">.</tt><tt class="py-name">d</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-33', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Variable peach.nn.base.Layer.v=peach.nn.base.Layer-class.html#v"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-34', 'v', 'link-34');">v</a></tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-30', 'y', 'link-4');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt id="link-31" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-31', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable peach.nn.base.Layer.phi=peach.nn.base.Layer-class.html#phi,Variable peach.nn.nnet.FeedForward.phi=peach.nn.nnet.FeedForward-class.html#phi"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi" class="py-name" href="#" onclick="return doclink('link-32', 'phi', 'link-32');">phi</a></tt><tt class="py-op">.</tt><tt class="py-name">d</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-33', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Variable peach.nn.base.Layer.v=peach.nn.base.Layer-class.html#v"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-34', 'v', 'link-34');">v</a></tt><tt class="py-op">)</tt> </tt>
 <a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"> </tt>
 <a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">        <tt class="py-comment"># The error is backpropagated, thus the lists are inverted. To combine</tt> </tt>
-<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># each layer, we ``zip`` them.</tt> </tt>
-<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">for</tt> <tt class="py-name">w1</tt><tt class="py-op">,</tt> <tt class="py-name">w2</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-35', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-36', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-comment"># each layer, we ``zip`` them.</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">w1</tt><tt class="py-op">,</tt> <tt class="py-name">w2</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-35', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-36', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"> </tt>
 <a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">            <tt class="py-comment"># xs is the input vector, transposed because of backpropagation.</tt> </tt>
-<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="peach.fuzzy.control.Controller.y
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-37', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-37', 'y', 'link-4');">y</a></tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"> </tt>
 <a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">            <tt class="py-comment"># Adjusts for bias.</tt> </tt>
-<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="peach.nn.base.Layer.bias
-peach.nn.nn.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-38', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="peach.nn.base.Layer.bias
+peach.nn.nnet.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-38', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
 <a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">                <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">hstack</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="peach.nn.base._BIAS
 peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-39', '_BIAS', 'link-2');">_BIAS</a></tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">                <tt class="py-name">wt</tt> <tt class="py-op">=</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-40', 'weights', 'link-13');">weights</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
@@ -361,19 +365,29 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-39
 <a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">                <tt class="py-name">wt</tt> <tt class="py-op">=</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-41', 'weights', 'link-13');">weights</a></tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"> </tt>
 <a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">            <tt class="py-comment"># Update synaptic weights</tt> </tt>
-<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">            <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
 <a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">            <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-42', 'weights', 'link-13');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-name">w2</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-43', 'weights', 'link-13');">weights</a></tt> <tt class="py-op">+</tt> <tt class="py-name">dw</tt> </tt>
 <a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"> </tt>
 <a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">            <tt class="py-comment"># Backpropagate the error.</tt> </tt>
-<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">wt</tt><tt class="py-op">,</tt> <tt class="py-name">g</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="peach.nn.base.Layer.phi
-peach.nn.nn.FeedForward.phi" class="py-name" href="#" onclick="return doclink('link-44', 'phi', 'link-32');">phi</a></tt><tt class="py-op">.</tt><tt class="py-name">d</tt><tt class="py-op">(</tt><tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-45', 'v', 'link-34');">v</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">            <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">wt</tt><tt class="py-op">,</tt> <tt class="py-name">g</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi" class="py-name" href="#" onclick="return doclink('link-44', 'phi', 'link-32');">phi</a></tt><tt class="py-op">.</tt><tt class="py-name">d</tt><tt class="py-op">(</tt><tt class="py-name">w1</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-45', 'v', 'link-34');">v</a></tt><tt class="py-op">)</tt> </tt>
 <a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"> </tt>
 <a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-comment"># Repeat the procedure for the first layer.</tt> </tt>
-<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-46', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
-<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-47', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-48', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-46', 'nn', 'link-3');">nn</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-47', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-48', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="peach.nn.base.Layer.bias
-peach.nn.nn.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-49', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
+peach.nn.nnet.FeedForward.bias" class="py-name" href="#" onclick="return doclink('link-49', 'bias', 'link-11');">bias</a></tt><tt class="py-op">:</tt> </tt>
 <a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">            <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">hstack</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-50" class="py-name"><a title="peach.nn.base._BIAS
 peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-50', '_BIAS', 'link-2');">_BIAS</a></tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">dot</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
@@ -381,7 +395,7 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-50
 </div></div><a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"> </tt>
 <a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"> </tt>
 <a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="SOMLearning"></a><div id="SOMLearning-def"><a name="L251"></a><tt class="py-lineno">251</tt> <a class="py-toggle" href="#" id="SOMLearning-toggle" onclick="return toggle('SOMLearning');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.SOMLearning-class.html">SOMLearning</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="SOMLearning"></a><div id="SOMLearning-def"><a name="L251"></a><tt class="py-lineno">251</tt> <a class="py-toggle" href="#" id="SOMLearning-toggle" onclick="return toggle('SOMLearning');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.SOMLearning-class.html">SOMLearning</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="SOMLearning-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SOMLearning-expanded"><a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"><tt class="py-docstring">    Base class for Self-Organizing Maps.</tt> </tt>
 <a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -427,7 +441,7 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-50
 </div></div><a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line"> </tt>
 <a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line"> </tt>
 <a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="WinnerTakesAll"></a><div id="WinnerTakesAll-def"><a name="L297"></a><tt class="py-lineno">297</tt> <a class="py-toggle" href="#" id="WinnerTakesAll-toggle" onclick="return toggle('WinnerTakesAll');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.WinnerTakesAll-class.html">WinnerTakesAll</a><tt class="py-op">(</tt><tt class="py-base-class">SOMLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="WinnerTakesAll"></a><div id="WinnerTakesAll-def"><a name="L297"></a><tt class="py-lineno">297</tt> <a class="py-toggle" href="#" id="WinnerTakesAll-toggle" onclick="return toggle('WinnerTakesAll');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.WinnerTakesAll-class.html">WinnerTakesAll</a><tt class="py-op">(</tt><tt class="py-base-class">SOMLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="WinnerTakesAll-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="WinnerTakesAll-expanded"><a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line"><tt class="py-docstring">    Purely competitive learning method without learning rate adjust.</tt> </tt>
 <a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -465,16 +479,35 @@ peach.nn.lrules._BIAS" class="py-name" href="#" onclick="return doclink('link-50
 <a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line"><tt class="py-docstring">          x</tt> </tt>
 <a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line"><tt class="py-docstring">            The input vector from the training set.</tt> </tt>
 <a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-53" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-53', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-54" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-54', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-55', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-56" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-56', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="peach.fuzzy.control.Controller.y
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-53" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-53', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-54" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-54', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-55', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-56" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-56', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-57', 'y', 'link-4');">y</a></tt> </tt>
-<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-58', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-59', 'weights', 'link-13');">weights</a></tt> </tt>
-<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line">        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-60" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-60', 'x', 'link-18');">x</a></tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-57', 'y', 'link-4');">y</a></tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-58', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-59', 'weights', 'link-13');">weights</a></tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line">        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-60" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-60', 'x', 'link-18');">x</a></tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
 <a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">        <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">dw</tt> </tt>
 </div></div><a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"> </tt>
 <a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line"> </tt>
@@ -483,7 +516,7 @@ peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-58', 'nn', '
 <a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line"> </tt>
 <a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line"> </tt>
 <a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="Competitive"></a><div id="Competitive-def"><a name="L347"></a><tt class="py-lineno">347</tt> <a class="py-toggle" href="#" id="Competitive-toggle" onclick="return toggle('Competitive');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.Competitive-class.html">Competitive</a><tt class="py-op">(</tt><tt class="py-base-class">SOMLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="Competitive"></a><div id="Competitive-def"><a name="L347"></a><tt class="py-lineno">347</tt> <a class="py-toggle" href="#" id="Competitive-toggle" onclick="return toggle('Competitive');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.Competitive-class.html">Competitive</a><tt class="py-op">(</tt><tt class="py-base-class">SOMLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Competitive-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Competitive-expanded"><a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line"><tt class="py-docstring">    Competitive learning with time adjust of the learning rate.</tt> </tt>
 <a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -507,7 +540,7 @@ peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-58', 'nn', '
 <a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">=</tt> <tt class="py-name">lrate</tt> </tt>
 <a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
 <a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrm</tt> <tt class="py-op">=</tt> <tt id="link-62" class="py-name"><a title="peach.fuzzy.control.exp
-peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-62', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">tl</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.exp" class="py-name" href="#" onclick="return doclink('link-62', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">tl</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line"> </tt>
 <a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line"> </tt>
 <a name="Competitive.__call__"></a><div id="Competitive.__call__-def"><a name="L373"></a><tt class="py-lineno">373</tt> <a class="py-toggle" href="#" id="Competitive.__call__-toggle" onclick="return toggle('Competitive.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.lrules.Competitive-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">nn</tt><tt class="py-op">,</tt> <tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -527,27 +560,46 @@ peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-62', 'ex
 <a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line"><tt class="py-docstring">          x</tt> </tt>
 <a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line"><tt class="py-docstring">            The input vector from the training set.</tt> </tt>
 <a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-63', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-64" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-64', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-65', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-66" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-66', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="peach.fuzzy.control.Controller.y
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-63', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-64" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-64', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-65', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-66" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-66', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-67', 'y', 'link-4');">y</a></tt> </tt>
-<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-68', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-69', 'weights', 'link-13');">weights</a></tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-67', 'y', 'link-4');">y</a></tt> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-68', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-69', 'weights', 'link-13');">weights</a></tt> </tt>
 <a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line"> </tt>
 <a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line">        <tt class="py-comment"># Adjusts the learning rate according to an exponential rule</tt> </tt>
-<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">lrate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line">        <tt class="py-name">lrate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> </tt>
 <a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrm</tt> </tt>
 <a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line"> </tt>
 <a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line">        <tt class="py-comment"># Updates the weights</tt> </tt>
-<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-70" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-70', 'x', 'link-18');">x</a></tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line">        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-70" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-70', 'x', 'link-18');">x</a></tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
 <a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line">        <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">dw</tt> </tt>
 </div></div><a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line"> </tt>
 <a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line"> </tt>
 <a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="Cooperative"></a><div id="Cooperative-def"><a name="L404"></a><tt class="py-lineno">404</tt> <a class="py-toggle" href="#" id="Cooperative-toggle" onclick="return toggle('Cooperative');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.Cooperative-class.html">Cooperative</a><tt class="py-op">(</tt><tt class="py-base-class">SOMLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="Cooperative"></a><div id="Cooperative-def"><a name="L404"></a><tt class="py-lineno">404</tt> <a class="py-toggle" href="#" id="Cooperative-toggle" onclick="return toggle('Cooperative');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.lrules.Cooperative-class.html">Cooperative</a><tt class="py-op">(</tt><tt class="py-base-class">SOMLearning</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Cooperative-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Cooperative-expanded"><a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line"><tt class="py-docstring">    Cooperative learning with time adjust of the learning rate and neighborhood</tt> </tt>
 <a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line"><tt class="py-docstring">    function to propagate cooperation</tt> </tt>
@@ -583,9 +635,9 @@ peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-68', 'nn', '
 <a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__neighbor</tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
 <a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
 <a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrm</tt> <tt class="py-op">=</tt> <tt id="link-71" class="py-name"><a title="peach.fuzzy.control.exp
-peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-71', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">tl</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.exp" class="py-name" href="#" onclick="return doclink('link-71', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">tl</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nbm</tt> <tt class="py-op">=</tt> <tt id="link-72" class="py-name"><a title="peach.fuzzy.control.exp
-peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-72', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">tn</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.exp" class="py-name" href="#" onclick="return doclink('link-72', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">tn</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__s0</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">s0</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line"> </tt>
 <a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line"> </tt>
@@ -606,40 +658,56 @@ peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-72', 'ex
 <a name="L458"></a><tt class="py-lineno">458</tt>  <tt class="py-line"><tt class="py-docstring">          x</tt> </tt>
 <a name="L459"></a><tt class="py-lineno">459</tt>  <tt class="py-line"><tt class="py-docstring">            The input vector from the training set.</tt> </tt>
 <a name="L460"></a><tt class="py-lineno">460</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L461"></a><tt class="py-lineno">461</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-73', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-74" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-74', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-75', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-76" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-76', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="peach.fuzzy.control.Controller.y
+<a name="L461"></a><tt class="py-lineno">461</tt>  <tt class="py-line">        <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-73', 'x', 'link-18');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-74" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-74', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="peach.nn.base.Layer.inputs" class="py-name" href="#" onclick="return doclink('link-75', 'inputs', 'link-19');">inputs</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-76" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-76', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="peach.fuzzy.control.Controller.y
 peach.nn.base.Layer.y
-peach.nn.nn.FeedForward.y
-peach.nn.nn.SOM.y" class="py-name" href="#" onclick="return doclink('link-77', 'y', 'link-4');">y</a></tt> </tt>
-<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-78" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-78', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-79', 'weights', 'link-13');">weights</a></tt> </tt>
-<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">        <tt class="py-name">wi</tt> <tt class="py-op">=</tt> <tt id="link-80" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-80', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-81', 'weights', 'link-13');">weights</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y" class="py-name" href="#" onclick="return doclink('link-77', 'y', 'link-4');">y</a></tt> </tt>
+<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-78" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-78', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-79', 'weights', 'link-13');">weights</a></tt> </tt>
+<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">        <tt class="py-name">wi</tt> <tt class="py-op">=</tt> <tt id="link-80" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-80', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-81', 'weights', 'link-13');">weights</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
 <a name="L465"></a><tt class="py-lineno">465</tt>  <tt class="py-line"> </tt>
 <a name="L466"></a><tt class="py-lineno">466</tt>  <tt class="py-line">        <tt class="py-comment"># Adjusts the learning rate according to an exponential rule</tt> </tt>
-<a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">lrate</tt> <tt class="py-op">=</tt> <tt id="link-82" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-82', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> </tt>
+<a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line">        <tt class="py-name">lrate</tt> <tt class="py-op">=</tt> <tt id="link-82" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-82', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> </tt>
 <a name="L468"></a><tt class="py-lineno">468</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__lrm</tt> </tt>
 <a name="L469"></a><tt class="py-lineno">469</tt>  <tt class="py-line"> </tt>
 <a name="L470"></a><tt class="py-lineno">470</tt>  <tt class="py-line">        <tt class="py-comment"># Apply neighborhood function.</tt> </tt>
-<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__s0</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__neighbor</tt> </tt>
+<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line">        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__s0</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__neighbor</tt> </tt>
 <a name="L472"></a><tt class="py-lineno">472</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__neighbor</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__neighbor</tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nbm</tt> </tt>
 <a name="L473"></a><tt class="py-lineno">473</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">sum</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">wi</tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">)</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
 <a name="L474"></a><tt class="py-lineno">474</tt>  <tt class="py-line">        <tt class="py-name">h</tt> <tt class="py-op">=</tt> <tt id="link-83" class="py-name"><a title="peach.fuzzy.control.exp
-peach.nn.nn.exp" class="py-name" href="#" onclick="return doclink('link-83', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-name">d</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">*</tt><tt class="py-name">s</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+peach.nn.nnet.exp" class="py-name" href="#" onclick="return doclink('link-83', 'exp', 'link-1');">exp</a></tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-name">d</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">*</tt><tt class="py-name">s</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L475"></a><tt class="py-lineno">475</tt>  <tt class="py-line"> </tt>
 <a name="L476"></a><tt class="py-lineno">476</tt>  <tt class="py-line">        <tt class="py-comment"># Updates the weights</tt> </tt>
-<a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">h</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-84" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x" class="py-name" href="#" onclick="return doclink('link-84', 'x', 'link-18');">x</a></tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line">        <tt class="py-name">dw</tt> <tt class="py-op">=</tt> <tt class="py-name">lrate</tt> <tt class="py-op">*</tt> <tt class="py-name">h</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-84" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-84', 'x', 'link-18');">x</a></tt> <tt class="py-op">-</tt> <tt class="py-name">w</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L478"></a><tt class="py-lineno">478</tt>  <tt class="py-line">        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> <tt class="py-op">+</tt> <tt class="py-name">dw</tt><tt class="py-op">.</tt><tt class="py-name">transpose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line">        <tt id="link-85" class="py-name"><a title="peach.nn
-peach.nn.nn" class="py-name" href="#" onclick="return doclink('link-85', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-86', 'weights', 'link-13');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> </tt>
+<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line">        <tt id="link-85" class="py-name"><a title="peach.nn" class="py-name" href="#" onclick="return doclink('link-85', 'nn', 'link-3');">nn</a></tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="peach.nn.base.Layer.weights" class="py-name" href="#" onclick="return doclink('link-86', 'weights', 'link-13');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> </tt>
 </div></div><a name="L480"></a><tt class="py-lineno">480</tt>  <tt class="py-line"> </tt>
 <a name="L481"></a><tt class="py-lineno">481</tt>  <tt class="py-line"> </tt>
 <a name="L482"></a><tt class="py-lineno">482</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Test</tt> </tt>
-<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line"><tt class="py-comment"># Test</tt> </tt>
+<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
 <a name="L485"></a><tt class="py-lineno">485</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
 <a name="L486"></a><tt class="py-lineno">486</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
@@ -679,10 +747,11 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:39 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:10 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -693,9 +762,8 @@ expandto(location.href);
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

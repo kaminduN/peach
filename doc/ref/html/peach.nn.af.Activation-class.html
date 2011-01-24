@@ -62,24 +62,25 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Activation</h1><span class="codelink"><a href="peach.nn.af-pysrc.html#Activation">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Activation</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.af-pysrc.html#Activation">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn" name="uml_class_diagram_for_peach_nn">
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html#d" title="An alias to the derivative of the function." alt="" coords="287,28,476,46"/>
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html#__call__" title="Call interface to the object." alt="" coords="287,49,476,68"/>
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html#derivative" title="An estimate of the derivative of the activation function." alt="" coords="287,68,476,86"/>
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html#__init__" title="Initializes the activation function." alt="" coords="287,86,476,105"/>
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html" title="Base class for activation functions." alt="" coords="285,10,477,106"/>
-<area shape="rect" href="peach.nn.af.Threshold&#45;class.html" title="Threshold activation function." alt="" coords="16,136,85,162"/>
-<area shape="rect" href="peach.nn.af.Signum&#45;class.html" title="Signum activation function" alt="" coords="136,136,195,162"/>
-<area shape="rect" href="peach.nn.af.Sigmoid&#45;class.html" title="Sigmoid activation function" alt="" coords="245,136,307,162"/>
-<area shape="rect" href="peach.nn.af.Linear&#45;class.html" title="Identity activation function" alt="" coords="357,136,405,162"/>
-<area shape="rect" href="peach.nn.af.TanH&#45;class.html" title="Hyperbolic tangent activation function" alt="" coords="456,136,501,162"/>
-<area shape="rect" href="peach.nn.af.ArcTan&#45;class.html" title="Inverse tangent activation function" alt="" coords="552,136,608,162"/>
-<area shape="rect" href="peach.nn.af.Ramp&#45;class.html" title="Ramp activation function" alt="" coords="659,136,707,162"/>
+<area shape="rect" id="node1" href="peach.nn.af.Threshold-class.html" title="Threshold activation function." alt="" coords="5,134,99,173"/>
+<area shape="rect" id="node2" href="peach.nn.af.ArcTan-class.html" title="Inverse tangent activation function" alt="" coords="128,134,205,173"/>
+<area shape="rect" id="node82" href="peach.nn.af.Activation-class.html#d" title="An alias to the derivative of the function." alt="" coords="280,31,471,49"/>
+<area shape="rect" id="node82" href="peach.nn.af.Activation-class.html#__init__" title="Initializes the activation function." alt="" coords="280,52,471,71"/>
+<area shape="rect" id="node82" href="peach.nn.af.Activation-class.html#__call__" title="Call interface to the object." alt="" coords="280,71,471,89"/>
+<area shape="rect" id="node82" href="peach.nn.af.Activation-class.html#derivative" title="An estimate of the derivative of the activation function." alt="" coords="280,89,471,108"/>
+<area shape="rect" id="node3" href="peach.nn.af.Activation-class.html" title="Base class for activation functions." alt="" coords="268,6,481,114"/>
+<area shape="rect" id="node4" href="peach.nn.af.Linear-class.html" title="Identity activation function" alt="" coords="235,134,307,173"/>
+<area shape="rect" id="node5" href="peach.nn.af.Signum-class.html" title="Signum activation function" alt="" coords="336,134,416,173"/>
+<area shape="rect" id="node6" href="peach.nn.af.Sigmoid-class.html" title="Sigmoid activation function" alt="" coords="445,134,528,173"/>
+<area shape="rect" id="node7" href="peach.nn.af.Ramp-class.html" title="Ramp activation function" alt="" coords="557,134,629,173"/>
+<area shape="rect" id="node8" href="peach.nn.af.TanH-class.html" title="Hyperbolic tangent activation function" alt="" coords="659,134,728,173"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn.gif" alt='' usemap="#uml_class_diagram_for_peach_nn" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Base class for activation functions.</p>
 <p>This class can be used as base for activation functions. A subclass should
@@ -89,20 +90,20 @@ have at least three methods, described below:</p>
 <dt>__init__</dt>
 <dd>This method should be used to configure the function. In general, some
 parameters to change the behaviour of a simple function is passed. In a
-subclass, the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method should call the mother class
+subclass, the <tt class="rst-docutils literal">__init__</tt> method should call the mother class
 initialization procedure.</dd>
 <dt>__call__</dt>
-<dd>The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface is the function call. It should receive a
+<dd>The <tt class="rst-docutils literal">__call__</tt> interface is the function call. It should receive a
 <em>vector</em> of real numbers and return a <em>vector</em> of real numbers. Using
-the capabilities of the <tt class="rst-docutils literal"><span class="pre">numpy</span></tt> module will help a lot. In case you
+the capabilities of the <tt class="rst-docutils literal">numpy</tt> module will help a lot. In case you
 don't know how to use, maybe instantiating this class instead will work
 better (see below).</dd>
 <dt>derivative</dt>
 <dd>This method implements the derivative of the activation function. It is
 used in the learning methods. If one is not provided (but remember to
-call the superclass <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> so that it is created).</dd>
+call the superclass <tt class="rst-docutils literal">__init__</tt> so that it is created).</dd>
 </dl>
-</blockquote><br /><br />
+</blockquote>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -181,6 +182,7 @@ call the superclass <tt class="rst-docutils literal"><span class="pre">__init__<
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -188,7 +190,9 @@ call the superclass <tt class="rst-docutils literal"><span class="pre">__init__<
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -277,7 +281,7 @@ call the superclass <tt class="rst-docutils literal"><span class="pre">__init__<
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Activation.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Initializes the activation function.</p>
 <p>Instantiating this class creates and adjusts a standard Python function
@@ -288,14 +292,14 @@ to work with layers of neurons.</p>
         <li><strong class="pname"><code>f</code></strong> - The activation function. It can be created as a lambda function or
 any other method, but it should take a real value, corresponding to
 the activation potential of a neuron, and return a real value,
-corresponding to its activation. Defaults to <tt class="rst-docutils literal"><span class="pre">None</span></tt>, if none is
+corresponding to its activation. Defaults to <tt class="rst-docutils literal">None</tt>, if none is
 given, the identity function is used.</li>
         <li><strong class="pname"><code>df</code></strong> - The derivative of the above function. It can be defined as above, or
 not given. If not given, an estimate is calculated based on the
-given function. Defaults to <tt class="rst-docutils literal"><span class="pre">None</span></tt>.</li>
+given function. Defaults to <tt class="rst-docutils literal">None</tt>.</li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -314,7 +318,7 @@ given function. Defaults to <tt class="rst-docutils literal"><span class="pre">N
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Activation.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Call interface to the object.</p>
 <p>This method applies the activation function over a vector of activation
@@ -344,7 +348,7 @@ activation potential of a neuron or a layer of neurons.</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Activation.derivative">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>An estimate of the derivative of the activation function.</p>
 <p>This method estimates the derivative using difference equations. This is
@@ -396,10 +400,11 @@ that gives the best results.</li>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:32 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:59 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -410,9 +415,8 @@ that gives the best results.</li>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

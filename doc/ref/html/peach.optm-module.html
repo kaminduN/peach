@@ -60,11 +60,11 @@
   </tr>
 </table>
 <!-- ==================== PACKAGE DESCRIPTION ==================== -->
-<h1 class="epydoc">Package optm</h1><span class="codelink"><a href="peach.optm-pysrc.html">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Package optm</h1><p class="nomargin-top"><span class="codelink"><a href="peach.optm-pysrc.html">source&nbsp;code</a></span></p>
 <p>This package implements deterministic optimization methods. Consult:</p>
 <blockquote>
 <dl class="rst-docutils">
-<dt>optm</dt>
+<dt>base</dt>
 <dd>Basic definitions and interface with the optimization methods;</dd>
 <dt>linear</dt>
 <dd>Basic methods for one variable optimization;</dd>
@@ -72,19 +72,14 @@
 <dd>Gradient, Newton and othe multivariable optimization methods;</dd>
 <dt>quasinewton</dt>
 <dd>Quasi-Newton methods;</dd>
-<dt>stochastic</dt>
-<dd>General stochastic methods;</dd>
-<dt>sa</dt>
-<dd>Simulated Annealing methods;</dd>
-<dt>pso</dt>
-<dd>Particle Swarm Optimization</dd>
 </dl>
 </blockquote>
 <p>Every optimizer works in pretty much the same way. Instantiate the respective
-class, using as parameter the cost function to be optimized and some other
-parameters. Use <tt class="rst-docutils literal"><span class="pre">step()</span></tt> to perform one iteration of the method, use the
-<tt class="rst-docutils literal"><span class="pre">__call__()</span></tt> method to perform the search until the stop conditions are met.
-See each method for details.</p><br /><br />
+class, using as parameter the cost function to be optimized, the first estimate
+(a scalar in case of a single variable optimization, and a one-dimensional array
+in case of multivariable optimization) and some other parameters. Use <tt class="rst-docutils literal">step()</tt>
+to perform one iteration of the method, use the <tt class="rst-docutils literal">__call__()</tt> method to perform
+the search until the stop conditions are met. See each method for details.</p>
 
 <!-- ==================== SUBMODULES ==================== -->
 <a name="section-Submodules"></a>
@@ -105,14 +100,15 @@ See each method for details.</p><br /><br />
 </tr>
   <tr><td class="summary">
   <ul class="nomargin">
+    <li> <strong class="uidlink"><a href="peach.optm.base-module.html">peach.optm.base</a></strong>: <em class="summary">Basic definitons and base class for optimizers</em>    </li>
     <li> <strong class="uidlink"><a href="peach.optm.linear-module.html">peach.optm.linear</a></strong>: <em class="summary">This package implements basic one variable only optimizers.</em>    </li>
     <li> <strong class="uidlink"><a href="peach.optm.multivar-module.html">peach.optm.multivar</a></strong>: <em class="summary">This package implements basic multivariable optimizers, including gradient and
 Newton searches.</em>    </li>
-    <li> <strong class="uidlink"><a href="peach.optm.optm-module.html">peach.optm.optm</a></strong>: <em class="summary">Basic definitons and base class for optimizers</em>    </li>
-    <li> <strong class="uidlink"><a href="peach.optm.pso-module.html">peach.optm.pso</a></strong>: <em class="summary">Basic Particle Swarm Optimization (PSO)</em>    </li>
-    <li> <strong class="uidlink"><a href="peach.optm.quasinewton-module.html">peach.optm.quasinewton</a></strong>: <em class="summary">This package implements basic quasi-Newton optimizers.</em>    </li>
-    <li> <strong class="uidlink"><a href="peach.optm.sa-module.html">peach.optm.sa</a></strong>: <em class="summary">This package implements two versions of simulated annealing optimization.</em>    </li>
-    <li> <strong class="uidlink"><a href="peach.optm.stochastic-module.html">peach.optm.stochastic</a></strong>: <em class="summary">General methods of stochastic optimization.</em>    </li>
+    <li> <strong class="uidlink"><a href="peach.optm.quasinewton-module.html">peach.optm.quasinewton</a></strong>: <em class="summary">This package implements basic quasi-Newton optimizers. Newton optimizer is very
+efficient, except that inverse matrices need to be calculated at each
+convergence step. These methods try to estimate the hessian inverse iteratively,
+thus increasing performance.</em>    </li>
+    <li> <strong class="uidlink"><a href="peach.optm.stochastic-module.html">peach.optm.stochastic</a></strong>    </li>
   </ul></td></tr>
 </table>
 
@@ -138,15 +134,23 @@ Newton searches.</em>    </li>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="peach.optm-module.html#__doc__" class="summary-name">__doc__</a> = <code title="&quot;&quot;&quot;
+        <a href="peach.optm-module.html#__doc__" class="summary-name" onclick="show_private();">__doc__</a> = <code title="&quot;&quot;&quot;
 This package implements deterministic optimization methods. Consult:
 
-    optm
+    base
         Basic definitions and interface with the optimization methods;
     linear
         Basic methods for one variable optimization;
     multivar
 ..."><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 </table>
@@ -183,7 +187,7 @@ This package implements deterministic optimization methods. Consult:
 &quot;&quot;&quot;
 This package implements deterministic optimization methods. Consult:
 
-    optm
+    base
         Basic definitions and interface with the optimization methods;
     linear
         Basic methods for one variable optimization;
@@ -226,10 +230,11 @@ This package implements deterministic optimization methods. Consult:
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:52 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -240,9 +245,8 @@ This package implements deterministic optimization methods. Consult:
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

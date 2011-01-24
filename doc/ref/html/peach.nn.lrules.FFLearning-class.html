@@ -62,47 +62,48 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class FFLearning</h1><span class="codelink"><a href="peach.nn.lrules-pysrc.html#FFLearning">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class FFLearning</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.lrules-pysrc.html#FFLearning">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn_13" name="uml_class_diagram_for_peach_nn_13">
-<area shape="rect" href="peach.nn.lrules.BackPropagation&#45;class.html" title="The BackPropagation learning method." alt="" coords="16,86,128,112"/>
-<area shape="rect" href="peach.nn.lrules.FFLearning&#45;class.html#__call__" title="The __call__ interface." alt="" coords="68,36,201,55"/>
-<area shape="rect" href="peach.nn.lrules.FFLearning&#45;class.html" title="Base class for FeedForwarding Multilayer neural networks." alt="" coords="67,11,203,56"/>
-<area shape="rect" href="peach.nn.lrules.LMS&#45;class.html" title="The Least&#45;Mean&#45;Square (LMS) learning method." alt="" coords="179,86,219,112"/>
+<area shape="rect" id="node1" href="peach.nn.lrules.BackPropagation-class.html" title="The BackPropagation learning method." alt="" coords="5,83,141,122"/>
+<area shape="rect" id="node112" href="peach.nn.lrules.FFLearning-class.html#__call__" title="The __call__ interface." alt="" coords="69,39,205,57"/>
+<area shape="rect" id="node2" href="peach.nn.lrules.FFLearning-class.html" title="Base class for FeedForwarding Multilayer neural networks." alt="" coords="57,6,217,63"/>
+<area shape="rect" id="node3" href="peach.nn.lrules.LMS-class.html" title="The Least&#45;Mean&#45;Square (LMS) learning method." alt="" coords="171,83,235,122"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn_13.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_13" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Base class for FeedForwarding Multilayer neural networks.</p>
 <p>As a base class, this class doesn't do anything. You should subclass this
 class if you want to implement a learning method for multilayer networks.</p>
 <p>A learning method for a neural net of this kind must deal with a
-<tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> instance. A <tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> object is a list of <tt class="rst-docutils literal"><span class="pre">Layers</span></tt>
+<tt class="rst-docutils literal">FeedForward</tt> instance. A <tt class="rst-docutils literal">FeedForward</tt> object is a list of <tt class="rst-docutils literal">Layers</tt>
 (consulting the documentation of these classes is important!). Each layer is
 a bidimensional array, where each line represents the synaptic weights of a
 single neuron. So, a multilayer network is actually a three-dimensional
 array, if you will. Usually, though, learning methods for this kind of net
 propagate some measure of the error from the output back to the input (the
-<tt class="rst-docutils literal"><span class="pre">BackPropagation</span></tt> method, for instance).</p>
+<tt class="rst-docutils literal">BackPropagation</tt> method, for instance).</p>
 <p>A class implementing a learning method should have at least two methods:</p>
 <blockquote>
 <dl class="rst-docutils">
 <dt>__init__</dt>
-<dd>The <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method should initialize the object. It is in general
+<dd>The <tt class="rst-docutils literal">__init__</tt> method should initialize the object. It is in general
 used to configure some property of the learning algorithm, such as the
 learning rate.</dd>
 <dt>__call__</dt>
-<dd><p class="rst-first">The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface is how the method should interact with the
+<dd><p class="rst-first">The <tt class="rst-docutils literal">__call__</tt> interface is how the method should interact with the
 neural network. It should have the following signature:</p>
 <pre class="rst-literal-block">
 __call__(self, nn, x, d)
 </pre>
-<p class="rst-last">where <tt class="rst-docutils literal"><span class="pre">nn</span></tt> is the <tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> instance to be modified <em>in loco</em>,
-<tt class="rst-docutils literal"><span class="pre">x</span></tt> is the input vector and <tt class="rst-docutils literal"><span class="pre">d</span></tt> is the desired response of the net
+<p class="rst-last">where <tt class="rst-docutils literal">nn</tt> is the <tt class="rst-docutils literal">FeedForward</tt> instance to be modified <em>in loco</em>,
+<tt class="rst-docutils literal">x</tt> is the input vector and <tt class="rst-docutils literal">d</tt> is the desired response of the net
 for that particular input vector. It should return nothing.</p>
 </dd>
 </dl>
-</blockquote><br /><br />
+</blockquote>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -131,7 +132,7 @@ for that particular input vector. It should return nothing.</p>
         <span class="summary-sig-arg">nn</span>,
         <span class="summary-sig-arg">x</span>,
         <span class="summary-sig-arg">d</span>)</span><br />
-      The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface.</td>
+      The <tt class="rst-docutils literal">__call__</tt> interface.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.nn.lrules-pysrc.html#FFLearning.__call__">source&nbsp;code</a></span>
             
@@ -145,6 +146,7 @@ for that particular input vector. It should return nothing.</p>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__init__</code>,
@@ -153,7 +155,9 @@ for that particular input vector. It should return nothing.</p>
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -217,17 +221,17 @@ for that particular input vector. It should return nothing.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.lrules-pysrc.html#FFLearning.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">__call__</span></tt> interface.</p>
+  <p>The <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> interface.</p>
 <p>Read the documentation for this class for more information. A call to
 the class should have the following parameters:</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> neural network instance that is going to be
+        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal">FeedForward</tt> neural network instance that is going to be
 modified by the learning algorithm. The modification is made <em>in
-loco</em>, that is, the synaptic weights of <tt class="rst-docutils literal"><span class="pre">nn</span></tt> should be modified
+loco</em>, that is, the synaptic weights of <tt class="rst-docutils literal">nn</tt> should be modified
 in place, and not returned from this function.</li>
         <li><strong class="pname"><code>x</code></strong> - The input vector from the training set.</li>
         <li><strong class="pname"><code>d</code></strong> - The desired response for the given input vector.</li>
@@ -267,10 +271,11 @@ in place, and not returned from this function.</li>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:34 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:01 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -281,9 +286,8 @@ in place, and not returned from this function.</li>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

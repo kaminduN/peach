@@ -62,23 +62,22 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class CrossEntropy</h1><span class="codelink"><a href="peach.optm.stochastic-pysrc.html#CrossEntropy">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class CrossEntropy</h1><p class="nomargin-top"><span class="codelink"><a href="peach.optm.stochastic-pysrc.html#CrossEntropy">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_op_16" name="uml_class_diagram_for_peach_op_16">
-<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html#__call__" title="peach.optm.optm.Optimizer.__call__" alt="" coords="131,36,229,55"/>
-<area shape="rect" href="peach.optm.optm.Optimizer&#45;class.html" title="Base class for all optimizers." alt="" coords="129,11,231,56"/>
-<area shape="rect" href="peach.optm.stochastic.CrossEntropy&#45;class.html#step" title="One step of the search (NOT IMPLEMENTED YET)" alt="" coords="17,111,343,129"/>
-<area shape="rect" href="peach.optm.stochastic.CrossEntropy&#45;class.html#__init__" title="Initializes the optimizer." alt="" coords="17,129,343,148"/>
-<area shape="rect" href="peach.optm.stochastic.CrossEntropy&#45;class.html" title="Multidimensional search based on cross&#45;entropy technique." alt="" coords="16,85,344,149"/>
+<center>  <map id="uml_class_diagram_for_peach_op_13" name="uml_class_diagram_for_peach_op_13">
+<area shape="rect" id="node161" href="peach.optm.stochastic.CrossEntropy-class.html#__init__" title="Initializes the optimizer." alt="" coords="17,39,337,57"/>
+<area shape="rect" id="node161" href="peach.optm.stochastic.CrossEntropy-class.html#step" title="One step of the search (NOT IMPLEMENTED YET)" alt="" coords="17,57,337,76"/>
+<area shape="rect" id="node1" href="peach.optm.stochastic.CrossEntropy-class.html" title="Multidimensional search based on cross&#45;entropy technique." alt="" coords="5,6,349,82"/>
 </map>
-  <img src="uml_class_diagram_for_peach_op_16.gif" alt='' usemap="#uml_class_diagram_for_peach_op_16" ismap="ismap" class="graph-without-title" />
-</center></center>
+  <img src="uml_class_diagram_for_peach_op_13.gif" alt='' usemap="#uml_class_diagram_for_peach_op_13" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
 <hr />
 <p>Multidimensional search based on cross-entropy technique.</p>
 <p>In cross-entropy, a set of N possible solutions is randomly generated at
 each interaction. To converge the solutions, the best M solutions are
 selected and its statistics are calculated. A new set of solutions are
-randomly generated from these statistics.</p><br /><br />
+randomly generated from these statistics.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -107,7 +106,7 @@ randomly generated from these statistics.</p><br /><br />
         <span class="summary-sig-arg">f</span>,
         <span class="summary-sig-arg">M</span>=<span class="summary-sig-default">30</span>,
         <span class="summary-sig-arg">N</span>=<span class="summary-sig-default">60</span>,
-        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-08</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-8</span>,
         <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">1000</span>)</span><br />
       Initializes the optimizer.</td>
           <td align="right" valign="top">
@@ -134,49 +133,6 @@ randomly generated from these statistics.</p><br /><br />
         </tr>
       </table>
       
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.optm.optm.Optimizer-class.html">optm.Optimizer</a></code></b>:
-      <code><a href="peach.optm.optm.Optimizer-class.html#__call__">__call__</a></code>
-      </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
-      <code>__delattr__</code>,
-      <code>__getattribute__</code>,
-      <code>__hash__</code>,
-      <code>__new__</code>,
-      <code>__reduce__</code>,
-      <code>__reduce_ex__</code>,
-      <code>__repr__</code>,
-      <code>__setattr__</code>,
-      <code>__str__</code>
-      </p>
-    </td>
-  </tr>
-</table>
-<!-- ==================== PROPERTIES ==================== -->
-<a name="section-Properties"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Properties</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Properties"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
-      <code>__class__</code>
-      </p>
     </td>
   </tr>
 </table>
@@ -209,14 +165,14 @@ randomly generated from these statistics.</p><br /><br />
         <span class="sig-arg">f</span>,
         <span class="sig-arg">M</span>=<span class="sig-default">30</span>,
         <span class="sig-arg">N</span>=<span class="sig-default">60</span>,
-        <span class="sig-arg">emax</span>=<span class="sig-default">1e-08</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-8</span>,
         <span class="sig-arg">imax</span>=<span class="sig-default">1000</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.optm.stochastic-pysrc.html#CrossEntropy.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Initializes the optimizer.</p>
 <p>To create an optimizer of this type, instantiate the class with the
@@ -236,9 +192,6 @@ below this level. The error is absolute.</li>
 number of iterations are executed, no matter what the error is at
 the moment.</li>
     </ul></dd>
-    <dt>Overrides:
-      <a href="peach.optm.optm.Optimizer-class.html#__init__">optm.Optimizer.__init__</a>
-    </dt>
   </dl>
 </td></tr></table>
 </div>
@@ -254,7 +207,7 @@ the moment.</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.optm.stochastic-pysrc.html#CrossEntropy.step">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>One step of the search (<em>NOT IMPLEMENTED YET</em>)</p>
 <p>In this method, the solution set is searched for the M best solutions.
@@ -262,9 +215,6 @@ Mean and variance of these solutions is calculated, and these values are
 used to randomly generate, from a gaussian distribution, a set of N new
 solutions.</p>
   <dl class="fields">
-    <dt>Overrides:
-      <a href="peach.optm.optm.Optimizer-class.html#step">optm.Optimizer.step</a>
-    </dt>
   </dl>
 </td></tr></table>
 </div>
@@ -300,10 +250,11 @@ solutions.</p>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:37 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:05 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -314,9 +265,8 @@ solutions.</p>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

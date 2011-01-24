@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Demos" href="demos.html" />
@@ -46,7 +49,7 @@
   <div class="section" id="the-inverted-pendulum-demo">
 <h1>The Inverted Pendulum demo<a class="headerlink" href="#the-inverted-pendulum-demo" title="Permalink to this headline">¶</a></h1>
 <p>This program implements an animation of the control of an inverted pendulum
-using the <em>fuzzy</em> package. To run it, you must have the <a class="reference" href="http://www.riverbankcomputing.co.uk/">PyQt4</a> and the <a class="reference" href="http:/pyqwt.sourceforge.net/">PyQwt5</a> libraries installed. It presents a window with
+using the <em class="xref std std-ref">fuzzy</em> package. To run it, you must have the <a class="reference external" href="http://www.riverbankcomputing.co.uk/">PyQt4</a> and the <a class="reference external" href="http:/pyqwt.sourceforge.net/">PyQwt5</a> libraries installed. It presents a window with
 a representation of a inverted pendulum out of balance, and some controls to put
 a fuzzy logic controller to control and balance it. The controls offered allow
 to choose from different types of norms (<em>and</em>, <em>or</em> and <em>not</em> operations), as
@@ -100,7 +103,7 @@ variable.</p>
 (which is the result of the controller). The result of the aglutination
 is shown in light gray, while a given production rule can be seen in
 dark gray. It is possible to change the specific rule that is
-highlighted in this view (see <a class="reference" href="#show-rule">Show Rule</a> below).</p>
+highlighted in this view (see <a class="reference internal" href="#show-rule">Show Rule</a> below).</p>
 </dd>
 </dl>
 </blockquote>
@@ -132,7 +135,7 @@ animation is running.</dd>
 them. When the animation is running, this entire panel is made inactive, so
 modification is allowed only when the animation is stopped. To modify the
 values, just type the new value of a variable in the respective box and press
-the <strong>Reset</strong> button.</p>
+the <em class="guilabel">Reset</em> button.</p>
 </div>
 <div class="section" id="configuration-panel">
 <h2>Configuration Panel<a class="headerlink" href="#configuration-panel" title="Permalink to this headline">¶</a></h2>
@@ -145,20 +148,20 @@ possible with the animation stopped.</p>
 <dt>Fuzzy logic</dt>
 <dd>The fuzzy logic combo box allows to specify how the <em>and</em>, <em>or</em> and
 <em>not</em> operations are calculated. There are, presently, two options: the
-traditional <strong>Zadeh</strong> logic (using <tt class="docutils literal"><span class="pre">max</span></tt> and <tt class="docutils literal"><span class="pre">min</span></tt>
-operations) and the <strong>Probabilistic</strong> logic. Please, consult a
-good reference on fuzzy logic, or the <em>fuzzy</em> package
+traditional <em class="guilabel">Zadeh</em> logic (using <tt class="docutils literal"><span class="pre">max</span></tt> and <tt class="docutils literal"><span class="pre">min</span></tt>
+operations) and the <em class="guilabel">Probabilistic</em> logic. Please, consult a
+good reference on fuzzy logic, or the <em class="xref std std-ref">fuzzy</em> package
 documentation.</dd>
 <dt>Inference</dt>
 <dd>The inference and aglutination methods used. There are two options: the
-traditional <strong>Mamdani</strong> inference (using <tt class="docutils literal"><span class="pre">max</span></tt> and <tt class="docutils literal"><span class="pre">min</span></tt>)
-and the <strong>Probabilistic</strong> logic. Please, consult a good
-reference on fuzzy logic, or the <em>fuzzy</em> package documentation.</dd>
+traditional <em class="guilabel">Mamdani</em> inference (using <tt class="docutils literal"><span class="pre">max</span></tt> and <tt class="docutils literal"><span class="pre">min</span></tt>)
+and the <em class="guilabel">Probabilistic</em> logic. Please, consult a good
+reference on fuzzy logic, or the <em class="xref std std-ref">fuzzy</em> package documentation.</dd>
 <dt>Defuzzification</dt>
 <dd>The defuzzification method. There are five possibilities: the usual
-<strong>Centroid</strong> method, the <strong>Bissector</strong> method and the
-less used <strong>SOM</strong> (Smallest of Maxima), <strong>LOM</strong> (Largest
-of Maxima) and <strong>MOM</strong> (Mean of Maxima) methods.</dd>
+<em class="guilabel">Centroid</em> method, the <em class="guilabel">Bissector</em> method and the
+less used <em class="guilabel">SOM</em> (Smallest of Maxima), <em class="guilabel">LOM</em> (Largest
+of Maxima) and <em class="guilabel">MOM</em> (Mean of Maxima) methods.</dd>
 </dl>
 </blockquote>
 </div>
@@ -166,7 +169,7 @@ of Maxima) and <strong>MOM</strong> (Mean of Maxima) methods.</dd>
 <h2>Show Rule<a class="headerlink" href="#show-rule" title="Permalink to this headline">¶</a></h2>
 <p>This combo box allow to visualize the action of a specific rule. That selects a
 production rule of the controller that is plotted with dark gray color in the
-aglutination plot of the <strong>Membership</strong> tab.</p>
+aglutination plot of the <em class="guilabel">Membership</em> tab.</p>
 </div>
 </div>
 
@@ -176,40 +179,40 @@ aglutination plot of the <strong>Membership</strong> tab.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference" href="">The Inverted Pendulum demo</a><ul>
-<li><a class="reference" href="#starting-the-program">Starting the Program</a></li>
-<li><a class="reference" href="#the-visualization-tabs">The Visualization Tabs</a></li>
-<li><a class="reference" href="#control-panel">Control Panel</a></li>
-<li><a class="reference" href="#reset-panel">Reset Panel</a></li>
-<li><a class="reference" href="#configuration-panel">Configuration Panel</a></li>
-<li><a class="reference" href="#show-rule">Show Rule</a></li>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Inverted Pendulum demo</a><ul>
+<li><a class="reference internal" href="#starting-the-program">Starting the Program</a></li>
+<li><a class="reference internal" href="#the-visualization-tabs">The Visualization Tabs</a></li>
+<li><a class="reference internal" href="#control-panel">Control Panel</a></li>
+<li><a class="reference internal" href="#reset-panel">Reset Panel</a></li>
+<li><a class="reference internal" href="#configuration-panel">Configuration Panel</a></li>
+<li><a class="reference internal" href="#show-rule">Show Rule</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="demos.html"
-                                  title="previous chapter">Demos</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/demos/inverted-pendulum.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="demos.html"
+                        title="previous chapter">Demos</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/demos/inverted-pendulum.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -228,8 +231,8 @@ aglutination plot of the <strong>Membership</strong> tab.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

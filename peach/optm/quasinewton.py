@@ -16,9 +16,9 @@ thus increasing performance.
 
 ################################################################################
 import numpy
-from numpy import dot, sum, abs, eye
+from numpy import dot, sum, abs, eye, array, outer
 from numpy.linalg import inv
-from optm import Optimizer, gradient, hessian
+from base import Optimizer, gradient, hessian
 
 
 ################################################################################
@@ -28,7 +28,7 @@ class DFP(Optimizer):
     '''
     DFP (*Davidon-Fletcher-Powell*) search
     '''
-    def __init__(self, f, df=None, B=None, h=0.1, emax=1e-5, imax=1000):
+    def __init__(self, f, x0, ranges=None, df=None, h=0.1, emax=1e-8, imax=1000):
         '''
         Initializes the optimizer.
 
@@ -40,26 +40,36 @@ class DFP(Optimizer):
             A multivariable function to be optimized. The function should have
             only one parameter, a multidimensional line-vector, and return the
             function value, a scalar.
+
+          x0
+            First estimate of the minimum. Estimates can be given in any format,
+            but internally they are converted to a one-dimension vector, where
+            each component corresponds to the estimate of that particular
+            variable. The vector is computed by flattening the array.
+
+          ranges
+            A range of values might be passed to the algorithm, but it is not
+            necessary. If supplied, this parameter should be a list of ranges
+            for each variable of the objective function. It is specified as a
+            list of tuples of two values, ``(x0, x1)``, where ``x0`` is the
+            start of the interval, and ``x1`` its end. Obviously, ``x0`` should
+            be smaller than ``x1``. It can also be given as a list with a simple
+            tuple in the same format. In that case, the same range will be
+            applied for every variable in the optimization.
+
           df
             A function to calculate the gradient vector of the cost function
             ``f``. Defaults to ``None``, if no gradient is supplied, then it is
             estimated from the cost function using Euler equations.
-          B
-            A first estimate of the inverse hessian. Note that, differently from
-            the Newton method, the elements in this matrix are numbers, not
-            functions. So, it is an estimate at a given point, and its values
-            *should* be coherent with the first estimate (that is, ``B`` should
-            be the inverse of the hessian evaluated at the first estimate), or
-            else the algorithm might diverge. Defaults to ``None``, if none is
-            given, it is estimated. Note that, given the same reasons as before,
-            the estimate of ``B`` is deferred to the first calling of the
-            ``step`` method, where it is handled automatically.
+
           h
             Convergence step. This method does not takes into consideration the
             possibility of varying the convergence step, to avoid Stiefel cages.
+
           emax
             Maximum allowed error. The algorithm stops as soon as the error is
             below this level. The error is absolute.
+
           imax
             Maximum number of iterations, the algorithm stops as soon this
             number of iterations are executed, no matter what the error is at
@@ -67,17 +77,62 @@ class DFP(Optimizer):
         '''
         Optimizer.__init__(self)
         self.__f = f
+        self.__x = array(x0).ravel()
         if df is None:
             self.__df = gradient(f)
         else:
             self.__df = df
-        self.__B = B
+        self.__B = inv(hessian(f)(self.__x))
         self.__h = h
+
+        # Determine ranges of the variables
+        if ranges is not None:
+            ranges = list(ranges)
+            if len(ranges) == 1:
+                ranges = array(ranges * len(x0[0]))
+            else:
+                ranges = array(ranges)
+        self.ranges = ranges
+        '''Holds the ranges for every variable. Although it is a writable
+        property, care should be taken in changing parameters before ending the
+        convergence.'''
+
         self.__emax = float(emax)
         self.__imax = int(imax)
 
 
-    def step(self, x):
+    def __get_x(self):
+        return self.__x
+
+    def __set_x(self, x0):
+        self.restart(x0)
+
+    x = property(__get_x, __set_x)
+    '''The estimate of the position of the minimum.'''
+
+
+    def restart(self, x0, h=None):
+        '''
+        Resets the optimizer, returning to its original state, and allowing to
+        use a new first estimate.
+
+        :Parameters:
+          x0
+            New estimate of the minimum. Estimates can be given in any format,
+            but internally they are converted to a one-dimension vector, where
+            each component corresponds to the estimate of that particular
+            variable. The vector is computed by flattening the array.
+          h
+            Convergence step. This method does not takes into consideration the
+            possibility of varying the convergence step, to avoid Stiefel cages.
+        '''
+        self.__x = array(x0).ravel()
+        self.__B = inv(hessian(self.__f)(self.__x))
+        if h is not None:
+            self.__h = h
+
+
+    def step(self):
         '''
         One step of the search.
 
@@ -86,49 +141,42 @@ class DFP(Optimizer):
         is not recomended that different investigations are used with the same
         optimizer in the same cost function.
 
-        :Parameters:
-          x
-            The value from where the new estimate should be calculated. This can
-            of course be the result of a previous iteration of the algorithm.
-
         :Returns:
           This method returns a tuple ``(x, e)``, where ``x`` is the updated
           estimate of the minimum, and ``e`` is the estimated error.
         '''
-        # Initializes the inverse hessian, if needed
-        if self.__B is None:
-            B = inv(hessian(self.__f)(x))
-        else:
-            B = self.__B
-
         # Updates x
-        n = x.size
-        x = x.reshape((n, 1))          # x as a line-vector
-        dfx = self.__df(x).reshape((n, 1))
+        x = self.__x
+        B = self.__B
+        dfx = self.__df(x)
         dx = - self.__h * dot(B, dfx)
         xn = x + dx
 
+        # Sanity check
+        if self.ranges is not None:
+            r0 = self.ranges[:, 0]
+            r1 = self.ranges[:, 1]
+            xn = where(xn < r0, r0, xn)
+            xn = where(xn > r1, r1, xn)
+
         # Updates B
         y = self.__df(xn) - dfx
-        Bty = dot(B.T, y)
-        dB = dot(dx, dx.T) / dot(y.T, dx) \
-             - dot(Bty, Bty.T) / dot(y.T, Bty)
+        By = dot(B, y)
+        dB = outer(dx, dx) / dot(y, dx) - outer(By, By) / dot(y, By)
         self.__B = B + dB
 
+        # Updates state
+        self.__x = xn
         return xn, sum(abs(xn - x))
 
 
-    def __call__(self, x):
+    def __call__(self):
         '''
         Transparently executes the search until the minimum is found. The stop
         criteria are the maximum error or the maximum number of iterations,
         whichever is reached first. Note that this is a ``__call__`` method, so
         the object is called as a function. This method returns a tuple
         ``(x, e)``, with the best estimate of the minimum and the error.
-
-        :Parameters:
-          x
-            The initial triplet of values from where the search must start.
 
         :Returns:
           This method returns a tuple ``(x, e)``, where ``x`` is the best
@@ -139,9 +187,9 @@ class DFP(Optimizer):
         e = emax
         i = 0
         while e > emax/2. and i < imax:
-            x, e = self.step(x)
+            _, e = self.step()
             i = i + 1
-        return x, e
+        return self.__x, e
 
 
 ################################################################################
@@ -149,7 +197,7 @@ class BFGS(Optimizer):
     '''
     BFGS (*Broyden-Fletcher-Goldfarb-Shanno*) search
     '''
-    def __init__(self, f, df=None, B=None, h=0.1, emax=1e-5, imax=1000):
+    def __init__(self, f, x0, ranges=None, df=None, h=0.1, emax=1e-5, imax=1000):
         '''
         Initializes the optimizer.
 
@@ -161,26 +209,36 @@ class BFGS(Optimizer):
             A multivariable function to be optimized. The function should have
             only one parameter, a multidimensional line-vector, and return the
             function value, a scalar.
+
+          x0
+            First estimate of the minimum. Estimates can be given in any format,
+            but internally they are converted to a one-dimension vector, where
+            each component corresponds to the estimate of that particular
+            variable. The vector is computed by flattening the array.
+
+          ranges
+            A range of values might be passed to the algorithm, but it is not
+            necessary. If supplied, this parameter should be a list of ranges
+            for each variable of the objective function. It is specified as a
+            list of tuples of two values, ``(x0, x1)``, where ``x0`` is the
+            start of the interval, and ``x1`` its end. Obviously, ``x0`` should
+            be smaller than ``x1``. It can also be given as a list with a simple
+            tuple in the same format. In that case, the same range will be
+            applied for every variable in the optimization.
+
           df
             A function to calculate the gradient vector of the cost function
             ``f``. Defaults to ``None``, if no gradient is supplied, then it is
             estimated from the cost function using Euler equations.
-          B
-            A first estimate of the inverse hessian. Note that, differently from
-            the Newton method, the elements in this matrix are numbers, not
-            functions. So, it is an estimate at a given point, and its values
-            *should* be coherent with the first estimate (that is, ``B`` should
-            be the inverse of the hessian evaluated at the first estimate), or
-            else the algorithm might diverge. Defaults to ``None``, if none is
-            given, it is estimated. Note that, given the same reasons as before,
-            the estimate of ``B`` is deferred to the first calling of the
-            ``step`` method, where it is handled automatically.
+
           h
             Convergence step. This method does not takes into consideration the
             possibility of varying the convergence step, to avoid Stiefel cages.
+
           emax
             Maximum allowed error. The algorithm stops as soon as the error is
             below this level. The error is absolute.
+
           imax
             Maximum number of iterations, the algorithm stops as soon this
             number of iterations are executed, no matter what the error is at
@@ -188,17 +246,52 @@ class BFGS(Optimizer):
         '''
         Optimizer.__init__(self)
         self.__f = f
+        self.__x = array(x0).ravel()
         if df is None:
             self.__df = gradient(f)
         else:
             self.__df = df
-        self.__B = B
+        self.__B = inv(hessian(self.__f)(self.__x))
         self.__h = h
+
+        # Determine ranges of the variables
+        if ranges is not None:
+            ranges = list(ranges)
+            if len(ranges) == 1:
+                ranges = array(ranges * len(x0[0]))
+            else:
+                ranges = array(ranges)
+        self.ranges = ranges
+        '''Holds the ranges for every variable. Although it is a writable
+        property, care should be taken in changing parameters before ending the
+        convergence.'''
+
         self.__emax = float(emax)
         self.__imax = int(imax)
 
 
-    def step(self, x):
+    def restart(self, x0, h=None):
+        '''
+        Resets the optimizer, returning to its original state, and allowing to
+        use a new first estimate.
+
+        :Parameters:
+          x0
+            New estimate of the minimum. Estimates can be given in any format,
+            but internally they are converted to a one-dimension vector, where
+            each component corresponds to the estimate of that particular
+            variable. The vector is computed by flattening the array.
+          h
+            Convergence step. This method does not takes into consideration the
+            possibility of varying the convergence step, to avoid Stiefel cages.
+        '''
+        self.__x = array(x0).ravel()
+        self.__B = inv(hessian(self.__f)(self.__x))
+        if h is not None:
+            self.__h = h
+
+
+    def step(self):
         '''
         One step of the search.
 
@@ -207,49 +300,43 @@ class BFGS(Optimizer):
         is not recomended that different investigations are used with the same
         optimizer in the same cost function.
 
-        :Parameters:
-          x
-            The value from where the new estimate should be calculated. This can
-            of course be the result of a previous iteration of the algorithm.
-
         :Returns:
           This method returns a tuple ``(x, e)``, where ``x`` is the updated
           estimate of the minimum, and ``e`` is the estimated error.
         '''
-        # Initializes the inverse hessian, if needed
-        if self.__B is None:
-            B = inv(hessian(self.__f)(x))
-        else:
-            B = self.__B
-
         # Updates x
+        x = self.__x
         n = x.size
-        x = x.reshape((n, 1))          # x as a line-vector
-        dfx = self.__df(x).reshape((n, 1))
+        B = self.__B
+        dfx = self.__df(x)
         dx = - self.__h * dot(B, dfx)
         xn = x + dx
 
+        # Sanity check
+        if self.ranges is not None:
+            r0 = self.ranges[:, 0]
+            r1 = self.ranges[:, 1]
+            xn = where(xn < r0, r0, xn)
+            xn = where(xn > r1, r1, xn)
+
         # Updates B
-        dxt = dx.transpose()
         y = self.__df(xn) - dfx
         ytx = dot(y.T, dx)
-        M = eye(n) - dot(y, dx.T) / ytx
-        self.__B = dot(dot(M.T, B), M) + dot(dx, dx.T) / ytx
+        M = eye(n) - outer(y, dx.T) / ytx
+        self.__B = dot(dot(M.T, B), M) + outer(dx, dx) / ytx
 
+        # Updates state
+        self.__x = xn
         return xn, sum(abs(xn - x))
 
 
-    def __call__(self, x):
+    def __call__(self):
         '''
         Transparently executes the search until the minimum is found. The stop
         criteria are the maximum error or the maximum number of iterations,
         whichever is reached first. Note that this is a ``__call__`` method, so
         the object is called as a function. This method returns a tuple
         ``(x, e)``, with the best estimate of the minimum and the error.
-
-        :Parameters:
-          x
-            The initial triplet of values from where the search must start.
 
         :Returns:
           This method returns a tuple ``(x, e)``, where ``x`` is the best
@@ -260,17 +347,17 @@ class BFGS(Optimizer):
         e = emax
         i = 0
         while e > emax/2. and i < imax:
-            x, e = self.step(x)
+            _, e = self.step()
             i = i + 1
-        return x, e
+        return self.__x, e
 
 
 ################################################################################
 class SR1(Optimizer):
     '''
-    SR1 (*Symmetric Rank 1* )search method
+    SR1 (*Symmetric Rank 1* ) search method
     '''
-    def __init__(self, f, df=None, B=None, h=0.1, emax=1e-5, imax=1000):
+    def __init__(self, f, x0, ranges=None, df=None, h=0.1, emax=1e-5, imax=1000):
         '''
         Initializes the optimizer.
 
@@ -282,26 +369,36 @@ class SR1(Optimizer):
             A multivariable function to be optimized. The function should have
             only one parameter, a multidimensional line-vector, and return the
             function value, a scalar.
+
+          x0
+            First estimate of the minimum. Estimates can be given in any format,
+            but internally they are converted to a one-dimension vector, where
+            each component corresponds to the estimate of that particular
+            variable. The vector is computed by flattening the array.
+
+          ranges
+            A range of values might be passed to the algorithm, but it is not
+            necessary. If supplied, this parameter should be a list of ranges
+            for each variable of the objective function. It is specified as a
+            list of tuples of two values, ``(x0, x1)``, where ``x0`` is the
+            start of the interval, and ``x1`` its end. Obviously, ``x0`` should
+            be smaller than ``x1``. It can also be given as a list with a simple
+            tuple in the same format. In that case, the same range will be
+            applied for every variable in the optimization.
+
           df
             A function to calculate the gradient vector of the cost function
             ``f``. Defaults to ``None``, if no gradient is supplied, then it is
             estimated from the cost function using Euler equations.
-          B
-            A first estimate of the inverse hessian. Note that, differently from
-            the Newton method, the elements in this matrix are numbers, not
-            functions. So, it is an estimate at a given point, and its values
-            *should* be coherent with the first estimate (that is, ``B`` should
-            be the inverse of the hessian evaluated at the first estimate), or
-            else the algorithm might diverge. Defaults to ``None``, if none is
-            given, it is estimated. Note that, given the same reasons as before,
-            the estimate of ``B`` is deferred to the first calling of the
-            ``step`` method, where it is handled automatically.
+
           h
             Convergence step. This method does not takes into consideration the
             possibility of varying the convergence step, to avoid Stiefel cages.
+
           emax
             Maximum allowed error. The algorithm stops as soon as the error is
             below this level. The error is absolute.
+
           imax
             Maximum number of iterations, the algorithm stops as soon this
             number of iterations are executed, no matter what the error is at
@@ -309,17 +406,62 @@ class SR1(Optimizer):
         '''
         Optimizer.__init__(self)
         self.__f = f
+        self.__x = array(x0).ravel()
         if df is None:
             self.__df = gradient(f)
         else:
             self.__df = df
-        self.__B = B
+        self.__B = inv(hessian(self.__f)(self.x))
         self.__h = h
+
+        # Determine ranges of the variables
+        if ranges is not None:
+            ranges = list(ranges)
+            if len(ranges) == 1:
+                ranges = array(ranges * len(x0[0]))
+            else:
+                ranges = array(ranges)
+        self.ranges = ranges
+        '''Holds the ranges for every variable. Although it is a writable
+        property, care should be taken in changing parameters before ending the
+        convergence.'''
+
         self.__emax = float(emax)
         self.__imax = int(imax)
 
 
-    def step(self, x):
+    def __get_x(self):
+        return self.__x
+
+    def __set_x(self, x0):
+        self.restart(x0)
+
+    x = property(__get_x, __set_x)
+    '''The estimate of the position of the minimum.'''
+
+
+    def restart(self, x0, h=None):
+        '''
+        Resets the optimizer, returning to its original state, and allowing to
+        use a new first estimate.
+
+        :Parameters:
+          x0
+            New estimate of the minimum. Estimates can be given in any format,
+            but internally they are converted to a one-dimension vector, where
+            each component corresponds to the estimate of that particular
+            variable. The vector is computed by flattening the array.
+          h
+            Convergence step. This method does not takes into consideration the
+            possibility of varying the convergence step, to avoid Stiefel cages.
+        '''
+        self.__x = array(x0).ravel()
+        self.__B = inv(hessian(self.__f)(self.x))
+        if h is not None:
+            self.__h = h
+
+
+    def step(self):
         '''
         One step of the search.
 
@@ -328,48 +470,41 @@ class SR1(Optimizer):
         is not recomended that different investigations are used with the same
         optimizer in the same cost function.
 
-        :Parameters:
-          x
-            The value from where the new estimate should be calculated. This can
-            of course be the result of a previous iteration of the algorithm.
-
         :Returns:
           This method returns a tuple ``(x, e)``, where ``x`` is the updated
           estimate of the minimum, and ``e`` is the estimated error.
         '''
-        # Initializes the inverse hessian, if needed
-        if self.__B is None:
-            B = inv(hessian(self.__f)(x))
-        else:
-            B = self.__B
-
         # Updates x
-        n = x.size
-        x = x.reshape((n, 1))          # x as a line-vector
-        dfx = self.__df(x).reshape((n, 1))
+        x = self.__x
+        B = self.__B
+        dfx = self.__df(x)
         dx = - self.__h * dot(B, dfx)
         xn = x + dx
+
+        # Sanity check
+        if self.ranges is not None:
+            r0 = self.ranges[:, 0]
+            r1 = self.ranges[:, 1]
+            xn = where(xn < r0, r0, xn)
+            xn = where(xn > r1, r1, xn)
 
         # Updates B
         y = self.__df(xn) - dfx
         M = dx - dot(B, y)
-        dB = dot(M, M.T) / dot(M.T, y)
+        dB = outer(M, M) / dot(M, y)
         self.__B = B + dB
 
+        self.__x = xn
         return xn, sum(abs(xn - x))
 
 
-    def __call__(self, x):
+    def __call__(self):
         '''
         Transparently executes the search until the minimum is found. The stop
         criteria are the maximum error or the maximum number of iterations,
         whichever is reached first. Note that this is a ``__call__`` method, so
         the object is called as a function. This method returns a tuple
         ``(x, e)``, with the best estimate of the minimum and the error.
-
-        :Parameters:
-          x
-            The initial triplet of values from where the search must start.
 
         :Returns:
           This method returns a tuple ``(x, e)``, where ``x`` is the best
@@ -380,12 +515,29 @@ class SR1(Optimizer):
         e = emax
         i = 0
         while e > emax/2. and i < imax:
-            x, e = self.step(x)
+            _, e = self.step()
             i = i + 1
-        return x, e
+        return self.__x, e
 
 
 ################################################################################
 # Test
 if __name__ == "__main__":
-    pass
+
+    # Rosenbrock function
+    def f(xy):
+        x, y = xy
+        return (1.-x)**2. + (y-x*x)**2.
+
+    # Gradient of Rosenbrock function
+    def df(xy):
+        x, y = xy
+        return array( [ -2.*(1.-x) - 4.*x*(y-x*x), 2.*(y-x*x) ])
+
+    dfp = DFP(f, (0., 0.), emax=1e-12)
+    print dfp()
+    bfgs = BFGS(f, (0., 0.), emax=1e-12)
+    print bfgs()
+    sr1 = SR1(f, (0., 0.), emax=1e-12)
+    print sr1()
+

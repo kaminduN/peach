@@ -10,14 +10,14 @@
 __doc__ = """
 This package implements genetic algorithms. Consult:
 
+    base
+        Implementation of the basic genetic algorithm;
     chromosome
         Basic definitions to work with chromosomes. Defined as arrays of bits;
     crossover
         Defines crossover operators and base classes;
     fitness
         Defines fitness functions and base classes;
-    base
-        Implementation of the basic genetic algorithm;
     mutation
         Defines mutation operators and base classes;
     selection
@@ -25,13 +25,13 @@ This package implements genetic algorithms. Consult:
 """
 
 
-# __all__ = [ 'chromosome', 'crossover', 'fitness', 'base', 'mutation', 'selection' ]
+# __all__ = [ 'base', 'chromosome', 'crossover', 'fitness', 'mutation', 'selection' ]
 
 ################################################################################
 # Imports sub-packages
+from base import *
 from chromosome import *
 from crossover import *
 from fitness import *
-from base import *
 from mutation import *
 from selection import *

@@ -85,7 +85,7 @@ class Controller(object):
           negation
             The negation (``not`` operation) to be used. Defaults to Zadeh not.
           imply
-            The implication method to be used. Defaults to Mamdani implication.
+            The implication method to be used. Defaults to Mamdani implication.\
           aglutinate
             The aglutination method to be used. Defaults to Mamdani
             aglutination.

@@ -62,16 +62,17 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Cooperative</h1><span class="codelink"><a href="peach.nn.lrules-pysrc.html#Cooperative">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Cooperative</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.lrules-pysrc.html#Cooperative">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn_12" name="uml_class_diagram_for_peach_nn_12">
-<area shape="rect" href="peach.nn.lrules.SOMLearning&#45;class.html" title="Base class for Self&#45;Organizing Maps." alt="" coords="101,11,184,43"/>
-<area shape="rect" href="peach.nn.lrules.Cooperative&#45;class.html#__call__" title="The __call__ interface." alt="" coords="17,98,268,116"/>
-<area shape="rect" href="peach.nn.lrules.Cooperative&#45;class.html#__init__" title="Initializes the object." alt="" coords="17,116,268,135"/>
-<area shape="rect" href="peach.nn.lrules.Cooperative&#45;class.html" title="Cooperative learning with time adjust of the learning rate and neighborhood function to propagate cooperation" alt="" coords="16,72,269,136"/>
+<area shape="rect" id="node1" href="peach.nn.lrules.SOMLearning-class.html" title="Base class for Self&#45;Organizing Maps." alt="" coords="91,6,195,50"/>
+<area shape="rect" id="node110" href="peach.nn.lrules.Cooperative-class.html#__init__" title="Initializes the object." alt="" coords="17,103,271,121"/>
+<area shape="rect" id="node110" href="peach.nn.lrules.Cooperative-class.html#__call__" title="The __call__ interface." alt="" coords="17,121,271,140"/>
+<area shape="rect" id="node2" href="peach.nn.lrules.Cooperative-class.html" title="Cooperative learning with time adjust of the learning rate and neighborhood function to propagate cooperation" alt="" coords="5,70,283,146"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn_12.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_12" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Cooperative learning with time adjust of the learning rate and neighborhood
 function to propagate cooperation</p>
@@ -85,7 +86,7 @@ are also updated in the direction of the input vector, although with a
 smaller scale determined by the neighborhood function. A neighborhood
 function is 1. at 0., and decreases monotonically as the distance increases.</p>
 <p><em>There are issues with this class!</em> -- some of the class capabilities are
-yet to be developed.</p><br /><br />
+yet to be developed.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -133,7 +134,7 @@ yet to be developed.</p><br /><br />
           <td><span class="summary-sig"><a href="peach.nn.lrules.Cooperative-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">nn</span>,
         <span class="summary-sig-arg">x</span>)</span><br />
-      The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface.</td>
+      The <tt class="rst-docutils literal">__call__</tt> interface.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.nn.lrules-pysrc.html#Cooperative.__call__">source&nbsp;code</a></span>
             
@@ -147,6 +148,7 @@ yet to be developed.</p><br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -154,7 +156,9 @@ yet to be developed.</p><br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -218,7 +222,7 @@ yet to be developed.</p><br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.lrules-pysrc.html#Cooperative.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the object.
   <dl class="fields">
@@ -231,7 +235,7 @@ reduce the learning rate to a small value. Defaults to 1000.</li>
 shrink the neighborhood. Defaults to 1000.</li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -251,23 +255,23 @@ shrink the neighborhood. Defaults to 1000.</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.lrules-pysrc.html#Cooperative.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">__call__</span></tt> interface.</p>
+  <p>The <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> interface.</p>
 <p>The learning implementation. Read the documentation for the base class
 for more information. A call to the class should have the following
 parameters:</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal"><span class="pre">SOM</span></tt> neural network instance that is going to be modified by
+        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal">SOM</tt> neural network instance that is going to be modified by
 the learning algorithm. The modification is made <em>in loco</em>, that is,
-the synaptic weights of <tt class="rst-docutils literal"><span class="pre">nn</span></tt> should be modified in place, and not
+the synaptic weights of <tt class="rst-docutils literal">nn</tt> should be modified in place, and not
 returned from this function.</li>
         <li><strong class="pname"><code>x</code></strong> - The input vector from the training set.</li>
     </ul></dd>
     <dt>Overrides:
-      <a href="peach.nn.lrules.SOMLearning-class.html#__call__">SOMLearning.__call__</a>
+        <a href="peach.nn.lrules.SOMLearning-class.html#__call__">SOMLearning.__call__</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -304,10 +308,11 @@ returned from this function.</li>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:33 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:01 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -318,9 +323,8 @@ returned from this function.</li>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

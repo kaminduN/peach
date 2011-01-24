@@ -62,22 +62,23 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class FuzzyCMeans</h1><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class FuzzyCMeans</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_fu_2" name="uml_class_diagram_for_peach_fu_2">
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#c" title="A numpy array containing the centers of the classes in the algorithm." alt="" coords="17,28,321,47"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#m" title="The fuzzyness coefficient." alt="" coords="17,47,321,66"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#mu" title="The membership values for every vector in the training set." alt="" coords="17,66,321,84"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#x" title="The vectors in which the algorithm bases its convergence." alt="" coords="17,84,321,103"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#centers" title="Given the present state of the algorithm, recalculates the centers, that is, the position of the vectors representing each of the classes." alt="" coords="17,106,321,124"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#__init__" title="Initializes the algorithm." alt="" coords="17,124,321,143"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#__call__" title="The __call__ interface is used to run the algorithm until convergence is found." alt="" coords="17,143,321,162"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#membership" title="Given the present state of the algorithm, recalculates the membership of each example on each class." alt="" coords="17,162,321,180"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html#step" title="This method runs one step of the algorithm." alt="" coords="17,180,321,199"/>
-<area shape="rect" href="peach.fuzzy.cmeans.FuzzyCMeans&#45;class.html" title="Fuzzy C&#45;Means convergence." alt="" coords="16,11,323,200"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#m" title="The fuzzyness coefficient. Must be bigger than 1, the closest it is to 1, the smoother the membership curves will be." alt="" coords="17,31,323,49"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#c" title="A numpy array containing the centers of the classes in the algorithm. Each line represents a center, and the number of lines is the number of classes. This property is read and write, but care must be taken when setting new centers: if the dimensions are not exactly the same as given in the instantiation of the class (ie, C centers of dimension N, an exception will be raised." alt="" coords="17,49,323,68"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#mu" title="The membership values for every vector in the training set. This property is modified at each step of the execution of the algorithm. This property is not writable." alt="" coords="17,68,323,87"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#x" title="The vectors in which the algorithm bases its convergence. This property is not writable." alt="" coords="17,87,323,105"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__init__" title="Initializes the algorithm." alt="" coords="17,108,323,127"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#centers" title="Given the present state of the algorithm, recalculates the centers, that is, the position of the vectors representing each of the classes. Notice that this method modifies the state of the algorithm if any change was made to any parameter. This method receives no arguments and will seldom be used externally. It can be useful if you want to step over the algorithm. This method has a colateral effect! If you use it, the c property (see above) will be modified." alt="" coords="17,127,323,145"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#membership" title="Given the present state of the algorithm, recalculates the membership of each example on each class. That is, it modifies the initial conditions to represent an evolved state of the algorithm. Notice that this method modifies the state of the algorithm if any change was made to any parameter." alt="" coords="17,145,323,164"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#step" title="This method runs one step of the algorithm. It might be useful to track the changes in the parameters." alt="" coords="17,164,323,183"/>
+<area shape="rect" id="node2" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__call__" title="The __call__ interface is used to run the algorithm until convergence is found." alt="" coords="17,183,323,201"/>
+<area shape="rect" id="node1" href="peach.fuzzy.cmeans.FuzzyCMeans-class.html" title="Fuzzy C&#45;Means convergence." alt="" coords="5,6,333,207"/>
 </map>
   <img src="uml_class_diagram_for_peach_fu_2.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_2" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Fuzzy C-Means convergence.</p>
 <p>Use this class to instantiate a fuzzy c-means object. The object must be
@@ -86,16 +87,16 @@ an array of N-dimensional vectors; the initial conditions are a list of the
 initial membership values for every vector in the training set -- thus, the
 length of both lists must be the same. The number of columns in the initial
 conditions must be the same number of classes. That is, if you are, for
-example, classifying in <tt class="rst-docutils literal"><span class="pre">C</span></tt> classes, then the initial conditions must have
-<tt class="rst-docutils literal"><span class="pre">C</span></tt> columns.</p>
+example, classifying in <tt class="rst-docutils literal">C</tt> classes, then the initial conditions must have
+<tt class="rst-docutils literal">C</tt> columns.</p>
 <p>There are restrictions in the initial conditions: first, no column can be
 all zeros or all ones -- if that happened, then the class described by this
 column is unnecessary; second, the sum of the memberships of every example
 must be one -- that is, the sum of the membership in every column in each
 line must be one. This means that the initial condition is a perfect
-partition of <tt class="rst-docutils literal"><span class="pre">C</span></tt> subsets.</p>
+partition of <tt class="rst-docutils literal">C</tt> subsets.</p>
 <p>Notice, however, that <em>no checking</em> is done. If your algorithm seems to be
-behaving strangely, try to check these conditions.</p><br /><br />
+behaving strangely, try to check these conditions.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -207,7 +208,12 @@ behaving strangely, try to check these conditions.</p><br /><br />
         <tr>
           <td><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#centers" class="summary-sig-name">centers</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Given the present state of the algorithm, recalculates the centers, that
-is, the position of the vectors representing each of the classes.</td>
+is, the position of the vectors representing each of the classes. Notice
+that this method modifies the state of the algorithm if any change was
+made to any parameter. This method receives no arguments and will seldom
+be used externally. It can be useful if you want to step over the
+algorithm. <em>This method has a colateral effect!</em> If you use it, the
+<tt class="rst-docutils literal">c</tt> property (see above) will be modified.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.centers">source&nbsp;code</a></span>
             
@@ -225,7 +231,10 @@ is, the position of the vectors representing each of the classes.</td>
         <tr>
           <td><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#membership" class="summary-sig-name">membership</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Given the present state of the algorithm, recalculates the membership of
-each example on each class.</td>
+each example on each class. That is, it modifies the initial conditions
+to represent an evolved state of the algorithm. Notice that this method
+modifies the state of the algorithm if any change was made to any
+parameter.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.membership">source&nbsp;code</a></span>
             
@@ -242,7 +251,8 @@ each example on each class.</td>
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#step" class="summary-sig-name">step</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      This method runs one step of the algorithm.</td>
+      This method runs one step of the algorithm. It might be useful to track
+the changes in the parameters.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.step">source&nbsp;code</a></span>
             
@@ -261,7 +271,7 @@ each example on each class.</td>
           <td><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-10</span>,
         <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">20</span>)</span><br />
-      The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface is used to run the algorithm until
+      The <tt class="rst-docutils literal">__call__</tt> interface is used to run the algorithm until
 convergence is found.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.__call__">source&nbsp;code</a></span>
@@ -276,6 +286,7 @@ convergence is found.</td>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -283,7 +294,9 @@ convergence is found.</td>
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -309,8 +322,9 @@ convergence is found.</td>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#m" class="summary-name">m</a><br />
-      The fuzzyness coefficient.
+        <a name="m"></a><span class="summary-name">m</span><br />
+      The fuzzyness coefficient. Must be bigger than 1, the closest it is
+to 1, the smoother the membership curves will be.
     </td>
   </tr>
 </table>
@@ -336,7 +350,12 @@ convergence is found.</td>
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#c" class="summary-name">c</a><br />
-      A <tt class="rst-docutils literal"><span class="pre">numpy</span></tt> array containing the centers of the classes in the algorithm.
+      A <tt class="rst-docutils literal">numpy</tt> array containing the centers of the classes in the algorithm.
+Each line represents a center, and the number of lines is the number of
+classes. This property is read and write, but care must be taken when
+setting new centers: if the dimensions are not exactly the same as given in
+the instantiation of the class (<em>ie</em>, <em>C</em> centers of dimension <em>N</em>, an
+exception will be raised.
     </td>
   </tr>
 <tr>
@@ -344,7 +363,9 @@ convergence is found.</td>
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#mu" class="summary-name">mu</a><br />
-      The membership values for every vector in the training set.
+      The membership values for every vector in the training set. This property
+is modified at each step of the execution of the algorithm. This property is
+not writable.
     </td>
   </tr>
 <tr>
@@ -352,7 +373,8 @@ convergence is found.</td>
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#x" class="summary-name">x</a><br />
-      The vectors in which the algorithm bases its convergence.
+      The vectors in which the algorithm bases its convergence. This property
+is not writable.
     </td>
   </tr>
   <tr>
@@ -397,7 +419,7 @@ convergence is found.</td>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the algorithm.
   <dl class="fields">
@@ -414,10 +436,10 @@ for that vector. Notice that each vector can be given as a tuple --
 internally, everything is converted to arrays.</li>
         <li><strong class="pname"><code>m</code></strong> - This is the aggregation value. The bigger it is, the smoother will
 be the classification. Please, consult the bibliography about the
-subject. <tt class="rst-docutils literal"><span class="pre">m</span></tt> must be bigger than 1. Its default value is 2</li>
+subject. <tt class="rst-docutils literal">m</tt> must be bigger than 1. Its default value is 2</li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -434,7 +456,7 @@ subject. <tt class="rst-docutils literal"><span class="pre">m</span></tt> must b
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.centers">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Given the present state of the algorithm, recalculates the centers, that
 is, the position of the vectors representing each of the classes. Notice
@@ -442,7 +464,7 @@ that this method modifies the state of the algorithm if any change was
 made to any parameter. This method receives no arguments and will seldom
 be used externally. It can be useful if you want to step over the
 algorithm. <em>This method has a colateral effect!</em> If you use it, the
-<tt class="rst-docutils literal"><span class="pre">c</span></tt> property (see above) will be modified.
+<tt class="rst-rst-docutils literal rst-docutils literal">c</tt> property (see above) will be modified.
   <dl class="fields">
     <dt>Returns:</dt>
         <dd>A vector containing, in each line, the position of the centers of the
@@ -462,7 +484,7 @@ algorithm.</dd>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.membership">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Given the present state of the algorithm, recalculates the membership of
 each example on each class. That is, it modifies the initial conditions
@@ -488,7 +510,7 @@ example in each class.</dd>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.step">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   This method runs one step of the algorithm. It might be useful to track
 the changes in the parameters.
@@ -514,53 +536,22 @@ can be used to track convergence and as an estimate of the error.</dd>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.cmeans-pysrc.html#FuzzyCMeans.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">__call__</span></tt> interface is used to run the algorithm until
+  The <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> interface is used to run the algorithm until
 convergence is found.
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>emax</code></strong> - Specifies the maximum error admitted in the execution of the
 algorithm. It defaults to 1.e-10. The error is tracked according to
-the norm returned by the <tt class="rst-docutils literal"><span class="pre">step()</span></tt> method.</li>
+the norm returned by the <tt class="rst-docutils literal">step()</tt> method.</li>
         <li><strong class="pname"><code>imax</code></strong> - Specifies the maximum number of iterations admitted in the execution
 of the algorithm. It defaults to 20.</li>
     </ul></dd>
     <dt>Returns:</dt>
         <dd>An array containing, at each line, the vectors representing the
 centers of the clustered regions.</dd>
-  </dl>
-</td></tr></table>
-</div>
-<br />
-<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
-<a name="section-InstanceVariableDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variable Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariableDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="m"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">m</h3>
-  The fuzzyness coefficient. Must be bigger than 1, the closest it is
-to 1, the smoother the membership curves will be.
-  <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
@@ -589,7 +580,7 @@ to 1, the smoother the membership curves will be.
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <h3 class="epydoc">c</h3>
-  A <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">numpy</span></tt> array containing the centers of the classes in the algorithm.
+  A <tt class="rst-rst-docutils literal rst-docutils literal">numpy</tt> array containing the centers of the classes in the algorithm.
 Each line represents a center, and the number of lines is the number of
 classes. This property is read and write, but care must be taken when
 setting new centers: if the dimensions are not exactly the same as given in
@@ -597,10 +588,10 @@ the instantiation of the class (<em>ie</em>, <em>C</em> centers of dimension <em
 exception will be raised.
   <dl class="fields">
     <dt>Get Method:</dt>
-    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getc" class="summary-sig-name">peach.fuzzy.cmeans.FuzzyCMeans.__getc</a>(<span class="summary-sig-arg">self</span>)</span>
+    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getc" class="summary-sig-name" onclick="show_private();">__getc</a>(<span class="summary-sig-arg">self</span>)</span>
     </dd>
     <dt>Set Method:</dt>
-    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__setc" class="summary-sig-name">peach.fuzzy.cmeans.FuzzyCMeans.__setc</a>(<span class="summary-sig-arg">self</span>,
+    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__setc" class="summary-sig-name" onclick="show_private();">__setc</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">c</span>)</span>
     </dd>
   </dl>
@@ -617,7 +608,7 @@ is modified at each step of the execution of the algorithm. This property is
 not writable.
   <dl class="fields">
     <dt>Get Method:</dt>
-    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getmu" class="summary-sig-name">peach.fuzzy.cmeans.FuzzyCMeans.__getmu</a>(<span class="summary-sig-arg">self</span>)</span>
+    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getmu" class="summary-sig-name" onclick="show_private();">__getmu</a>(<span class="summary-sig-arg">self</span>)</span>
     </dd>
   </dl>
 </td></tr></table>
@@ -632,7 +623,7 @@ not writable.
 is not writable.
   <dl class="fields">
     <dt>Get Method:</dt>
-    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getx" class="summary-sig-name">peach.fuzzy.cmeans.FuzzyCMeans.__getx</a>(<span class="summary-sig-arg">self</span>)</span>
+    <dd class="value"><span class="summary-sig"><a href="peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getx" class="summary-sig-name" onclick="show_private();">__getx</a>(<span class="summary-sig-arg">self</span>)</span>
     </dd>
   </dl>
 </td></tr></table>
@@ -669,10 +660,11 @@ is not writable.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:27 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:53 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -683,9 +675,8 @@ is not writable.
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

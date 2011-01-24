@@ -62,17 +62,17 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Ranking</h1><span class="codelink"><a href="peach.ga.fitness-pysrc.html#Ranking">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Ranking</h1><p class="nomargin-top"><span class="codelink"><a href="peach.ga.fitness-pysrc.html#Ranking">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_ga_8" name="uml_class_diagram_for_peach_ga_8">
-<area shape="rect" href="peach.ga.fitness.Fitness&#45;class.html" title="Base class for fitness function classifiers." alt="" coords="69,11,115,43"/>
-<area shape="rect" href="peach.ga.fitness.Ranking&#45;class.html#f" title="Objective function to be maximized." alt="" coords="17,89,167,108"/>
-<area shape="rect" href="peach.ga.fitness.Ranking&#45;class.html#__call__" title="Calculates the fitness for all individuals in the population." alt="" coords="17,111,167,129"/>
-<area shape="rect" href="peach.ga.fitness.Ranking&#45;class.html#__init__" title="Initializes the operator." alt="" coords="17,129,167,148"/>
-<area shape="rect" href="peach.ga.fitness.Ranking&#45;class.html" title="Ranking fitness for a population" alt="" coords="16,72,168,149"/>
+<center>  <map id="uml_class_diagram_for_peach_ga_9" name="uml_class_diagram_for_peach_ga_9">
+<area shape="rect" id="node1" href="peach.ga.fitness.Fitness-class.html" title="Base class for fitness function classifiers." alt="" coords="35,6,104,50"/>
+<area shape="rect" id="node66" href="peach.ga.fitness.Ranking-class.html#__init__" title="Initializes the operator." alt="" coords="17,103,121,121"/>
+<area shape="rect" id="node66" href="peach.ga.fitness.Ranking-class.html#__call__" title="Calculates the fitness for all individuals in the population." alt="" coords="17,121,121,140"/>
+<area shape="rect" id="node2" href="peach.ga.fitness.Ranking-class.html" title="Ranking fitness for a population" alt="" coords="5,70,133,146"/>
 </map>
-  <img src="uml_class_diagram_for_peach_ga_8.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_8" ismap="ismap" class="graph-without-title" />
-</center></center>
+  <img src="uml_class_diagram_for_peach_ga_9.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_9" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
 <hr />
 <p>Ranking fitness for a population</p>
 <p>Ranking gives fitness values equally spaced between 0 and 1. The fittest
@@ -80,7 +80,7 @@ individual receives fitness equals to 1, the second best equals to 1 - 1/N,
 the third best 1 - 2/N, and so on, where N is the size of the population.
 It is important to note that the worst fit individual receives a fitness
 value of 1/N, not 0. That allows that no individuals are excluded from the
-selection operator.</p><br /><br />
+selection operator.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -105,8 +105,7 @@ selection operator.</p><br /><br />
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="peach.ga.fitness.Ranking-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">f</span>)</span><br />
+          <td><span class="summary-sig"><a href="peach.ga.fitness.Ranking-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Initializes the operator.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.ga.fitness-pysrc.html#Ranking.__init__">source&nbsp;code</a></span>
@@ -124,7 +123,7 @@ selection operator.</p><br /><br />
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="peach.ga.fitness.Ranking-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">population</span>)</span><br />
+        <span class="summary-sig-arg">fx</span>)</span><br />
       Calculates the fitness for all individuals in the population.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.ga.fitness-pysrc.html#Ranking.__call__">source&nbsp;code</a></span>
@@ -139,6 +138,7 @@ selection operator.</p><br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -146,34 +146,10 @@ selection operator.</p><br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
-    </td>
-  </tr>
-</table>
-<!-- ==================== INSTANCE VARIABLES ==================== -->
-<a name="section-InstanceVariables"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variables</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariables"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="peach.ga.fitness.Ranking-class.html#f" class="summary-name">f</a><br />
-      Objective function to be maximized.
     </td>
   </tr>
 </table>
@@ -227,24 +203,18 @@ selection operator.</p><br /><br />
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">f</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.fitness-pysrc.html#Ranking.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the operator.
   <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>f</code></strong> - The cost function to be maximized. If you need to minimize a
-function, negate the return value.</li>
-    </ul></dd>
     <dt>Overrides:
-      <a href="peach.ga.fitness.Fitness-class.html#__init__">Fitness.__init__</a>
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -257,59 +227,29 @@ function, negate the return value.</li>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">population</span>)</span>
+        <span class="sig-arg">fx</span>)</span>
     <br /><em class="fname">(Call operator)</em>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.fitness-pysrc.html#Ranking.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Calculates the fitness for all individuals in the population.
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>population</code></strong> - The population to be processed. Please, consult the <tt class="rst-docutils literal"><span class="pre">ga</span></tt> module
-for more information on populations. This method calculates the
-fitness according to the equally spaced ranking technique.</li>
+        <li><strong class="pname"><code>fx</code></strong> - The values of the objective function for every individual on the
+population to be processed. Please, consult the <tt class="rst-docutils literal">ga</tt> module for
+more information on populations. This method calculates the fitness
+according to the equally spaced ranking technique.</li>
     </ul></dd>
     <dt>Returns:</dt>
         <dd>A vector containing the fitness value for every individual in the
 population, in the same order that they appear there.</dd>
     <dt>Overrides:
-      <a href="peach.ga.fitness.Fitness-class.html#__call__">Fitness.__call__</a>
+        <a href="peach.ga.fitness.Fitness-class.html#__call__">Fitness.__call__</a>
     </dt>
-  </dl>
-</td></tr></table>
-</div>
-<br />
-<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
-<a name="section-InstanceVariableDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variable Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariableDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="f"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">f</h3>
-  Objective function to be maximized. Handle with care -- although it
-can be changed, it might cause trouble if you do so.
-  <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
@@ -345,10 +285,11 @@ can be changed, it might cause trouble if you do so.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:31 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:58 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -359,9 +300,8 @@ can be changed, it might cause trouble if you do so.
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

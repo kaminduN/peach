@@ -61,7 +61,7 @@
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module mf</h1><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Module mf</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html">source&nbsp;code</a></span></p>
 <p>Membership functions</p>
 <p>Membership functions are actually subclasses of a main class called Membership,
 see below. Instantiate a class to generate a function, optional arguments can be
@@ -76,7 +76,7 @@ should return 0.5:</p>
 <pre class="rst-literal-block">
 &gt;&gt;&gt; print mu(1.5)
 0.5
-</pre><br /><br />
+</pre>
 
 <!-- ==================== CLASSES ==================== -->
 <a name="section-Classes"></a>
@@ -219,7 +219,7 @@ given range.
         <tr>
           <td><span class="summary-sig"><a href="peach.fuzzy.mf-module.html#Saw" class="summary-sig-name">Saw</a>(<span class="summary-sig-arg">interval</span>,
         <span class="summary-sig-arg">n</span>)</span><br />
-      Splits an <tt class="rst-docutils literal"><span class="pre">interval</span></tt> into <tt class="rst-docutils literal"><span class="pre">n</span></tt> triangle functions.</td>
+      Splits an <tt class="rst-docutils literal">interval</tt> into <tt class="rst-docutils literal">n</tt> triangle functions.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Saw">source&nbsp;code</a></span>
             
@@ -237,7 +237,7 @@ given range.
         <tr>
           <td><span class="summary-sig"><a href="peach.fuzzy.mf-module.html#FlatSaw" class="summary-sig-name">FlatSaw</a>(<span class="summary-sig-arg">interval</span>,
         <span class="summary-sig-arg">n</span>)</span><br />
-      Splits an <tt class="rst-docutils literal"><span class="pre">interval</span></tt> into a decreasing ramp, <tt class="rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions
+      Splits an <tt class="rst-docutils literal">interval</tt> into a decreasing ramp, <tt class="rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions
 and an increasing ramp.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#FlatSaw">source&nbsp;code</a></span>
@@ -281,6 +281,13 @@ specified to configure the function as needed. For example, to create \
 ..."><code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'peach.fuzzy'"><code class="variable-quote">'</code><code class="variable-string">peach.fuzzy</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
 </table>
 <!-- ==================== FUNCTION DETAILS ==================== -->
 <a name="section-FunctionDetails"></a>
@@ -313,10 +320,10 @@ specified to configure the function as needed. For example, to create \
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Saw">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>Splits an <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">interval</span></tt> into <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">n</span></tt> triangle functions.</p>
-<p>Given an interval in any domain, this function will create <tt class="rst-docutils literal"><span class="pre">n</span></tt> triangle
+  <p>Splits an <tt class="rst-rst-docutils literal rst-docutils literal">interval</tt> into <tt class="rst-rst-docutils literal rst-docutils literal">n</tt> triangle functions.</p>
+<p>Given an interval in any domain, this function will create <tt class="rst-docutils literal">n</tt> triangle
 functions of the same size equally spaced in the interval. It is very
 useful to create membership functions for controllers. The command below
 will create 3 triangle functions equally spaced in the interval (0, 4):</p>
@@ -333,7 +340,7 @@ mf3 = Triangle(2, 3, 4)
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>interval</code></strong> - A tuple containing the start and the end of the interval, in the format
-<tt class="rst-docutils literal"><span class="pre">(start,</span> <span class="pre">end)</span></tt>;</li>
+<tt class="rst-docutils literal">(start, end)</tt>;</li>
         <li><strong class="pname"><code>n</code></strong> - The number of functions in which the interval must be split.</li>
     </ul></dd>
     <dt>Returns:</dt>
@@ -354,9 +361,9 @@ mf3 = Triangle(2, 3, 4)
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#FlatSaw">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>Splits an <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">interval</span></tt> into a decreasing ramp, <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions
+  <p>Splits an <tt class="rst-rst-docutils literal rst-docutils literal">interval</tt> into a decreasing ramp, <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions
 and an increasing ramp.</p>
 <p>Given an interval in any domain, this function will create a decreasing ramp
 in the start of the interval, <tt class="rst-docutils literal"><span class="pre">n-2</span></tt> triangle functions of the same size
@@ -377,7 +384,7 @@ mf3 = Increasingramp(1, 2)
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>interval</code></strong> - A tuple containing the start and the end of the interval, in the format
-<tt class="rst-docutils literal"><span class="pre">(start,</span> <span class="pre">end)</span></tt>;</li>
+<tt class="rst-docutils literal">(start, end)</tt>;</li>
         <li><strong class="pname"><code>n</code></strong> - The number of functions in which the interval must be split.</li>
     </ul></dd>
     <dt>Returns:</dt>
@@ -462,10 +469,11 @@ specified to configure the function as needed. For example, to create <span clas
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:51 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -476,9 +484,8 @@ specified to configure the function as needed. For example, to create <span clas
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,16 +14,17 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="next" title="The Inverted Pendulum demo" href="inverted-pendulum.html" />
-    <link rel="prev" title="Fuzzy C-Means" href="../tutorial/fuzzy-c-means.html" /> 
+    <link rel="prev" title="Dealing with Binary Objective Functions" href="../tutorial/binary-objective-function.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +37,7 @@
           <a href="inverted-pendulum.html" title="The Inverted Pendulum demo"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../tutorial/fuzzy-c-means.html" title="Fuzzy C-Means"
+          <a href="../tutorial/binary-objective-function.html" title="Dealing with Binary Objective Functions"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
       </ul>
@@ -53,17 +56,19 @@ simulation using computational intelligence. They differ from the tutorials
 because their main focus is to get something done, while a tutorial focus is to
 show how to use the library.</p>
 <p>These are the current demos:</p>
+<div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference" href="inverted-pendulum.html">The Inverted Pendulum demo</a><ul>
-<li class="toctree-l2"><a class="reference" href="inverted-pendulum.html#starting-the-program">Starting the Program</a></li>
-<li class="toctree-l2"><a class="reference" href="inverted-pendulum.html#the-visualization-tabs">The Visualization Tabs</a></li>
-<li class="toctree-l2"><a class="reference" href="inverted-pendulum.html#control-panel">Control Panel</a></li>
-<li class="toctree-l2"><a class="reference" href="inverted-pendulum.html#reset-panel">Reset Panel</a></li>
-<li class="toctree-l2"><a class="reference" href="inverted-pendulum.html#configuration-panel">Configuration Panel</a></li>
-<li class="toctree-l2"><a class="reference" href="inverted-pendulum.html#show-rule">Show Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inverted-pendulum.html">The Inverted Pendulum demo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inverted-pendulum.html#starting-the-program">Starting the Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inverted-pendulum.html#the-visualization-tabs">The Visualization Tabs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inverted-pendulum.html#control-panel">Control Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inverted-pendulum.html#reset-panel">Reset Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inverted-pendulum.html#configuration-panel">Configuration Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inverted-pendulum.html#show-rule">Show Rule</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 
 
@@ -72,30 +77,30 @@ show how to use the library.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="../tutorial/fuzzy-c-means.html"
-                                  title="previous chapter">Fuzzy C-Means</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="inverted-pendulum.html"
-                                  title="next chapter">The Inverted Pendulum demo</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/demos/demos.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../tutorial/binary-objective-function.html"
+                        title="previous chapter">Dealing with Binary Objective Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inverted-pendulum.html"
+                        title="next chapter">The Inverted Pendulum demo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/demos/demos.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -110,14 +115,14 @@ show how to use the library.</p>
           <a href="inverted-pendulum.html" title="The Inverted Pendulum demo"
              >next</a> |</li>
         <li class="right" >
-          <a href="../tutorial/fuzzy-c-means.html" title="Fuzzy C-Means"
+          <a href="../tutorial/binary-objective-function.html" title="Dealing with Binary Objective Functions"
              >previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

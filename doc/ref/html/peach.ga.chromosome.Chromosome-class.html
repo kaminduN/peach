@@ -62,53 +62,56 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Chromosome</h1><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Chromosome</h1><p class="nomargin-top"><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_ga_2" name="uml_class_diagram_for_peach_ga_2">
-<area shape="rect" href="javascript: void(0);" title="bitarray([initial][endian=string])" alt="" coords="75,347,168,379"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#size" title="Property that returns the chromosome size." alt="" coords="17,425,225,444"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#format" title="Property that contains the chromosome struct format." alt="" coords="17,444,225,463"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#__new__" title="Allocates new memory space for the chromosome" alt="" coords="17,465,225,484"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#decode" title="This method decodes the information given in the chromosome." alt="" coords="17,484,225,503"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#__init__" title="Initializes the chromosome." alt="" coords="17,503,225,521"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html#encode" title="This method encodes the information into the chromosome." alt="" coords="17,521,225,540"/>
-<area shape="rect" href="peach.ga.chromosome.Chromosome&#45;class.html" title="Implements a chromosome as a bit array." alt="" coords="16,408,227,541"/>
-<area shape="rect" href="javascript: void(0);" title="Returns True when all bits in the array are True." alt="" coords="63,36,180,55"/>
-<area shape="rect" href="javascript: void(0);" title="Set all bits in the bitarray to bool(x)." alt="" coords="63,55,180,73"/>
-<area shape="rect" href="javascript: void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="63,73,180,92"/>
-<area shape="rect" href="javascript: void(0);" title="Return the i&#45;th element and delete it from the bitarray." alt="" coords="63,92,180,111"/>
-<area shape="rect" href="javascript: void(0);" title="bitarray._bitarray.__and__" alt="" coords="63,111,180,129"/>
-<area shape="rect" href="javascript: void(0);" title="Write all bits (as machine values) to the file object f." alt="" coords="63,129,180,148"/>
-<area shape="rect" href="javascript: void(0);" title="Remove the first occurrence of x in the bitarray." alt="" coords="63,148,180,167"/>
-<area shape="rect" href="javascript: void(0);" title="For all bytes representing the bitarray, reverse the bit order (in&#45;place)." alt="" coords="63,167,180,185"/>
-<area shape="rect" href="javascript: void(0);" title="bitarray._bitarray.__rmul__" alt="" coords="63,185,180,204"/>
-<area shape="rect" href="javascript: void(0);" title="x&lt;y" alt="" coords="63,204,180,223"/>
-<area shape="rect" href="javascript: void(0);" title="Returns True when any bit in the array is True." alt="" coords="63,223,180,241"/>
-<area shape="rect" href="javascript: void(0);" title="Append the value bool(x) to the end of the bitarray." alt="" coords="63,241,180,260"/>
-<area shape="rect" href="javascript: void(0);" title="Returns the number of bits added (0..7) at the end of the array." alt="" coords="63,260,180,279"/>
-<area shape="rect" href="javascript: void(0);" title="Extend the bitarray from a string, where each characters corresponds to a single bit." alt="" coords="63,297,180,316"/>
-<area shape="rect" href="javascript: void(0);" title="bitarray._bitarray" alt="" coords="61,11,181,317"/>
+<center>  <map id="uml_class_diagram_for_peach_ga_3" name="uml_class_diagram_for_peach_ga_3">
+<area shape="rect" id="node52" href="javascript:void(0);" title="Given a bitarray x (or an object which can be converted to a bitarray), returns the start positions of x matching self as a list. The optional argument limits the number of search results to the integer specified. &#160;By default, all search results are returned." alt="" coords="65,377,179,396"/>
+<area shape="rect" id="node52" href="javascript:void(0);" title="Return True if bitarray contains x, False otherwise. If x is an integer (which includes booleans), it is determined whether or not the corresponding bit is contained in the bitarray. If x is an object which can be cast into a bitarray, such as e.g. the string &#39;0110&#39;, a list, or a bitarray itself, a sequential search will be performed to determine return value." alt="" coords="65,396,179,415"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="bitarray([initial][endian=string])" alt="" coords="53,345,189,421"/>
+<area shape="rect" id="node51" href="peach.ga.chromosome.Chromosome-class.html#format" title="Property that contains the chromosome struct format." alt="" coords="17,465,227,484"/>
+<area shape="rect" id="node51" href="peach.ga.chromosome.Chromosome-class.html#size" title="Property that returns the chromosome size. Not writable." alt="" coords="17,484,227,503"/>
+<area shape="rect" id="node51" href="peach.ga.chromosome.Chromosome-class.html#__new__" title="Allocates new memory space for the chromosome" alt="" coords="17,505,227,524"/>
+<area shape="rect" id="node51" href="peach.ga.chromosome.Chromosome-class.html#__init__" title="Initializes the chromosome." alt="" coords="17,524,227,543"/>
+<area shape="rect" id="node51" href="peach.ga.chromosome.Chromosome-class.html#decode" title="This method decodes the information given in the chromosome." alt="" coords="17,543,227,561"/>
+<area shape="rect" id="node51" href="peach.ga.chromosome.Chromosome-class.html#encode" title="This method encodes the information into the chromosome." alt="" coords="17,561,227,580"/>
+<area shape="rect" id="node2" href="peach.ga.chromosome.Chromosome-class.html" title="Implements a chromosome as a bit array." alt="" coords="5,441,237,586"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__add__" alt="" coords="31,39,215,57"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__and__" alt="" coords="31,57,215,76"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="Return a copy of the bitarray." alt="" coords="31,76,215,95"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="Return a copy of the bitarray." alt="" coords="31,95,215,113"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__delitem__" alt="" coords="31,113,215,132"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="x==y" alt="" coords="31,132,215,151"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="x&gt;=y" alt="" coords="31,151,215,169"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="31,169,215,188"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__getitem__" alt="" coords="31,188,215,207"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="x&gt;y" alt="" coords="31,207,215,225"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__iadd__" alt="" coords="31,225,215,244"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__iand__" alt="" coords="31,244,215,263"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="bitarray._bitarray.__imul__" alt="" coords="31,263,215,281"/>
+<area shape="rect" id="node53" href="javascript:void(0);" title="Return a string containing one character for each bit in the bitarray, using the specified mapping. Note that unpack(&#39;0&#39;, &#39;1&#39;) has the same effect as to01(). See also the pack method." alt="" coords="31,300,215,319"/>
+<area shape="rect" id="node3" href="javascript:void(0);" title="bitarray._bitarray" alt="" coords="19,6,227,325"/>
 </map>
-  <img src="uml_class_diagram_for_peach_ga_2.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_2" ismap="ismap" class="graph-without-title" />
-</center></center>
+  <img src="uml_class_diagram_for_peach_ga_3.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_3" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
 <hr />
 <p>Implements a chromosome as a bit array.</p>
-<p>Data is structured according to the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> module that exists in the
+<p>Data is structured according to the <tt class="rst-docutils literal">struct</tt> module that exists in the
 Python standard library. Internally, data used in optimization with a
-genetic algorithm are represented as arrays of bits, so the <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt>
+genetic algorithm are represented as arrays of bits, so the <tt class="rst-docutils literal">bitarray</tt>
 module must be installed. Please consult the Python package index for more
-information on how to install <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt>. In general, the user don't need
+information on how to install <tt class="rst-docutils literal">bitarray</tt>. In general, the user don't need
 to worry about how the data is manipulated internally, but a specification
-of the format as in the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> module is needed.</p>
-<p>If the internal format of the data is specified as an <tt class="rst-docutils literal"><span class="pre">struct</span></tt> format, the
+of the format as in the <tt class="rst-docutils literal">struct</tt> module is needed.</p>
+<p>If the internal format of the data is specified as an <tt class="rst-docutils literal">struct</tt> format, the
 genetic algorithm will take care of encoding and decoding data from and to
 the optimizer. However, it is possible to specify, instead of a format, the
 length of the chromosome. In that case, the fitness function must deal with
 the encoding and decoding of the information. It is strongly suggested that
-you use <tt class="rst-docutils literal"><span class="pre">struct</span></tt> format strings, as they are much easier. This second
+you use <tt class="rst-docutils literal">struct</tt> format strings, as they are much easier. This second
 option is provided as a convenience.</p>
-<p>The <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt> class is derived from the <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> class. So, every
-property and method of this class should be accessible.</p><br /><br />
+<p>The <tt class="rst-docutils literal">Chromosome</tt> class is derived from the <tt class="rst-docutils literal">bitarray</tt> class. So, every
+property and method of this class should be accessible.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -198,10 +201,13 @@ property and method of this class should be accessible.</p><br /><br />
   </tr>
   <tr>
     <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>bitarray.bitarray</code></b>:
+      <code>__contains__</code>,
+      <code>search</code>
+      </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>bitarray._bitarray</code></b>:
       <code>__add__</code>,
       <code>__and__</code>,
-      <code>__contains__</code>,
       <code>__copy__</code>,
       <code>__deepcopy__</code>,
       <code>__delitem__</code>,
@@ -248,7 +254,6 @@ property and method of this class should be accessible.</p><br /><br />
       <code>pop</code>,
       <code>remove</code>,
       <code>reverse</code>,
-      <code>search</code>,
       <code>setall</code>,
       <code>sort</code>,
       <code>to01</code>,
@@ -257,12 +262,20 @@ property and method of this class should be accessible.</p><br /><br />
       <code>tostring</code>,
       <code>unpack</code>
       </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>bitarray._bitarray</code></b> (private):
+      <code>_decode</code>,
+      <code>_encode</code>,
+      <code>_search</code>
+      </p></div>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__hash__</code>,
       <code>__reduce_ex__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -286,7 +299,7 @@ property and method of this class should be accessible.</p><br /><br />
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">a new object with type S, a subtype of T</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -326,7 +339,7 @@ property and method of this class should be accessible.</p><br /><br />
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a name="format"></a><span class="summary-name">format</span><br />
-      Property that contains the chromosome <tt class="rst-docutils literal"><span class="pre">struct</span></tt> format.
+      Property that contains the chromosome <tt class="rst-docutils literal">struct</tt> format.
     </td>
   </tr>
 </table>
@@ -352,7 +365,7 @@ property and method of this class should be accessible.</p><br /><br />
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="peach.ga.chromosome.Chromosome-class.html#size" class="summary-name">size</a><br />
-      Property that returns the chromosome size.
+      Property that returns the chromosome size. Not writable.
     </td>
   </tr>
   <tr>
@@ -396,18 +409,18 @@ property and method of this class should be accessible.</p><br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__new__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Allocates new memory space for the chromosome</p>
-<p>This function overrides the <tt class="rst-docutils literal"><span class="pre">bitarray.__new__</span></tt> function to deal with
+<p>This function overrides the <tt class="rst-docutils literal">bitarray.__new__</tt> function to deal with
 the length of the chromosome. It should never be directly used, as it is
 automatically called by the Python interpreter in the moment of object
 creation.</p>
   <dl class="fields">
-    <dt>Returns:</dt>
-        <dd>A new <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt> object.</dd>
+    <dt>Returns: a new object with type S, a subtype of T</dt>
+        <dd>A new <tt class="rst-docutils literal">Chromosome</tt> object.</dd>
     <dt>Overrides:
-      bitarray._bitarray.__new__
+        object.__new__
     </dt>
   </dl>
 </td></tr></table>
@@ -426,22 +439,22 @@ creation.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Initializes the chromosome.</p>
 <p>This method is automatically called by the Python interpreter and
 initializes the data in the chromosome. No data should be provided to be
 encoded in the chromosome, as it is usually better start with random
 estimates. This method, in particular, does not clear the memory used in
-the time of creation of the <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> from which a <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt>
+the time of creation of the <tt class="rst-docutils literal">bitarray</tt> from which a <tt class="rst-docutils literal">Chromosome</tt>
 derives -- so the random noise in the memory is used as initial value.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><p><strong class="pname"><code>fmt</code></strong> - This parameter can be passed in two different ways. If <tt class="rst-docutils literal"><span class="pre">fmt</span></tt> is a
-string, then it is assumed to be a <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-format string. Its
-size is calculated and a <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> of the corresponding size is
-created. Please, consult the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> documentation, since what is
+        <li><p><strong class="pname"><code>fmt</code></strong> - This parameter can be passed in two different ways. If <tt class="rst-docutils literal">fmt</tt> is a
+string, then it is assumed to be a <tt class="rst-docutils literal">struct</tt>-format string. Its
+size is calculated and a <tt class="rst-docutils literal">bitarray</tt> of the corresponding size is
+created. Please, consult the <tt class="rst-docutils literal">struct</tt> documentation, since what is
 explained there is exactly what is used here. For example, if you
 are going to use the optimizer to deal with three-dimensional
 vectors of continuous variables, the format would be something
@@ -449,14 +462,14 @@ like:</p>
 <pre class="rst-literal-block">
 fmt = 'fff'
 </pre>
-<p>If <tt class="rst-docutils literal"><span class="pre">fmt</span></tt>, however, is an integer, then a <tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> of the given
+<p>If <tt class="rst-docutils literal">fmt</tt>, however, is an integer, then a <tt class="rst-docutils literal">bitarray</tt> of the given
 length is created. Note that, in this case, no format is given to
 the chromosome, and it is responsability of the programmer and the
 fitness function to provide for it.</p>
 <p>Default value is an empty string.</p></li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -473,11 +486,11 @@ fitness function to provide for it.</p>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.decode">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>This method decodes the information given in the chromosome.</p>
-<p>Data in the chromosome is encoded as a <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-formated string in a
-<tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> object. This method decodes the information and returns the
+<p>Data in the chromosome is encoded as a <tt class="rst-docutils literal">struct</tt>-formated string in a
+<tt class="rst-docutils literal">bitarray</tt> object. This method decodes the information and returns the
 encoded values. If a format string is not given, then it is assumed that
 this chromosome is just an array of bits, which is returned.</p>
   <dl class="fields">
@@ -485,7 +498,7 @@ this chromosome is just an array of bits, which is returned.</p>
         <dd>A tuple containing the decoded values, in the order specified by the
 format string.</dd>
     <dt>Overrides:
-      bitarray._bitarray.decode
+        bitarray.bitarray.decode
     </dt>
   </dl>
 </td></tr></table>
@@ -503,21 +516,21 @@ format string.</dd>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.chromosome-pysrc.html#Chromosome.encode">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>This method encodes the information into the chromosome.</p>
-<p>Data in the chromosome is encoded as a <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-formated string in a
-<tt class="rst-docutils literal"><span class="pre">bitarray</span></tt> object. This method encodes the given information in the
+<p>Data in the chromosome is encoded as a <tt class="rst-docutils literal">struct</tt>-formated string in a
+<tt class="rst-docutils literal">bitarray</tt> object. This method encodes the given information in the
 bitarray. If a format string is not given, this method raises a
-<tt class="rst-docutils literal"><span class="pre">TypeError</span></tt> exception.</p>
+<tt class="rst-docutils literal">TypeError</tt> exception.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>values</code></strong> - A tuple containing the values to be encoded in an order consistent
-with the given <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-format.</li>
+with the given <tt class="rst-docutils literal">struct</tt>-format.</li>
     </ul></dd>
     <dt>Overrides:
-      bitarray._bitarray.encode
+        bitarray.bitarray.encode
     </dt>
   </dl>
 </td></tr></table>
@@ -550,7 +563,7 @@ with the given <tt class="rst-docutils literal"><span class="pre">struct</span><
   Property that returns the chromosome size. Not writable.
   <dl class="fields">
     <dt>Get Method:</dt>
-    <dd class="value"><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#__get_size" class="summary-sig-name">peach.ga.chromosome.Chromosome.__get_size</a>(<span class="summary-sig-arg">self</span>)</span>
+    <dd class="value"><span class="summary-sig"><a href="peach.ga.chromosome.Chromosome-class.html#__get_size" class="summary-sig-name" onclick="show_private();">__get_size</a>(<span class="summary-sig-arg">self</span>)</span>
     </dd>
   </dl>
 </td></tr></table>
@@ -587,10 +600,11 @@ with the given <tt class="rst-docutils literal"><span class="pre">struct</span><
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:30 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:57 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -601,9 +615,8 @@ with the given <tt class="rst-docutils literal"><span class="pre">struct</span><
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

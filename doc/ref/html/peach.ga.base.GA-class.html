@@ -62,59 +62,45 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class GA</h1><span class="codelink"><a href="peach.ga.base-pysrc.html#GA">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class GA</h1><p class="nomargin-top"><span class="codelink"><a href="peach.ga.base-pysrc.html#GA">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_ga" name="uml_class_diagram_for_peach_ga">
-<area shape="rect" href="javascript: void(0);" title="x[i:j]" alt="" coords="584,36,701,55"/>
-<area shape="rect" href="javascript: void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="584,55,701,73"/>
-<area shape="rect" href="javascript: void(0);" title="remove and return item at index (default last)" alt="" coords="584,73,701,92"/>
-<area shape="rect" href="javascript: void(0);" title="x+=y" alt="" coords="584,92,701,111"/>
-<area shape="rect" href="javascript: void(0);" title="n*x" alt="" coords="584,111,701,129"/>
-<area shape="rect" href="javascript: void(0);" title="x&lt;y" alt="" coords="584,129,701,148"/>
-<area shape="rect" href="javascript: void(0);" title="append object to end" alt="" coords="584,148,701,167"/>
-<area shape="rect" href="javascript: void(0);" title="L.index(value, [start, [stop]]) &#45;&gt; integer &#45;&#45; return first index of value" alt="" coords="584,167,701,185"/>
-<area shape="rect" href="javascript: void(0);" title="del x[i:j]" alt="" coords="584,185,701,204"/>
-<area shape="rect" href="javascript: void(0);" title="Returns:  a new object with type S, a subtype of T" alt="" coords="584,204,701,223"/>
-<area shape="rect" href="javascript: void(0);" title="y in x" alt="" coords="584,223,701,241"/>
-<area shape="rect" href="javascript: void(0);" title="len(x)" alt="" coords="584,241,701,260"/>
-<area shape="rect" href="javascript: void(0);" title="repr(x)" alt="" coords="584,260,701,279"/>
-<area shape="rect" href="javascript: void(0);" title="x&gt;=y" alt="" coords="584,297,701,316"/>
-<area shape="rect" href="javascript: void(0);" title="list() &#45;&gt; new list list(sequence) &#45;&gt; new list initialized from sequence&#39;s items" alt="" coords="583,11,703,317"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#elitist" title="If True, then the population is elitist." alt="" coords="17,364,1268,383"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#chromosome_size" title="This property hold the chromosome size for the population." alt="" coords="17,383,1268,401"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#ranges" title="Holds the ranges for every variable." alt="" coords="17,401,1268,420"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#fitness" title="Vector containing the computed fitness value for every individual." alt="" coords="17,420,1268,439"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#fit" title="Computes the fitness for each individual of the population." alt="" coords="17,441,1268,460"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#__init__" title="Initializes the population and the algorithm." alt="" coords="17,460,1268,479"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#step" title="Computes a new generation of the population, a step of the adaptation." alt="" coords="17,479,1268,497"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html#sanity" title="Sanitizes the chromosomes in the population." alt="" coords="17,497,1268,516"/>
-<area shape="rect" href="peach.ga.base.GA&#45;class.html" title="A standard Genetic Algorithm" alt="" coords="16,347,1269,517"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#elitist" title="If True, then the population is elitist." alt="" coords="17,383,1477,401"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#ranges" title="Holds the ranges for every variable. Although it is a writable property, care should be taken in changing parameters before ending the convergence." alt="" coords="17,401,1477,420"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#chromosome_size" title="This property hold the chromosome size for the population. Not writable." alt="" coords="17,420,1477,439"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#fx" title="Array containing the fitness value for every estimate in the population. Not writeable." alt="" coords="17,439,1477,457"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#best" title="Single vector containing the position of the best point found by all the individuals. Not writeable." alt="" coords="17,457,1477,476"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#fbest" title="Single scalar value containing the function value of the best point by all the individuals. Not writeable." alt="" coords="17,476,1477,495"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#fitness" title="Vector containing the fitness value for every individual in the population. This is not the same as the objective function value. Not writeable." alt="" coords="17,495,1477,513"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#__init__" title="Initializes the population and the algorithm." alt="" coords="17,516,1477,535"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#sanity" title="Sanitizes the chromosomes in the population." alt="" coords="17,535,1477,553"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#restart" title="Resets the optimizer, allowing the use of a new set of estimates. This can be used to avoid stagnation." alt="" coords="17,553,1477,572"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#step" title="Computes a new generation of the population, a step of the adaptation." alt="" coords="17,572,1477,591"/>
+<area shape="rect" id="node46" href="peach.ga.base.GeneticAlgorithm-class.html#__call__" title="Transparently executes the search until the minimum is found. The stop criteria are the maximum error or the maximum number of iterations, whichever is reached first. Note that this is a __call__ method, so the object is called as a function. This method returns a tuple (x, e), with the best estimate of the minimum and the error." alt="" coords="17,591,1477,609"/>
+<area shape="rect" id="node1" href="peach.ga.base.GeneticAlgorithm-class.html" title="A standard Genetic Algorithm" alt="" coords="5,358,1488,615"/>
+<area shape="rect" id="node2" href="peach.ga.base.GA-class.html" title="GA is an alias to GeneticAlgorithm" alt="" coords="725,635,771,679"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="hash(x)" alt="" coords="609,31,885,49"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x+y" alt="" coords="609,52,885,71"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="y in x" alt="" coords="609,71,885,89"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="del x[y]" alt="" coords="609,89,885,108"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="del x[i:j]" alt="" coords="609,108,885,127"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x==y" alt="" coords="609,127,885,145"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x&gt;=y" alt="" coords="609,145,885,164"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="609,164,885,183"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x[y]" alt="" coords="609,183,885,201"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x[i:j]" alt="" coords="609,201,885,220"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x&gt;y" alt="" coords="609,220,885,239"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x+=y" alt="" coords="609,239,885,257"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="x*=y" alt="" coords="609,257,885,276"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="iter(x)" alt="" coords="609,276,885,295"/>
+<area shape="rect" id="node47" href="javascript:void(0);" title="stable sort IN PLACE; cmp(x, y) &#45;&gt; &#45;1, 0, 1" alt="" coords="609,313,885,332"/>
+<area shape="rect" id="node3" href="javascript:void(0);" title="list() &#45;&gt; new empty list list(iterable) &#45;&gt; new list initialized from iterable&#39;s items" alt="" coords="597,6,896,338"/>
 </map>
   <img src="uml_class_diagram_for_peach_ga.gif" alt='' usemap="#uml_class_diagram_for_peach_ga" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
-<p>A standard Genetic Algorithm</p>
-<p>This class implements the methods to generate, initialize and evolve a
-population of chromosomes according to a given fitness function. A standard
-GA implements, in this order:</p>
-<blockquote>
-<ul class="rst-simple">
-<li>A selection method, to choose, from this generation, which individuals
-will be present in the next generation;</li>
-<li>A crossover method, to exchange information between selected individuals
-to add diversity to the population;</li>
-<li>A mutation method, to change information in a selected individual, also
-to add diversity to the population;</li>
-<li>The reinsertion of the fittest individual, if the population is elitist
-(which is almost always the case).</li>
-</ul>
-</blockquote>
-<p>A population is actually a list of chromosomes, and individuals can be
-read and set as in a normal list. Use the <tt class="rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> operators to access
-individual chromosomes but please be aware that modifying the information on
-the list before the end of convergence can cause unpredictable results. The
-population and the algorithm have also other properties, check below to see
-more information on them.</p><br /><br />
+GA is an alias to <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">GeneticAlgorithm</tt>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -133,100 +119,15 @@ more information on them.</p><br /><br />
     </table>
   </td>
 </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="peach.ga.base.GA-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">fitness</span>,
-        <span class="summary-sig-arg">fmt</span>,
-        <span class="summary-sig-arg">ranges</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
-        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">50</span>,
-        <span class="summary-sig-arg">selection</span>=<span class="summary-sig-default">&lt;class 'peach.ga.selection.RouletteWheel'&gt;</span>,
-        <span class="summary-sig-arg">crossover</span>=<span class="summary-sig-default">&lt;class 'peach.ga.crossover.TwoPoint'&gt;</span>,
-        <span class="summary-sig-arg">mutation</span>=<span class="summary-sig-default">&lt;class 'peach.ga.mutation.BitToBit'&gt;</span>,
-        <span class="summary-sig-arg">elitist</span>=<span class="summary-sig-default">True</span>)</span><br />
-      Initializes the population and the algorithm.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="peach.ga.base-pysrc.html#GA.__init__">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr class="private">
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="__get_csize"></a><span class="summary-sig-name">__get_csize</span>(<span class="summary-sig-arg">self</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="peach.ga.base-pysrc.html#GA.__get_csize">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="peach.ga.base.GA-class.html#sanity" class="summary-sig-name">sanity</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Sanitizes the chromosomes in the population.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="peach.ga.base-pysrc.html#GA.sanity">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="peach.ga.base.GA-class.html#fit" class="summary-sig-name">fit</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Computes the fitness for each individual of the population.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="peach.ga.base-pysrc.html#GA.fit">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="peach.ga.base.GA-class.html#step" class="summary-sig-name">step</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Computes a new generation of the population, a step of the adaptation.</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="peach.ga.base-pysrc.html#GA.step">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
   <tr>
     <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.ga.base.GeneticAlgorithm-class.html">GeneticAlgorithm</a></code></b>:
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#__call__">__call__</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#__init__">__init__</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#restart">restart</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#sanity">sanity</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#step">step</a></code>
+      </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>list</code></b>:
       <code>__add__</code>,
       <code>__contains__</code>,
@@ -238,7 +139,6 @@ more information on them.</p><br /><br />
       <code>__getitem__</code>,
       <code>__getslice__</code>,
       <code>__gt__</code>,
-      <code>__hash__</code>,
       <code>__iadd__</code>,
       <code>__imul__</code>,
       <code>__iter__</code>,
@@ -253,6 +153,7 @@ more information on them.</p><br /><br />
       <code>__rmul__</code>,
       <code>__setitem__</code>,
       <code>__setslice__</code>,
+      <code>__sizeof__</code>,
       <code>append</code>,
       <code>count</code>,
       <code>extend</code>,
@@ -265,10 +166,37 @@ more information on them.</p><br /><br />
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__reduce__</code>,
       <code>__reduce_ex__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>list</code></b>:
+      <code>__hash__</code>
       </p>
     </td>
   </tr>
@@ -290,28 +218,12 @@ more information on them.</p><br /><br />
     </table>
   </td>
 </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="peach.ga.base.GA-class.html#ranges" class="summary-name">ranges</a><br />
-      Holds the ranges for every variable.
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="elitist"></a><span class="summary-name">elitist</span><br />
-      If <tt class="rst-docutils literal"><span class="pre">True</span></tt>, then the population is elitist.
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="fitness"></a><span class="summary-name">fitness</span><br />
-      Vector containing the computed fitness value for every individual.
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.ga.base.GeneticAlgorithm-class.html">GeneticAlgorithm</a></code></b>:
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#elitist">elitist</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#ranges">ranges</a></code>
+      </p>
     </td>
   </tr>
 </table>
@@ -332,286 +244,21 @@ more information on them.</p><br /><br />
     </table>
   </td>
 </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="peach.ga.base.GA-class.html#chromosome_size" class="summary-name">chromosome_size</a><br />
-      This property hold the chromosome size for the population.
-    </td>
-  </tr>
   <tr>
     <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.ga.base.GeneticAlgorithm-class.html">GeneticAlgorithm</a></code></b>:
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#best">best</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#chromosome_size">chromosome_size</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#fbest">fbest</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#fitness">fitness</a></code>,
+      <code><a href="peach.ga.base.GeneticAlgorithm-class.html#fx">fx</a></code>
+      </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__class__</code>
       </p>
     </td>
   </tr>
 </table>
-<!-- ==================== METHOD DETAILS ==================== -->
-<a name="section-MethodDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Method Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-MethodDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="__init__"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">fitness</span>,
-        <span class="sig-arg">fmt</span>,
-        <span class="sig-arg">ranges</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
-        <span class="sig-arg">size</span>=<span class="sig-default">50</span>,
-        <span class="sig-arg">selection</span>=<span class="sig-default">&lt;class 'peach.ga.selection.RouletteWheel'&gt;</span>,
-        <span class="sig-arg">crossover</span>=<span class="sig-default">&lt;class 'peach.ga.crossover.TwoPoint'&gt;</span>,
-        <span class="sig-arg">mutation</span>=<span class="sig-default">&lt;class 'peach.ga.mutation.BitToBit'&gt;</span>,
-        <span class="sig-arg">elitist</span>=<span class="sig-default">True</span>)</span>
-    <br /><em class="fname">(Constructor)</em>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="peach.ga.base-pysrc.html#GA.__init__">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </table>
-  
-  <p>Initializes the population and the algorithm.</p>
-<p>On the initialization of the population, a lot of parameters can be set.
-Those will deeply affect the results. The parameters are:</p>
-  <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><p><strong class="pname"><code>fitness</code></strong> - A fitness function to serve as an objective function. In general, a
-GA is used for maximizing a function. This parameter can be a
-standard Python function or a <tt class="rst-docutils literal"><span class="pre">Fitness</span></tt> instance.</p>
-<p>In the first case, the GA will convert the function in a
-<tt class="rst-docutils literal"><span class="pre">Fitness</span></tt> instance and call it internally when needed. The
-function should receive a tuple or vector of data according to the
-given <tt class="rst-docutils literal"><span class="pre">Chromosome</span></tt> format (see below) and return a numeric value.</p>
-<p>In the second case, you can use any of the fitness methods of the
-<tt class="rst-docutils literal"><span class="pre">fitness</span></tt> sub-module, or create your own. If you want to use your
-own fitness method (for experimentation or simulation, for example),
-it must be an instance of a <tt class="rst-docutils literal"><span class="pre">Fitness</span></tt> or of a subclass, or an
-exception will be raised. Please consult the documentation on the
-<tt class="rst-docutils literal"><span class="pre">fitness</span></tt> sub-module.</p></li>
-        <li><p><strong class="pname"><code>fmt</code></strong> - A <tt class="rst-docutils literal"><span class="pre">struct</span></tt>-format string. The <tt class="rst-docutils literal"><span class="pre">struct</span></tt> module is a standard
-Python module that packs and unpacks informations in bits. These
-are used to inform the algorithm what types of data are to be used.
-For example, if you are maximizing a function of three real
-variables, the format should be something like <tt class="rst-docutils literal"><span class="pre">&quot;fff&quot;</span></tt>. Any type
-supported by the <tt class="rst-docutils literal"><span class="pre">struct</span></tt> module can be used. The GA will decode
-the bit array according to this format and send it as is to your
-fitness function -- your function <em>must</em> know what to do with them.</p>
-<p>Alternatively, the format can be an integer. In that case, the GA
-will not try to decode the bit sequence. Instead, the bits are
-passed without modification to the objective function, which must
-deal with them. Notice that, if this is used this way, the
-<tt class="rst-docutils literal"><span class="pre">ranges</span></tt> property (see below) makes no sense, so it is set to
-<tt class="rst-docutils literal"><span class="pre">None</span></tt>. Also, no sanity checks will be performed.</p></li>
-        <li><p><strong class="pname"><code>ranges</code></strong> - Since messing with the bits can change substantially the values
-obtained can diverge a lot from the maximum point. To avoid this,
-you can specify a range for each of the variables. <tt class="rst-docutils literal"><span class="pre">range</span></tt>
-defaults to <tt class="rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt>, this means that no range checkin will be done.
-If given, then every variable will be checked. There are two ways to
-specify the ranges.</p>
-<p>It might be a tuple of two values, <tt class="rst-docutils literal"><span class="pre">(x0,</span> <span class="pre">x1)</span></tt>, where <tt class="rst-docutils literal"><span class="pre">x0</span></tt> is the
-start of the interval, and <tt class="rst-docutils literal"><span class="pre">x1</span></tt> its end. Obviously, <tt class="rst-docutils literal"><span class="pre">x0</span></tt> should
-be smaller than <tt class="rst-docutils literal"><span class="pre">x1</span></tt>. If <tt class="rst-docutils literal"><span class="pre">range</span></tt> is given in this way, then this
-range will be used for every variable.</p>
-<p>If can be specified as a list of tuples with the same format as
-given above. In that case, the list must have one range for every
-variable specified in the format and the ranges must appear in the
-same order as there. That is, every variable must have a range
-associated to it.</p></li>
-        <li><strong class="pname"><code>size</code></strong> - This is the size of the population. It defaults to 50.</li>
-        <li><strong class="pname"><code>selection</code></strong> - This specifies the selection method. You can use one given in the
-<tt class="rst-docutils literal"><span class="pre">selection</span></tt> sub-module, or you can implement your own. In any
-case, the <tt class="rst-docutils literal"><span class="pre">selection</span></tt> parameter must be an instance of
-<tt class="rst-docutils literal"><span class="pre">Selection</span></tt> or of a subclass. Please, see the documentation on the
-<tt class="rst-docutils literal"><span class="pre">selection</span></tt> module for more information. Defaults to
-<tt class="rst-docutils literal"><span class="pre">RouletteWheel</span></tt>. If made <tt class="rst-docutils literal"><span class="pre">None</span></tt>, then selection will not be
-present in the GA.</li>
-        <li><strong class="pname"><code>crossover</code></strong> - This specifies the crossover method. You can use one given in the
-<tt class="rst-docutils literal"><span class="pre">crossover</span></tt> sub-module, or you can implement your own. In any
-case, the <tt class="rst-docutils literal"><span class="pre">crossover</span></tt> parameter must be an instance of
-<tt class="rst-docutils literal"><span class="pre">Crossover</span></tt> or of a subclass. Please, see the documentation on the
-<tt class="rst-docutils literal"><span class="pre">crossover</span></tt> module for more information. Defaults to
-<tt class="rst-docutils literal"><span class="pre">TwoPoint</span></tt>. If made <tt class="rst-docutils literal"><span class="pre">None</span></tt>, then crossover will not be
-present in the GA.</li>
-        <li><strong class="pname"><code>mutation</code></strong> - This specifies the mutation method. You can use one given in the
-<tt class="rst-docutils literal"><span class="pre">mutation</span></tt> sub-module, or you can implement your own. In any
-case, the <tt class="rst-docutils literal"><span class="pre">mutation</span></tt> parameter must be an instance of <tt class="rst-docutils literal"><span class="pre">Mutation</span></tt>
-or of a subclass. Please, see the documentation on the <tt class="rst-docutils literal"><span class="pre">mutation</span></tt>
-module for more information. Defaults to <tt class="rst-docutils literal"><span class="pre">BitToBit</span></tt>.  If made
-<tt class="rst-docutils literal"><span class="pre">None</span></tt>, then mutation will not be present in the GA.</li>
-        <li><strong class="pname"><code>elitist</code></strong> - Defines if the population is elitist or not. An elitist population
-will never discard the fittest individual when a new generation is
-computed. Defaults to <tt class="rst-docutils literal"><span class="pre">True</span></tt>.</li>
-    </ul></dd>
-    <dt>Returns:</dt>
-        <dd><pre class="literalblock">
-new list
-
-</pre></dd>
-    <dt>Overrides:
-      list.__init__
-    </dt>
-  </dl>
-</td></tr></table>
-</div>
-<a name="sanity"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">sanity</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="peach.ga.base-pysrc.html#GA.sanity">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </table>
-  
-  <p>Sanitizes the chromosomes in the population.</p>
-<p>Since not every individual generated by the crossover and mutation
-operations might be a valid result, this method verifies if they are
-inside the allowed ranges (or if it is a number at all). Each invalid
-individual is discarded and a new one is generated.</p>
-<p>This method has no parameters and returns no values.</p>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="fit"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">fit</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="peach.ga.base-pysrc.html#GA.fit">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </table>
-  
-  <p>Computes the fitness for each individual of the population.</p>
-<p>This method is only an interface to the <tt class="rst-docutils literal"><span class="pre">fitness</span></tt> function passed in
-the initialization. It calls the <tt class="rst-docutils literal"><span class="pre">Fitness</span></tt> instance.</p>
-<p>This method has no parameters and returns no values.</p>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="step"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">step</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="peach.ga.base-pysrc.html#GA.step">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </table>
-  
-  <p>Computes a new generation of the population, a step of the adaptation.</p>
-<p>This method goes through all the steps of the GA, as described above. If
-the selection, crossover and mutation operators are defined, they are
-applied over the population. If the population is elitist, then the
-fittest individual of the past generation is reinserted.</p>
-<p>This method has no parameters and returns no values. The GA itself can
-be consulted (using <tt class="rst-docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt>) to find the fittest individual which is the
-result of the process.</p>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<br />
-<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
-<a name="section-InstanceVariableDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variable Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariableDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="ranges"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">ranges</h3>
-  Holds the ranges for every variable. Although it is a writable
-property, care should be taken in changing parameters before ending
-the convergence.
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<br />
-<!-- ==================== PROPERTY DETAILS ==================== -->
-<a name="section-PropertyDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Property Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-PropertyDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="chromosome_size"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">chromosome_size</h3>
-  This property hold the chromosome size for the population. Not
-writable.
-  <dl class="fields">
-    <dt>Get Method:</dt>
-    <dd class="value"><span class="summary-sig"><a href="peach.ga.base.GA-class.html#__get_csize" class="summary-sig-name">peach.ga.base.GA.__get_csize</a>(<span class="summary-sig-arg">self</span>)</span>
-    </dd>
-  </dl>
-</td></tr></table>
-</div>
-<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
@@ -643,10 +290,11 @@ writable.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:30 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:56 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -657,9 +305,8 @@ writable.
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

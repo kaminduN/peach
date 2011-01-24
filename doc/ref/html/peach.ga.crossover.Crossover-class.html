@@ -62,29 +62,30 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Crossover</h1><span class="codelink"><a href="peach.ga.crossover-pysrc.html#Crossover">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Crossover</h1><p class="nomargin-top"><span class="codelink"><a href="peach.ga.crossover-pysrc.html#Crossover">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_ga_3" name="uml_class_diagram_for_peach_ga_3">
-<area shape="rect" href="peach.ga.crossover.TwoPoint&#45;class.html" title="A two&#45;point crossover operator." alt="" coords="16,72,85,98"/>
-<area shape="rect" href="peach.ga.crossover.Crossover&#45;class.html" title="Base class for crossover operators." alt="" coords="133,10,197,42"/>
-<area shape="rect" href="peach.ga.crossover.Uniform&#45;class.html" title="A uniform crossover operator." alt="" coords="136,72,195,98"/>
-<area shape="rect" href="peach.ga.crossover.OnePoint&#45;class.html" title="A one&#45;point crossover operator." alt="" coords="245,72,312,98"/>
+<center>  <map id="uml_class_diagram_for_peach_ga_4" name="uml_class_diagram_for_peach_ga_4">
+<area shape="rect" id="node1" href="peach.ga.crossover.OnePoint-class.html" title="A one&#45;point crossover operator." alt="" coords="5,70,96,109"/>
+<area shape="rect" id="node2" href="peach.ga.crossover.Crossover-class.html" title="Base class for crossover operators." alt="" coords="123,6,208,50"/>
+<area shape="rect" id="node3" href="peach.ga.crossover.Uniform-class.html" title="A uniform crossover operator." alt="" coords="125,70,208,109"/>
+<area shape="rect" id="node4" href="peach.ga.crossover.TwoPoint-class.html" title="A two&#45;point crossover operator." alt="" coords="237,70,328,109"/>
 </map>
-  <img src="uml_class_diagram_for_peach_ga_3.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_3" ismap="ismap" class="graph-without-title" />
-</center></center>
+  <img src="uml_class_diagram_for_peach_ga_4.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
 <hr />
 <p>Base class for crossover operators.</p>
 <p>This class should be subclassed if you want to create your own crossover
 operator. The base class doesn't do much, it is only a prototype. As is done
-with all the base classes within this library, use the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method
-to configure your crossover behaviour -- if needed -- and the <tt class="rst-docutils literal"><span class="pre">__call__</span></tt>
+with all the base classes within this library, use the <tt class="rst-docutils literal">__init__</tt> method
+to configure your crossover behaviour -- if needed -- and the <tt class="rst-docutils literal">__call__</tt>
 method to operate over a population.</p>
 <p>A class derived from this one should implement at least 2 methods, defined
 below:</p>
 <blockquote>
 <dl class="rst-docutils">
-<dt>__init__(self, <a href="#id1" name="id2"><span class="rst-problematic" id="rst-id2">*</span></a>cnf, <a href="#id3" name="id4"><span class="rst-problematic" id="rst-id4">**</span></a>kw)</dt>
-<dd><p class="rst-first">Initializes the object. There is no mandatory arguments, but any
+<dt>__init__(self, <a href="#id1"><span class="rst-problematic" id="rst-id2">*</span></a>cnf, <a href="#id3"><span class="rst-problematic" id="rst-id4">**</span></a>kw)</dt>
+<dd><p class="rst-first">Initializes the object. There are no mandatory arguments, but any
 parameters can be used here to configure the operator. For example, a
 class can define a crossover rate -- this should be defined here:</p>
 <pre class="rst-literal-block">
@@ -93,8 +94,8 @@ __init__(self, rate=0.75)
 <p class="rst-last">A default value should always be offered, if possible.</p>
 </dd>
 <dt>__call__(self, population)</dt>
-<dd>The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> implementation should receive a population and operate
-over it. Please, consult the <tt class="rst-docutils literal"><span class="pre">ga</span></tt> module to see more information on
+<dd>The <tt class="rst-docutils literal">__call__</tt> implementation should receive a population and operate
+over it. Please, consult the <tt class="rst-docutils literal">ga</tt> module to see more information on
 populations. It should return the processed population. No recomendation
 on the internals of the method is made. That being said, in general the
 crossover operators pairs chromosomes and swap bits among them (but
@@ -102,8 +103,8 @@ there is nothing to say that you can't do it differently).</dd>
 </dl>
 </blockquote>
 <p>Please, note that the GA implementations relies on this behaviour: it will
-pass a population to your <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> method and expects to received the
-result back.</p><br /><br />
+pass a population to your <tt class="rst-docutils literal">__call__</tt> method and expects to received the
+result back.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -126,6 +127,7 @@ result back.</p><br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__init__</code>,
@@ -134,7 +136,9 @@ result back.</p><br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -195,10 +199,11 @@ result back.</p><br /><br />
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:30 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:57 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -209,9 +214,8 @@ result back.</p><br /><br />
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

@@ -62,22 +62,23 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Bell</h1><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Bell">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Bell</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Bell">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_fu_7" name="uml_class_diagram_for_peach_fu_7">
-<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html" title="Base class of all membership functions." alt="" coords="85,11,160,43"/>
-<area shape="rect" href="peach.fuzzy.mf.Bell&#45;class.html#__call__" title="Maps the function on a vector" alt="" coords="17,98,228,116"/>
-<area shape="rect" href="peach.fuzzy.mf.Bell&#45;class.html#__init__" title="Initializes the function." alt="" coords="17,116,228,135"/>
-<area shape="rect" href="peach.fuzzy.mf.Bell&#45;class.html" title="Generalized Bell function." alt="" coords="16,72,229,136"/>
+<area shape="rect" id="node1" href="peach.fuzzy.mf.Membership-class.html" title="Base class of all membership functions." alt="" coords="75,6,171,50"/>
+<area shape="rect" id="node11" href="peach.fuzzy.mf.Bell-class.html#__init__" title="Initializes the function." alt="" coords="17,103,229,121"/>
+<area shape="rect" id="node11" href="peach.fuzzy.mf.Bell-class.html#__call__" title="Maps the function on a vector" alt="" coords="17,121,229,140"/>
+<area shape="rect" id="node2" href="peach.fuzzy.mf.Bell-class.html" title="Generalized Bell function." alt="" coords="5,70,240,146"/>
 </map>
   <img src="uml_class_diagram_for_peach_fu_7.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_7" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Generalized Bell function.</p>
 <p>A generalized bell is a symmetric function with its peak in its center and
-fast decreasing to <tt class="rst-docutils literal"><span class="pre">0</span></tt> outside a given interval, that is:</p>
+fast decreasing to <tt class="rst-docutils literal">0</tt> outside a given interval, that is:</p>
 <blockquote>
-<tt class="rst-docutils literal"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">((x</span> <span class="pre">-</span> <span class="pre">x0)/a)**(2*b))</span></tt></blockquote><br /><br />
+<tt class="rst-docutils literal">1 / (1 + ((x - <span class="pre">x0)/a)**(2*b))</span></tt></blockquote>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -138,6 +139,7 @@ fast decreasing to <tt class="rst-docutils literal"><span class="pre">0</span></
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -145,7 +147,9 @@ fast decreasing to <tt class="rst-docutils literal"><span class="pre">0</span></
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -209,21 +213,21 @@ fast decreasing to <tt class="rst-docutils literal"><span class="pre">0</span></
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Bell.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the function.
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>x0</code></strong> - Center of the bell. Default value <tt class="rst-docutils literal"><span class="pre">0.0</span></tt>. The function evaluates to
-<tt class="rst-docutils literal"><span class="pre">1</span></tt> if <tt class="rst-docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">xm</span></tt>;</li>
-        <li><strong class="pname"><code>a</code></strong> - Size of the interval. Default value <tt class="rst-docutils literal"><span class="pre">1.0</span></tt>. A generalized bell
-evaluates to <tt class="rst-docutils literal"><span class="pre">0.5</span></tt> if <tt class="rst-docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">-a</span></tt> or <tt class="rst-docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">a</span></tt>;</li>
-        <li><strong class="pname"><code>b</code></strong> - Measure of <em>flatness</em> of the bell. The bigger the value of <tt class="rst-docutils literal"><span class="pre">b</span></tt>,
-the flatter is the resulting function. Default value <tt class="rst-docutils literal"><span class="pre">1.0</span></tt>.</li>
+        <li><strong class="pname"><code>x0</code></strong> - Center of the bell. Default value <tt class="rst-docutils literal">0.0</tt>. The function evaluates to
+<tt class="rst-docutils literal">1</tt> if <tt class="rst-docutils literal">x = xm</tt>;</li>
+        <li><strong class="pname"><code>a</code></strong> - Size of the interval. Default value <tt class="rst-docutils literal">1.0</tt>. A generalized bell
+evaluates to <tt class="rst-docutils literal">0.5</tt> if <tt class="rst-docutils literal">x = <span class="pre">-a</span></tt> or <tt class="rst-docutils literal">x = a</tt>;</li>
+        <li><strong class="pname"><code>b</code></strong> - Measure of <em>flatness</em> of the bell. The bigger the value of <tt class="rst-docutils literal">b</tt>,
+the flatter is the resulting function. Default value <tt class="rst-docutils literal">1.0</tt>.</li>
     </ul></dd>
     <dt>Overrides:
-      <a href="peach.fuzzy.mf.Membership-class.html#__init__">Membership.__init__</a>
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -242,15 +246,19 @@ the flatter is the resulting function. Default value <tt class="rst-docutils lit
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Bell.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Maps the function on a vector
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - A value, vector or matrix over which the function is evaluated.</li>
+    </ul></dd>
     <dt>Returns:</dt>
-        <dd>A <tt class="rst-docutils literal"><span class="pre">FuzzySet</span></tt> object containing the evaluation of the function over
+        <dd>A <tt class="rst-docutils literal">FuzzySet</tt> object containing the evaluation of the function over
 each of the components of the input.</dd>
     <dt>Overrides:
-      <a href="peach.fuzzy.mf.Membership-class.html#__call__">Membership.__call__</a>
+        <a href="peach.fuzzy.mf.Membership-class.html#__call__">Membership.__call__</a>
         <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
@@ -288,10 +296,11 @@ each of the components of the input.</dd>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:28 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:54 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -302,9 +311,8 @@ each of the components of the input.</dd>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

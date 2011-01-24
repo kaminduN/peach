@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ################################################################################
 # General graph plotting widget for the PyQt4 toolkit
 # Some of this was taken from a page that I didn't register the link to.
@@ -45,11 +46,11 @@ class PlotWindow(Qwt.QwtPlot):
         self.__curves = [ ]
         colors = [ Qt.red, Qt.darkCyan, Qt.green, Qt.darkYellow, Qt.cyan, Qt.magenta ]
         for i in xrange(nplots):
-            newCurve = Qwt.QwtPlotCurve('')
-            newCurve.attach(self)
-            newCurve.setPen(QPen(colors[i%6]))
-            newCurve.setRenderHint(Qwt.QwtPlotItem.RenderAntialiased)
-            self.__curves.append(newCurve)
+            new_curve = Qwt.QwtPlotCurve('')
+            new_curve.attach(self)
+            new_curve.setPen(QPen(colors[i%6]))
+            new_curve.setRenderHint(Qwt.QwtPlotItem.RenderAntialiased)
+            self.__curves.append(new_curve)
 
 
     def setCurveColor(self, i, color):

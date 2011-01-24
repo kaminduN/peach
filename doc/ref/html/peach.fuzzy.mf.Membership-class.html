@@ -62,32 +62,33 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Membership</h1><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Membership</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_fu_13" name="uml_class_diagram_for_peach_fu_13">
-<area shape="rect" href="peach.fuzzy.mf.Triangle&#45;class.html" title="Triangle function." alt="" coords="16,104,75,130"/>
-<area shape="rect" href="peach.fuzzy.mf.IncreasingSigmoid&#45;class.html" title="Increasing Sigmoid function." alt="" coords="125,104,245,130"/>
-<area shape="rect" href="peach.fuzzy.mf.DecreasingSigmoid&#45;class.html" title="Decreasing Sigmoid function." alt="" coords="296,104,421,130"/>
-<area shape="rect" href="peach.fuzzy.mf.RaisedCosine&#45;class.html" title="Raised Cosine function." alt="" coords="472,104,568,130"/>
-<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html#__call__" title="Maps the function on a vector" alt="" coords="752,36,851,54"/>
-<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html#__init__" title="Builds a membership function from a regular function" alt="" coords="752,54,851,73"/>
-<area shape="rect" href="peach.fuzzy.mf.Membership&#45;class.html" title="Base class of all membership functions." alt="" coords="751,10,852,74"/>
-<area shape="rect" href="peach.fuzzy.mf.DecreasingRamp&#45;class.html" title="Decreasing ramp." alt="" coords="619,104,733,130"/>
-<area shape="rect" href="peach.fuzzy.mf.Bell&#45;class.html" title="Generalized Bell function." alt="" coords="784,104,819,130"/>
-<area shape="rect" href="peach.fuzzy.mf.Gaussian&#45;class.html" title="Gaussian function." alt="" coords="869,104,939,130"/>
-<area shape="rect" href="peach.fuzzy.mf.Zmf&#45;class.html" title="Decreasing smooth curve with 0 and 1 minimum and maximum values outside a given range." alt="" coords="989,104,1027,130"/>
-<area shape="rect" href="peach.fuzzy.mf.IncreasingRamp&#45;class.html" title="Increasing ramp." alt="" coords="1077,104,1187,130"/>
-<area shape="rect" href="peach.fuzzy.mf.Smf&#45;class.html" title="Increasing smooth curve with 0 and 1 minimum and maximum values outside a given range." alt="" coords="1237,104,1275,130"/>
-<area shape="rect" href="peach.fuzzy.mf.Trapezoid&#45;class.html" title="Trapezoid function." alt="" coords="1325,104,1395,130"/>
+<area shape="rect" id="node1" href="peach.fuzzy.mf.Gaussian-class.html" title="Gaussian function." alt="" coords="5,102,96,141"/>
+<area shape="rect" id="node2" href="peach.fuzzy.mf.IncreasingSigmoid-class.html" title="Increasing Sigmoid function." alt="" coords="125,102,269,141"/>
+<area shape="rect" id="node3" href="peach.fuzzy.mf.DecreasingSigmoid-class.html" title="Decreasing Sigmoid function." alt="" coords="299,102,448,141"/>
+<area shape="rect" id="node23" href="peach.fuzzy.mf.Membership-class.html#__init__" title="Builds a membership function from a regular function" alt="" coords="780,39,880,57"/>
+<area shape="rect" id="node23" href="peach.fuzzy.mf.Membership-class.html#__call__" title="Maps the function on a vector" alt="" coords="780,57,880,76"/>
+<area shape="rect" id="node4" href="peach.fuzzy.mf.Membership-class.html" title="Base class of all membership functions." alt="" coords="768,6,891,82"/>
+<area shape="rect" id="node5" href="peach.fuzzy.mf.DecreasingRamp-class.html" title="Decreasing ramp." alt="" coords="477,102,613,141"/>
+<area shape="rect" id="node6" href="peach.fuzzy.mf.RaisedCosine-class.html" title="Raised Cosine function." alt="" coords="643,102,760,141"/>
+<area shape="rect" id="node7" href="peach.fuzzy.mf.Triangle-class.html" title="Triangle function." alt="" coords="789,102,872,141"/>
+<area shape="rect" id="node8" href="peach.fuzzy.mf.Zmf-class.html" title="Decreasing smooth curve with 0 and 1 minimum and maximum values outside a given range." alt="" coords="901,102,960,141"/>
+<area shape="rect" id="node9" href="peach.fuzzy.mf.IncreasingRamp-class.html" title="Increasing ramp." alt="" coords="989,102,1120,141"/>
+<area shape="rect" id="node10" href="peach.fuzzy.mf.Smf-class.html" title="Increasing smooth curve with 0 and 1 minimum and maximum values outside a given range." alt="" coords="1149,102,1211,141"/>
+<area shape="rect" id="node11" href="peach.fuzzy.mf.Bell-class.html" title="Generalized Bell function." alt="" coords="1240,102,1299,141"/>
+<area shape="rect" id="node12" href="peach.fuzzy.mf.Trapezoid-class.html" title="Trapezoid function." alt="" coords="1328,102,1421,141"/>
 </map>
   <img src="uml_class_diagram_for_peach_fu_13.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_13" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>Base class of all membership functions.</p>
 <p>This class is used as base of the implemented membership functions, and can
 also be used to transform a regular function in a membership function that
 can be used with the fuzzy logic package.</p>
-<p>To create a membership function from a regular function <tt class="rst-docutils literal"><span class="pre">f</span></tt>, use:</p>
+<p>To create a membership function from a regular function <tt class="rst-docutils literal">f</tt>, use:</p>
 <pre class="rst-literal-block">
 mf = Membership(f)
 </pre>
@@ -96,8 +97,8 @@ return a FuzzySet object. Notice that the value range is not verified so
 that it fits in the range [ 0, 1 ]. It is responsibility of the programmer
 to warrant that.</p>
 <p>To subclass Membership, just use it as a base class. It is suggested that
-the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method of the derived class allows configuration, and the
-<tt class="rst-docutils literal"><span class="pre">__call__</span></tt> method is used to apply the function over its arguments.</p><br /><br />
+the <tt class="rst-docutils literal">__init__</tt> method of the derived class allows configuration, and the
+<tt class="rst-docutils literal">__call__</tt> method is used to apply the function over its arguments.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -156,6 +157,7 @@ the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> meth
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -163,7 +165,9 @@ the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> meth
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -225,18 +229,18 @@ the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> meth
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Builds a membership function from a regular function
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>f</code></strong> - Function to be transformed into a membership function. It must be
-given, and it must be a <tt class="rst-docutils literal"><span class="pre">FunctionType</span></tt> object, otherwise, a
-<tt class="rst-docutils literal"><span class="pre">ValueError</span></tt> is raised.</li>
+given, and it must be a <tt class="rst-docutils literal">FunctionType</tt> object, otherwise, a
+<tt class="rst-docutils literal">ValueError</tt> is raised.</li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -255,7 +259,7 @@ given, and it must be a <tt class="rst-docutils literal"><span class="pre">Funct
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.mf-pysrc.html#Membership.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Maps the function on a vector
   <dl class="fields">
@@ -264,7 +268,7 @@ given, and it must be a <tt class="rst-docutils literal"><span class="pre">Funct
         <li><strong class="pname"><code>x</code></strong> - A value, vector or matrix over which the function is evaluated.</li>
     </ul></dd>
     <dt>Returns:</dt>
-        <dd>A <tt class="rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal"><span class="pre">FuzzySet</span></tt> object containing the evaluation of the function over
+        <dd>A <tt class="rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">FuzzySet</tt> object containing the evaluation of the function over
 each of the components of the input.</dd>
   </dl>
 </td></tr></table>
@@ -301,10 +305,11 @@ each of the components of the input.</dd>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:29 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:55 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -315,9 +320,8 @@ each of the components of the input.</dd>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

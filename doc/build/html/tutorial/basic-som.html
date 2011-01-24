@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
@@ -68,7 +71,7 @@ initializer receives as arguments the dimensions of the network and the learning
 rule. The shape of the network is given as a tuple <tt class="docutils literal"><span class="pre">(M,</span> <span class="pre">N)</span></tt>, meaning a map
 with <tt class="docutils literal"><span class="pre">M</span></tt> neurons with <tt class="docutils literal"><span class="pre">N</span></tt> inputs each. We won&#8217;t worry about the learning
 rule at this moment:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">SOM</span><span class="p">((</span><span class="mf">5</span><span class="p">,</span> <span class="mf">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">SOM</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The complete list of parameters in the class instantiation is:</p>
@@ -141,30 +144,30 @@ need to do is to pass the input vector to update it. Since the learning is
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="polynomial-regression.html"
-                                  title="previous chapter">Polynomial Regression</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="self-organizing-maps.html"
-                                  title="next chapter">Extended Example on Self-Organizing Maps</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/basic-som.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="polynomial-regression.html"
+                        title="previous chapter">Polynomial Regression</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="self-organizing-maps.html"
+                        title="next chapter">Extended Example on Self-Organizing Maps</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/basic-som.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -186,8 +189,8 @@ need to do is to pass the input vector to update it. Since the learning is
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

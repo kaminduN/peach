@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ################################################################################
 # A Complete Simulation of a Inverted Pendulum, controlled with a
 # Fuzzy Logic Controller
@@ -37,30 +38,30 @@ class ControlFrame(QGroupBox):
         QGroupBox.__init__(self, *cnf)
 
         self.setTitle("Control:")
-        self.goButton = QPushButton("Start", self)
-        self.stopButton = QPushButton("Stop", self)
-        self.stepButton = QPushButton("Step", self)
+        self.go_button = QPushButton("Start", self)
+        self.stop_button = QPushButton("Stop", self)
+        self.step_button = QPushButton("Step", self)
 
         layout = QVBoxLayout(self)
         layout.setSpacing(0)
-        layout.addWidget(self.goButton, Qt.AlignLeft)
-        layout.addWidget(self.stopButton, Qt.AlignLeft)
-        layout.addWidget(self.stepButton, Qt.AlignLeft)
+        layout.addWidget(self.go_button, Qt.AlignLeft)
+        layout.addWidget(self.stop_button, Qt.AlignLeft)
+        layout.addWidget(self.step_button, Qt.AlignLeft)
 
         self.enable()
         self.show()
 
 
     def enable(self):
-        self.goButton.setEnabled(True)
-        self.stopButton.setEnabled(False)
-        self.stepButton.setEnabled(True)
+        self.go_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+        self.step_button.setEnabled(True)
 
 
     def disable(self):
-        self.goButton.setEnabled(False)
-        self.stopButton.setEnabled(True)
-        self.stepButton.setEnabled(False)
+        self.go_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+        self.step_button.setEnabled(False)
 
 
 ################################################################################
@@ -73,60 +74,60 @@ class RedefFrame(QGroupBox):
         QGroupBox.__init__(self, *cnf)
 
         self.setTitle("Reset:")
-        self.thetaLabel = QLabel("Theta: ")
-        self.omegaLabel = QLabel("Omega: ")
-        self.xLabel = QLabel("Position: ")
-        self.vLabel = QLabel("Speed: ")
-        self.thetaEdit = QLineEdit(self)
-        self.omegaEdit = QLineEdit(self)
-        self.xEdit = QLineEdit(self)
-        self.vEdit = QLineEdit(self)
-        self.redefButton = QPushButton("Reset", self)
+        self.theta_label = QLabel("Theta: ")
+        self.omega_label = QLabel("Omega: ")
+        self.x_label = QLabel("Position: ")
+        self.v_label = QLabel("Speed: ")
+        self.theta_edit = QLineEdit(self)
+        self.omega_edit = QLineEdit(self)
+        self.x_edit = QLineEdit(self)
+        self.v_edit = QLineEdit(self)
+        self.redef_button = QPushButton("Reset", self)
 
         layout = QGridLayout(self)
         layout.setSpacing(0)
-        layout.addWidget(self.thetaLabel, 0, 0, 1, 1)
-        layout.addWidget(self.omegaLabel, 1, 0, 1, 1)
-        layout.addWidget(self.xLabel, 2, 0, 1, 1)
-        layout.addWidget(self.vLabel, 3, 0, 1, 1)
-        layout.addWidget(self.thetaEdit, 0, 1, 1, 1)
-        layout.addWidget(self.omegaEdit, 1, 1, 1, 1)
-        layout.addWidget(self.xEdit, 2, 1, 1, 1)
-        layout.addWidget(self.vEdit, 3, 1, 1, 1)
-        layout.addWidget(self.redefButton, 4, 0, 1, 2)
+        layout.addWidget(self.theta_label, 0, 0, 1, 1)
+        layout.addWidget(self.omega_label, 1, 0, 1, 1)
+        layout.addWidget(self.x_label, 2, 0, 1, 1)
+        layout.addWidget(self.v_label, 3, 0, 1, 1)
+        layout.addWidget(self.theta_edit, 0, 1, 1, 1)
+        layout.addWidget(self.omega_edit, 1, 1, 1, 1)
+        layout.addWidget(self.x_edit, 2, 1, 1, 1)
+        layout.addWidget(self.v_edit, 3, 1, 1, 1)
+        layout.addWidget(self.redef_button, 4, 0, 1, 2)
 
         self.enable()
         self.show()
 
 
     def enable(self):
-        self.thetaEdit.setEnabled(True)
-        self.omegaEdit.setEnabled(True)
-        self.xEdit.setEnabled(True)
-        self.vEdit.setEnabled(True)
-        self.redefButton.setEnabled(True)
+        self.theta_edit.setEnabled(True)
+        self.omega_edit.setEnabled(True)
+        self.x_edit.setEnabled(True)
+        self.v_edit.setEnabled(True)
+        self.redef_button.setEnabled(True)
 
 
     def disable(self):
-        self.thetaEdit.setEnabled(False)
-        self.omegaEdit.setEnabled(False)
-        self.xEdit.setEnabled(False)
-        self.vEdit.setEnabled(False)
-        self.redefButton.setEnabled(False)
+        self.theta_edit.setEnabled(False)
+        self.omega_edit.setEnabled(False)
+        self.x_edit.setEnabled(False)
+        self.v_edit.setEnabled(False)
+        self.redef_button.setEnabled(False)
 
 
     def feedback(self, O, w, x, v, F):
-        self.thetaEdit.setText("%5.2f" % (O*180./pi))
-        self.omegaEdit.setText("%7.4f" % w)
-        self.xEdit.setText("%7.4f" % x)
-        self.vEdit.setText("%7.4f" % v)
+        self.theta_edit.setText("%5.2f" % (O*180./pi))
+        self.omega_edit.setText("%7.4f" % w)
+        self.x_edit.setText("%7.4f" % x)
+        self.v_edit.setText("%7.4f" % v)
 
 
-    def getValues(self):
-        O = float(self.thetaEdit.text()) * pi/180.
-        w = float(self.omegaEdit.text())
-        x = float(self.xEdit.text())
-        v = float(self.vEdit.text())
+    def get_values(self):
+        O = float(self.theta_edit.text()) * pi/180.
+        w = float(self.omega_edit.text())
+        x = float(self.x_edit.text())
+        v = float(self.v_edit.text())
         return (O, w, x, v)
 
 
@@ -140,41 +141,41 @@ class ConfigFrame(QGroupBox):
         QGroupBox.__init__(self, *cnf)
         self.setTitle("Configuration")
 
-        self.logicLabel = QLabel("Fuzzy Logic:")
-        self.logicCombo = QComboBox(self)
-        self.logicCombo.addItems([ "Zadeh", "Probabilistic", "Einstein",
+        self.logic_label = QLabel("Fuzzy Logic:")
+        self.logic_combo = QComboBox(self)
+        self.logic_combo.addItems([ "Zadeh", "Probabilistic", "Einstein",
             "Drastic" ])
-        self.inferLabel = QLabel("Inference:")
-        self.inferCombo = QComboBox(self)
-        self.inferCombo.addItems([ "Mamdani", "Probabilistic", "Zadeh/Mamdani",
+        self.infer_label = QLabel("Inference:")
+        self.infer_combo = QComboBox(self)
+        self.infer_combo.addItems([ "Mamdani", "Probabilistic", "Zadeh/Mamdani",
             "Dienes-Rescher/Mamdani", "Lukasiewicz/Mamdani", "Godel/Mamdani" ])
-        self.defuzzyLabel = QLabel("Defuzzification:")
-        self.defuzzyCombo = QComboBox(self)
-        self.defuzzyCombo.addItems([ "Centroid", "Bissector", "SOM", "LOM", "MOM" ])
+        self.defuzzy_label = QLabel("Defuzzification:")
+        self.defuzzy_combo = QComboBox(self)
+        self.defuzzy_combo.addItems([ "Centroid", "Bisector", "SOM", "LOM", "MOM" ])
 
         layout = QGridLayout(self)
         layout.setSpacing(0)
-        layout.addWidget(self.logicLabel, 0, 0)
-        layout.addWidget(self.logicCombo, 0, 1)
-        layout.addWidget(self.inferLabel)
-        layout.addWidget(self.inferCombo)
-        layout.addWidget(self.defuzzyLabel, 2, 0)
-        layout.addWidget(self.defuzzyCombo, 2, 1)
+        layout.addWidget(self.logic_label, 0, 0)
+        layout.addWidget(self.logic_combo, 0, 1)
+        layout.addWidget(self.infer_label)
+        layout.addWidget(self.infer_combo)
+        layout.addWidget(self.defuzzy_label, 2, 0)
+        layout.addWidget(self.defuzzy_combo, 2, 1)
 
         self.enable()
         self.show()
 
 
     def enable(self):
-        self.logicCombo.setEnabled(True)
-        self.inferCombo.setEnabled(True)
-        self.defuzzyCombo.setEnabled(True)
+        self.logic_combo.setEnabled(True)
+        self.infer_combo.setEnabled(True)
+        self.defuzzy_combo.setEnabled(True)
 
 
     def disable(self):
-        self.logicCombo.setEnabled(False)
-        self.inferCombo.setEnabled(False)
-        self.defuzzyCombo.setEnabled(False)
+        self.logic_combo.setEnabled(False)
+        self.infer_combo.setEnabled(False)
+        self.defuzzy_combo.setEnabled(False)
 
 
 ################################################################################
@@ -209,12 +210,12 @@ class IPFrame(QFrame):
         # Graphic Elements
         self.ipview = PendulumView(l, m)
         self.graph = PlotWindow(5)
-        self.ctrlFrame = ControlFrame(self)
-        self.redefFrame = RedefFrame(self)
-        self.configFrame = ConfigFrame(self)
-        self.ruleLabel = QLabel("Show Rule:")
-        self.ruleCombo = QComboBox(self)
-        self.ruleCombo.addItems([
+        self.ctrl_frame = ControlFrame(self)
+        self.redef_frame = RedefFrame(self)
+        self.config_frame = ConfigFrame(self)
+        self.rule_label = QLabel("Show Rule:")
+        self.rule_combo = QComboBox(self)
+        self.rule_combo.addItems([
           'MGN & GN -> MMGN', 'MGN & PN -> MMGN', 'MGN & Z -> MGN', 'MGN & PP -> GN', 'MGN & GP -> PN',
           'GN & GN -> MMGN', 'GN & PN -> MGN', 'GN & Z -> GN', 'GN & PP -> PN', 'GN & GP -> Z',
           'PN & GN -> MGN', 'PN & PN -> GN', 'PN & Z -> PN', 'PN & PP -> Z', 'GN & GP -> PP',
@@ -223,8 +224,8 @@ class IPFrame(QFrame):
           'GP & GN -> Z', 'GP & PN -> PP', 'GP & Z -> GP', 'GP & PP -> MGP', 'GP & GP -> MMGP',
           'MGP & GN -> PP', 'MGP & PN -> GP', 'MGP & Z -> MGP', 'MGP & PP -> MMGP', 'MGP & GP -> MMGP'
         ])
-        self.ruleCombo.setCurrentIndex(17) # Z & Z -> Z
-        self.ruleCombo.setEnabled(False)
+        self.rule_combo.setCurrentIndex(17) # Z & Z -> Z
+        self.rule_combo.setEnabled(False)
 
         # Plots
         self.gframe = QFrame(self)
@@ -271,11 +272,11 @@ class IPFrame(QFrame):
 
         layout = QGridLayout(self)
         layout.addWidget(self.tabs, 0, 0, 5, 1)
-        layout.addWidget(self.ctrlFrame, 0, 1)
-        layout.addWidget(self.redefFrame, 1, 1)
-        layout.addWidget(self.configFrame, 2, 1)
-        layout.addWidget(self.ruleLabel, 3, 1)
-        layout.addWidget(self.ruleCombo, 4, 1)
+        layout.addWidget(self.ctrl_frame, 0, 1)
+        layout.addWidget(self.redef_frame, 1, 1)
+        layout.addWidget(self.config_frame, 2, 1)
+        layout.addWidget(self.rule_label, 3, 1)
+        layout.addWidget(self.rule_combo, 4, 1)
         layout.setRowStretch(0, 0)
         layout.setRowStretch(1, 0)
         layout.setRowStretch(2, 0)
@@ -286,30 +287,30 @@ class IPFrame(QFrame):
         self.feedback(O=0., w=0., x=0., v=0., F=0.)
 
         # Connects the events
-        self.connect(self.ctrlFrame.goButton, SIGNAL("clicked()"), self.onGoButton)
-        self.connect(self.ctrlFrame.stopButton, SIGNAL("clicked()"), self.onStopButton)
-        self.connect(self.ctrlFrame.stepButton, SIGNAL("clicked()"), self.onStepButton)
-        self.connect(self.redefFrame.redefButton, SIGNAL("clicked()"), self.onRedefButton)
-        self.connect(self.configFrame.logicCombo, SIGNAL("currentIndexChanged(int)"), self.onLogicCombo)
-        self.connect(self.configFrame.inferCombo, SIGNAL("currentIndexChanged(int)"), self.onInferCombo)
-        self.connect(self.configFrame.defuzzyCombo, SIGNAL("currentIndexChanged(int)"), self.onDefuzzyCombo)
-        self.connect(self.tabs, SIGNAL("currentChanged(int)"), self.onChangeTab)
-        self.connect(self.ruleCombo, SIGNAL("currentIndexChanged(int)"), self.onRuleCombo)
+        self.connect(self.ctrl_frame.go_button, SIGNAL("clicked()"), self.on_go_button)
+        self.connect(self.ctrl_frame.stop_button, SIGNAL("clicked()"), self.on_stop_button)
+        self.connect(self.ctrl_frame.step_button, SIGNAL("clicked()"), self.on_step_button)
+        self.connect(self.redef_frame.redef_button, SIGNAL("clicked()"), self.on_redef_button)
+        self.connect(self.config_frame.logic_combo, SIGNAL("currentIndexChanged(int)"), self.on_logic_combo)
+        self.connect(self.config_frame.infer_combo, SIGNAL("currentIndexChanged(int)"), self.on_infer_combo)
+        self.connect(self.config_frame.defuzzy_combo, SIGNAL("currentIndexChanged(int)"), self.on_defuzzy_combo)
+        self.connect(self.tabs, SIGNAL("currentChanged(int)"), self.on_change_tab)
+        self.connect(self.rule_combo, SIGNAL("currentIndexChanged(int)"), self.on_rule_combo)
 
         # Exibe o frame
-        self.setState(pi/8., 0., 0., 0., 0.)
+        self.set_state(pi/8., 0., 0., 0., 0.)
         self.show()
 
 
     def enable(self):
-        self.ctrlFrame.enable()
-        self.redefFrame.enable()
-        self.configFrame.enable()
+        self.ctrl_frame.enable()
+        self.redef_frame.enable()
+        self.config_frame.enable()
 
     def disable(self):
-        self.ctrlFrame.disable()
-        self.redefFrame.disable()
-        self.configFrame.disable()
+        self.ctrl_frame.disable()
+        self.redef_frame.disable()
+        self.config_frame.disable()
 
 
     def __drawO(self):
@@ -338,20 +339,20 @@ class IPFrame(QFrame):
         ] )
 
 
-    def setState(self, O, w, x, v, F):
+    def set_state(self, O, w, x, v, F):
         self.Otrack = [ O ]
         self.wtrack = [ w ]
         self.xtrack = [ x ]
         self.vtrack = [ v ]
         self.Ftrack = [ F ]
-        self.ip.setState(O, w, x, v)
+        self.ip.set_state(O, w, x, v)
         self.feedback(O, w, x, v, F)
 
 
     def feedback(self, O, w, x, v, F):
         ci = self.tabs.currentIndex()
         if ci == 0:   # Pendulum
-            self.ipview.setState(O, w, x, v, F)
+            self.ipview.set_state(O, w, x, v, F)
         elif ci == 1: # Plots
             t = arange(0., 2.5, self.ip.dt)
             self.graph.setMultiData( [
@@ -364,17 +365,17 @@ class IPFrame(QFrame):
             self.wgraph.setData(-1, [ w, w ], [ 0., 1. ])
             self.Fgraph.setData(2, [ F, F ], [ -0.025, -0.1 ])
             rF = self.pc.eval_all(O, w)
-            rule = self.ruleCombo.currentIndex()
+            rule = self.rule_combo.currentIndex()
             _, sF = self.pc.eval(rule, (O, w))
             if sF is None:
                 sF = zeros(ip.F.shape)
             self.Fgraph.setData(0, ip.F, rF)
             self.Fgraph.setData(1, ip.F, sF)
-        self.redefFrame.feedback(O, w, x, v, F)
+        self.redef_frame.feedback(O, w, x, v, F)
 
 
     def step(self):
-        O, w, x, v = self.ip.getState()
+        O, w, x, v = self.ip.get_state()
         F = self.pc(O, w)
         self.ip.apply(F)
         self.feedback(O, w, x, v, F)
@@ -385,7 +386,7 @@ class IPFrame(QFrame):
         self.Ftrack.append(F)
 
 
-    def onGoButton(self):
+    def on_go_button(self):
         self.disable()
         self.running = True
         while self.running:
@@ -394,29 +395,29 @@ class IPFrame(QFrame):
         self.enable()
 
 
-    def onStopButton(self):
+    def on_stop_button(self):
         self.running = False
 
 
-    def onStepButton(self):
+    def on_step_button(self):
         if self.running:
             return
         self.step()
 
 
-    def onRedefButton(self):
+    def on_redef_button(self):
         if self.running:
             return
-        O, w, x, v = self.redefFrame.getValues()
+        O, w, x, v = self.redef_frame.get_values()
         self.Otrack = [ ]
         self.wtrack = [ ]
         self.xtrack = [ ]
         self.vtrack = [ ]
         self.Ftrack = [ ]
-        self.setState(O, w, x, v, 0)
+        self.set_state(O, w, x, v, 0)
 
 
-    def onLogicCombo(self, index):
+    def on_logic_combo(self, index):
         if index == 0:      # Zadeh norms
             self.pc.set_norm(ZadehAnd)
             self.pc.set_conorm(ZadehOr)
@@ -435,7 +436,7 @@ class IPFrame(QFrame):
             self.pc.set_negation(ZadehNot)
 
 
-    def onInferCombo(self, index):
+    def on_infer_combo(self, index):
         if index == 0:      # Mamdani rules
             self.pc.set_implication(MamdaniImplication)
             self.pc.set_aglutination(MamdaniAglutination)
@@ -456,11 +457,11 @@ class IPFrame(QFrame):
             self.pc.set_aglutination(MamdaniAglutination)
 
 
-    def onDefuzzyCombo(self, index):
-        if index == 0:     # Centroide:
+    def on_defuzzy_combo(self, index):
+        if index == 0:     # Centroid:
             self.pc.defuzzify = Centroid
-        elif index == 1:   # Bisseccao
-            self.pc.defuzzify = Bissector
+        elif index == 1:   # Bisection
+            self.pc.defuzzify = Bisector
         elif index == 2:   # SOM
             self.pc.defuzzify = SmallestOfMaxima
         elif index == 3:   # LOM
@@ -469,15 +470,15 @@ class IPFrame(QFrame):
             self.pc.defuzzify = MeanOfMaxima
 
 
-    def onChangeTab(self, index):
+    def on_change_tab(self, index):
         if index == 0:   # Pendulum
             O = self.Otrack[-1]
             w = self.wtrack[-1]
             x = self.xtrack[-1]
             v = self.vtrack[-1]
             F = self.Ftrack[-1]
-            self.ipview.setState(O, w, x, v, F)
-            self.ruleCombo.setEnabled(False)
+            self.ipview.set_state(O, w, x, v, F)
+            self.rule_combo.setEnabled(False)
         elif index == 1: # Plots
             t = arange(0., 2.5, self.ip.dt)
             self.graph.setMultiData( [
@@ -485,12 +486,18 @@ class IPFrame(QFrame):
                (t, self.xtrack), (t, self.vtrack),
                (t, zeros(t.shape)) #self.Ftrack)
             ])
-            self.ruleCombo.setEnabled(False)
+            self.rule_combo.setEnabled(False)
         elif index == 2: # Membership
-            self.ruleCombo.setEnabled(True)
+            O = self.Otrack[-1]
+            w = self.wtrack[-1]
+            x = self.xtrack[-1]
+            v = self.vtrack[-1]
+            F = self.Ftrack[-1]
+            self.feedback(O, w, x, v, F)
+            self.rule_combo.setEnabled(True)
 
 
-    def onRuleCombo(self, index):
+    def on_rule_combo(self, index):
         O = self.Otrack[-1]
         w = self.wtrack[-1]
         x = self.xtrack[-1]
@@ -500,7 +507,7 @@ class IPFrame(QFrame):
 
 
     def closeEvent(self, event):
-        self.onStopButton()
+        self.on_stop_button()
         self.app.exit(0)
 
 

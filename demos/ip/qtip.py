@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ################################################################################
 # Widget to draw the inverted pendulum.
 # Jose Alexandre Nalon
@@ -18,39 +19,36 @@ from numpy import *
 # Classes
 ################################################################################
 class ArrowItem(QGraphicsItem):
-    def __init__(self, gs, pen, *cnf):
+    def __init__(self, gs, pen, brush, *cnf):
         QGraphicsItem.__init__(self, *cnf)
-        self.body = gs.addLine(QLineF(0, 0, 1, 1), pen)
-        self.a1 = gs.addLine(QLineF(0, 0, 1, 1), pen)
-        self.a2 = gs.addLine(QLineF(0, 0, 1, 1), pen)
+        self.body = gs.addLine(QLineF(), pen)
+        self.a = gs.addPolygon(QPolygonF(), pen, brush)
 
     def setZValue(self, zvalue):
         self.body.setZValue(zvalue)
-        self.a1.setZValue(zvalue+1)
-        self.a2.setZValue(zvalue+2)
+        self.a.setZValue(zvalue)
 
     def show(self):
         self.body.show()
-        self.a1.show()
-        self.a2.show()
+        self.a.show()
 
     def hide(self):
         self.body.hide()
-        self.a1.hide()
-        self.a2.hide()
+        self.a.hide()
 
-    def setCoordinates(self, vXo, vYo, vXi, vYi):
-        ca = vXi - vXo
-        co = vYi - vYo 
+    def set_coordinates(self, v_xo, v_yo, v_xi, v_yi):
+        ca = v_xi - v_xo
+        co = v_yi - v_yo
         t = arctan2(co, ca)
-        t1 = t + pi/4.
-        t2 = t - pi/4.
-        self.body.setLine(vXo, vYo, vXi, vYi)
-        self.a1.setLine(vXi, vYi, vXi-6*cos(t1), vYi-6*sin(t1))
-        self.a2.setLine(vXi, vYi, vXi-6*cos(t2), vYi-6*sin(t2))
+        t1 = t + pi/8.
+        t2 = t - pi/8.
+        P1 = QPointF(v_xi, v_yi)
+        P2 = QPointF(v_xi-6*cos(t1), v_yi-6*sin(t1))
+        P3 = QPointF(v_xi-6*cos(t2), v_yi-6*sin(t2))
+        self.body.setLine(v_xo, v_yo, v_xi, v_yi)
+        self.a.setPolygon(QPolygonF([ P1, P2, P3 ]))
         self.body.show()
-        self.a1.show()
-        self.a2.show()
+        self.a.show()
 
 
 ################################################################################
@@ -62,171 +60,180 @@ class PendulumView(QGraphicsView):
         QGraphicsView.__init__(self, *cnf)
         self.__xsize = self.width()
         self.__ysize = self.height()
-        self.pendRadius = 0.5 * m
-        self.poleLength = l
-        self.__setScale()
-        self.__createGS()
-        self.__createObjects()
-        self.setState(0., 0., 0., 0., 0.)
+        self.pend_radius = 0.5 * m
+        self.pole_length = l
+        self.__set_scale()
+        self.__create_gs()
+        self.__create_objects()
+        self.set_state(0., 0., 0., 0., 0.)
         self.show()
 
 
-    def __setScale(self):
-        self.__ay = - float(self.__ysize) / 1.2
-        self.__by = - 1.1 * self.__ay
-        self.__ax = - self.__ay
-        self.__bx = float(self.__xsize) / 2.
-        self.__xmin = - self.__bx/ self.__ax
-        self.__xmax = (self.__xsize - self.__bx) / self.__ax
+    def __set_scale(self):
+        xmin = -0.1
+        ymin = -1.1
+        xmax = 1.1
+        ymax = 1.1
+        self.__ay = - float(self.__ysize) / (ymax - ymin)
+        self.__by = - self.__ay * ymax
+        self.__ax = - self.__ay        # Same scale for x-axis
+        self.__bx = self.__xsize / 2.
 
 
-    def __createGS(self):
+    def __create_gs(self):
         self.gs = QGraphicsScene(0, 0, self.__xsize, self.__ysize)
         self.gs.setBackgroundBrush(QBrush(QColor(255, 255, 255)))
         self.setScene(self.gs)
 
 
-    def __createObjects(self):
+    def __create_objects(self):
         # Draws the floor
-        ipPen = QPen(QColor(0, 0, 0), 2)
-        ipBrush = QBrush(QColor(255, 255, 255))
-        _, fY = self.__transform(0., -0.04)
-        fW = 0.025 * self.__ay
-        floor = self.gs.addRect(QRectF(5, fY, self.__xsize-10, fW), ipPen, ipBrush)
+        ip_pen = QPen(QColor(0, 0, 0), 2)
+        ip_brush = QBrush(QColor(255, 255, 255))
+        _, fy = self.__transform(0., -0.04)
+        fw = 0.025 * self.__ay
+        floor = self.gs.addRect(QRectF(5, fy, self.__xsize-10, fw), ip_pen, ip_brush)
         floor.setZValue(200)
         floor.show()
 
         # Dimensions of the pole in meters and radians
-        self.pole = self.gs.addLine(QLineF(0, 0, 1, 1), ipPen)
+        self.pole = self.gs.addLine(QLineF(), ip_pen)
         self.pole.setZValue(300)
         self.pole.show()
 
         # Dimensions of the weight in meters and kilograms
-        self.pend = self.gs.addEllipse(QRectF(0, 0, 1, 1), ipPen, ipBrush)
-        self.pend.setZValue(301)
+        self.pend = self.gs.addEllipse(QRectF(), ip_pen, ip_brush)
+        self.pend.setZValue(500)
         self.pend.show()
 
         # Feedback of the angle
-        refPen = QPen(QColor(0, 128, 0))
-        refPen.setStyle(Qt.DashLine)
-        self.reference = self.gs.addLine(QLineF(0, 0, 1, 1), refPen)
+        ref_pen = QPen(QColor(0, 128, 0))
+        ref_pen.setStyle(Qt.DashLine)
+        self.reference = self.gs.addLine(QLineF(), ref_pen)
         self.reference.setZValue(100)
         self.reference.show()
-        self.angleText = self.gs.addText('')
-        self.angleText.setDefaultTextColor(QColor(0, 128, 0))
-        self.angleText.setZValue(105)
-        self.angleText.show()
+        self.angle_text = self.gs.addText('')
+        self.angle_text.setDefaultTextColor(QColor(0, 128, 0))
+        self.angle_text.setZValue(105)
+        self.angle_text.show()
 
         # Feedback of angular velocity
-        avPen = QPen(QColor(0, 0, 128))
-        avPen.setWidth(2)
-        self.angleVelocity = ArrowItem(self.gs, avPen)
-        self.angleVelocity.setZValue(400)
-        self.angleVelocity.show()
-        self.avText = self.gs.addText('')
-        self.avText.setDefaultTextColor(QColor(0, 0, 128))
-        self.avText.setZValue(106)
-        self.avText.show()
+        av_pen = QPen(QColor(0, 0, 128))
+        av_pen.setWidth(2)
+        av_brush = QBrush(QColor(0, 0, 128))
+        self.angle_velocity = ArrowItem(self.gs, av_pen, av_brush)
+        self.angle_velocity.setZValue(400)
+        self.angle_velocity.show()
+        self.av_text = self.gs.addText('')
+        self.av_text.setDefaultTextColor(QColor(0, 0, 128))
+        self.av_text.setZValue(106)
+        self.av_text.show()
 
         # Dimensions of the cart in meters
-        self.cartWidth = 0.3
-        self.cartHeight = 0.1
-        self.cart = self.gs.addRect(QRectF(0, 0, 1, 1), ipPen, ipBrush)
-        self.cart.setZValue(302)
+        self.cart_width = 0.3
+        self.cart_height = 0.1
+        self.cart = self.gs.addRect(QRectF(), ip_pen, ip_brush)
+        self.cart.setZValue(502)
         self.cart.show()
 
         # Feedback of force vector (in newtons)
-        vectorPen = QPen(QColor(192, 0, 0))
-        vectorPen.setWidth(2)
-        self.vectorLength = 0.1
-        self.force = ArrowItem(self.gs, vectorPen)
+        vector_pen = QPen(QColor(192, 0, 0))
+        vector_pen.setWidth(2)
+        vector_brush = QBrush(QColor(192, 0, 0))
+        self.vector_length = 0.1
+        self.force = ArrowItem(self.gs, vector_pen, vector_brush)
         self.force.setZValue(100)
         self.force.show()
 
         # Force vector text (in newtons)
-        self.forceText = self.gs.addText('')
-        self.forceText.setDefaultTextColor(QColor(192, 0, 0))
-        self.forceText.setZValue(104)
-        self.forceText.show()
+        self.force_text = self.gs.addText('')
+        self.force_text.setDefaultTextColor(QColor(192, 0, 0))
+        self.force_text.setZValue(104)
+        self.force_text.show()
 
 
-    def setState(self, O, w, x, v, F):
+    def set_state(self, O, w, x, v, F):
         self.__state = (O, w, x, v, F)
 
         # Updates the pole
-        poleXo = x
-        poleYo = self.cartHeight
-        poleXi = poleXo + self.poleLength*sin(O)
-        poleYi = poleYo + self.poleLength*cos(O)
-        poleXo, poleYo = self.__transform(poleXo, poleYo)
-        poleXi, poleYi = self.__transform(poleXi, poleYi)
-        self.pole.setLine(poleXo, poleYo, poleXi, poleYi)
+        pole_xo = x
+        pole_yo = self.cart_height
+        pole_xi = pole_xo + self.pole_length*sin(O)
+        pole_yi = pole_yo + self.pole_length*cos(O)
+        pole_xo, pole_yo = self.__transform(pole_xo, pole_yo)
+        pole_xi, pole_yi = self.__transform(pole_xi, pole_yi)
+        self.pole.setLine(pole_xo, pole_yo, pole_xi, pole_yi)
 
         # Updates the weight
-        pendRadius = self.pendRadius * self.__ax
-        self.pend.setRect(poleXi-pendRadius, poleYi-pendRadius, pendRadius*2, pendRadius*2)
+        pend_radius = self.pend_radius * self.__ax
+        self.pend.setRect(pole_xi-pend_radius, pole_yi-pend_radius, pend_radius*2, pend_radius*2)
 
         # Updates the angle reference
-        _, refYi = self.__transform(0, self.poleLength)
-        self.reference.setLine(poleXo, poleYo, poleXo, poleYo-refYi)
-        self.angleText.setHtml('O = %7.2f'%(O*180./pi))
-        self.angleText.setPos(poleXo-37, poleYo-refYi-16)
+        _, ref_yi = self.__transform(0, self.pole_length)
+        self.reference.setLine(pole_xo, pole_yo, pole_xo, pole_yo-ref_yi)
+        self.angle_text.setHtml('O = %7.2f'%(O*180./pi))
+        self.angle_text.setPos(pole_xo-37, pole_yo-ref_yi-20)
+        self.angle_text.show()
 
         # Updates the cart
-        cartX = x - self.cartWidth/2.
-        cartY = 0.
-        cartX, cartY = self.__transform(cartX, cartY)
-        cartWidth = self.cartWidth * self.__ax
-        cartHeight = self.cartHeight * self.__ay
-        self.cart.setRect(cartX, cartY, cartWidth, cartHeight)
+        cart_x = x - self.cart_width/2.
+        cart_y = 0.
+        cart_x, cart_y = self.__transform(cart_x, cart_y)
+        cart_width = self.cart_width * self.__ax
+        cart_height = self.cart_height * self.__ay
+        self.cart.setRect(cart_x, cart_y, cart_width, cart_height)
 
         # Updates the angular velocity
         if -0.1 < w < 0.1:
-            avL = sign(w)*0.01
+            av_l = sign(w)*0.01
         else:
-            avL = 0.1*w
-        if w > 0.:
-            avXi = poleXi + pendRadius*cos(O)
-            avYi = poleYi + pendRadius*sin(O)
-            avXo = avXi + self.__ax * avL * cos(O)
-            avYo = avYi - self.__ay * avL * sin(O)
-            self.angleVelocity.setCoordinates(avXi, avYi, avXo, avYo)
-            self.avText.setHtml('w = %7.4f' % w)
-            self.avText.setPos(avXo + 5, avYo)
-        elif w < 0.:
-            avXi = poleXi - pendRadius*cos(O)
-            avYi = poleYi - pendRadius*sin(O)
-            avXo = avXi + self.__ax * avL * cos(O)
-            avYo = avYi - self.__ay * avL * sin(O)
-            self.angleVelocity.setCoordinates(avXi, avYi, avXo, avYo)
-            self.avText.setHtml('w = %7.4f' % w)
-            self.avText.setPos(avXo-70, avYo-8)
+            av_l = 0.1*w
+        if w > 0.01:
+            av_xi = pole_xi + pend_radius*cos(O)
+            av_yi = pole_yi + pend_radius*sin(O)
+            av_xo = av_xi + self.__ax * av_l * cos(O)
+            av_yo = av_yi - self.__ay * av_l * sin(O)
+            self.angle_velocity.set_coordinates(av_xi, av_yi, av_xo, av_yo)
+            self.av_text.setHtml('w = %7.4f' % w)
+            self.av_text.setPos(av_xo, av_yo-8)
+            self.av_text.show()
+        elif w < -0.01:
+            av_xi = pole_xi - pend_radius*cos(O)
+            av_yi = pole_yi - pend_radius*sin(O)
+            av_xo = av_xi + self.__ax * av_l * cos(O)
+            av_yo = av_yi - self.__ay * av_l * sin(O)
+            self.angle_velocity.set_coordinates(av_xi, av_yi, av_xo, av_yo)
+            self.av_text.setHtml('w = %7.4f' % w)
+            self.av_text.setPos(av_xo-70, av_yo-8)
+            self.av_text.show()
         else:
-            self.angleVelocity.hide()
-            #self.avText.hide()
+            self.angle_velocity.hide()
+            self.av_text.hide()
 
         # Updates the force vector
         if -0.2 < F < 0.2:
-            vectorL = sign(F)*0.02
+            vector_l = sign(F)*0.02
         else:
-            vectorL = 0.1*F
-        if vectorL > 0.:
-            vectorX = x - self.cartWidth/2. - vectorL
-            vX, vY = self.__transform(vectorX, self.cartHeight/2.)
-            vectorL = vectorL * self.__ax
-            self.force.setCoordinates(vX, vY, vX + vectorL, vY)
-            self.forceText.setHtml('F = %7.4f' % F)
-            self.forceText.setPos(vX+vectorL-70, vY - 16)
-        elif vectorL < 0.:
-            vectorX = x + self.cartWidth/2. - vectorL
-            vX, vY = self.__transform(vectorX, self.cartHeight/2.)
-            vectorL = vectorL * self.__ax
-            self.force.setCoordinates(vX, vY, vX + vectorL, vY)
-            self.forceText.setHtml('F=%7.4f' % F)
-            self.forceText.setPos(vX+vectorL+5, vY - 16)
+            vector_l = 0.1*F
+        if vector_l > 0.1:
+            vector_x = x - self.cart_width/2. - vector_l
+            v_x, v_y = self.__transform(vector_x, self.cart_height/2.)
+            vector_l = vector_l * self.__ax
+            self.force.set_coordinates(v_x, v_y, v_x + vector_l-2, v_y)
+            self.force_text.setHtml('F = %7.4f' % F)
+            self.force_text.setPos(v_x+vector_l-80, v_y - 20)
+            self.force_text.show()
+        elif vector_l < -0.1:
+            vector_x = x + self.cart_width/2. - vector_l
+            v_x, v_y = self.__transform(vector_x, self.cart_height/2.)
+            vector_l = vector_l * self.__ax
+            self.force.set_coordinates(v_x, v_y, v_x + vector_l+2, v_y)
+            self.force_text.setHtml('F=%7.4f' % F)
+            self.force_text.setPos(v_x+vector_l+5, v_y - 20)
+            self.force_text.show()
         else:
             self.force.hide()
-            #self.forceText.hide()
+            self.force_text.hide()
 
         # Updates the scene
         self.gs.update()
@@ -244,10 +251,10 @@ class PendulumView(QGraphicsView):
     def resizeEvent(self, event):
         self.__xsize = event.size().width()
         self.__ysize = event.size().height()
-        self.__setScale()
-        self.__createGS()
-        self.__createObjects()
-        self.setState(*self.__state)
+        self.__set_scale()
+        self.__create_gs()
+        self.__create_objects()
+        self.set_state(*self.__state)
 
 
 ################################################################################

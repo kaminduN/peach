@@ -62,26 +62,27 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Mutation</h1><span class="codelink"><a href="peach.ga.mutation-pysrc.html#Mutation">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Mutation</h1><p class="nomargin-top"><span class="codelink"><a href="peach.ga.mutation-pysrc.html#Mutation">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_ga_10" name="uml_class_diagram_for_peach_ga_10">
-<area shape="rect" href="peach.ga.mutation.BitToBit&#45;class.html" title="A simple bit&#45;to&#45;bit mutation operator." alt="" coords="16,72,77,98"/>
-<area shape="rect" href="peach.ga.mutation.Mutation&#45;class.html" title="Base class for mutation operators." alt="" coords="20,10,73,42"/>
+<center>  <map id="uml_class_diagram_for_peach_ga_11" name="uml_class_diagram_for_peach_ga_11">
+<area shape="rect" id="node1" href="peach.ga.mutation.BitToBit-class.html" title="A simple bit&#45;to&#45;bit mutation operator." alt="" coords="5,70,88,109"/>
+<area shape="rect" id="node2" href="peach.ga.mutation.Mutation-class.html" title="Base class for mutation operators." alt="" coords="8,6,83,50"/>
 </map>
-  <img src="uml_class_diagram_for_peach_ga_10.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_10" ismap="ismap" class="graph-without-title" />
-</center></center>
+  <img src="uml_class_diagram_for_peach_ga_11.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_11" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
 <hr />
 <p>Base class for mutation operators.</p>
 <p>This class should be subclassed if you want to create your own mutation
 operator. The base class doesn't do much, it is only a prototype. As is done
-with all the base classes within this library, use the <tt class="rst-docutils literal"><span class="pre">__init__</span></tt> method
-to configure your mutation behaviour -- if needed -- and the <tt class="rst-docutils literal"><span class="pre">__call__</span></tt>
+with all the base classes within this library, use the <tt class="rst-docutils literal">__init__</tt> method
+to configure your mutation behaviour -- if needed -- and the <tt class="rst-docutils literal">__call__</tt>
 method to operate over a population.</p>
 <p>A class derived from this one should implement at least 2 methods, defined
 below:</p>
 <blockquote>
 <dl class="rst-docutils">
-<dt>__init__(self, <a href="#id1" name="id2"><span class="rst-problematic" id="rst-id2">*</span></a>cnf, <a href="#id3" name="id4"><span class="rst-problematic" id="rst-id4">**</span></a>kw)</dt>
+<dt>__init__(self, <a href="#id1"><span class="rst-problematic" id="rst-id2">*</span></a>cnf, <a href="#id3"><span class="rst-problematic" id="rst-id4">**</span></a>kw)</dt>
 <dd><p class="rst-first">Initializes the object. There is no mandatory arguments, but any
 parameters can be used here to configure the operator. For example, a
 class can define a mutation rate -- this should be defined here:</p>
@@ -91,15 +92,15 @@ __init__(self, rate=0.75)
 <p class="rst-last">A default value should always be offered, if possible.</p>
 </dd>
 <dt>__call__(self, population)</dt>
-<dd>The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> implementation should receive a population and operate
-over it. Please, consult the <tt class="rst-docutils literal"><span class="pre">ga</span></tt> module to see more information on
+<dd>The <tt class="rst-docutils literal">__call__</tt> implementation should receive a population and operate
+over it. Please, consult the <tt class="rst-docutils literal">ga</tt> module to see more information on
 populations. It should return the processed population. No recomendation
 on the internals of the method is made.</dd>
 </dl>
 </blockquote>
 <p>Please, note that the GA implementations relies on this behaviour: it will
-pass a population to your <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> method and expects to received the
-result back.</p><br /><br />
+pass a population to your <tt class="rst-docutils literal">__call__</tt> method and expects to received the
+result back.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -122,6 +123,7 @@ result back.</p><br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__init__</code>,
@@ -130,7 +132,9 @@ result back.</p><br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -191,10 +195,11 @@ result back.</p><br /><br />
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:31 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:58 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -205,9 +210,8 @@ result back.</p><br /><br />
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

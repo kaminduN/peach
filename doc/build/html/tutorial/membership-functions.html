@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,17 +14,18 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
     <link rel="next" title="Using Custom Membership Functions" href="custom-membership.html" />
-    <link rel="prev" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" /> 
+    <link rel="prev" title="Fuzzy Sets" href="fuzzy-sets.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +38,7 @@
           <a href="custom-membership.html" title="Using Custom Membership Functions"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+          <a href="fuzzy-sets.html" title="Fuzzy Sets"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
           <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
@@ -61,9 +64,9 @@ just created. Suppose we have already imported Peach in the command line. Then,
 you can create (say) an increasing ramp starting in <tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">-1</span></tt> and ending in
 <tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></tt>, and use it, just by issuing the commands:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span> <span class="o">=</span> <span class="n">peach</span><span class="o">.</span><span class="n">IncreasingRamp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">FuzzySet(0.0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">FuzzySet(1.0)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ramp</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
 <span class="go">FuzzySet(0.5)</span>
@@ -127,30 +130,30 @@ gaussian, a generalized bell and an increasing sigmoid.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="self-organizing-maps.html"
-                                  title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="custom-membership.html"
-                                  title="next chapter">Using Custom Membership Functions</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/membership-functions.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fuzzy-sets.html"
+                        title="previous chapter">Fuzzy Sets</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="custom-membership.html"
+                        title="next chapter">Using Custom Membership Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/membership-functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -165,15 +168,15 @@ gaussian, a generalized bell and an increasing sigmoid.</p>
           <a href="custom-membership.html" title="Using Custom Membership Functions"
              >next</a> |</li>
         <li class="right" >
-          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+          <a href="fuzzy-sets.html" title="Fuzzy Sets"
              >previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
           <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

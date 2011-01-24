@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
@@ -72,7 +75,7 @@ main namespace.</p>
 <p>The network we are trying to build has 2 input neurons, 2 hidden neurons and 1
 input neuron. We create a new MLP by instantiating the <tt class="docutils literal"><span class="pre">FeedForward</span></tt> class, as
 below:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">((</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">Sigmoid</span><span class="p">,</span> <span class="n">BackPropagation</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Sigmoid</span><span class="p">,</span> <span class="n">BackPropagation</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this command line, <tt class="docutils literal"><span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">1)</span></tt> are the dimensions of each layer, in the
@@ -82,7 +85,7 @@ the number of neurons in each layer &#8211; just remember that the first number 
 the input layer, and the last number is the output layer. The Peach module takes
 care of the dimension coherence.</p>
 <p>We indicate the <tt class="docutils literal"><span class="pre">Sigmoid</span></tt> activation function and the <tt class="docutils literal"><span class="pre">BackPropagation</span></tt>
-learning method. There are other <em>activation functions</em> and <em>learning
+learning method. There are other <em class="xref std std-ref">activation functions</em> and <em class="xref std std-ref">learning
 rules</em> available. One interesting thing is that these parameters are, actually,
 classes that are internally instantiated to work with the neural network. But,
 by instantiating them yourself, you can configure their behavior.</p>
@@ -147,10 +150,10 @@ will give the output to the last input.</dd>
 created for every layer. We can inspect and modify those using the <tt class="docutils literal"><span class="pre">weights</span></tt>
 property of a <tt class="docutils literal"><span class="pre">Layer</span></tt>. The synaptic weights are <tt class="docutils literal"><span class="pre">numpy</span></tt> arrays of floating
 point numbers. Let&#8217;s give our network an initial condition:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">],</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">],</span>
 <span class="go">                           [ -0.5, -0.5 ]])</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span> <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span> <span class="p">])</span>
 </pre></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">nn[0]</span></tt> is the first layer. Notice that the input layer doesn&#8217;t have synaptic
@@ -179,10 +182,10 @@ as shown below:</p>
 </div>
 <p>This method outputs the error obtained with the example. Let&#8217;s inspect the
 synaptic weights now and see how they were modified:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span>
 <span class="go">array([[ 0.5002258 ,  0.50005645],</span>
 <span class="go">       [-0.5002258 , -0.50005645]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">weights</span>
 <span class="go">array([[ 0.25299043, -0.24818621]])</span>
 </pre></div>
 </div>
@@ -202,30 +205,30 @@ array.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="tutorial.html"
-                                  title="previous chapter">Tutorials</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="custom-activation.html"
-                                  title="next chapter">Using Custom Activation Functions</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/basic-neural-network.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="previous chapter">Tutorials</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="custom-activation.html"
+                        title="next chapter">Using Custom Activation Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/basic-neural-network.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -247,8 +250,8 @@ array.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

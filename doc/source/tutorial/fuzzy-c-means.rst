@@ -67,9 +67,9 @@ the membership array::
   mu = random((18, 1))
   mu = hstack((mu, 1.-mu))
 
-This parameter measures the smoothness of convergence. Please, consult the
-literature on the subject. Basically, ``m`` is a value bigger than 1, and the
-closer it is to unity, the more drastic is the separation::
+The following parameter measures the smoothness of convergence. Please, consult
+the literature on the subject. Basically, ``m`` is a value bigger than 1, and
+the closer it is to unity, the more drastic is the separation::
 
   m = 1.25
 
@@ -141,28 +141,41 @@ the example set::
   print fcm.mu
   print
 
-The output of the algorithm is given below::
+You can easily run the algorithm and see its output. In a nicer format, we get
+the centers:
 
-  After 20 iterations, the algorithm converged to the centers:
-  [[ 0.99999846  0.99999846]
-   [ 6.00000154  6.00000154]]
+.. math::
 
-  The membership values for the examples are given below:
-  [[  9.99999405e-01   5.95365284e-07]
-   [  9.99999928e-01   7.22228005e-08]
-   [  9.99997812e-01   2.18828877e-06]
-   [  9.99999928e-01   7.22228005e-08]
-   [  1.00000000e+00   7.98237469e-53]
-   [  9.99999646e-01   3.53890242e-07]
-   [  9.99997812e-01   2.18828877e-06]
-   [  9.99999646e-01   3.53890242e-07]
-   [  9.99984741e-01   1.52586970e-05]
-   [  1.52586970e-05   9.99984741e-01]
-   [  3.53890242e-07   9.99999646e-01]
-   [  2.18828877e-06   9.99997812e-01]
-   [  3.53890242e-07   9.99999646e-01]
-   [  7.98237469e-53   1.00000000e+00]
-   [  7.22228005e-08   9.99999928e-01]
-   [  2.18828877e-06   9.99997812e-01]
-   [  7.22228005e-08   9.99999928e-01]
-   [  5.95365284e-07   9.99999405e-01]]
+    c_1 = [ 0.99999846, \;  0.99999846 ]
+
+and
+
+.. math::
+
+    c_2 = [ 6.00000154, \;  6.00000154 ]
+
+and inspecting the membership values of the given vectors in the respective
+classes, we get the table below (with four precision digits):
+
+==========  =======  =======
+vector      class 1  class 2
+==========  =======  =======
+[ 0., 0. ]   0.9999   0.0000
+[ 0., 1. ]   0.9999   0.0000
+[ 0., 2. ]   0.9999   0.0000
+[ 1., 0. ]   0.9999   0.0000
+[ 1., 1. ]   1.0000   0.0000
+[ 1., 2. ]   0.9999   0.0000
+[ 2., 0. ]   0.9999   0.0000
+[ 2., 1. ]   0.9999   0.0000
+[ 2., 2. ]   0.9999   0.0000
+[ 5., 5. ]   0.0000   0.9999
+[ 5., 6. ]   0.0000   0.9999
+[ 5., 7. ]   0.0000   0.9999
+[ 6., 5. ]   0.0000   0.9999
+[ 6., 6. ]   0.0000   1.0000
+[ 6., 7. ]   0.0000   0.9999
+[ 7., 5. ]   0.0000   0.9999
+[ 7., 6. ]   0.0000   0.9999
+[ 7., 7. ]   0.0000   0.9999
+==========  =======  =======

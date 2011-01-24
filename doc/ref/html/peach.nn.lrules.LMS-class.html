@@ -62,23 +62,24 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class LMS</h1><span class="codelink"><a href="peach.nn.lrules-pysrc.html#LMS">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class LMS</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.lrules-pysrc.html#LMS">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn_14" name="uml_class_diagram_for_peach_nn_14">
-<area shape="rect" href="peach.nn.lrules.FFLearning&#45;class.html" title="Base class for FeedForwarding Multilayer neural networks." alt="" coords="57,11,124,43"/>
-<area shape="rect" href="peach.nn.lrules.LMS&#45;class.html#lrate" title="Learning rate used in the algorithm." alt="" coords="17,89,164,108"/>
-<area shape="rect" href="peach.nn.lrules.LMS&#45;class.html#__call__" title="The __call__ interface." alt="" coords="17,111,164,129"/>
-<area shape="rect" href="peach.nn.lrules.LMS&#45;class.html#__init__" title="Initializes the object." alt="" coords="17,129,164,148"/>
-<area shape="rect" href="peach.nn.lrules.LMS&#45;class.html" title="The Least&#45;Mean&#45;Square (LMS) learning method." alt="" coords="16,72,165,149"/>
+<area shape="rect" id="node1" href="peach.nn.lrules.FFLearning-class.html" title="Base class for FeedForwarding Multilayer neural networks." alt="" coords="47,6,137,50"/>
+<area shape="rect" id="node115" href="peach.nn.lrules.LMS-class.html#lrate" title="Learning rate used in the algorithm." alt="" coords="17,95,165,113"/>
+<area shape="rect" id="node115" href="peach.nn.lrules.LMS-class.html#__init__" title="Initializes the object." alt="" coords="17,116,165,135"/>
+<area shape="rect" id="node115" href="peach.nn.lrules.LMS-class.html#__call__" title="The __call__ interface." alt="" coords="17,135,165,153"/>
+<area shape="rect" id="node2" href="peach.nn.lrules.LMS-class.html" title="The Least&#45;Mean&#45;Square (LMS) learning method." alt="" coords="5,70,176,159"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn_14.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_14" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
 <p>The Least-Mean-Square (LMS) learning method.</p>
 <p>The LMS method is a very simple method of learning, thoroughly described in
 virtually every book about the subject. Please, consult a good book on
 neural networks for more information. This implementation tries to use the
-<tt class="rst-docutils literal"><span class="pre">numpy</span></tt> routines as much as possible for better efficiency.</p><br /><br />
+<tt class="rst-docutils literal">numpy</tt> routines as much as possible for better efficiency.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -125,7 +126,7 @@ neural networks for more information. This implementation tries to use the
         <span class="summary-sig-arg">nn</span>,
         <span class="summary-sig-arg">x</span>,
         <span class="summary-sig-arg">d</span>)</span><br />
-      The <tt class="rst-docutils literal"><span class="pre">__call__</span></tt> interface.</td>
+      The <tt class="rst-docutils literal">__call__</tt> interface.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.nn.lrules-pysrc.html#LMS.__call__">source&nbsp;code</a></span>
             
@@ -139,6 +140,7 @@ neural networks for more information. This implementation tries to use the
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -146,7 +148,9 @@ neural networks for more information. This implementation tries to use the
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -234,7 +238,7 @@ neural networks for more information. This implementation tries to use the
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.lrules-pysrc.html#LMS.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the object.
   <dl class="fields">
@@ -243,7 +247,7 @@ neural networks for more information. This implementation tries to use the
         <li><strong class="pname"><code>lrate</code></strong> - Learning rate to be used in the algorithm. Defaults to 0.05.</li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -264,24 +268,24 @@ neural networks for more information. This implementation tries to use the
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.lrules-pysrc.html#LMS.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>The <tt class="rst-rst-docutils literal rst-docutils literal"><span class="pre">__call__</span></tt> interface.</p>
+  <p>The <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> interface.</p>
 <p>The learning implementation. Read the documentation for the base class
 for more information. A call to the class should have the following
 parameters:</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal"><span class="pre">FeedForward</span></tt> neural network instance that is going to be
+        <li><strong class="pname"><code>nn</code></strong> - A <tt class="rst-docutils literal">FeedForward</tt> neural network instance that is going to be
 modified by the learning algorithm. The modification is made <em>in
-loco</em>, that is, the synaptic weights of <tt class="rst-docutils literal"><span class="pre">nn</span></tt> should be modified
+loco</em>, that is, the synaptic weights of <tt class="rst-docutils literal">nn</tt> should be modified
 in place, and not returned from this function.</li>
         <li><strong class="pname"><code>x</code></strong> - The input vector from the training set.</li>
         <li><strong class="pname"><code>d</code></strong> - The desired response for the given input vector.</li>
     </ul></dd>
     <dt>Overrides:
-      <a href="peach.nn.lrules.FFLearning-class.html#__call__">FFLearning.__call__</a>
+        <a href="peach.nn.lrules.FFLearning-class.html#__call__">FFLearning.__call__</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -318,10 +322,11 @@ in place, and not returned from this function.</li>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:34 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:01 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -332,9 +337,8 @@ in place, and not returned from this function.</li>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="index.html" />
     <link rel="next" title="Tutorials" href="tutorial/tutorial.html" />
@@ -54,7 +57,7 @@ properly. These are listed below:</p>
 <blockquote>
 <dl class="docutils">
 <dt>The Python programming language</dt>
-<dd>Available at <a class="reference" href="http://www.python.org/">http://www.python.org/</a>, Python is a very concise and expressive
+<dd>Available at <a class="reference external" href="http://www.python.org/">http://www.python.org/</a>, Python is a very concise and expressive
 general purpose language. It is used in projects that range from web to
 scientific applications, and is available for a lot of platforms, from
 Windows to Mac OS X and Linux. If you need to deal with scientific
@@ -62,13 +65,13 @@ programming, you will like it a lot, so I suggest you to try it even if
 using this module is not of your interest.</dd>
 <dt>The NumPy package</dt>
 <dd>The numeric processing package for Python, available at
-<a class="reference" href="http://www.scipy.org/NumPy">http://www.scipy.org/NumPy</a>. It is not, unfortunatelly, made available with
+<a class="reference external" href="http://www.scipy.org/NumPy">http://www.scipy.org/NumPy</a>. It is not, unfortunatelly, made available with
 the standard distribution of the language. But there are some Python
 distributions that embed it by default. Anyway, installers are provided for
 almost every platform, and installing it is not difficult and should pose no
 problem.</dd>
 <dt>The bitarray module</dt>
-<dd>It is available at <a class="reference" href="http://pypi.python.org/pypi/bitarray/0.3.5">http://pypi.python.org/pypi/bitarray/0.3.5</a>. It is needed
+<dd>It is available at <a class="reference external" href="http://pypi.python.org/pypi/bitarray/0.3.5">http://pypi.python.org/pypi/bitarray/0.3.5</a>. It is needed
 for genetic algorithms, stochastic optimization and other techniques. Its
 installation is a little more difficult than the other packages, but it is,
 nonetheless, very easy to install. A C compiler might be needed, but, if
@@ -80,15 +83,15 @@ module is used. It is used to plot 2D graphics, and their data model is
 compatible with the one used in Peach (the NumPy array), so you can easily
 plot your results when needed. Some of the scripts in the tutorial section
 make use of it, if available. You can find it at
-<a class="reference" href="http://matplotlib.sourceforge.net/">http://matplotlib.sourceforge.net/</a></dd>
+<a class="reference external" href="http://matplotlib.sourceforge.net/">http://matplotlib.sourceforge.net/</a></dd>
 <dt>The PyQt toolkit</dt>
 <dd>This is also not a required package for the module, but some of the demos
 use it for animations and building user interfaces. If you want to run those
 demos, you must install the 4th version of PyQt, which can be found at
-<a class="reference" href="http://www.riverbankcomputing.co.uk/">http://www.riverbankcomputing.co.uk/</a>. You might also need a library for
+<a class="reference external" href="http://www.riverbankcomputing.co.uk/">http://www.riverbankcomputing.co.uk/</a>. You might also need a library for
 plotting graphs inside user interfaces that is compatible with PyQt. This
 library is the PyQwt module in its 5th version, which can be found at
-<a class="reference" href="http://pyqwt.sourceforge.net/">http://pyqwt.sourceforge.net/</a></dd>
+<a class="reference external" href="http://pyqwt.sourceforge.net/">http://pyqwt.sourceforge.net/</a></dd>
 </dl>
 </blockquote>
 <div class="section" id="local-installation">
@@ -142,39 +145,39 @@ command line interface and typing:</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference" href="">How to Install</a><ul>
-<li><a class="reference" href="#local-installation">Local installation</a></li>
-<li><a class="reference" href="#global-installation">Global installation</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to Install</a><ul>
+<li><a class="reference internal" href="#local-installation">Local installation</a></li>
+<li><a class="reference internal" href="#global-installation">Global installation</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="index.html"
-                                  title="previous chapter">Welcome to Peach&#8217;s documentation!</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="tutorial/tutorial.html"
-                                  title="next chapter">Tutorials</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/install.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Peach&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tutorial/tutorial.html"
+                        title="next chapter">Tutorials</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -195,8 +198,8 @@ command line interface and typing:</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

@@ -41,7 +41,7 @@ from mutation import *
 ################################################################################
 # Classes
 ################################################################################
-class GA(list):
+class GeneticAlgorithm(list):
     '''
     A standard Genetic Algorithm
 
@@ -64,7 +64,7 @@ class GA(list):
     the list before the end of convergence can cause unpredictable results. The
     population and the algorithm have also other properties, check below to see
     more information on them.    '''
-    def __init__(self, fitness, fmt, ranges=[ ], size=50,
+    def __init__(self, f, x0, ranges=[ ], fmt='f', fitness=Fitness,
                  selection=RouletteWheel, crossover=TwoPoint,
                  mutation=BitToBit, elitist=True):
         '''
@@ -74,22 +74,53 @@ class GA(list):
         Those will deeply affect the results. The parameters are:
 
         :Parameters:
-          fitness
-            A fitness function to serve as an objective function. In general, a
-            GA is used for maximizing a function. This parameter can be a
-            standard Python function or a ``Fitness`` instance.
+          f
+            A multivariable function to be evaluated. The nature of the
+            parameters in the objective function will depend of the way you want
+            the genetic algorithm to process. It can be a standard function that
+            receives a one-dimensional array of values and computes the value of
+            the function. In this case, the values will be passed as a tuple,
+            instead of an array. This is so that integer, floats and other types
+            of values can be passed and processed. In this case, the values will
+            depend of the format string (see below)
 
-            In the first case, the GA will convert the function in a
-            ``Fitness`` instance and call it internally when needed. The
-            function should receive a tuple or vector of data according to the
-            given ``Chromosome`` format (see below) and return a numeric value.
+            If you don't supply a format, your objective function will receive a
+            ``Chromosome`` instance, and it is the responsability of the
+            function to decode the array of bits in any way. Notice that, while
+            it is more flexible, it is certainly more difficult to deal with.
+            Your function should process the bits and compute the return value
+            which, in any case, should be a scalar.
 
-            In the second case, you can use any of the fitness methods of the
-            ``fitness`` sub-module, or create your own. If you want to use your
-            own fitness method (for experimentation or simulation, for example),
-            it must be an instance of a ``Fitness`` or of a subclass, or an
-            exception will be raised. Please consult the documentation on the
-            ``fitness`` sub-module.
+            Please, note that genetic algorithms maximize functions, so project
+            your objective function accordingly. If you want to minimize a
+            function, return its negated value.
+
+          x0
+            A population of first estimates. This is a list, array or tuple of
+            one-dimension arrays, each one corresponding to an estimate of the
+            position of the minimum. The population size of the algorithm will
+            be the same as the number of estimates in this list. Each component
+            of the vectors in this list are one of the variables in the function
+            to be optimized.
+
+          ranges
+            Since messing with the bits can change substantially the values
+            obtained can diverge a lot from the maximum point. To avoid this,
+            you can specify a range for each of the variables. ``range``
+            defaults to ``[ ]``, this means that no range checkin will be done.
+            If given, then every variable will be checked. There are two ways to
+            specify the ranges.
+
+            It might be a tuple of two values, ``(x0, x1)``, where ``x0`` is the
+            start of the interval, and ``x1`` its end. Obviously, ``x0`` should
+            be smaller than ``x1``. If ``range`` is given in this way, then this
+            range will be used for every variable.
+
+            It can be specified as a list of tuples with the same format as
+            given above. In that case, the list must have one range for every
+            variable specified in the format and the ranges must appear in the
+            same order as there. That is, every variable must have a range
+            associated to it.
 
           fmt
             A ``struct``-format string. The ``struct`` module is a standard
@@ -108,27 +139,14 @@ class GA(list):
             ``ranges`` property (see below) makes no sense, so it is set to
             ``None``. Also, no sanity checks will be performed.
 
-          ranges
-            Since messing with the bits can change substantially the values
-            obtained can diverge a lot from the maximum point. To avoid this,
-            you can specify a range for each of the variables. ``range``
-            defaults to ``[ ]``, this means that no range checkin will be done.
-            If given, then every variable will be checked. There are two ways to
-            specify the ranges.
+            It defaults to `"f"`, that is, a single floating point variable.
 
-            It might be a tuple of two values, ``(x0, x1)``, where ``x0`` is the
-            start of the interval, and ``x1`` its end. Obviously, ``x0`` should
-            be smaller than ``x1``. If ``range`` is given in this way, then this
-            range will be used for every variable.
-
-            If can be specified as a list of tuples with the same format as
-            given above. In that case, the list must have one range for every
-            variable specified in the format and the ranges must appear in the
-            same order as there. That is, every variable must have a range
-            associated to it.
-
-          size
-            This is the size of the population. It defaults to 50.
+          fitness
+            A fitness method to be applied over the objective function. This
+            parameter must be a ``Fitness`` instance or subclass. It will be
+            applied over the objective function to compute the fitness of every
+            individual in the population. Please, see the documentation on the
+            ``Fitness`` class.
 
           selection
             This specifies the selection method. You can use one given in the
@@ -162,39 +180,49 @@ class GA(list):
             computed. Defaults to ``True``.
         '''
         list.__init__(self, [ ])
-        for i in xrange(size):
-            self.append(Chromosome(fmt))
-        if self[0].format is None:
-            self.__nargs = 1
-            self.ranges = None
-        else:
-            self.__nargs = len(self[0].decode())
-            if not ranges:
-                self.ranges = None
-            elif len(ranges) == 1:
-                self.ranges = array(ranges * self.__nargs)
-            else:
-                self.ranges = array(ranges)
-                '''Holds the ranges for every variable. Although it is a writable
-                property, care should be taken in changing parameters before ending
-                the convergence.'''
+        self.__fx = [ ]
+        for x in x0:
+            x = array(x).ravel()
+            c = Chromosome(fmt)
+            c.encode(tuple(x))
+            self.append(c)
+            self.__fx.append(f(x))
+        self.__f = f
         self.__csize = self[0].size
         self.elitist = elitist
         '''If ``True``, then the population is elitist.'''
-        self.fitness = zeros((len(self),), dtype=float)
-        '''Vector containing the computed fitness value for every individual.'''
 
-        # Sanitizes the generated values randomly created for the chromosomes.
+        if type(fmt) == int:
+            self.ranges = None
+        elif ranges is None:
+            self.ranges = zip(amin(self, axis=0), amax(self, axis=1))
+        else:
+            ranges = list(ranges)
+            if len(ranges) == 1:
+                self.ranges = array(ranges * len(x0[0]))
+            else:
+                self.ranges = array(ranges)
+                '''Holds the ranges for every variable. Although it is a
+                writable property, care should be taken in changing parameters
+                before ending the convergence.'''
+
+        # Sanitizes the first estimate. It is not expected that the values
+        # received as first estimates are outside the ranges, but a check is
+        # made anyway. If any estimate is outside the bounds, a new random
+        # vector is choosen.
         if self.ranges is not None: self.sanity()
 
         # Verifies the validity of the fitness method
-        if isinstance(fitness, types.FunctionType):
-            fitness = Fitness(fitness)
+        try:
+            issubclass(fitness, Fitness)
+            fitness = fitness()
+        except TypeError:
+            pass
         if not isinstance(fitness, Fitness):
             raise TypeError, 'not a valid fitness function'
         else:
             self.__fit = fitness
-        self.__fit(self)
+        self.__fitness = self.__fit(self.__fx)
 
         # Verifies the validity of the selection method
         try:
@@ -237,6 +265,37 @@ class GA(list):
     writable.'''
 
 
+    def __get_fx(self):
+        return self.__fx
+    fx = property(__get_fx, None)
+    '''Array containing the fitness value for every estimate in the
+    population. Not writeable.'''
+
+
+    def __get_best(self):
+        m = argmax(self.__fx)
+        return self[m]
+    best = property(__get_best, None)
+    '''Single vector containing the position of the best point found by all the
+    individuals. Not writeable.'''
+
+
+    def __get_fbest(self):
+        m = argmax(self.__fx)
+        return self.__fx[m]
+    fbest = property(__get_fbest, None)
+    '''Single scalar value containing the function value of the best point by
+    all the individuals. Not writeable.'''
+
+
+    def __get_fit(self):
+        return self.__fitness
+    fitness = property(__get_fit, None)
+    '''Vector containing the fitness value for every individual in the
+    population. This is not the same as the objective function value. Not
+    writeable.'''
+
+
     def sanity(self):
         '''
         Sanitizes the chromosomes in the population.
@@ -258,16 +317,25 @@ class GA(list):
                 c.encode(tuple(xs))
 
 
-    def fit(self):
+    def restart(self, x0):
         '''
-        Computes the fitness for each individual of the population.
+        Resets the optimizer, allowing the use of a new set of estimates. This
+        can be used to avoid stagnation.
 
-        This method is only an interface to the ``fitness`` function passed in
-        the initialization. It calls the ``Fitness`` instance.
-
-        This method has no parameters and returns no values.
+        :Parameters:
+          x0
+            A new set of estimates. It doesn't need to have the same size of the
+            original population, but it must be a list of estimates in the same
+            format as in the object instantiation. Please, see the documentation
+            on the instantiation of the class.
         '''
-        return self.__fit(self)
+        self.__fx = [ ]
+        for x in x0:
+            x = array(x).ravel()
+            c = Chromosome(fmt)
+            c.encode(tuple(x))
+            self.append(c)
+            self.__fx.append(f(x))
 
 
     def step(self):
@@ -283,15 +351,46 @@ class GA(list):
         be consulted (using ``[ ]``) to find the fittest individual which is the
         result of the process.
         '''
+        f = self.__f
         if self.elitist:
-            m = argmax(self.fitness)
-            max_fit = Chromosome(self[m])
+            max_fit = Chromosome(self.best)
         self.__select(self)
         if self.__crossover is not None: self.__crossover(self)
         if self.__mutate is not None: self.__mutate(self)
         if self.ranges is not None: self.sanity()
         if self.elitist:
             self[0] = max_fit
-        self.__fit(self)
+        self.__fx = [ f(c.decode()) for c in self ]
+        self.__fitness = self.__fit(self.__fx)
+        return self.best, self.fbest
+
+
+    def __call__(self):
+        '''
+        Transparently executes the search until the minimum is found. The stop
+        criteria are the maximum error or the maximum number of iterations,
+        whichever is reached first. Note that this is a ``__call__`` method, so
+        the object is called as a function. This method returns a tuple
+        ``(x, e)``, with the best estimate of the minimum and the error.
+
+        :Returns:
+          This method returns a tuple ``(x, e)``, where ``x`` is the best
+          estimate of the minimum, and ``e`` is the estimated error.
+        '''
+        emax = self.__emax
+        imax = self.__imax
+        e = emax
+        i = 0
+        while e > emax/2. and i < imax:
+            x, e = self.step()
+            i = i + 1
+        return x, e
+
+
+class GA(GeneticAlgorithm):
+    '''
+    GA is an alias to ``GeneticAlgorithm``
+    '''
+    pass
 
 ################################################################################

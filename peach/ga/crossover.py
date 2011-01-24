@@ -41,7 +41,7 @@ class Crossover(object):
     below:
 
       __init__(self, *cnf, **kw)
-        Initializes the object. There is no mandatory arguments, but any
+        Initializes the object. There are no mandatory arguments, but any
         parameters can be used here to configure the operator. For example, a
         class can define a crossover rate -- this should be defined here::
 

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,16 +14,17 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
-    <link rel="next" title="Fuzzy C-Means" href="fuzzy-c-means.html" />
+    <link rel="next" title="Fuzzy Sets" href="fuzzy-sets.html" />
     <link rel="prev" title="Basic Self-Organizing Maps" href="basic-som.html" /> 
   </head>
   <body>
@@ -32,7 +35,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+          <a href="fuzzy-sets.html" title="Fuzzy Sets"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="basic-som.html" title="Basic Self-Organizing Maps"
@@ -71,7 +74,7 @@ will use five centers, positioned at the coordinates <tt class="docutils literal
 Each point of the training set is found by adding a gaussian generated number to
 each coordinate of the corresponding center. The following sequence of commands
 does the job:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">train_size</span> <span class="o">=</span> <span class="mf">300</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">train_size</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="n">centers</span> <span class="o">=</span> <span class="p">[</span> <span class="n">array</span><span class="p">([</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
             <span class="n">array</span><span class="p">([</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
             <span class="n">array</span><span class="p">([</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
@@ -81,7 +84,7 @@ does the job:</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">train_size</span><span class="p">):</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="mf">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">array</span><span class="p">([</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">array</span><span class="p">([</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Since we are working on the plane, each example and each neuron will have two
@@ -91,18 +94,18 @@ weights converge to the mass center of the point clouds, so we initialize the
 weights near the center, but in a way that we are sure that will converge to
 the centers. It is not a realistic condition, but in the tutorial we want to
 inspect the behaviour of the <tt class="docutils literal"><span class="pre">SOM</span></tt>, so we will use it here:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">SOM</span><span class="p">((</span><span class="mf">5</span><span class="p">,</span> <span class="mf">2</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">5</span><span class="p">):</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">4</span><span class="p">)</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mf">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">4</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">SOM</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We will use lists to track the variation of each neuron:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">wlog</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="p">],</span>
-         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="p">],</span>
-         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="p">],</span>
-         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="p">],</span>
-         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">wlog</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">],</span>
+         <span class="p">[</span> <span class="n">nn</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
 </pre></div>
 </div>
 <p>Here we feed and update the network. We could use the <tt class="docutils literal"><span class="pre">train</span></tt> method to
@@ -128,30 +131,30 @@ of the clouds.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="basic-som.html"
-                                  title="previous chapter">Basic Self-Organizing Maps</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="fuzzy-c-means.html"
-                                  title="next chapter">Fuzzy C-Means</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/self-organizing-maps.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basic-som.html"
+                        title="previous chapter">Basic Self-Organizing Maps</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fuzzy-sets.html"
+                        title="next chapter">Fuzzy Sets</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/self-organizing-maps.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -163,7 +166,7 @@ of the clouds.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+          <a href="fuzzy-sets.html" title="Fuzzy Sets"
              >next</a> |</li>
         <li class="right" >
           <a href="basic-som.html" title="Basic Self-Organizing Maps"
@@ -173,8 +176,8 @@ of the clouds.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

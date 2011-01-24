@@ -62,20 +62,21 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Sigmoid</h1><span class="codelink"><a href="peach.nn.af-pysrc.html#Sigmoid">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Sigmoid</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.af-pysrc.html#Sigmoid">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn_5" name="uml_class_diagram_for_peach_nn_5">
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html#d" title="An alias to the derivative of the function." alt="" coords="72,28,131,47"/>
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html" title="Base class for activation functions." alt="" coords="71,11,132,56"/>
-<area shape="rect" href="peach.nn.af.Sigmoid&#45;class.html#__call__" title="Call interface to the object." alt="" coords="17,111,185,130"/>
-<area shape="rect" href="peach.nn.af.Sigmoid&#45;class.html#derivative" title="The function derivative." alt="" coords="17,130,185,148"/>
-<area shape="rect" href="peach.nn.af.Sigmoid&#45;class.html#__init__" title="Initializes the object." alt="" coords="17,148,185,167"/>
-<area shape="rect" href="peach.nn.af.Sigmoid&#45;class.html" title="Sigmoid activation function" alt="" coords="16,86,187,168"/>
+<area shape="rect" id="node97" href="peach.nn.af.Activation-class.html#d" title="An alias to the derivative of the function." alt="" coords="72,31,132,49"/>
+<area shape="rect" id="node1" href="peach.nn.af.Activation-class.html" title="Base class for activation functions." alt="" coords="60,6,143,63"/>
+<area shape="rect" id="node96" href="peach.nn.af.Sigmoid-class.html#__init__" title="Initializes the object." alt="" coords="17,116,188,135"/>
+<area shape="rect" id="node96" href="peach.nn.af.Sigmoid-class.html#__call__" title="Call interface to the object." alt="" coords="17,135,188,153"/>
+<area shape="rect" id="node96" href="peach.nn.af.Sigmoid-class.html#derivative" title="The function derivative." alt="" coords="17,153,188,172"/>
+<area shape="rect" id="node2" href="peach.nn.af.Sigmoid-class.html" title="Sigmoid activation function" alt="" coords="5,83,200,178"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn_5.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_5" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
-Sigmoid activation function<br /><br />
+Sigmoid activation function
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -153,6 +154,7 @@ Sigmoid activation function<br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -160,7 +162,9 @@ Sigmoid activation function<br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -248,17 +252,17 @@ Sigmoid activation function<br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Sigmoid.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the object.
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>a</code></strong> - The slope of the function in the center <tt class="rst-docutils literal"><span class="pre">x0</span></tt>. Defaults to 1.0.</li>
+        <li><strong class="pname"><code>a</code></strong> - The slope of the function in the center <tt class="rst-docutils literal">x0</tt>. Defaults to 1.0.</li>
         <li><strong class="pname"><code>x0</code></strong> - The center of the sigmoid. Defaults to 0.0.</li>
     </ul></dd>
     <dt>Overrides:
-      <a href="peach.nn.af.Activation-class.html#__init__">Activation.__init__</a>
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -277,7 +281,7 @@ Sigmoid activation function<br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Sigmoid.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Call interface to the object.</p>
 <p>This method applies the activation function over a vector of activation
@@ -291,7 +295,7 @@ activation potential of a neuron or a layer of neurons.</li>
     <dt>Returns:</dt>
         <dd>The activation function applied over the input vector.</dd>
     <dt>Overrides:
-      <a href="peach.nn.af.Activation-class.html#__call__">Activation.__call__</a>
+        <a href="peach.nn.af.Activation-class.html#__call__">Activation.__call__</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -309,7 +313,7 @@ activation potential of a neuron or a layer of neurons.</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Sigmoid.derivative">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   The function derivative.
   <dl class="fields">
@@ -322,7 +326,7 @@ activation potential of a neuron or a layer of neurons.</li>
         <dd>The derivative of the activation function applied over the input
 vector.</dd>
     <dt>Overrides:
-      <a href="peach.nn.af.Activation-class.html#derivative">Activation.derivative</a>
+        <a href="peach.nn.af.Activation-class.html#derivative">Activation.derivative</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -359,10 +363,11 @@ vector.</dd>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:32 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:00 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -373,9 +378,8 @@ vector.</dd>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

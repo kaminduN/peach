@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
@@ -64,10 +67,10 @@ bigger than 1. The instantiation will not check this &#8211; it is up to you to 
 sure your array doesn&#8217;t have forbidden values. Suppose the Peach module is
 already imported in the command line. You can create a <tt class="docutils literal"><span class="pre">FuzzySet</span></tt> by issuing
 the commands:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">FuzzySet([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
 <span class="go">FuzzySet([ 0. ,  0.5,  1. ,  0.5,  0. ])</span>
 </pre></div>
@@ -151,11 +154,11 @@ the norms described above directly as functions, since that&#8217;s what they ar
 suffer no change. You can, if you need, define your own norms. Suppose you want
 to use the Sugeno negation, defined as</p>
 <div class="math">
-<p><img src="../_images/math/355107db900bf20816c1beb2851b7668340981b3.png" alt="\mu_{\bar{A}}(x) = \frac{1 - \mu_A(x)}{1 + \mu_A(x)}" />
-</div></p><p>All you have to do is create a function that takes the value and calculates the
+<p><img src="../_images/math/355107db900bf20816c1beb2851b7668340981b3.png" alt="\mu_{\bar{A}}(x) = \frac{1 - \mu_A(x)}{1 + \mu_A(x)}" /></p>
+</div><p>All you have to do is create a function that takes the value and calculates the
 result, and set it as the negation of the set:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">sugeno_negation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>  <span class="k">return</span> <span class="p">(</span><span class="mf">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">set_negation</span><span class="p">(</span><span class="n">sugeno_negation</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="o">~</span><span class="n">a</span>
@@ -174,30 +177,30 @@ arrays. So, simple functions are okay.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="self-organizing-maps.html"
-                                  title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="membership-functions.html"
-                                  title="next chapter">Using Membership Functions</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/fuzzy-sets.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="self-organizing-maps.html"
+                        title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="membership-functions.html"
+                        title="next chapter">Using Membership Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/fuzzy-sets.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -219,8 +222,8 @@ arrays. So, simple functions are okay.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

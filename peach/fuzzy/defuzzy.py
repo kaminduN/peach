@@ -65,11 +65,11 @@ def Centroid(mf, y):
     return numpy.trapz(mf*y, y) / numpy.trapz(mf, y)
 
 
-def Bissector(mf, y):
+def Bisector(mf, y):
     '''
-    Bissection method
+    Bisection method
 
-    The bissection method finds a coordinate ``y`` in domain that divides the
+    The bisection method finds a coordinate ``y`` in domain that divides the
     fuzzy set in two subsets with the same area. Integrals are calculated using
     the trapezoid method. This method only works if the values in ``y`` are
     equally spaced, otherwise, the method will fail.
@@ -82,7 +82,7 @@ def Bissector(mf, y):
         Array of domain values of the defuzzified variable.
 
     :Returns:
-      Defuzzified value by the bissection method.
+      Defuzzified value by the bisection method.
     '''
     a2 = numpy.trapz(mf, y) / 2.0
     dy = y[1] - y[0]

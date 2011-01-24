@@ -53,30 +53,31 @@ template::
         '''
         def __init__(self):
             '''
-            We won't pass any parameter to the initializer of the class, since we
-            don't want further customization.
+            We won't pass any parameter to the initializer of the class, since
+            we don't want further customization.
             '''
             peach.Activation.__init__(self)
 
         def __call__(self, x):
             '''
-            The __call__ interface should receive a (vector of) scalar and return a
-            scalar. Remember that activation functions should be able to deal with
-            vectors, if needed, so using the ``numpy`` functions will really help!
-            Please consult the numpy documentation to understand what ``select``
-            does.
+            The __call__ interface should receive a (vector of) scalar and
+            return a scalar. Remember that activation functions should be able
+            to deal with vectors, if needed, so using the ``numpy`` functions
+            will really help! Please consult the ``numpy`` documentation to
+            understand what ``select`` does.
             '''
-            return peach.select([ x < -1., x < 1. ], [ -1., x ], 1.)
+            return numpy.select([ x < -1., x < 1. ], [ -1., x ], 1.)
 
         def derivative(self, x, dx=1.e-5):
             '''
             The derivative of your function must be implemented in this method,
             because a lot of the convergence methods use it. The method should
-            receive a (vector of) scalar and return a scalar. The second parameter
-            will be the precision of the derivative, and it is seldom used. It is
-            a good measure to put it as a named parameter, just to make it sure.
+            receive a (vector of) scalar and return a scalar. The second
+            parameter will be the precision of the derivative, and it is seldom
+            used. It is a good measure to put it as a named parameter, just to
+            make it sure.
             '''
-            return select([ x < -1., x < 1. ], [ 0., 1. ], 0.)
+            return numpy.select([ x < -1., x < 1. ], [ 0., 1. ], 0.)
 
 The functions thus generated can be used in any place where an activation
 function or an activation class would be used, for example, in the creation of a

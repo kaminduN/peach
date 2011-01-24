@@ -61,15 +61,15 @@
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module defuzzy</h1><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Module defuzzy</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html">source&nbsp;code</a></span></p>
 <p>This package implements defuzzification methods for use with fuzzy controllers.</p>
 <p>Defuzzification methods take a set of numerical values, their corresponding
 fuzzy membership values and calculate a defuzzified value for them. They're
 implemented as functions, not as classes. So, to implement your own, use the
 directions below.</p>
-<p>These methods are implemented as functions with the signature <tt class="rst-docutils literal"><span class="pre">(mf,</span> <span class="pre">y)</span></tt>, where
-<tt class="rst-docutils literal"><span class="pre">mf</span></tt> is the fuzzy set, and <tt class="rst-docutils literal"><span class="pre">y</span></tt> is an array of values. That is, <tt class="rst-docutils literal"><span class="pre">mf</span></tt> is a
-fuzzy set containing the membership values of each one in the <tt class="rst-docutils literal"><span class="pre">y</span></tt> array, in
+<p>These methods are implemented as functions with the signature <tt class="rst-docutils literal">(mf, y)</tt>, where
+<tt class="rst-docutils literal">mf</tt> is the fuzzy set, and <tt class="rst-docutils literal">y</tt> is an array of values. That is, <tt class="rst-docutils literal">mf</tt> is a
+fuzzy set containing the membership values of each one in the <tt class="rst-docutils literal">y</tt> array, in
 the respective order. Both arrays should have the same dimensions, or else the
 methods won't work.</p>
 <p>See the example:</p>
@@ -81,7 +81,7 @@ methods won't work.</p>
 &gt;&gt;&gt; Centroid(m_y(y), y)
 2.0001030715316435
 </pre>
-<p>The methods defined here are the most commonly used.</p><br /><br />
+<p>The methods defined here are the most commonly used.</p>
 
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -124,11 +124,11 @@ methods won't work.</p>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#Bissector" class="summary-sig-name">Bissector</a>(<span class="summary-sig-arg">mf</span>,
+          <td><span class="summary-sig"><a href="peach.fuzzy.defuzzy-module.html#Bisector" class="summary-sig-name">Bisector</a>(<span class="summary-sig-arg">mf</span>,
         <span class="summary-sig-arg">y</span>)</span><br />
-      Bissection method</td>
+      Bisection method</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Bissector">source&nbsp;code</a></span>
+            <span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Bisector">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -223,6 +223,13 @@ ey're
 ..."><code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'peach.fuzzy'"><code class="variable-quote">'</code><code class="variable-string">peach.fuzzy</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
 </table>
 <!-- ==================== FUNCTION DETAILS ==================== -->
 <a name="section-FunctionDetails"></a>
@@ -255,7 +262,7 @@ ey're
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Centroid">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Center of gravity method.</p>
 <p>The center of gravity is calculate using the standard formula found in any
@@ -272,25 +279,25 @@ vector given in sequence</li>
   </dl>
 </td></tr></table>
 </div>
-<a name="Bissector"></a>
+<a name="Bisector"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">Bissector</span>(<span class="sig-arg">mf</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Bisector</span>(<span class="sig-arg">mf</span>,
         <span class="sig-arg">y</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Bissector">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#Bisector">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <p>Bissection method</p>
-<p>The bissection method finds a coordinate <tt class="rst-docutils literal"><span class="pre">y</span></tt> in domain that divides the
+  <p>Bisection method</p>
+<p>The bisection method finds a coordinate <tt class="rst-docutils literal">y</tt> in domain that divides the
 fuzzy set in two subsets with the same area. Integrals are calculated using
-the trapezoid method. This method only works if the values in <tt class="rst-docutils literal"><span class="pre">y</span></tt> are
+the trapezoid method. This method only works if the values in <tt class="rst-docutils literal">y</tt> are
 equally spaced, otherwise, the method will fail.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
@@ -300,7 +307,7 @@ vector given in sequence</li>
         <li><strong class="pname"><code>y</code></strong> - Array of domain values of the defuzzified variable.</li>
     </ul></dd>
     <dt>Returns:</dt>
-        <dd>Defuzzified value by the bissection method.</dd>
+        <dd>Defuzzified value by the bisection method.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -317,7 +324,7 @@ vector given in sequence</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#SmallestOfMaxima">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Smallest of maxima method.</p>
 <p>This method finds all the points in the domain which have maximum membership
@@ -347,7 +354,7 @@ vector given in sequence</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#LargestOfMaxima">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Largest of maxima method.</p>
 <p>This method finds all the points in the domain which have maximum membership
@@ -377,7 +384,7 @@ vector given in sequence</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.fuzzy.defuzzy-pysrc.html#MeanOfMaxima">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Mean of maxima method.</p>
 <p>This method finds the smallest and largest of maxima, and returns their
@@ -471,10 +478,11 @@ ey're
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:26 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:51 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -485,9 +493,8 @@ ey're
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

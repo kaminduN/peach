@@ -63,15 +63,15 @@
 <h1 class="epydoc">Source Code for <a href="peach.ga.crossover-module.html">Module peach.ga.crossover</a></h1>
 <pre class="py-src">
 <a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
-<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
-<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
-<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This file: ga/chrossover.py</tt> </tt>
-<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Basic definitions for crossover among chromosomes</tt> </tt>
-<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file: ga/chrossover.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Basic definitions for crossover among chromosomes</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
 <a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
-<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nn.__doc__=peach.nn.nn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.optm.__doc__=peach.optm.optm-module.html#__doc__,Variable peach.optm.pso.__doc__=peach.optm.pso-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.sa.__doc__=peach.optm.sa-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__"><a title="peach.__doc__
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.nnet.__doc__=peach.nn.nnet-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.base.__doc__=peach.optm.base-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__,Variable peach.pso.__doc__=peach.pso-module.html#__doc__,Variable peach.pso.acc.__doc__=peach.pso.acc-module.html#__doc__,Variable peach.pso.base.__doc__=peach.pso.base-module.html#__doc__,Variable peach.sa.__doc__=peach.sa-module.html#__doc__,Variable peach.sa.base.__doc__=peach.sa.base-module.html#__doc__,Variable peach.sa.neighbor.__doc__=peach.sa.neighbor-module.html#__doc__"><a title="peach.__doc__
 peach.fuzzy.__doc__
 peach.fuzzy.base.__doc__
 peach.fuzzy.cmeans.__doc__
@@ -90,15 +90,19 @@ peach.nn.__doc__
 peach.nn.af.__doc__
 peach.nn.base.__doc__
 peach.nn.lrules.__doc__
-peach.nn.nn.__doc__
+peach.nn.nnet.__doc__
 peach.optm.__doc__
+peach.optm.base.__doc__
 peach.optm.linear.__doc__
 peach.optm.multivar.__doc__
-peach.optm.optm.__doc__
-peach.optm.pso.__doc__
 peach.optm.quasinewton.__doc__
-peach.optm.sa.__doc__
-peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+peach.optm.stochastic.__doc__
+peach.pso.__doc__
+peach.pso.acc.__doc__
+peach.pso.base.__doc__
+peach.sa.__doc__
+peach.sa.base.__doc__
+peach.sa.neighbor.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
 <a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">Basic definitions for crossover operations and base classes.</tt> </tt>
 <a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">Crossover is a very basic and important operation in genetic algorithms. It is</tt> </tt>
@@ -111,14 +115,14 @@ peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink(
 <a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
 <a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
 <a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">uniform</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">uniform</tt> </tt>
 <a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">randrange</tt> </tt>
 <a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
 <a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
 <a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Classes</tt> </tt>
-<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">################################################################################</tt> </tt>
-<a name="Crossover"></a><div id="Crossover-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="Crossover-toggle" onclick="return toggle('Crossover');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.Crossover-class.html">Crossover</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># Classes</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="Crossover"></a><div id="Crossover-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="Crossover-toggle" onclick="return toggle('Crossover');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.Crossover-class.html">Crossover</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Crossover-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Crossover-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    Base class for crossover operators.</tt> </tt>
 <a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -132,7 +136,7 @@ peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink(
 <a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    below:</tt> </tt>
 <a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">      __init__(self, *cnf, **kw)</tt> </tt>
-<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        Initializes the object. There is no mandatory arguments, but any</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        Initializes the object. There are no mandatory arguments, but any</tt> </tt>
 <a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        parameters can be used here to configure the operator. For example, a</tt> </tt>
 <a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        class can define a crossover rate -- this should be defined here::</tt> </tt>
 <a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -156,7 +160,7 @@ peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink(
 </div><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
 <a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
 <a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="OnePoint"></a><div id="OnePoint-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="OnePoint-toggle" onclick="return toggle('OnePoint');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.OnePoint-class.html">OnePoint</a><tt class="py-op">(</tt><tt class="py-base-class">Crossover</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="OnePoint"></a><div id="OnePoint-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="OnePoint-toggle" onclick="return toggle('OnePoint');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.OnePoint-class.html">OnePoint</a><tt class="py-op">(</tt><tt class="py-base-class">Crossover</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="OnePoint-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="OnePoint-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    A one-point crossover operator.</tt> </tt>
 <a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -196,7 +200,7 @@ peach.optm.stochastic.__doc__" class="py-name" href="#" onclick="return doclink(
 <a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">          The processed population, a list of ``Chromosomes``.</tt> </tt>
 <a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">rate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rate</tt> </tt>
-<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">chromosize</tt> <tt class="py-op">=</tt> <tt class="py-name">population</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable peach.ga.base.GA.chromosome_size=peach.ga.base.GA-class.html#chromosome_size"><a title="peach.ga.base.GA.chromosome_size" class="py-name" href="#" onclick="return doclink('link-1', 'chromosome_size', 'link-1');">chromosome_size</a></tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">chromosize</tt> <tt class="py-op">=</tt> <tt class="py-name">population</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable peach.ga.base.GeneticAlgorithm.chromosome_size=peach.ga.base.GeneticAlgorithm-class.html#chromosome_size"><a title="peach.ga.base.GeneticAlgorithm.chromosome_size" class="py-name" href="#" onclick="return doclink('link-1', 'chromosome_size', 'link-1');">chromosome_size</a></tt> </tt>
 <a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt id="link-2" class="py-name" targets="Variable peach.ga.chromosome.Chromosome.size=peach.ga.chromosome.Chromosome-class.html#size,Variable peach.nn.base.Layer.size=peach.nn.base.Layer-class.html#size"><a title="peach.ga.chromosome.Chromosome.size
 peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link-2', 'size', 'link-2');">size</a></tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">population</tt><tt class="py-op">)</tt> </tt>
 <a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-3" class="py-name"><a title="peach.ga.chromosome.Chromosome.size
@@ -210,7 +214,7 @@ peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link
 </div></div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
 <a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
 <a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="TwoPoint"></a><div id="TwoPoint-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="TwoPoint-toggle" onclick="return toggle('TwoPoint');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.TwoPoint-class.html">TwoPoint</a><tt class="py-op">(</tt><tt class="py-base-class">Crossover</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="TwoPoint"></a><div id="TwoPoint-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="TwoPoint-toggle" onclick="return toggle('TwoPoint');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.TwoPoint-class.html">TwoPoint</a><tt class="py-op">(</tt><tt class="py-base-class">Crossover</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="TwoPoint-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TwoPoint-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">    A two-point crossover operator.</tt> </tt>
 <a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -249,7 +253,7 @@ peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link
 <a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">          The processed population, a list of ``Chromosomes``.</tt> </tt>
 <a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-name">rate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rate</tt> </tt>
-<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-name">chromosize</tt> <tt class="py-op">=</tt> <tt class="py-name">population</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="peach.ga.base.GA.chromosome_size" class="py-name" href="#" onclick="return doclink('link-4', 'chromosome_size', 'link-1');">chromosome_size</a></tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-name">chromosize</tt> <tt class="py-op">=</tt> <tt class="py-name">population</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.chromosome_size" class="py-name" href="#" onclick="return doclink('link-4', 'chromosome_size', 'link-1');">chromosome_size</a></tt> </tt>
 <a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt id="link-5" class="py-name"><a title="peach.ga.chromosome.Chromosome.size
 peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link-5', 'size', 'link-2');">size</a></tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">population</tt><tt class="py-op">)</tt> </tt>
 <a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name"><a title="peach.ga.chromosome.Chromosome.size
@@ -266,7 +270,7 @@ peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link
 </div></div><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"> </tt>
 <a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"> </tt>
 <a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="Uniform"></a><div id="Uniform-def"><a name="L174"></a><tt class="py-lineno">174</tt> <a class="py-toggle" href="#" id="Uniform-toggle" onclick="return toggle('Uniform');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.Uniform-class.html">Uniform</a><tt class="py-op">(</tt><tt class="py-base-class">Crossover</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="Uniform"></a><div id="Uniform-def"><a name="L174"></a><tt class="py-lineno">174</tt> <a class="py-toggle" href="#" id="Uniform-toggle" onclick="return toggle('Uniform');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.ga.crossover.Uniform-class.html">Uniform</a><tt class="py-op">(</tt><tt class="py-base-class">Crossover</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Uniform-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Uniform-expanded"><a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
 <a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">    A uniform crossover operator.</tt> </tt>
 <a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
@@ -305,7 +309,7 @@ peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link
 <a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-docstring">          The processed population, a list of ``Chromosomes``.</tt> </tt>
 <a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">        <tt class="py-name">rate</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rate</tt> </tt>
-<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-name">chromosize</tt> <tt class="py-op">=</tt> <tt class="py-name">population</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="peach.ga.base.GA.chromosome_size" class="py-name" href="#" onclick="return doclink('link-7', 'chromosome_size', 'link-1');">chromosome_size</a></tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-name">chromosize</tt> <tt class="py-op">=</tt> <tt class="py-name">population</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.chromosome_size" class="py-name" href="#" onclick="return doclink('link-7', 'chromosome_size', 'link-1');">chromosome_size</a></tt> </tt>
 <a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt id="link-8" class="py-name"><a title="peach.ga.chromosome.Chromosome.size
 peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link-8', 'size', 'link-2');">size</a></tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">population</tt><tt class="py-op">)</tt> </tt>
 <a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="peach.ga.chromosome.Chromosome.size
@@ -318,7 +322,7 @@ peach.nn.base.Layer.size" class="py-name" href="#" onclick="return doclink('link
 <a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">population</tt> </tt>
 </div></div><a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"> </tt>
 <a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
-<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -356,10 +360,11 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:39 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:08 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -370,9 +375,8 @@ expandto(location.href);
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

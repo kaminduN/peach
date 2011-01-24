@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
@@ -97,30 +100,31 @@ template:</p>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        We won&#39;t pass any parameter to the initializer of the class, since we</span>
-<span class="sd">        don&#39;t want further customization.</span>
+<span class="sd">        We won&#39;t pass any parameter to the initializer of the class, since</span>
+<span class="sd">        we don&#39;t want further customization.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">peach</span><span class="o">.</span><span class="n">Activation</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        The __call__ interface should receive a (vector of) scalar and return a</span>
-<span class="sd">        scalar. Remember that activation functions should be able to deal with</span>
-<span class="sd">        vectors, if needed, so using the ``numpy`` functions will really help!</span>
-<span class="sd">        Please consult the numpy documentation to understand what ``select``</span>
-<span class="sd">        does.</span>
+<span class="sd">        The __call__ interface should receive a (vector of) scalar and</span>
+<span class="sd">        return a scalar. Remember that activation functions should be able</span>
+<span class="sd">        to deal with vectors, if needed, so using the ``numpy`` functions</span>
+<span class="sd">        will really help! Please consult the ``numpy`` documentation to</span>
+<span class="sd">        understand what ``select`` does.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">peach</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="p">],</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="p">],</span> <span class="mf">1.</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        The derivative of your function must be implemented in this method,</span>
 <span class="sd">        because a lot of the convergence methods use it. The method should</span>
-<span class="sd">        receive a (vector of) scalar and return a scalar. The second parameter</span>
-<span class="sd">        will be the precision of the derivative, and it is seldom used. It is</span>
-<span class="sd">        a good measure to put it as a named parameter, just to make it sure.</span>
+<span class="sd">        receive a (vector of) scalar and return a scalar. The second</span>
+<span class="sd">        parameter will be the precision of the derivative, and it is seldom</span>
+<span class="sd">        used. It is a good measure to put it as a named parameter, just to</span>
+<span class="sd">        make it sure.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">],</span> <span class="mf">0.</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">select</span><span class="p">([</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">],</span> <span class="mf">0.</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The functions thus generated can be used in any place where an activation
@@ -134,30 +138,30 @@ neural network.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="basic-neural-network.html"
-                                  title="previous chapter">Basic Neural Network Manipulation</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="mapping-a-plane.html"
-                                  title="next chapter">Mapping of a Plane</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/custom-activation.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basic-neural-network.html"
+                        title="previous chapter">Basic Neural Network Manipulation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mapping-a-plane.html"
+                        title="next chapter">Mapping of a Plane</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/custom-activation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -179,8 +183,8 @@ neural network.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

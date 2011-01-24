@@ -10,23 +10,23 @@
 __doc__ = """
 This package implements support for neural networks. Consult:
 
+    base
+      Basic definitions of the objects used with neural networks;
     af
       A list of activation functions for use with neurons and a base class to
       implement different activation functions;
-    base
-      Basic definitions of the objects used with neural networks;
     lrule
       Learning rules;
-    nn
+    nnet
       Implementation of different classes of neural networks;
 """
 
 
-# __all__ = [ 'af', 'base', 'lrules', 'nn' ]
+# __all__ = [ 'base', 'af', 'lrules', 'nnet' ]
 
 ################################################################################
 # Imports sub-packages
-from af import *
 from base import *
+from af import *
 from lrules import *
-from nn import *
+from nnet import *

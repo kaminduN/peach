@@ -29,8 +29,7 @@ learning and computational intelligence. It contains packages for
 __version__ = "0.1.0"
 
 
-# __all__ = [ 'nn', 'fuzzy', 'optm', 'ga' ]
-
+# __all__ = [ 'nn', 'fuzzy', 'optm', 'ga', 'sa', 'pso' ]
 
 ################################################################################
 # Imports sub-packages
@@ -38,4 +37,5 @@ from nn import *        # Neural network package
 from fuzzy import *     # Fuzzy logic package
 from optm import *      # Optimization package
 from ga import *        # Genetic Algorithms package
-
+from sa import *        # Simulated Annealing package
+from pso import *       # Particle Swarm Optimization package

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,17 +14,18 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
     <link rel="next" title="Basic Self-Organizing Maps" href="basic-som.html" />
-    <link rel="prev" title="Linear Prediction of a Number Sequence" href="linear-prediction.html" /> 
+    <link rel="prev" title="Interpolation of a Number Sequence" href="interpolation.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +38,7 @@
           <a href="basic-som.html" title="Basic Self-Organizing Maps"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="linear-prediction.html" title="Linear Prediction of a Number Sequence"
+          <a href="interpolation.html" title="Interpolation of a Number Sequence"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
           <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
@@ -59,8 +62,8 @@ theory for the linear regression can be easily expanded to approximate functions
 by polynomials, but in general, the equations are not simple.</p>
 <p>If this is the case, a function can be approximated by</p>
 <div class="math">
-<p><img src="../_images/math/5166ddc0411c2b4cb2ca713180f190571aa560da.png" alt="f(x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_N x^N" />
-</div></p><p>It is easy to see that it can be mapped in a neuron, since it is the linear
+<p><img src="../_images/math/5166ddc0411c2b4cb2ca713180f190571aa560da.png" alt="f(x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_N x^N" /></p>
+</div><p>It is easy to see that it can be mapped in a neuron, since it is the linear
 combination of the powers of the variable, plus a linear coefficient. A single
 biased neuron with <em>N+1</em> inputs, one output and linear activation can do
 this job. The advantage of using a neuron, in this case, is that it is easier to
@@ -81,15 +84,15 @@ simple: a single neuron with <em>N+1</em> inputs, one output, and linear activat
 The learning algorithm will be the LMS algorithm. Note that the <tt class="docutils literal"><span class="pre">bias</span></tt>
 parameter is made <tt class="xref docutils literal"><span class="pre">True</span></tt>. The neural network will handle the bias
 automatically:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="mf">10</span>
-<span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">FeedForward</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">phi</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">Identity</span><span class="p">,</span> <span class="n">lrule</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">LMS</span><span class="p">(</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">bias</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">FeedForward</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">phi</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">Identity</span><span class="p">,</span> <span class="n">lrule</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">LMS</span><span class="p">(</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">bias</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We will map a period of a sinus. It is not expected that the coefficients found
 here will be the same of the Taylor Series, since the optimization criterium is
 diferent. We make some definitions to help us during the convergence:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">error</span> <span class="o">=</span> <span class="mf">1</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mf">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">error</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">powers</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c"># This vector will be used to calculate the powers</span>
 </pre></div>
 </div>
@@ -99,7 +102,7 @@ independent variable. We will iterate the algorithm some times to obtain the
 coefficients. Notice that we could generate a training set and feed it to the
 network, without handling ourselves the loop. But with this we can track the
 error (not shown here, but easy to add):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mf">2000</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
 
     <span class="c"># Here, we generate one value in the interval e calculate the desired</span>
     <span class="c"># response. We raise ``x`` to ``powers`` to generate the inputs. It is easy</span>
@@ -114,7 +117,7 @@ error (not shown here, but easy to add):</p>
     <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">nn</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mf">1</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>We can obtain the coefficients of the regression by inspecting the <tt class="docutils literal"><span class="pre">weights</span></tt>
@@ -148,30 +151,30 @@ sinus is an odd function:</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="linear-prediction.html"
-                                  title="previous chapter">Linear Prediction of a Number Sequence</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="basic-som.html"
-                                  title="next chapter">Basic Self-Organizing Maps</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/polynomial-regression.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="interpolation.html"
+                        title="previous chapter">Interpolation of a Number Sequence</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basic-som.html"
+                        title="next chapter">Basic Self-Organizing Maps</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/polynomial-regression.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -186,15 +189,15 @@ sinus is an odd function:</p>
           <a href="basic-som.html" title="Basic Self-Organizing Maps"
              >next</a> |</li>
         <li class="right" >
-          <a href="linear-prediction.html" title="Linear Prediction of a Number Sequence"
+          <a href="interpolation.html" title="Interpolation of a Number Sequence"
              >previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
           <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

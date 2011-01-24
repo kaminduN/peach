@@ -62,22 +62,23 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class TwoPoint</h1><span class="codelink"><a href="peach.ga.crossover-pysrc.html#TwoPoint">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class TwoPoint</h1><p class="nomargin-top"><span class="codelink"><a href="peach.ga.crossover-pysrc.html#TwoPoint">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_ga_5" name="uml_class_diagram_for_peach_ga_5">
-<area shape="rect" href="peach.ga.crossover.Crossover&#45;class.html" title="Base class for crossover operators." alt="" coords="60,11,124,43"/>
-<area shape="rect" href="peach.ga.crossover.TwoPoint&#45;class.html#rate" title="Property that contains the crossover rate." alt="" coords="17,89,167,108"/>
-<area shape="rect" href="peach.ga.crossover.TwoPoint&#45;class.html#__call__" title="Proceeds the crossover over a population." alt="" coords="17,111,167,129"/>
-<area shape="rect" href="peach.ga.crossover.TwoPoint&#45;class.html#__init__" title="Initialize the crossover operator." alt="" coords="17,129,167,148"/>
-<area shape="rect" href="peach.ga.crossover.TwoPoint&#45;class.html" title="A two&#45;point crossover operator." alt="" coords="16,72,168,149"/>
+<center>  <map id="uml_class_diagram_for_peach_ga_6" name="uml_class_diagram_for_peach_ga_6">
+<area shape="rect" id="node1" href="peach.ga.crossover.Crossover-class.html" title="Base class for crossover operators." alt="" coords="49,6,135,50"/>
+<area shape="rect" id="node60" href="peach.ga.crossover.TwoPoint-class.html#rate" title="Property that contains the crossover rate." alt="" coords="17,95,169,113"/>
+<area shape="rect" id="node60" href="peach.ga.crossover.TwoPoint-class.html#__init__" title="Initialize the crossover operator." alt="" coords="17,116,169,135"/>
+<area shape="rect" id="node60" href="peach.ga.crossover.TwoPoint-class.html#__call__" title="Proceeds the crossover over a population." alt="" coords="17,135,169,153"/>
+<area shape="rect" id="node2" href="peach.ga.crossover.TwoPoint-class.html" title="A two&#45;point crossover operator." alt="" coords="5,70,181,159"/>
 </map>
-  <img src="uml_class_diagram_for_peach_ga_5.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_5" ismap="ismap" class="graph-without-title" />
-</center></center>
+  <img src="uml_class_diagram_for_peach_ga_6.gif" alt='' usemap="#uml_class_diagram_for_peach_ga_6" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
 <hr />
 <p>A two-point crossover operator.</p>
 <p>A two-point crossover randomly selects two points in two chromosomes and
 swaps the bits among them between these points. The crossover rate is the
-probability that two paired chromosomes will exchange bits.</p><br /><br />
+probability that two paired chromosomes will exchange bits.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -136,6 +137,7 @@ probability that two paired chromosomes will exchange bits.</p><br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -143,7 +145,9 @@ probability that two paired chromosomes will exchange bits.</p><br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -231,7 +235,7 @@ probability that two paired chromosomes will exchange bits.</p><br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.crossover-pysrc.html#TwoPoint.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initialize the crossover operator.
   <dl class="fields">
@@ -240,7 +244,7 @@ probability that two paired chromosomes will exchange bits.</p><br /><br />
         <li><strong class="pname"><code>rate</code></strong> - Probability that two paired chromosomes will exchange bits.</li>
     </ul></dd>
     <dt>Overrides:
-      object.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -259,22 +263,22 @@ probability that two paired chromosomes will exchange bits.</p><br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.ga.crossover-pysrc.html#TwoPoint.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Proceeds the crossover over a population.</p>
 <p>In two-point crossover, chromosomes from a population are randomly
-paired. If a uniform random number is below the <tt class="rst-docutils literal"><span class="pre">rate</span></tt> given in the
+paired. If a uniform random number is below the <tt class="rst-docutils literal">rate</tt> given in the
 instantiation of the operator, then random points are selected and bits
 between those points are exchanged.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>population</code></strong> - A list of <tt class="rst-docutils literal"><span class="pre">Chromosomes</span></tt> containing the present population of the
+        <li><strong class="pname"><code>population</code></strong> - A list of <tt class="rst-docutils literal">Chromosomes</tt> containing the present population of the
 algorithm. It is processed and the results of the exchange are
 returned to the caller.</li>
     </ul></dd>
     <dt>Returns:</dt>
-        <dd>The processed population, a list of <tt class="rst-docutils literal"><span class="pre">Chromosomes</span></tt>.</dd>
+        <dd>The processed population, a list of <tt class="rst-docutils literal">Chromosomes</tt>.</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -310,10 +314,11 @@ returned to the caller.</li>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:31 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:57 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -324,9 +329,8 @@ returned to the caller.</li>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

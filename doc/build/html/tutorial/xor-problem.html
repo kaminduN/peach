@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.3.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
@@ -64,7 +67,7 @@ neurons in the hidden layer and one neuron in the output layer. The activation
 function should be sigmoidal, and the learning rule the backpropagation
 algorithm. As before, we will assume that the <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">peach</span></tt> modules
 were imported in the command line. We create the network:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">((</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="n">Sigmoid</span><span class="p">,</span> <span class="n">BackPropagation</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">nn</span> <span class="o">=</span> <span class="n">FeedForward</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Sigmoid</span><span class="p">,</span> <span class="n">BackPropagation</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Instead of presenting every single example, we will create a training set and
@@ -85,7 +88,7 @@ method:</p>
 </div>
 <p>This will iterate over the training set. The complete signature of this method
 is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mf">2000</span><span class="p">,</span> <span class="n">emax</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">randomize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">emax</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">randomize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Here, <tt class="docutils literal"><span class="pre">train_set</span></tt> is the list of examples as described above; <tt class="docutils literal"><span class="pre">imax</span></tt> is the
@@ -116,30 +119,30 @@ near 0 when the answer should be 0, and very near 1 when the answer should be 1.
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="mapping-a-plane.html"
-                                  title="previous chapter">Mapping of a Plane</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="linear-prediction.html"
-                                  title="next chapter">Linear Prediction of a Number Sequence</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../_sources/tutorial/xor-problem.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mapping-a-plane.html"
+                        title="previous chapter">Mapping of a Plane</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="linear-prediction.html"
+                        title="next chapter">Linear Prediction of a Number Sequence</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/xor-problem.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -161,8 +164,8 @@ near 0 when the answer should be 0, and very near 1 when the answer should be 1.
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
     </div>
   </body>
 </html>

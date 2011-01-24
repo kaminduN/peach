@@ -62,20 +62,21 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Signum</h1><span class="codelink"><a href="peach.nn.af-pysrc.html#Signum">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Signum</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.af-pysrc.html#Signum">source&nbsp;code</a></span></p>
 <center>
 <center>  <map id="uml_class_diagram_for_peach_nn_6" name="uml_class_diagram_for_peach_nn_6">
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html#d" title="An alias to the derivative of the function." alt="" coords="41,28,100,47"/>
-<area shape="rect" href="peach.nn.af.Activation&#45;class.html" title="Base class for activation functions." alt="" coords="40,11,101,56"/>
-<area shape="rect" href="peach.nn.af.Signum&#45;class.html#__call__" title="Call interface to the object." alt="" coords="17,111,124,130"/>
-<area shape="rect" href="peach.nn.af.Signum&#45;class.html#derivative" title="The function derivative." alt="" coords="17,130,124,148"/>
-<area shape="rect" href="peach.nn.af.Signum&#45;class.html#__init__" title="Initializes the object." alt="" coords="17,148,124,167"/>
-<area shape="rect" href="peach.nn.af.Signum&#45;class.html" title="Signum activation function" alt="" coords="16,86,125,168"/>
+<area shape="rect" id="node99" href="peach.nn.af.Activation-class.html#d" title="An alias to the derivative of the function." alt="" coords="41,31,101,49"/>
+<area shape="rect" id="node1" href="peach.nn.af.Activation-class.html" title="Base class for activation functions." alt="" coords="29,6,112,63"/>
+<area shape="rect" id="node98" href="peach.nn.af.Signum-class.html#__init__" title="Initializes the object." alt="" coords="17,116,125,135"/>
+<area shape="rect" id="node98" href="peach.nn.af.Signum-class.html#__call__" title="Call interface to the object." alt="" coords="17,135,125,153"/>
+<area shape="rect" id="node98" href="peach.nn.af.Signum-class.html#derivative" title="The function derivative. Technically, this function doesn&#39;t have a derivative, but making it equals to 1, this can be used in learning algorithms." alt="" coords="17,153,125,172"/>
+<area shape="rect" id="node2" href="peach.nn.af.Signum-class.html" title="Signum activation function" alt="" coords="5,83,136,178"/>
 </map>
   <img src="uml_class_diagram_for_peach_nn_6.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_6" ismap="ismap" class="graph-without-title" />
-</center></center>
+</center>
+</center>
 <hr />
-Signum activation function<br /><br />
+Signum activation function
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -137,7 +138,9 @@ Signum activation function<br /><br />
         <tr>
           <td><span class="summary-sig"><a href="peach.nn.af.Signum-class.html#derivative" class="summary-sig-name">derivative</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">x</span>)</span><br />
-      The function derivative.</td>
+      The function derivative. Technically, this function doesn't have a
+derivative, but making it equals to 1, this can be used in learning
+algorithms.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="peach.nn.af-pysrc.html#Signum.derivative">source&nbsp;code</a></span>
             
@@ -151,6 +154,7 @@ Signum activation function<br /><br />
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
@@ -158,7 +162,9 @@ Signum activation function<br /><br />
       <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -244,12 +250,23 @@ Signum activation function<br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Signum.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   Initializes the object.
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - The activation function. It can be created as a lambda function or
+any other method, but it should take a real value, corresponding to
+the activation potential of a neuron, and return a real value,
+corresponding to its activation. Defaults to <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">None</tt>, if none is
+given, the identity function is used.</li>
+        <li><strong class="pname"><code>df</code></strong> - The derivative of the above function. It can be defined as above, or
+not given. If not given, an estimate is calculated based on the
+given function. Defaults to <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">None</tt>.</li>
+    </ul></dd>
     <dt>Overrides:
-      <a href="peach.nn.af.Activation-class.html#__init__">Activation.__init__</a>
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -268,7 +285,7 @@ Signum activation function<br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Signum.__call__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   <p>Call interface to the object.</p>
 <p>This method applies the activation function over a vector of activation
@@ -282,7 +299,7 @@ activation potential of a neuron or a layer of neurons.</li>
     <dt>Returns:</dt>
         <dd>The activation function applied over the input vector.</dd>
     <dt>Overrides:
-      <a href="peach.nn.af.Activation-class.html#__call__">Activation.__call__</a>
+        <a href="peach.nn.af.Activation-class.html#__call__">Activation.__call__</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -300,7 +317,7 @@ activation potential of a neuron or a layer of neurons.</li>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="peach.nn.af-pysrc.html#Signum.derivative">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   The function derivative. Technically, this function doesn't have a
 derivative, but making it equals to 1, this can be used in learning
@@ -315,7 +332,7 @@ activation potential of a neuron or a layer of neurons.</li>
         <dd>The derivative of the activation function applied over the input
 vector.</dd>
     <dt>Overrides:
-      <a href="peach.nn.af.Activation-class.html#derivative">Activation.derivative</a>
+        <a href="peach.nn.af.Activation-class.html#derivative">Activation.derivative</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -352,10 +369,11 @@ vector.</dd>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Mar 10 02:16:33 2010
+    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:00 2011
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -366,9 +384,8 @@ vector.</dd>
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

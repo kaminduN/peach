@@ -26,7 +26,7 @@ information.
 """
 
 ################################################################################
-from numpy import min, sum, argsort
+from numpy import min, sum, argsort, zeros
 
 
 ################################################################################
@@ -42,58 +42,50 @@ class Fitness(object):
 
     A subclass of this class should implement at least 2 methods:
 
-      __init__(self, f)
-        Initialization method. The initialization procedure should take at least
-        one parameter, ``f``, which is the function to be maximized. Other
-        parameters could be used, but sensible default values should be
-        available.
+      __init__(self, *args, **kwargs)
+        Initialization method. The initialization procedure doesn't need to take
+        any parameters, but if any configuration must be done, it should be
+        passed as an argument to the ``__init__`` function. The genetic
+        algorithm, however, does not expect parameters in the instantiation, so
+        you should provide sensible defaults.
 
-      __call__(self, population)
+      __call__(self, fx)
         This method is called to calculate population fitness. There is no
         recomendation about the internals of the method, but its signature is
-        expected as defined above. This method receives a population -- please,
-        consult the ``ga`` module for more information on populations -- and
-        should return a vector or list with the fitness value for each
-        chromosome in the same order that they appear in the population.
+        expected as defined above. This method receives the values of the
+        objective function applied over a population -- please, consult the
+        ``ga`` module for more information on populations -- and should return a
+        vector or list with the fitness value for each chromosome in the same
+        order that they appear in the population.
 
       This class implements the standard normalization fitness, as described in
       every book and article about GAs. The rank given to a chromosome is
       proportional to its objective function value.
     '''
-    def __init__(self, f):
+    def __init__(self):
         '''
         Initializes the operator.
-
-        :Parameters:
-          f
-            The cost function to be maximized. If you need to minimize a
-            function, negate the return value.
         '''
-        self.f = f
-        '''Objective function to be maximized. Handle with care -- although it
-        can be changed, it might cause trouble if you do so.'''
+        pass
 
 
-    def __call__(self, population):
+    def __call__(self, fx):
         '''
         Calculates the fitness for all individuals in the population.
 
         :Parameters:
-          population
-            The population to be processed. Please, consult the ``ga`` module
-            for more information on populations. This method calculates the
-            fitness according to the traditional normalization technique.
+          fx
+            The values of the objective function for every individual on the
+            population to be processed. Please, consult the ``ga`` module for
+            more information on populations. This method calculates the fitness
+            according to the traditional normalization technique.
 
         :Returns:
           A vector containing the fitness value for every individual in the
           population, in the same order that they appear there.
         '''
-        f = population.fitness
-        for j, c in enumerate(population):
-            f[j] = self.f(c.decode())
-        f = f - min(f)
-        population.fitness = f / sum(f)
-        return population.fitness
+        fx = fx - min(fx)
+        return fx / sum(fx)
 
 
 ################################################################################
@@ -108,40 +100,30 @@ class Ranking(Fitness):
     value of 1/N, not 0. That allows that no individuals are excluded from the
     selection operator.
     '''
-    def __init__(self, f):
+    def __init__(self):
         '''
         Initializes the operator.
-
-        :Parameters:
-          f
-            The cost function to be maximized. If you need to minimize a
-            function, negate the return value.
         '''
-        self.f = f
-        '''Objective function to be maximized. Handle with care -- although it
-        can be changed, it might cause trouble if you do so.'''
+        Fitness.__init__(self)
 
 
-    def __call__(self, population):
+    def __call__(self, fx):
         '''
         Calculates the fitness for all individuals in the population.
 
         :Parameters:
-          population
-            The population to be processed. Please, consult the ``ga`` module
-            for more information on populations. This method calculates the
-            fitness according to the equally spaced ranking technique.
+          fx
+            The values of the objective function for every individual on the
+            population to be processed. Please, consult the ``ga`` module for
+            more information on populations. This method calculates the fitness
+            according to the equally spaced ranking technique.
 
         :Returns:
           A vector containing the fitness value for every individual in the
           population, in the same order that they appear there.
         '''
-        f = population.fitness
-        for j, c in enumerate(population):
-            f[j] = self.f(c.decode())
-        f = f - min(f)
-        f = (argsort(f) + 1.) / len(population)
-        population.fitness = f / sum(f)
-        return population.fitness
+        fx = fx - min(fx)
+        fx = (argsort(fx) + 1.) / len(fx)
+        return fx / sum(fx)
 
 ################################################################################
