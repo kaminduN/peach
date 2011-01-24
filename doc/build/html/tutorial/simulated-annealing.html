@@ -1,0 +1,189 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Optimization by Simulated Annealing &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Using Custom Neighbor Functions" href="custom-neighbor.html" />
+    <link rel="prev" title="Optimization of a Multivariate Function by Quasi-Newton Methods" href="quasi-newton-optimization.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="custom-neighbor.html" title="Using Custom Neighbor Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="quasi-newton-optimization.html" title="Optimization of a Multivariate Function by Quasi-Newton Methods"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="optimization-by-simulated-annealing">
+<h1>Optimization by Simulated Annealing<a class="headerlink" href="#optimization-by-simulated-annealing" title="Permalink to this headline">¶</a></h1>
+<p>Deterministic methods for optimization, such as the gradient or Newton, are very
+efficient in finding the minimum, given a good estimate. Unfortunatelly, finding
+a good estimate can be a problem as hard as finding the minimum itself. In
+general, these methods will converge to a local minimum next to the first
+estimate. If the objective function is well behaved, it will find the global
+minimum, but most of the time this cannot be guaranteed.</p>
+<p>Stochastic methods, on the other hand, do not use a deterministic law to find
+the minimum. Instead, they wander randomly throughout the domain and, using a
+good heuristic, keep the good results. The power of stochastic methods in
+finding global minima comes from the fact that, since the estimates are
+computed with a certain degree of randomness, they might escape local minima and
+settle for the global minima. <em>Simulated annealing</em> is one of such methods.</p>
+<p>In simulated annealing, there is an analogy with the way an atom behaves in the
+slow cooling of metal. When the metal alloy is hot, atoms in the crystalin
+structure of the metal wander with high energy. As the metal cools, they tend to
+settle in places of low energy. In the optimization algorithm, the estimate is
+the position of a particle with high temperature. It wanders around the domain,
+and tends to position in places of low energy (such as the position of the
+minimum). Simulated annealing have been used in lots of applications with
+success.</p>
+<p>We will use simulated annealing to find the minimum of the Rosenbrock function.
+There is absolutelly no difference in how a simulated annealing optimizer is
+created and used. We start by importing <tt class="docutils literal"><span class="pre">peach</span></tt> and <tt class="docutils literal"><span class="pre">numpy</span></tt> in different
+namespaces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>We must also create the objective function and the gradient function, as the
+algorithms use them. Notice however that, as before, we can omit the gradient
+function and let Peach estimate them for us if needed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Now we will create the optimizer. We create these optimizers in the same way we
+created other optimizers: by instantiating the corresponding class, passing the
+function and the first estimate. Notice that the first estimates are given in
+the form of a tuple, with the first estimate of <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in the first place,
+and the first estimate of <img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the second place. There is no need to use
+tuples: lists or arrays will do. To create the optimizers, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">csa</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">ContinuousSA</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">optm</span><span class="o">=</span><span class="n">Gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Notice that we included an <tt class="docutils literal"><span class="pre">optm</span></tt> parameter in the creation of the optimizer.
+This is done because we want a little improvement on our estimates even if the
+annealing process refuses a new estimate. To make this happen, we pass to the
+algorithm a standard method of optimization, such as <tt class="docutils literal"><span class="pre">Gradient</span></tt> or <tt class="docutils literal"><span class="pre">Newton</span></tt>.
+Notice also that we must fully instantiate the standard optimizer, or we will
+receive errors.</p>
+<p>As we done in the other optimization tutorials, we will execute the algorithm
+step by step. We can do this to keep track of the estimates to plot a graphic.
+We do this using the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">csa</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Notice that we used 500 iterations here. In general, stochastic methods pay this
+price to be able to find the global minimum: they need more iterations to
+converge. That&#8217;s not a problem, however, since finding the global minimum is
+a desired result, and the penalty in the convergence time is not that
+significant.</p>
+<p>The <tt class="docutils literal"><span class="pre">xs</span></tt> variable will hold, in sequence, the estimates. We can plot them to
+see the convergence trace. The figure below is a representation of the execution
+of the method. The function itself is represented as contour curves in the
+plane, and the estimate tracks over them. Notice the unusual path that the
+estimate followed to arrive at the result.</p>
+<div align="center" class="align-center"><img alt="../_images/continuous-simulated-annealing.png" class="align-center" src="../_images/continuous-simulated-annealing.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quasi-newton-optimization.html"
+                        title="previous chapter">Optimization of a Multivariate Function by Quasi-Newton Methods</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="custom-neighbor.html"
+                        title="next chapter">Using Custom Neighbor Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/simulated-annealing.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="custom-neighbor.html" title="Using Custom Neighbor Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="quasi-newton-optimization.html" title="Optimization of a Multivariate Function by Quasi-Newton Methods"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linear Optimization of a Single Variable with Derivative Methods &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Optimization of a Multivariate Function" href="multivariate-optimization.html" />
+    <link rel="prev" title="Linear Optimization of a Single Variable" href="linear-optimization.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="multivariate-optimization.html" title="Optimization of a Multivariate Function"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="linear-optimization.html" title="Linear Optimization of a Single Variable"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="linear-optimization-of-a-single-variable-with-derivative-methods">
+<h1>Linear Optimization of a Single Variable with Derivative Methods<a class="headerlink" href="#linear-optimization-of-a-single-variable-with-derivative-methods" title="Permalink to this headline">¶</a></h1>
+<p>The optimization problem for a function of a single variable can be put as the
+following: finding the <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in a function <img class="math" src="../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> that wields the
+function&#8217;s smallest value. Mathematically, it is usually put as</p>
+<div class="math">
+<p><img src="../_images/math/d315d0d928729ff2e9add3d2fb2ae6c02f69b58b.png" alt="x^*  = \min f(x)" /></p>
+</div><p>One property of the function respects to the value of its derivatives in the
+minimum &#8211; at that point the derivative of the function is zero, and its second
+derivative is positive, that is:</p>
+<div class="math">
+<p><img src="../_images/math/eef7b790195646b3eb563fac9964b85127490e6f.png" alt="f^\prime(x^*) = 0" /></p>
+</div><div class="math">
+<p><img src="../_images/math/59a4611121b4e3bfa28578f28612205939d1c5e8.png" alt="f^{\prime\prime}(x^*) &gt; 0" /></p>
+</div><p>Two methods based on the derivatives are used to find the location of the
+minimum. Those are briefly described below, but further information can be
+found in any book about the subject:</p>
+<blockquote>
+<dl class="docutils">
+<dt>Gradient</dt>
+<dd>The gradient search uses the information of the derivative to direct the
+search. Basically, the update step has the opposite signal of the derivative
+and its magnitude is proportional to that of the derivative.</dd>
+<dt>Newton</dt>
+<dd>The Newton method is based on the expansion of the original function in
+Taylor series, and uses both the derivative and the second derivative of the
+function to compute the update step.</dd>
+</dl>
+</blockquote>
+<p>We will use, in this tutorial, both methods to find the minimum of the
+Rosenbrock function. For that, we will need its derivatives, which are given by:</p>
+<div class="math">
+<p><img src="../_images/math/19aaba9306b24037fb57544d9e275cd2eab4a452.png" alt="f^\prime(x) = -2(1-x) - 4x(1-x^2)" /></p>
+</div><div class="math">
+<p><img src="../_images/math/c4c54ddf6c182f1ce77034929440ae5b17e40b1a.png" alt="f^{\prime\prime}(x) = 2 - 4(1 - 3x^2)" /></p>
+</div><p>As always, we first import <tt class="docutils literal"><span class="pre">numpy</span></tt> for arrays and <tt class="docutils literal"><span class="pre">peach</span></tt> for the library.
+Actually, <tt class="docutils literal"><span class="pre">peach</span></tt> also the <tt class="docutils literal"><span class="pre">numpy</span></tt> module, but we want it in a separate
+namespace:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>Let&#8217;s define the function to be optimized. By using Peach, you can pass to an
+optimizer any function that receives a floating point number and returns a
+number. The function will be called by the optimizer, so you must ensure that it
+can deal with the parameter and return an appropriate result. The derivative and
+the second derivative, if used, must follow the same requirements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">ddf</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">2.</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="mf">3.</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we will create the optimizer. We create these optimizers in the same way we
+created other optimizers: by instantiating the corresponding class, passing the
+function and the first estimate. These optimizers, however, accept as parameters
+the derivatives. To create the optimizers, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">grad</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">newton</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">ddf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create, respectivelly, a gradient optimizer in the variable <tt class="docutils literal"><span class="pre">grad</span></tt>
+and a Newton optimizer in the variable <tt class="docutils literal"><span class="pre">newton</span></tt>. The third parameter is the
+interval in which the search will be done. This parameter is not needed &#8211; if
+given, however, it will instruct the algorithm to never let the estimates fall
+outside the given interval. The range of values is given as a duple representing
+the lower and upper limit of the search interval.</p>
+<p>Notice that the fourth parameter in the creation of the gradient search is the
+function that computes the derivative of the objective function for a given
+value, and the fourth and fifth parameters in the creation of the Newton search
+are the derivative and the second derivative.</p>
+<p>Those parameters, however, can be omitted &#8211; if omitted, an estimate based on
+difference equations will be used instead. However, notice that, in general, the
+estimates will be less accurate, and the computation can be a little slower. To
+create the optimizers by using estimates, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">grad</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">)</span>
+<span class="n">newton</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These optimizers will also search without restriction in the set of accepted
+values for the variable.</p>
+<p>Every optimizer has two additional parameters that can be specified at
+instantiation time. The <tt class="docutils literal"><span class="pre">emax</span></tt> parameter estipulates what will be the maximum
+error allowed. The <tt class="docutils literal"><span class="pre">imax</span></tt> parameter estipulates the maximum number of
+iterations the algorithm will perform. Their default values are, respectivelly,
+<img class="math" src="../_images/math/726ccb1c5b1dd30ff6544e6a48732f1caa842856.png" alt="10^{-8}"/> and 1000. However, if we wanted different values, say, an error
+of 0.001 or 500 iterations, we could create the optimizer by issuing the
+following command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">grad</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">emax</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also, every optimizer has three interfaces. The <tt class="docutils literal"><span class="pre">step()</span></tt> method is called
+without any parameters and computes the next estimate. It returns a tuple
+<tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the new estimate and <tt class="docutils literal"><span class="pre">e</span></tt> is an estimate of the
+error. The <tt class="docutils literal"><span class="pre">restart()</span></tt> method can be used to reset the algorithm, allowing to
+change the estimate or another parameters. The <tt class="docutils literal"><span class="pre">__call__()</span></tt> method is also
+called without any parameters, and computes the best estimate until a given
+precision or a maximum number of iterations of the algorithm are achieved. The
+<tt class="docutils literal"><span class="pre">x</span></tt> property holds the last estimate of the minimum, and can be read or
+written at any time. However, we suggest that, if you need to write to the
+estimate, that the optimizer is reset using the <tt class="docutils literal"><span class="pre">restart()</span></tt> method.</p>
+<p>We will execute the algorithm step by step. We can do this to keep track of the
+estimates to plot a graphic. We do this using the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xg</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">xn</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">grad</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">newton</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">xg</span></tt> and  <tt class="docutils literal"><span class="pre">xn</span></tt> variables will hold, in sequence, the estimates. We can
+plot them to see the convergence trace. The figure below is a representation of
+the execution of these methods, with given and estimated derivatives, in the
+optimization of the same function. It is easy to see that they converge fastly.
+In fact, the Newton optimizer could converge even faster than the gradient, by
+adjusting the convergence step (please, consult the documentation on the
+methods, as this is one of the parameters of the instantiation of the
+algorithms).</p>
+<div align="center" class="align-center"><img alt="../_images/derivative-optimization.png" class="align-center" src="../_images/derivative-optimization.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="linear-optimization.html"
+                        title="previous chapter">Linear Optimization of a Single Variable</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="multivariate-optimization.html"
+                        title="next chapter">Optimization of a Multivariate Function</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/derivative-optimization.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="multivariate-optimization.html" title="Optimization of a Multivariate Function"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="linear-optimization.html" title="Linear Optimization of a Single Variable"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

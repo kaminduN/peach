@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Simple Controller &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Generating a Control Surface" href="control-surface.html" />
+    <link rel="prev" title="Defuzzification is not the Complementary Operation of Fuzzification" href="fuzzy-defuzzy.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="control-surface.html" title="Generating a Control Surface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fuzzy-defuzzy.html" title="Defuzzification is not the Complementary Operation of Fuzzification"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="simple-controller">
+<h1>Simple Controller<a class="headerlink" href="#simple-controller" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial shows how to work with a fuzzy-based controller. It is really easy
+to build a standard controller using Peach. We won&#8217;t go into details of how a
+controller should work &#8211; please, consult the literature on the subject, as it
+is very rich and explains the topic a lot better than we could do here.</p>
+<p>We will show how to build a simple single-input single-output controller for no
+specific plant &#8211; it will be completelly abstract. The goal is to show how to
+work with the capabilities built in Peach for dealing with it. A Mamdani
+controller has, typically, three steps: fuzzification, in which numerical values
+are converted to the fuzzy domain; decision rules, where the relationship
+between controlled variable and manipulated variable are stablished; and
+defuzzification, where we travel back from fuzzified domain to crisp numerical
+values.</p>
+<p>To build a controller, thus, we need to specify the membership functions of the
+controlled variable. There are a number of ways of doing that (please, see the
+tutorial on membership functions for more details): we could use built-in
+membership functions; define our own membership functions; or use a support
+function, such as the one below.</p>
+<p>Suppose we wanted to use three membership functions to fuzzify our input
+variable: a decreasing ramp from -1 to 0, a triangle ramp from -1 to 0 to 1, and
+an increasing ramp from 0 to 1. We could define these functions as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">i_neg</span> <span class="o">=</span> <span class="n">DecreasingRamp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">i_zero</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">i_pos</span> <span class="o">=</span> <span class="n">IncreasingRamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is nothing wrong with this method. But, since sequences of triangles are
+so usual in fuzzy controllers, Peach has two methods to create them in a batch.
+The first one is the <tt class="docutils literal"><span class="pre">Saw</span></tt> function: given an interval and a number of
+functions, it splits the interval in equally spaced triangles. The second one is
+the <tt class="docutils literal"><span class="pre">FlatSaw</span></tt> function: it also creates a sequence of equally spaced
+triangles, but use a decreasing ramp as the first function, and an increasing
+function as the last one. Both of them return a tuple containing the functions
+in order. The same functions above could be created with the command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">i_neg</span><span class="p">,</span> <span class="n">i_zero</span><span class="p">,</span> <span class="n">i_pos</span> <span class="o">=</span> <span class="n">FlatSaw</span><span class="p">((</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>assuming, that is, that the input variable will range from -2 to 2. Notice that
+if we don&#8217;t use the correct interval, the starts and ends of the functions won&#8217;t
+fall where we want them. Notice, also, that we are here using membership
+functions, not fuzzy sets! If we iterate these functions over the given interval
+and plot the results, we will get something similar to the figure below:</p>
+<div align="center" class="align-center"><img alt="../_images/simple-controller-mf.png" class="align-center" src="../_images/simple-controller-mf.png" /></div>
+<p>We will also need to create membership functions for the output variable. Let&#8217;s
+assume we need three functions as above, in the range from -10 to 10. We do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">o_neg</span><span class="p">,</span> <span class="n">o_zero</span><span class="p">,</span> <span class="n">o_pos</span> <span class="o">=</span> <span class="n">FlatSaw</span><span class="p">((</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The control will be done following the decision rules:</p>
+<p>IF <em>input</em> is <em>negative</em> THEN <em>output</em> is <em>positive</em></p>
+<p>IF <em>input</em> is <em>zero</em> THEN <em>output</em> is <em>zero</em></p>
+<p>IF <em>input</em> is <em>positive</em> THEN <em>output</em> is <em>negative</em></p>
+<p>We will now create the controller that will implement these rules. Here is what
+we do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Points</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">yrange</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">(</span><span class="n">yrange</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <tt class="docutils literal"><span class="pre">yrange</span></tt> is the interval in which the output variable is defined, and it
+is the only mandatory parameter in the creation of the controller. There are
+some other parameters that we can use to customize how it works. To create a
+controller, we instantiate the <tt class="docutils literal"><span class="pre">Controller</span></tt> class with the following
+parameters:</p>
+<div class="highlight-python"><pre>c = Controller(yrange, rules=[], defuzzy=Centroid, norm=ZadehAnd,
+               conorm=ZadehOr, negation=ZadehNot, imply=MamdaniImplication,
+               aglutinate=MamdaniAglutination):</pre>
+</div>
+<p>Here is what means these parameters:</p>
+<blockquote>
+<dl class="docutils">
+<dt>yrange</dt>
+<dd>The range of the output variable. This must be given as a set of points
+belonging to the interval where the output variable is defined, not only
+the start and end points. It is strongly suggested that the interval is
+divided in some (eg.: 100) points equally spaced;</dd>
+<dt>rules</dt>
+<dd>The set of decision rules, as defined below. This must be given as a
+list of rules. If none is given, an empty set of rules is assumed;</dd>
+<dt>defuzzy</dt>
+<dd>The defuzzification method to be used. If none is given, the Centroid
+method is used;</dd>
+<dt>norm</dt>
+<dd>The norm (<tt class="docutils literal"><span class="pre">and</span></tt> operation) to be used. Defaults to Zadeh and. The norm
+is used join the conditions in every rule</dd>
+<dt>conorm</dt>
+<dd>The conorm (<tt class="docutils literal"><span class="pre">or</span></tt> operation) to be used. Defaults to Zadeh or.</dd>
+<dt>negation</dt>
+<dd>The negation (<tt class="docutils literal"><span class="pre">not</span></tt> operation) to be used. Defaults to Zadeh not.</dd>
+<dt>imply</dt>
+<dd>The implication method to be used. Defaults to Mamdani implication.</dd>
+<dt>aglutinate</dt>
+<dd>The aglutination method to be used. Defaults to Mamdani aglutination.</dd>
+</dl>
+</blockquote>
+<p>So, as it is easy to see, this is a standard Mamdani controller. As created, our
+controller doesn&#8217;t have any rules, so we must add them. To add rules to a
+controller, we use the <tt class="docutils literal"><span class="pre">add_rule</span></tt> method. A rule is a tuple with the following
+format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="n">input_mf</span><span class="p">,</span> <span class="p">),</span> <span class="n">output_mf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">input_mf</span></tt> is the condition, and <tt class="docutils literal"><span class="pre">output_mf</span></tt> is the consequence. This
+format can be used to control multiple variables. For instance, if you wanted to
+control three variables, a rule would have the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="n">input1_mf</span><span class="p">,</span> <span class="n">input2_mf</span><span class="p">,</span> <span class="n">input3_mf</span><span class="p">),</span> <span class="n">output_mf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that the conditions are wrapped in a tuple themselves. We will add the
+rules of our controller now:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span><span class="o">.</span><span class="n">add_rule</span><span class="p">(((</span><span class="n">i_neg</span><span class="p">,),</span> <span class="n">o_pos</span><span class="p">))</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_rule</span><span class="p">(((</span><span class="n">i_zero</span><span class="p">,),</span> <span class="n">o_zero</span><span class="p">))</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_rule</span><span class="p">(((</span><span class="n">i_pos</span><span class="p">,),</span> <span class="n">o_neg</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Besides the <tt class="docutils literal"><span class="pre">add_rule</span></tt> method, the controller has some other methods to
+perform other tasks. Please, consult the documentation on the <tt class="docutils literal"><span class="pre">Controller</span></tt> for
+more information. Of these methods, the most important is the <tt class="docutils literal"><span class="pre">__call__</span></tt>
+interface, that we use to pass to the controller the values of the variables (in
+the form of a n-dimension array), and it returns us the result. So, if we want
+to know what the result of the controller would be for (say) input 0.23, we just
+issue the command:</p>
+<div class="highlight-python"><pre>&gt;&gt; c(0.23)
+-1.53472428319</pre>
+</div>
+<p>In this tutorial, we will iterate over the domain of the input variable to plot
+the transfer function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">Points</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By using the <tt class="docutils literal"><span class="pre">matplotlib</span></tt> module, we can plot this function to obtain the
+transfer function of this controller. This is a very simple controller, so we
+don&#8217;t expect this transfer function to represent much, but it is interesting to
+notice how a very simple controller can give a nice non-linear response:</p>
+<div align="center" class="align-center"><img alt="../_images/simple-controller.png" class="align-center" src="../_images/simple-controller.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fuzzy-defuzzy.html"
+                        title="previous chapter">Defuzzification is not the Complementary Operation of Fuzzification</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="control-surface.html"
+                        title="next chapter">Generating a Control Surface</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/simple-controller.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="control-surface.html" title="Generating a Control Surface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fuzzy-defuzzy.html" title="Defuzzification is not the Complementary Operation of Fuzzification"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Optimization of a Multivariate Function &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Optimization of a Multivariate Function by Quasi-Newton Methods" href="quasi-newton-optimization.html" />
+    <link rel="prev" title="Linear Optimization of a Single Variable with Derivative Methods" href="derivative-optimization.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="quasi-newton-optimization.html" title="Optimization of a Multivariate Function by Quasi-Newton Methods"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="derivative-optimization.html" title="Linear Optimization of a Single Variable with Derivative Methods"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="optimization-of-a-multivariate-function">
+<h1>Optimization of a Multivariate Function<a class="headerlink" href="#optimization-of-a-multivariate-function" title="Permalink to this headline">¶</a></h1>
+<p>The gradient and Newton search can be used without many changes to optimize
+functions of multiple variables. In fact, there is no change at all in the way
+that the optimizers are created &#8211; but some care must be taken in the way that
+the objective function is created, and how the estimates must be taken care of.</p>
+<p>The objective function to be minimized must be programmed to receive a
+one-dimensional array, and should return one single scalar value. The <tt class="docutils literal"><span class="pre">shape</span></tt>
+property of the array that the function will receive is <tt class="docutils literal"><span class="pre">(n,</span> <span class="pre">)</span></tt>, meaning that
+it is an array with only one dimension, with <tt class="docutils literal"><span class="pre">n</span></tt> components, each component
+being one of the variables to be optimized.</p>
+<p>Notice that this will affect the manner that derivatives are informed. The first
+derivative will be, in fact, the gradient vector of the function, by applying to
+the function partial derivatives in respect to each variable. The second
+derivative will be the hessian matrix. We strongly suggest consulting any good
+reference on the subject. Any way, if it is too difficult to create the
+functions that will create these objects, you can always omit them and let the
+algorithm estimate them.</p>
+<p>The estimates can be passed to the algorithm as any iterable, with any
+dimensions. Internally, however, it will be converted to a one-dimensional array
+with the characteristics described above. The conversion is done by means of the
+<tt class="docutils literal"><span class="pre">ravel()</span></tt> method of the arrays. When finished, the value returned by the
+algorithm will also be a one-dimension array.</p>
+<p>Other than that, the algorithms behave in the same way, with no distinction on
+how the methods are used. We will use them to minimize the two-dimensional
+Rosenbrock function, given by:</p>
+<div class="math">
+<p><img src="../_images/math/7f3510d13fcd4c6f43a2374478de497ca8eefdfa.png" alt="f(x, y) = (1 - x)^2 + (y - x^2)^2" /></p>
+</div><p>Its gradient vector can be computed by the expression:</p>
+<div class="math">
+<p><img src="../_images/math/c830666c5a797fc9705c2c166ec00b128ce398de.png" alt="\nabla f(x, y) = \left[ \begin{array}{c}
+  -2 (1 - x) - 4x (y - x^2) \\
+  2 (y - x^2)
+\end{array} \right]" /></p>
+</div><p>And its hessian matrix by:</p>
+<div class="math">
+<p><img src="../_images/math/b20da93f7b0f52200b7213d2b77eeda7d03bb248.png" alt="H(x, y) = \left[ \begin{array}{cc}
+  2 - 4(y - 3x^2) &amp; -4x \\
+              -4x &amp;   2
+\end{array} \right]" /></p>
+</div><p>So, knowing these facts, we can program the optimization. We start by importing
+<tt class="docutils literal"><span class="pre">numpy</span></tt> for arrays and <tt class="docutils literal"><span class="pre">peach</span></tt> for the library:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>Let&#8217;s define the functions that will help in the convergence. Notice that the
+functions receive only one argument, which will be a one-dimensional array with
+two components, and split them to get the value of each variable. Also, notice
+that the gradient of the objective function returns a one-dimensional array with
+two components, corresponding to the partial derivatives to <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and
+<img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>, and the hessian function returns a two-dimensional array, with the
+corresponding derivatives:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">hf</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">([</span> <span class="p">[</span> <span class="mf">2.</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mf">3.</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="o">-</span><span class="mf">4.</span><span class="o">*</span><span class="n">x</span> <span class="p">],</span>
+                   <span class="p">[</span> <span class="o">-</span><span class="mf">4.</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mf">2.</span> <span class="p">]</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Now we will create the optimizers. We create these optimizers in the same way we
+created other optimizers: by instantiating the corresponding class, passing the
+function and the first estimate. Notice that the first estimates are given in
+the form of a tuple, with the first estimate of <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in the first place,
+and the first estimate of <img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the second place. There is no need to use
+tuples: lists or arrays will do. To create the optimizers, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">grad</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">[</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">],</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">newton</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">[</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">],</span> <span class="n">df</span><span class="p">,</span> <span class="n">ddf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that we can specify the range allowed for each variable, as a list of
+ranges. Each range is given as before: a duple with the lower and upper limit.
+Alternatively, this can be a list with only one duple &#8211; if given this way, the
+same range will be applied to every variable. This parameter can be omitted &#8211;
+if not given, the values of the variables are not restricted in any way.</p>
+<p>Also, the derivatives parameters can be omitted &#8211; if this is done, the
+algorithm will estimate them. We will execute the algorithm step by step. We can
+do this to keep track of the estimates to plot a graphic. We do this using the
+commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xg</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">xn</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">grad</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">newton</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">xg</span></tt> and  <tt class="docutils literal"><span class="pre">xn</span></tt> variables will hold, in sequence, the estimates. We can
+plot them to see the convergence trace. The figure below is a representation of
+the execution of these methods, with given and estimated derivatives, in the
+optimization of the same function. The function itself is represented as contour
+curves in the plane, and the estimate tracks over them. It is difficult to see
+how fast they converged with this representation &#8211; nonetheless, we can see that
+the results were those desired.</p>
+<div align="center" class="align-center"><img alt="../_images/multivariate-optimization.png" class="align-center" src="../_images/multivariate-optimization.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="derivative-optimization.html"
+                        title="previous chapter">Linear Optimization of a Single Variable with Derivative Methods</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="quasi-newton-optimization.html"
+                        title="next chapter">Optimization of a Multivariate Function by Quasi-Newton Methods</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/multivariate-optimization.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="quasi-newton-optimization.html" title="Optimization of a Multivariate Function by Quasi-Newton Methods"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="derivative-optimization.html" title="Linear Optimization of a Single Variable with Derivative Methods"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

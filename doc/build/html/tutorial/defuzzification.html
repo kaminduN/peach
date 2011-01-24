@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Defuzzification &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Defuzzification is not the Complementary Operation of Fuzzification" href="fuzzy-defuzzy.html" />
+    <link rel="prev" title="Norms and Conorms" href="norms-conorms.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fuzzy-defuzzy.html" title="Defuzzification is not the Complementary Operation of Fuzzification"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="norms-conorms.html" title="Norms and Conorms"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="defuzzification">
+<h1>Defuzzification<a class="headerlink" href="#defuzzification" title="Permalink to this headline">¶</a></h1>
+<p>The main application of fuzzy logic is in the form of fuzzy controllers. Fuzzy
+controllers do their job in three steps: <em>fuzzification</em>, where crisp values
+(taken from sensors, for example) are converted to membership values;
+<em>production rules</em>, that stablish the relationship between input variables and
+output variables; and <em>defuzzification</em>, returnin from fuzzy sets to crisp
+numbers.</p>
+<p>Defuzzification is usually a simple step &#8211; for a computer, that is. In general,
+there are some computation to be done, and, while the operations are very easy
+to understand, they&#8217;re very ellaborate to do manually. In this tutorial, we show
+how to use Peach to perform defuzzification. Notice that defuzzification is part
+of a process (there is another tutorial covering controllers in a more complete
+way), and we will only simulate here the first two steps.</p>
+<p>We import <tt class="docutils literal"><span class="pre">numpy</span></tt> for arrays and <tt class="docutils literal"><span class="pre">peach</span></tt> for the library:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">peach</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Just to illustrate the method, we will create arbitrary fuzzy sets. In a
+controller, these functions would be obtained by fuzzification and a set of
+production rules. But our intent here is to show how to use the defuzzification
+methods. Remember that instantiating <tt class="docutils literal"><span class="pre">Membership</span></tt> functions gives a function,
+so we must apply it over our domain. Remember, also, that these functions return
+<tt class="docutils literal"><span class="pre">FuzzySet</span></tt> instances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">gn</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">30.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">pn</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">gp</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <tt class="docutils literal"><span class="pre">y</span></tt> is the domain of the output variable. We simulate now the response
+of the production rules of a controller. In it, a controller will associate a
+membership value with every membership function of the output variable. You will
+notice that no membership values are associated with <tt class="docutils literal"><span class="pre">pp</span></tt> and <tt class="docutils literal"><span class="pre">gp</span></tt>
+functions. That is because we are assuming that the results of the corresponding
+production rules are 0, effectivelly eliminating those functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mf</span> <span class="o">=</span> <span class="n">gn</span> <span class="o">&amp;</span> <span class="mf">0.33</span> <span class="o">|</span> <span class="n">pn</span> <span class="o">&amp;</span> <span class="mf">0.67</span> <span class="o">|</span> <span class="n">z</span> <span class="o">&amp;</span> <span class="mf">0.25</span>
+</pre></div>
+</div>
+<p>If you use expressions like this, it is extremely easy to program a controller.
+Just think of the <tt class="docutils literal"><span class="pre">&amp;</span></tt> operator as implication, and <tt class="docutils literal"><span class="pre">|</span></tt> as aglutination. But
+Peach has better ways to deal with that.</p>
+<p>Here are the defuzzification methods &#8211; if you need more information on them,
+consult the literature on the subject. Notice that it is a simple function call,
+not a class instantiation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">centroid</span> <span class="o">=</span> <span class="n">Centroid</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>                 <span class="c"># Centroid method</span>
+<span class="n">bisec</span> <span class="o">=</span> <span class="n">Bisector</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>                    <span class="c"># Bissection method</span>
+<span class="n">som</span> <span class="o">=</span> <span class="n">SmallestOfMaxima</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>              <span class="c"># Smallest of Maxima</span>
+<span class="n">lom</span> <span class="o">=</span> <span class="n">LargestOfMaxima</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>               <span class="c"># Largest of Maxima</span>
+<span class="n">mom</span> <span class="o">=</span> <span class="n">MeanOfMaxima</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>                  <span class="c"># Mean of Maxima</span>
+</pre></div>
+</div>
+<p>If you want to try your own defuzzification method, creating one is very easy:
+just program it as a function. There is no need to instantiate or create
+objects. Defuzzification methods receive, as their first parameter, the fuzzy
+set to be defuzzified, and as second parameter the domain of the output
+variable. It should return the defuzzified value. Every method works that way &#8211;
+and that&#8217;s what Peach expects when it needs one.</p>
+<p>The figure below shows the results of the defuzzification.</p>
+<div align="center" class="align-center"><img alt="../_images/defuzzification.png" class="align-center" src="../_images/defuzzification.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="norms-conorms.html"
+                        title="previous chapter">Norms and Conorms</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fuzzy-defuzzy.html"
+                        title="next chapter">Defuzzification is not the Complementary Operation of Fuzzification</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/defuzzification.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fuzzy-defuzzy.html" title="Defuzzification is not the Complementary Operation of Fuzzification"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="norms-conorms.html" title="Norms and Conorms"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
