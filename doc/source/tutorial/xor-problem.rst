@@ -19,16 +19,18 @@ function should be sigmoidal, and the learning rule the backpropagation
 algorithm. As before, we will assume that the ``numpy`` and ``peach`` modules
 were imported in the command line. We create the network::
 
-   >>> nn = FeedForward((2, 2, 1), Sigmoid, BackPropagation(0.2), True)
+   >>> nn = FeedForward((2, 2, 1), TanH, BackPropagation(0.2), True)
 
-Instead of presenting every single example, we will create a training set and
-present the training set to the network. The training set is easy: it should be
-that truth table of the exclusive-or operation::
+We will use the hyperbolic tangent as the activation function because instead of
+using 0 and 1 as the logical values, we will use -1 and 1. Instead of presenting
+every single example, we will create a training set and present the training set
+to the network. The training set is easy: it should be that truth table of the
+exclusive-or operation::
 
-   >>> train_set = [ ( array(( 0.0, 0.0)), 0.0 ),
-                     ( array(( 0.0, 1.0)), 1.0 ),
-                     ( array(( 1.0, 0.0)), 1.0 ),
-                     ( array(( 1.0, 1.0)), 0.0 ) ]
+   >>> train_set = [ ( array(( -1., -1.)), -1. ),
+                     ( array(( -1.,  1.)),  1. ),
+                     ( array((  1., -1.)),  1. ),
+                     ( array((  1.,  1.)), -1. ) ]
 
 A training set is a list of examples. Every example is a tuple with two
 elements: the first one is the input vector, and the second is the desired
@@ -40,7 +42,7 @@ method::
 This will iterate over the training set. The complete signature of this method
 is::
 
-  train(train_set, imax=2000, emax=1e-05, randomize=False)
+   train(train_set, imax=2000, emax=1e-05, randomize=False)
 
 Here, ``train_set`` is the list of examples as described above; ``imax`` is the
 maximum number of iterations over the training set; ``emax`` is the maximum
@@ -54,12 +56,14 @@ the results with a simple loop::
    >>> for x, _ in train_set:
    ...   print x, ' => ', nn(x)
    ...
-   [ 0.  0.]  =>  [[ 0.04868284]]
-   [ 0.  1.]  =>  [[ 0.94078034]]
-   [ 1.  0.]  =>  [[ 0.9422161]]
-   [ 1.  1.]  =>  [[ 0.07817926]]
+   [-1. -1.]  =>  [[-0.97165216]]
+   [-1.  1.]  =>  [[ 0.96165113]]
+   [ 1. -1.]  =>  [[ 0.9611877]]
+   [ 1.  1.]  =>  [[-0.97174588]]
 
-Notice that we don't get exactly 0 or 1 as the response of the network. This
+
+Notice that we don't get exactly -1 or 1 as the response of the network. This
 happens because we are using a sigmoid as activation function, and it reaches
 these values only when input is infinity. But notice that the output is very
-near 0 when the answer should be 0, and very near 1 when the answer should be 1.
+near -1 when the answer should be -1, and very near 1 when the answer should be
+1.
