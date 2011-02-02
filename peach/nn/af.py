@@ -390,7 +390,10 @@ class Signum(Activation):
         :Returns:
           The activation function applied over the input vector.
         '''
-        return where(x == 0.0, 0.0, x / abs(x))
+        try:
+            return where(x==0.0, 0.0, x/abs(x))
+        except ZeroDivisionError as e:
+            return 0
 
     def derivative(self, x):
         '''
