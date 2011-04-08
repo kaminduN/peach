@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from distutils.core import setup
+
+try:
+    from setuptools import setup
+except ImportError as e:
+    from distutils.core import setup
 
 long_description = '''
     Peach is a pure-python module, based on SciPy and NumPy to implement 
@@ -34,8 +38,8 @@ setup(
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    keywords = 'artificial intelligence neural network genetic algorithm fuzzy logic optimization artificial life',
-    packages = [
+    keywords='artificial intelligence neural network genetic algorithm fuzzy logic optimization artificial life',
+    packages=[
         'peach',
         'peach.fuzzy',
         'peach.ga',
@@ -43,6 +47,9 @@ setup(
         'peach.optm',
         'peach.pso',
         'peach.sa'
+    ],
+    install_requires=[
+        'bitarray',
     ],
 )
 

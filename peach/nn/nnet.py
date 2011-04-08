@@ -21,14 +21,14 @@ net is developed from the ground up.
 """
 
 ################################################################################
-from numpy import sum, abs, reshape, sqrt, argmin
+from numpy import array, sum, abs, reshape, sqrt, argmin, zeros, dot
 import random
 
 from base import *
 from af import *
 from lrules import *
 
-
+        
 ################################################################################
 class FeedForward(list):
     '''
@@ -452,6 +452,159 @@ class SOM(Layer):
             error = self.feed(x)
             i = i+1
         return error
+
+
+################################################################################
+class GRNN(object):
+    """
+    GRNN is the implementation of General Regression Neural Network, a kind of
+    probabilistic neural network used in regression tasks.
+    """
+    def __init__(self, sigma=0.1):
+        """
+        Initializes the network.
+
+        Is not necessary to inform the training set size, GRNN will do it by 
+        itself in ``train`` method.
+
+        :Parameters:
+          sigma
+            A real number. This value determines the spread of probability 
+            density function (i.e is the smoothness parameter). A great value
+            for sigma will result in a large spread gaussian and the sample
+            points will cover a wide range of inputs, while a small value will
+            create a limited spread gaussian and the sample points will cover a 
+            small range of inputs
+        """
+        self._samples = None
+        self._targets = None
+        self.sigma = sigma
+
+    def _kernel(self, x1, x2):
+        """
+        This method gives a measure of how well a training sample can represent
+        the position of prediction (i.e. how well x1 can represent x2, or vice
+        versa). If the distance D between x1 and x2 is small, result becomes 
+        big. For distance 0 (i.e. x1 == x2), result becomes one and the sample 
+        point is the best representation of prediction point. 
+
+        In the probabilistic view, this method calculates the probability 
+        distribution.
+        """
+        D = x1-x2
+        return exp(-dot(D, D)/(2*self.sigma**2))
+
+    def train(self, sampleInputs, targets):
+        """
+        Presents a training set to the network.
+
+        This method uses the sample inputs to set the size of network. 
+
+        :Parameters:
+          sampleInputs
+            Should be a list of numbers or a list of ``numpy.array`` to set the
+            sample inputs. These inputs are used to calculate the distance 
+            between prediction points.
+          targets
+            The target values of sample inputs. Should be a list of numbers.
+        """
+        self._samples = array(sampleInputs)
+        self._targets = array(targets)
+
+    def __call__(self, x):
+        """
+        The method to predict a value from input ``x``.
+
+        :Parameters:
+          x
+            The input vector to the network.
+
+        :Returns:
+          The predicted value.
+        """
+        values = [self._kernel(x, x2) for x2 in self._samples]
+        regular = sum(values)
+        return dot(values, self._targets)/regular
+
+
+class PNN(object):
+    """
+    PNN is the implementation of Probabilistic Neural Network, a network used
+    for classification tasks
+    """
+    def __init__(self, sigma=0.1):
+        """
+        Initializes the network.
+
+        Is not necessary to inform the training set size, PNN will do it by 
+        itself in ``train`` method.
+
+        :Parameters:
+          sigma
+            A real number. This value determines the spread of probability 
+            density function (i.e is the smoothness parameter). A great value
+            for sigma will result in a large spread gaussian and the sample
+            points will cover a wide range of inputs, while a small value will
+            create a limited spread gaussian and the sample points will cover a 
+            small range of inputs
+        """
+        self.sigma = sigma
+        self._categorys = None
+    
+    def _kernel(self, x1, x2):
+        """
+        This method gives a measure of how well a training sample can represent
+        the position of evaluation (i.e. how well x1 can represent x2, or vice
+        versa). If the distance D between x1 and x2 is small, result becomes 
+        big. For distance 0 (i.e. x1 == x2), result becomes one and the sample 
+        point is the best representation of evaluation point. 
+
+        In the probabilistic view, this method calculates the probability 
+        distribution.
+        """
+        D = x1-x2
+        return exp(-dot(D, D)/(2*self.sigma**2))
+    
+    def train(self, trainSet):
+        """
+        Presents a training set to the network.
+
+        This method uses the sample inputs to set the size of network. 
+
+        :Parameters:
+          train_set
+            The training set is a list of examples. It can have any size. In 
+            fact, the definition of the training set is open. Each element of 
+            the training set, however, should be a two-tuple ``(x, d)``, where 
+            ``x`` is the input vector, and ``d`` is the desired response of the 
+            network for this particular input, i.e the category of ``x`` 
+            pattern. 
+        """
+        self._categorys = {}
+        for pattern, category in trainSet:
+            if category not in self._categorys:
+                self._categorys[category] = []
+
+            self._categorys[category].append(array(pattern))
+
+    def __call__(self, x):
+        """
+        The method to classify the input ``x`` into one of trained category.
+
+        :Parameters:
+          x
+            The input vector to the network.
+
+        :Returns:
+          The category that best represent the input vector.
+        """
+        sums = {}
+        for category in self._categorys:
+            patterns = self._categorys[category]
+            sums[category] = sum([self._kernel(x, x2) for x2 in patterns])
+            sums[category] /= float(len(patterns))
+
+        return max(sums, key=lambda x:sums[x])
 
 
 ################################################################################
