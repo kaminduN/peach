@@ -125,6 +125,7 @@ with genetic algorithms.</em>    </li>
     <li> <strong class="uidlink"><a href="peach.nn.af-module.html">peach.nn.af</a></strong>: <em class="summary">Base activation functions and base class</em>    </li>
     <li> <strong class="uidlink"><a href="peach.nn.base-module.html">peach.nn.base</a></strong>: <em class="summary">Basic definitions for layers of neurons.</em>    </li>
     <li> <strong class="uidlink"><a href="peach.nn.lrules-module.html">peach.nn.lrules</a></strong>: <em class="summary">Learning rules for neural networks and base classes for custom learning.</em>    </li>
+    <li> <strong class="uidlink"><a href="peach.nn.mem-module.html">peach.nn.mem</a></strong>: <em class="summary">Associative memories and Hopfield network model.</em>    </li>
     <li> <strong class="uidlink"><a href="peach.nn.nnet-module.html">peach.nn.nnet</a></strong>: <em class="summary">Basic topologies of neural networks.</em>    </li>
     </ul>
     </li>
@@ -167,6 +168,98 @@ return a <tt class="rst-rst-docutils literal rst-docutils literal">bitarray</tt>
 </table>
 
 <br />
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach-module.html#randn" class="summary-sig-name">randn</a>(<span class="summary-sig-arg">d0</span>,
+        <span class="summary-sig-arg">d1</span>,
+        <span class="summary-sig-arg">dn</span>,
+        <span class="summary-sig-arg">...</span>)</span><br />
+      Returns zero-mean, unit-variance Gaussian random numbers in an
+array of shape (d0, d1, ..., dn).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach-pysrc.html#nn.nnet.randn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach-module.html#random" class="summary-sig-name">random</a>(<span class="summary-sig-arg">size</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return random floats in the half-open interval [0.0, 1.0).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach-pysrc.html#random">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach-module.html#standard_normal" class="summary-sig-name">standard_normal</a>(<span class="summary-sig-arg">size</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns samples from a Standard Normal distribution (mean=0, stdev=1).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach-pysrc.html#standard_normal">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach-module.html#uniform" class="summary-sig-name">uniform</a>(<span class="summary-sig-arg">low</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">high</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">1</span>)</span><br />
+      Draw samples from a uniform distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach-pysrc.html#ga.uniform">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
 <!-- ==================== VARIABLES ==================== -->
 <a name="section-Variables"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -184,11 +277,11 @@ return a <tt class="rst-rst-docutils literal rst-docutils literal">bitarray</tt>
     </table>
   </td>
 </tr>
-<tr class="private">
+<tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="peach-module.html#__doc__" class="summary-name" onclick="show_private();">__doc__</a> = <code title="&quot;&quot;&quot;
+        <a href="peach-module.html#__doc__" class="summary-name">__doc__</a> = <code title="&quot;&quot;&quot;
 *Peach* is a pure-Python package with aims to implement techniques of \
 machine
 learning and computational intelligence. It contains packages for
@@ -199,15 +292,336 @@ ons and
 ..."><code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
-<tr class="private">
+<tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code><br />
-      hash(x)
+        <a name="DRASTIC_NORMS"></a><span class="summary-name">DRASTIC_NORMS</span> = <code title="DrasticProduct, DrasticSum, ZadehNot">DrasticProduct, DrasticSum, ZadehNot</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EINSTEIN_NORMS"></a><span class="summary-name">EINSTEIN_NORMS</span> = <code title="EinsteinProduct, EinsteinSum, ZadehNot">EinsteinProduct, EinsteinSum, ZadehNot</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MAMDANI_INFERENCE"></a><span class="summary-name">MAMDANI_INFERENCE</span> = <code title="MamdaniImplication, MamdaniAglutination">MamdaniImplication, MamdaniAglutination</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach-module.html#PROB_INFERENCE" class="summary-name">PROB_INFERENCE</a> = <code title="ProbabilisticImplication, ProbabilisticAglutination">ProbabilisticImplication, ProbabilisticAgluti<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PROB_NORMS"></a><span class="summary-name">PROB_NORMS</span> = <code title="ProbabilisticAnd, ProbabilisticOr, ProbabilisticNot">ProbabilisticAnd, ProbabilisticOr, ProbabilisticNot</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ZADEH_NORMS"></a><span class="summary-name">ZADEH_NORMS</span> = <code title="ZadehAnd, ZadehOr, ZadehNot">ZadehAnd, ZadehOr, ZadehNot</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'peach'"><code class="variable-quote">'</code><code class="variable-string">peach</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="abs"></a><span class="summary-name">abs</span> = <code title="&lt;ufunc 'absolute'&gt;">&lt;ufunc 'absolute'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="add"></a><span class="summary-name">add</span> = <code title="&lt;ufunc 'add'&gt;">&lt;ufunc 'add'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="arctan"></a><span class="summary-name">arctan</span> = <code title="&lt;ufunc 'arctan'&gt;">&lt;ufunc 'arctan'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cos"></a><span class="summary-name">cos</span> = <code title="&lt;ufunc 'cos'&gt;">&lt;ufunc 'cos'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="cosh"></a><span class="summary-name">cosh</span> = <code title="&lt;ufunc 'cosh'&gt;">&lt;ufunc 'cosh'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="exp"></a><span class="summary-name">exp</span> = <code title="&lt;ufunc 'exp'&gt;">&lt;ufunc 'exp'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="isnan"></a><span class="summary-name">isnan</span> = <code title="&lt;ufunc 'isnan'&gt;">&lt;ufunc 'isnan'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="pi"></a><span class="summary-name">pi</span> = <code title="3.14159265359">3.14159265359</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="sign"></a><span class="summary-name">sign</span> = <code title="&lt;ufunc 'sign'&gt;">&lt;ufunc 'sign'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="sqrt"></a><span class="summary-name">sqrt</span> = <code title="&lt;ufunc 'sqrt'&gt;">&lt;ufunc 'sqrt'&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="tanh"></a><span class="summary-name">tanh</span> = <code title="&lt;ufunc 'tanh'&gt;">&lt;ufunc 'tanh'&gt;</code>
     </td>
   </tr>
 </table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="randn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">randn</span>(<span class="sig-arg">d0</span>,
+        <span class="sig-arg">d1</span>,
+        <span class="sig-arg">dn</span>,
+        <span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach-pysrc.html#nn.nnet.randn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns zero-mean, unit-variance Gaussian random numbers in an
+array of shape (d0, d1, ..., dn).</p>
+<dl class="rst-docutils">
+<dt>Note:  This is a convenience function. If you want an</dt>
+<dd>interface that takes a tuple as the first argument
+use numpy.random.standard_normal(shape_tuple).</dd>
+</dl>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="random"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">random</span>(<span class="sig-arg">size</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach-pysrc.html#random">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return random floats in the half-open interval [0.0, 1.0).</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<dl class="rst-docutils">
+<dt>size <span class="classifier-delimiter">:</span> <span class="rst-classifier">shape tuple, optional</span></dt>
+<dd>Defines the shape of the returned array of random floats.</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<dl class="rst-docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="rst-classifier">ndarray, floats</span></dt>
+<dd>Array of random of floats with shape of <code class="link">size</code>.</dd>
+</dl>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="standard_normal"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">standard_normal</span>(<span class="sig-arg">size</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach-pysrc.html#standard_normal">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns samples from a Standard Normal distribution (mean=0, stdev=1).</p>
+<div class="rst-section" id="rst-parameters">
+<h1 class="heading">Parameters</h1>
+<dl class="rst-docutils">
+<dt>size <span class="classifier-delimiter">:</span> <span class="rst-classifier">int, shape tuple, optional</span></dt>
+<dd>Returns the number of samples required to satisfy the <code class="link">size</code> parameter.
+If not given or 'None' indicates to return one sample.</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<dl class="rst-docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="rst-classifier">float, ndarray</span></dt>
+<dd>Samples the Standard Normal distribution with a shape satisfying the
+<code class="link">size</code> parameter.</dd>
+</dl>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="uniform"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">uniform</span>(<span class="sig-arg">low</span>=<span class="sig-default">0.0</span>,
+        <span class="sig-arg">high</span>=<span class="sig-default">1.0</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach-pysrc.html#ga.uniform">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Draw samples from a uniform distribution.
+
+Samples are uniformly distributed over the half-open interval
+``[low, high)`` (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by `uniform`.
+
+Parameters
+----------
+low : float, optional
+    Lower boundary of the output interval.  All values generated will be
+    greater than or equal to low.  The default value is 0.
+high : float
+    Upper boundary of the output interval.  All values generated will be
+    less than high.  The default value is 1.0.
+size : tuple of ints, int, optional
+    Shape of output.  If the given size is, for example, (m,n,k),
+    m*n*k samples are generated.  If no shape is specified, a single sample
+    is returned.
+
+Returns
+-------
+out : ndarray
+    Drawn samples, with shape `size`.
+
+See Also
+--------
+randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed interval
+                  ``[low, high]``.
+random_sample : Floats uniformly distributed over ``[0, 1)``.
+random : Alias for `random_sample`.
+rand : Convenience function that accepts dimensions as input, e.g.,
+       ``rand(2,2)`` would generate a 2-by-2 array of floats, uniformly
+       distributed over ``[0, 1)``.
+
+Notes
+-----
+The probability density function of the uniform distribution is
+
+.. math:: p(x) = \frac{1}{b - a}
+
+anywhere within the interval ``[a, b)``, and zero elsewhere.
+
+Examples
+--------
+Draw samples from the distribution:
+
+&gt;&gt;&gt; s = np.random.uniform(-1,0,1000)
+
+All values are within the given interval:
+
+&gt;&gt;&gt; np.all(s &gt;= -1)
+True
+
+&gt;&gt;&gt; np.all(s &lt; 0)
+True
+
+Display the histogram of the samples, along with the
+probability density function:
+
+&gt;&gt;&gt; import matplotlib.pyplot as plt
+&gt;&gt;&gt; count, bins, ignored = plt.hist(s, 15, normed=True)
+&gt;&gt;&gt; plt.plot(bins, np.ones_like(bins), linewidth=2, color='r')
+&gt;&gt;&gt; plt.show()
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== VARIABLES DETAILS ==================== -->
 <a name="section-VariablesDetails"></a>
 <table class="details" border="1" cellpadding="3"
@@ -227,7 +641,7 @@ ons and
 </tr>
 </table>
 <a name="__doc__"></a>
-<div class="private">
+<div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
@@ -247,6 +661,24 @@ learning and computational intelligence. It contains packages for
 ons and
   self-organizing maps;
 <code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="PROB_INFERENCE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">PROB_INFERENCE</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+ProbabilisticImplication, ProbabilisticAglutination
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -284,7 +716,7 @@ ons and
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Jan 24 15:37:51 2011
+    Generated by Epydoc 3.0.1 on Fri Feb  4 17:19:21 2011
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

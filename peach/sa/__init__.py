@@ -30,5 +30,5 @@ discrete (or binary) one, can be used in combinatorial optimization problems.
 
 ################################################################################
 # Imports sub-packages
-from base import *          # Basic definitions
-from neighbor import *      # Computation of the neighbor
+from peach.sa.base import *          # Basic definitions
+from peach.sa.neighbor import *      # Computation of the neighbor

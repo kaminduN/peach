@@ -1,332 +1,347 @@
-\indexentry{peach \textit{(package)}|(hyperpage}{9}
-\indexentry{peach \textit{(package)}|)hyperpage}{10}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}|(hyperpage}{11}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}|)hyperpage}{11}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}|(hyperpage}{12}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}|(hyperpage}{12}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehAnd \textit{(function)}|hyperpage}{12}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehOr \textit{(function)}|hyperpage}{12}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehNot \textit{(function)}|hyperpage}{12}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}!peach.fuzzy.base.FuzzySet.set\_norm \textit{(class method)}|hyperpage}{13}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}!peach.fuzzy.base.FuzzySet.set\_conorm \textit{(class method)}|hyperpage}{14}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}!peach.fuzzy.base.FuzzySet.set\_negation \textit{(class method)}|hyperpage}{14}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}|)hyperpage}{15}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}|)hyperpage}{15}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}|(hyperpage}{16}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}|(hyperpage}{16}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.centers \textit{(method)}|hyperpage}{17}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.membership \textit{(method)}|hyperpage}{17}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.step \textit{(method)}|hyperpage}{18}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.\_\_call\_\_ \textit{(method)}|hyperpage}{18}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}|)hyperpage}{19}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}|)hyperpage}{19}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}|(hyperpage}{20}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}|(hyperpage}{20}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_norm \textit{(method)}|hyperpage}{22}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_conorm \textit{(method)}|hyperpage}{22}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_negation \textit{(method)}|hyperpage}{23}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_implication \textit{(method)}|hyperpage}{23}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_aglutination \textit{(method)}|hyperpage}{23}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.add\_rule \textit{(method)}|hyperpage}{23}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.add\_table \textit{(method)}|hyperpage}{24}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.eval \textit{(method)}|hyperpage}{24}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.eval\_all \textit{(method)}|hyperpage}{25}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.\_\_call\_\_ \textit{(method)}|hyperpage}{25}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}|)hyperpage}{26}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Mamdani \textit{(class)}|(hyperpage}{26}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Mamdani \textit{(class)}|)hyperpage}{27}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}|(hyperpage}{27}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}!peach.fuzzy.control.Parametric.add\_rule \textit{(method)}|hyperpage}{28}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}!peach.fuzzy.control.Parametric.eval \textit{(method)}|hyperpage}{28}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}!peach.fuzzy.control.Parametric.\_\_call\_\_ \textit{(method)}|hyperpage}{29}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}|)hyperpage}{30}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Sugeno \textit{(class)}|(hyperpage}{30}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Sugeno \textit{(class)}|)hyperpage}{30}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}|)hyperpage}{30}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}|(hyperpage}{31}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.Centroid \textit{(function)}|hyperpage}{31}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.Bisector \textit{(function)}|hyperpage}{31}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.SmallestOfMaxima \textit{(function)}|hyperpage}{32}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.LargestOfMaxima \textit{(function)}|hyperpage}{32}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.MeanOfMaxima \textit{(function)}|hyperpage}{33}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}|)hyperpage}{33}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}|(hyperpage}{34}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Saw \textit{(function)}|hyperpage}{34}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.FlatSaw \textit{(function)}|hyperpage}{34}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Membership \textit{(class)}|(hyperpage}{35}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Membership \textit{(class)}!peach.fuzzy.mf.Membership.\_\_call\_\_ \textit{(method)}|hyperpage}{36}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Membership \textit{(class)}|)hyperpage}{37}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingRamp \textit{(class)}|(hyperpage}{37}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingRamp \textit{(class)}|)hyperpage}{38}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingRamp \textit{(class)}|(hyperpage}{38}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingRamp \textit{(class)}|)hyperpage}{39}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Triangle \textit{(class)}|(hyperpage}{39}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Triangle \textit{(class)}|)hyperpage}{40}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Trapezoid \textit{(class)}|(hyperpage}{40}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Trapezoid \textit{(class)}|)hyperpage}{41}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Gaussian \textit{(class)}|(hyperpage}{41}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Gaussian \textit{(class)}|)hyperpage}{43}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingSigmoid \textit{(class)}|(hyperpage}{43}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingSigmoid \textit{(class)}|)hyperpage}{44}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingSigmoid \textit{(class)}|(hyperpage}{44}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingSigmoid \textit{(class)}|)hyperpage}{45}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.RaisedCosine \textit{(class)}|(hyperpage}{45}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.RaisedCosine \textit{(class)}|)hyperpage}{46}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Bell \textit{(class)}|(hyperpage}{46}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Bell \textit{(class)}|)hyperpage}{47}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Smf \textit{(class)}|(hyperpage}{47}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Smf \textit{(class)}|)hyperpage}{48}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Zmf \textit{(class)}|(hyperpage}{48}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Zmf \textit{(class)}|)hyperpage}{49}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}|)hyperpage}{49}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}|(hyperpage}{50}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehAnd \textit{(function)}|hyperpage}{50}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehOr \textit{(function)}|hyperpage}{50}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehNot \textit{(function)}|hyperpage}{50}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehImplication \textit{(function)}|hyperpage}{51}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.DrasticProduct \textit{(function)}|hyperpage}{51}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.DrasticSum \textit{(function)}|hyperpage}{51}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.EinsteinProduct \textit{(function)}|hyperpage}{51}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.EinsteinSum \textit{(function)}|hyperpage}{51}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.MamdaniImplication \textit{(function)}|hyperpage}{51}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.MamdaniAglutination \textit{(function)}|hyperpage}{52}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticAnd \textit{(function)}|hyperpage}{52}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticOr \textit{(function)}|hyperpage}{52}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticNot \textit{(function)}|hyperpage}{52}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticImplication \textit{(function)}|hyperpage}{52}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticAglutination \textit{(function)}|hyperpage}{53}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.DienesRescherImplication \textit{(function)}|hyperpage}{53}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.LukasiewiczImplication \textit{(function)}|hyperpage}{53}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.GodelImplication \textit{(function)}|hyperpage}{53}
-\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}|)hyperpage}{54}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}|(hyperpage}{55}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}|)hyperpage}{55}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}|(hyperpage}{56}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}|(hyperpage}{56}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.sanity \textit{(method)}|hyperpage}{59}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.restart \textit{(method)}|hyperpage}{60}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.step \textit{(method)}|hyperpage}{60}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.\_\_call\_\_ \textit{(method)}|hyperpage}{60}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}|)hyperpage}{62}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GA \textit{(class)}|(hyperpage}{62}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GA \textit{(class)}|)hyperpage}{63}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}|)hyperpage}{63}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}|(hyperpage}{64}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}!peach.ga.chromosome.Chromosome \textit{(class)}|(hyperpage}{64}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}!peach.ga.chromosome.Chromosome \textit{(class)}|)hyperpage}{67}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}|)hyperpage}{67}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}|(hyperpage}{68}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Crossover \textit{(class)}|(hyperpage}{68}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Crossover \textit{(class)}|)hyperpage}{69}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.OnePoint \textit{(class)}|(hyperpage}{69}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.OnePoint \textit{(class)}!peach.ga.crossover.OnePoint.\_\_call\_\_ \textit{(method)}|hyperpage}{69}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.OnePoint \textit{(class)}|)hyperpage}{70}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.TwoPoint \textit{(class)}|(hyperpage}{70}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.TwoPoint \textit{(class)}!peach.ga.crossover.TwoPoint.\_\_call\_\_ \textit{(method)}|hyperpage}{71}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.TwoPoint \textit{(class)}|)hyperpage}{72}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Uniform \textit{(class)}|(hyperpage}{72}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Uniform \textit{(class)}!peach.ga.crossover.Uniform.\_\_call\_\_ \textit{(method)}|hyperpage}{72}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Uniform \textit{(class)}|)hyperpage}{73}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}|)hyperpage}{73}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}|(hyperpage}{74}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Fitness \textit{(class)}|(hyperpage}{74}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Fitness \textit{(class)}!peach.ga.fitness.Fitness.\_\_call\_\_ \textit{(method)}|hyperpage}{75}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Fitness \textit{(class)}|)hyperpage}{75}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Ranking \textit{(class)}|(hyperpage}{75}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Ranking \textit{(class)}|)hyperpage}{77}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}|)hyperpage}{77}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}|(hyperpage}{78}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.Mutation \textit{(class)}|(hyperpage}{78}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.Mutation \textit{(class)}|)hyperpage}{79}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.BitToBit \textit{(class)}|(hyperpage}{79}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.BitToBit \textit{(class)}!peach.ga.mutation.BitToBit.\_\_call\_\_ \textit{(method)}|hyperpage}{79}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.BitToBit \textit{(class)}|)hyperpage}{80}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}|)hyperpage}{80}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}|(hyperpage}{81}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Selection \textit{(class)}|(hyperpage}{81}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Selection \textit{(class)}|)hyperpage}{82}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.RouletteWheel \textit{(class)}|(hyperpage}{82}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.RouletteWheel \textit{(class)}!peach.ga.selection.RouletteWheel.\_\_call\_\_ \textit{(method)}|hyperpage}{82}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.RouletteWheel \textit{(class)}|)hyperpage}{83}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.BinaryTournament \textit{(class)}|(hyperpage}{83}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.BinaryTournament \textit{(class)}!peach.ga.selection.BinaryTournament.\_\_call\_\_ \textit{(method)}|hyperpage}{83}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.BinaryTournament \textit{(class)}|)hyperpage}{84}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Baker \textit{(class)}|(hyperpage}{84}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Baker \textit{(class)}!peach.ga.selection.Baker.\_\_call\_\_ \textit{(method)}|hyperpage}{84}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Baker \textit{(class)}|)hyperpage}{85}
-\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}|)hyperpage}{85}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}|(hyperpage}{86}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}|)hyperpage}{86}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}|(hyperpage}{87}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}|(hyperpage}{87}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}!peach.nn.af.Activation.\_\_call\_\_ \textit{(method)}|hyperpage}{88}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}!peach.nn.af.Activation.derivative \textit{(method)}|hyperpage}{88}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}|)hyperpage}{89}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|(hyperpage}{89}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|)hyperpage}{91}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|(hyperpage}{91}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|)hyperpage}{93}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|(hyperpage}{93}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|)hyperpage}{94}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|(hyperpage}{94}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|)hyperpage}{96}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Ramp \textit{(class)}|(hyperpage}{96}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Ramp \textit{(class)}|)hyperpage}{98}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|(hyperpage}{98}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|)hyperpage}{99}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|(hyperpage}{99}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|)hyperpage}{101}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Signum \textit{(class)}|(hyperpage}{101}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Signum \textit{(class)}|)hyperpage}{103}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.ArcTan \textit{(class)}|(hyperpage}{103}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.ArcTan \textit{(class)}|)hyperpage}{104}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.TanH \textit{(class)}|(hyperpage}{104}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.TanH \textit{(class)}|)hyperpage}{106}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}|)hyperpage}{106}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}|(hyperpage}{107}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}|(hyperpage}{107}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}!peach.nn.base.Layer.\_\_getitem\_\_ \textit{(method)}|hyperpage}{108}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}!peach.nn.base.Layer.\_\_setitem\_\_ \textit{(method)}|hyperpage}{108}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}!peach.nn.base.Layer.\_\_call\_\_ \textit{(method)}|hyperpage}{109}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}|)hyperpage}{109}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}|)hyperpage}{109}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}|(hyperpage}{110}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.FFLearning \textit{(class)}|(hyperpage}{110}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.FFLearning \textit{(class)}!peach.nn.lrules.FFLearning.\_\_call\_\_ \textit{(method)}|hyperpage}{111}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.FFLearning \textit{(class)}|)hyperpage}{111}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|(hyperpage}{111}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|)hyperpage}{113}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|(hyperpage}{113}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|)hyperpage}{114}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|(hyperpage}{114}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|)hyperpage}{116}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.BackPropagation \textit{(class)}|(hyperpage}{116}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.BackPropagation \textit{(class)}|)hyperpage}{117}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.SOMLearning \textit{(class)}|(hyperpage}{117}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.SOMLearning \textit{(class)}!peach.nn.lrules.SOMLearning.\_\_call\_\_ \textit{(method)}|hyperpage}{118}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.SOMLearning \textit{(class)}|)hyperpage}{118}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|(hyperpage}{118}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|)hyperpage}{120}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|(hyperpage}{120}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|)hyperpage}{121}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Competitive \textit{(class)}|(hyperpage}{121}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Competitive \textit{(class)}|)hyperpage}{122}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Cooperative \textit{(class)}|(hyperpage}{122}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Cooperative \textit{(class)}|)hyperpage}{124}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}|)hyperpage}{124}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}|(hyperpage}{125}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.randn \textit{(function)}|hyperpage}{125}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}|(hyperpage}{125}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.\_\_call\_\_ \textit{(method)}|hyperpage}{127}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.learn \textit{(method)}|hyperpage}{128}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.feed \textit{(method)}|hyperpage}{128}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.train \textit{(method)}|hyperpage}{129}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}|)hyperpage}{131}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}|(hyperpage}{131}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}!peach.nn.nnet.SOM.learn \textit{(method)}|hyperpage}{132}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}!peach.nn.nnet.SOM.feed \textit{(method)}|hyperpage}{133}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}!peach.nn.nnet.SOM.train \textit{(method)}|hyperpage}{133}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}|)hyperpage}{134}
-\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}|)hyperpage}{134}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}|(hyperpage}{135}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}|)hyperpage}{135}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}|(hyperpage}{136}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.gradient \textit{(function)}|hyperpage}{137}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.hessian \textit{(function)}|hyperpage}{137}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}|(hyperpage}{138}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}!peach.optm.base.Optimizer.step \textit{(method)}|hyperpage}{140}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}!peach.optm.base.Optimizer.\_\_call\_\_ \textit{(method)}|hyperpage}{140}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}|)hyperpage}{140}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}|)hyperpage}{140}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}|(hyperpage}{141}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Direct1D \textit{(class)}|(hyperpage}{141}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Direct1D \textit{(class)}!peach.optm.linear.Direct1D.restart \textit{(method)}|hyperpage}{142}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Direct1D \textit{(class)}|)hyperpage}{143}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Interpolation \textit{(class)}|(hyperpage}{143}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Interpolation \textit{(class)}!peach.optm.linear.Interpolation.restart \textit{(method)}|hyperpage}{145}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Interpolation \textit{(class)}|)hyperpage}{146}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.GoldenRule \textit{(class)}|(hyperpage}{146}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.GoldenRule \textit{(class)}!peach.optm.linear.GoldenRule.restart \textit{(method)}|hyperpage}{148}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.GoldenRule \textit{(class)}|)hyperpage}{149}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Fibonacci \textit{(class)}|(hyperpage}{149}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Fibonacci \textit{(class)}!peach.optm.linear.Fibonacci.restart \textit{(method)}|hyperpage}{151}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Fibonacci \textit{(class)}|)hyperpage}{152}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}|)hyperpage}{152}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}|(hyperpage}{153}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Direct \textit{(class)}|(hyperpage}{153}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Direct \textit{(class)}!peach.optm.multivar.Direct.restart \textit{(method)}|hyperpage}{154}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Direct \textit{(class)}|)hyperpage}{156}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Gradient \textit{(class)}|(hyperpage}{156}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Gradient \textit{(class)}!peach.optm.multivar.Gradient.restart \textit{(method)}|hyperpage}{157}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Gradient \textit{(class)}|)hyperpage}{159}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.MomentumGradient \textit{(class)}|(hyperpage}{159}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.MomentumGradient \textit{(class)}!peach.optm.multivar.MomentumGradient.restart \textit{(method)}|hyperpage}{161}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.MomentumGradient \textit{(class)}|)hyperpage}{163}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Newton \textit{(class)}|(hyperpage}{163}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Newton \textit{(class)}!peach.optm.multivar.Newton.restart \textit{(method)}|hyperpage}{165}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Newton \textit{(class)}|)hyperpage}{167}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}|)hyperpage}{167}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}|(hyperpage}{168}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.DFP \textit{(class)}|(hyperpage}{168}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.DFP \textit{(class)}!peach.optm.quasinewton.DFP.restart \textit{(method)}|hyperpage}{169}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.DFP \textit{(class)}|)hyperpage}{171}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.BFGS \textit{(class)}|(hyperpage}{171}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.BFGS \textit{(class)}!peach.optm.quasinewton.BFGS.restart \textit{(method)}|hyperpage}{172}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.BFGS \textit{(class)}|)hyperpage}{174}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.SR1 \textit{(class)}|(hyperpage}{174}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.SR1 \textit{(class)}!peach.optm.quasinewton.SR1.restart \textit{(method)}|hyperpage}{175}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.SR1 \textit{(class)}|)hyperpage}{177}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}|)hyperpage}{177}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}|(hyperpage}{178}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}!peach.optm.stochastic.CrossEntropy \textit{(class)}|(hyperpage}{178}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}!peach.optm.stochastic.CrossEntropy \textit{(class)}!peach.optm.stochastic.CrossEntropy.\_\_init\_\_ \textit{(method)}|hyperpage}{178}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}!peach.optm.stochastic.CrossEntropy \textit{(class)}!peach.optm.stochastic.CrossEntropy.step \textit{(method)}|hyperpage}{178}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}!peach.optm.stochastic.CrossEntropy \textit{(class)}|)hyperpage}{179}
-\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}|)hyperpage}{179}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}|(hyperpage}{180}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}|)hyperpage}{180}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}|(hyperpage}{181}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.Accelerator \textit{(class)}|(hyperpage}{181}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.Accelerator \textit{(class)}!peach.pso.acc.Accelerator.\_\_call\_\_ \textit{(method)}|hyperpage}{182}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.Accelerator \textit{(class)}|)hyperpage}{183}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.StandardPSO \textit{(class)}|(hyperpage}{183}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.StandardPSO \textit{(class)}|)hyperpage}{184}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}|)hyperpage}{184}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}|(hyperpage}{185}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}|(hyperpage}{185}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}!peach.pso.base.ParticleSwarmOptimizer.restart \textit{(method)}|hyperpage}{187}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}!peach.pso.base.ParticleSwarmOptimizer.step \textit{(method)}|hyperpage}{188}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}!peach.pso.base.ParticleSwarmOptimizer.\_\_call\_\_ \textit{(method)}|hyperpage}{188}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}|)hyperpage}{189}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.PSO \textit{(class)}|(hyperpage}{189}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.PSO \textit{(class)}|)hyperpage}{190}
-\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}|)hyperpage}{190}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}|(hyperpage}{191}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}|)hyperpage}{191}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}|(hyperpage}{192}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.standard\_normal \textit{(function)}|hyperpage}{192}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}|(hyperpage}{192}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}!peach.sa.base.ContinuousSA.restart \textit{(method)}|hyperpage}{195}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}!peach.sa.base.ContinuousSA.step \textit{(method)}|hyperpage}{196}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}!peach.sa.base.ContinuousSA.\_\_call\_\_ \textit{(method)}|hyperpage}{196}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}|)hyperpage}{197}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}|(hyperpage}{197}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}!peach.sa.base.BinarySA.restart \textit{(method)}|hyperpage}{200}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}!peach.sa.base.BinarySA.step \textit{(method)}|hyperpage}{201}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}!peach.sa.base.BinarySA.\_\_call\_\_ \textit{(method)}|hyperpage}{202}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}|)hyperpage}{202}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}|)hyperpage}{202}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}|(hyperpage}{203}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.ContinuousNeighbor \textit{(class)}|(hyperpage}{203}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.ContinuousNeighbor \textit{(class)}!peach.sa.neighbor.ContinuousNeighbor.\_\_call\_\_ \textit{(method)}|hyperpage}{204}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.ContinuousNeighbor \textit{(class)}|)hyperpage}{204}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.GaussianNeighbor \textit{(class)}|(hyperpage}{204}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.GaussianNeighbor \textit{(class)}|)hyperpage}{205}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.UniformNeighbor \textit{(class)}|(hyperpage}{205}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.UniformNeighbor \textit{(class)}|)hyperpage}{207}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.BinaryNeighbor \textit{(class)}|(hyperpage}{207}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.BinaryNeighbor \textit{(class)}!peach.sa.neighbor.BinaryNeighbor.\_\_call\_\_ \textit{(method)}|hyperpage}{208}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.BinaryNeighbor \textit{(class)}|)hyperpage}{208}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.InvertBitsNeighbor \textit{(class)}|(hyperpage}{208}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.InvertBitsNeighbor \textit{(class)}|)hyperpage}{209}
-\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}|)hyperpage}{209}
+\indexentry{peach \textit{(package)}|(hyperpage}{10}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.randn \textit{(function)}|hyperpage}{12}
+\indexentry{peach \textit{(package)}!peach.random \textit{(function)}|hyperpage}{12}
+\indexentry{peach \textit{(package)}!peach.standard\_normal \textit{(function)}|hyperpage}{12}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.uniform \textit{(function)}|hyperpage}{12}
+\indexentry{peach \textit{(package)}|)hyperpage}{14}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}|(hyperpage}{15}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}|)hyperpage}{15}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}|(hyperpage}{16}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}|(hyperpage}{16}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehAnd \textit{(function)}|hyperpage}{16}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehOr \textit{(function)}|hyperpage}{16}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehNot \textit{(function)}|hyperpage}{16}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}!peach.fuzzy.base.FuzzySet.set\_norm \textit{(class method)}|hyperpage}{17}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}!peach.fuzzy.base.FuzzySet.set\_conorm \textit{(class method)}|hyperpage}{18}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}!peach.fuzzy.base.FuzzySet.set\_negation \textit{(class method)}|hyperpage}{18}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}!peach.fuzzy.base.FuzzySet \textit{(class)}|)hyperpage}{19}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.base \textit{(module)}|)hyperpage}{19}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}|(hyperpage}{20}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}|(hyperpage}{20}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.centers \textit{(method)}|hyperpage}{21}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.membership \textit{(method)}|hyperpage}{21}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.step \textit{(method)}|hyperpage}{22}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}!peach.fuzzy.cmeans.FuzzyCMeans.\_\_call\_\_ \textit{(method)}|hyperpage}{22}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}!peach.fuzzy.cmeans.FuzzyCMeans \textit{(class)}|)hyperpage}{23}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.cmeans \textit{(module)}|)hyperpage}{23}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}|(hyperpage}{24}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}|(hyperpage}{24}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_norm \textit{(method)}|hyperpage}{26}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_conorm \textit{(method)}|hyperpage}{26}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_negation \textit{(method)}|hyperpage}{27}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_implication \textit{(method)}|hyperpage}{27}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.set\_aglutination \textit{(method)}|hyperpage}{27}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.add\_rule \textit{(method)}|hyperpage}{27}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.add\_table \textit{(method)}|hyperpage}{28}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.eval \textit{(method)}|hyperpage}{28}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.eval\_all \textit{(method)}|hyperpage}{29}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}!peach.fuzzy.control.Controller.\_\_call\_\_ \textit{(method)}|hyperpage}{29}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Controller \textit{(class)}|)hyperpage}{30}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Mamdani \textit{(class)}|(hyperpage}{30}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Mamdani \textit{(class)}|)hyperpage}{31}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}|(hyperpage}{31}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}!peach.fuzzy.control.Parametric.add\_rule \textit{(method)}|hyperpage}{32}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}!peach.fuzzy.control.Parametric.eval \textit{(method)}|hyperpage}{32}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}!peach.fuzzy.control.Parametric.\_\_call\_\_ \textit{(method)}|hyperpage}{33}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Parametric \textit{(class)}|)hyperpage}{34}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Sugeno \textit{(class)}|(hyperpage}{34}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}!peach.fuzzy.control.Sugeno \textit{(class)}|)hyperpage}{34}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.control \textit{(module)}|)hyperpage}{34}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}|(hyperpage}{35}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.Centroid \textit{(function)}|hyperpage}{35}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.Bisector \textit{(function)}|hyperpage}{35}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.SmallestOfMaxima \textit{(function)}|hyperpage}{36}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.LargestOfMaxima \textit{(function)}|hyperpage}{36}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}!peach.fuzzy.defuzzy.MeanOfMaxima \textit{(function)}|hyperpage}{37}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.defuzzy \textit{(module)}|)hyperpage}{37}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}|(hyperpage}{38}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Saw \textit{(function)}|hyperpage}{38}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.FlatSaw \textit{(function)}|hyperpage}{38}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Membership \textit{(class)}|(hyperpage}{39}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Membership \textit{(class)}!peach.fuzzy.mf.Membership.\_\_call\_\_ \textit{(method)}|hyperpage}{40}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Membership \textit{(class)}|)hyperpage}{41}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingRamp \textit{(class)}|(hyperpage}{41}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingRamp \textit{(class)}|)hyperpage}{42}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingRamp \textit{(class)}|(hyperpage}{42}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingRamp \textit{(class)}|)hyperpage}{43}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Triangle \textit{(class)}|(hyperpage}{43}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Triangle \textit{(class)}|)hyperpage}{44}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Trapezoid \textit{(class)}|(hyperpage}{44}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Trapezoid \textit{(class)}|)hyperpage}{45}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Gaussian \textit{(class)}|(hyperpage}{45}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Gaussian \textit{(class)}|)hyperpage}{47}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingSigmoid \textit{(class)}|(hyperpage}{47}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.IncreasingSigmoid \textit{(class)}|)hyperpage}{48}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingSigmoid \textit{(class)}|(hyperpage}{48}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.DecreasingSigmoid \textit{(class)}|)hyperpage}{49}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.RaisedCosine \textit{(class)}|(hyperpage}{49}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.RaisedCosine \textit{(class)}|)hyperpage}{50}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Bell \textit{(class)}|(hyperpage}{50}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Bell \textit{(class)}|)hyperpage}{51}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Smf \textit{(class)}|(hyperpage}{51}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Smf \textit{(class)}|)hyperpage}{52}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Zmf \textit{(class)}|(hyperpage}{52}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}!peach.fuzzy.mf.Zmf \textit{(class)}|)hyperpage}{53}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.mf \textit{(module)}|)hyperpage}{53}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}|(hyperpage}{54}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehAnd \textit{(function)}|hyperpage}{54}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehOr \textit{(function)}|hyperpage}{54}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehNot \textit{(function)}|hyperpage}{54}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ZadehImplication \textit{(function)}|hyperpage}{55}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.DrasticProduct \textit{(function)}|hyperpage}{55}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.DrasticSum \textit{(function)}|hyperpage}{55}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.EinsteinProduct \textit{(function)}|hyperpage}{55}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.EinsteinSum \textit{(function)}|hyperpage}{55}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.MamdaniImplication \textit{(function)}|hyperpage}{55}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.MamdaniAglutination \textit{(function)}|hyperpage}{56}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticAnd \textit{(function)}|hyperpage}{56}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticOr \textit{(function)}|hyperpage}{56}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticNot \textit{(function)}|hyperpage}{56}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticImplication \textit{(function)}|hyperpage}{56}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.ProbabilisticAglutination \textit{(function)}|hyperpage}{57}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.DienesRescherImplication \textit{(function)}|hyperpage}{57}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.LukasiewiczImplication \textit{(function)}|hyperpage}{57}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}!peach.fuzzy.norms.GodelImplication \textit{(function)}|hyperpage}{57}
+\indexentry{peach \textit{(package)}!peach.fuzzy \textit{(package)}!peach.fuzzy.norms \textit{(module)}|)hyperpage}{58}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}|(hyperpage}{59}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.uniform \textit{(function)}|hyperpage}{61}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}|)hyperpage}{62}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}|(hyperpage}{63}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}|(hyperpage}{63}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.sanity \textit{(method)}|hyperpage}{66}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.restart \textit{(method)}|hyperpage}{67}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.step \textit{(method)}|hyperpage}{67}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}!peach.ga.base.GeneticAlgorithm.\_\_call\_\_ \textit{(method)}|hyperpage}{67}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GeneticAlgorithm \textit{(class)}|)hyperpage}{69}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GA \textit{(class)}|(hyperpage}{69}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}!peach.ga.base.GA \textit{(class)}|)hyperpage}{70}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.base \textit{(module)}|)hyperpage}{70}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}|(hyperpage}{71}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}!peach.ga.chromosome.Chromosome \textit{(class)}|(hyperpage}{71}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}!peach.ga.chromosome.Chromosome \textit{(class)}|)hyperpage}{74}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.chromosome \textit{(module)}|)hyperpage}{74}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}|(hyperpage}{75}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Crossover \textit{(class)}|(hyperpage}{75}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Crossover \textit{(class)}|)hyperpage}{76}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.OnePoint \textit{(class)}|(hyperpage}{76}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.OnePoint \textit{(class)}!peach.ga.crossover.OnePoint.\_\_call\_\_ \textit{(method)}|hyperpage}{76}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.OnePoint \textit{(class)}|)hyperpage}{77}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.TwoPoint \textit{(class)}|(hyperpage}{77}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.TwoPoint \textit{(class)}!peach.ga.crossover.TwoPoint.\_\_call\_\_ \textit{(method)}|hyperpage}{78}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.TwoPoint \textit{(class)}|)hyperpage}{79}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Uniform \textit{(class)}|(hyperpage}{79}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Uniform \textit{(class)}!peach.ga.crossover.Uniform.\_\_call\_\_ \textit{(method)}|hyperpage}{79}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}!peach.ga.crossover.Uniform \textit{(class)}|)hyperpage}{80}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.crossover \textit{(module)}|)hyperpage}{80}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}|(hyperpage}{81}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Fitness \textit{(class)}|(hyperpage}{81}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Fitness \textit{(class)}!peach.ga.fitness.Fitness.\_\_call\_\_ \textit{(method)}|hyperpage}{82}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Fitness \textit{(class)}|)hyperpage}{82}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Ranking \textit{(class)}|(hyperpage}{82}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}!peach.ga.fitness.Ranking \textit{(class)}|)hyperpage}{84}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.fitness \textit{(module)}|)hyperpage}{84}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}|(hyperpage}{85}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.Mutation \textit{(class)}|(hyperpage}{85}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.Mutation \textit{(class)}|)hyperpage}{86}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.BitToBit \textit{(class)}|(hyperpage}{86}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.BitToBit \textit{(class)}!peach.ga.mutation.BitToBit.\_\_call\_\_ \textit{(method)}|hyperpage}{86}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}!peach.ga.mutation.BitToBit \textit{(class)}|)hyperpage}{87}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.mutation \textit{(module)}|)hyperpage}{87}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}|(hyperpage}{88}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Selection \textit{(class)}|(hyperpage}{88}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Selection \textit{(class)}|)hyperpage}{89}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.RouletteWheel \textit{(class)}|(hyperpage}{89}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.RouletteWheel \textit{(class)}!peach.ga.selection.RouletteWheel.\_\_call\_\_ \textit{(method)}|hyperpage}{89}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.RouletteWheel \textit{(class)}|)hyperpage}{90}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.BinaryTournament \textit{(class)}|(hyperpage}{90}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.BinaryTournament \textit{(class)}!peach.ga.selection.BinaryTournament.\_\_call\_\_ \textit{(method)}|hyperpage}{90}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.BinaryTournament \textit{(class)}|)hyperpage}{91}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Baker \textit{(class)}|(hyperpage}{91}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Baker \textit{(class)}!peach.ga.selection.Baker.\_\_call\_\_ \textit{(method)}|hyperpage}{91}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}!peach.ga.selection.Baker \textit{(class)}|)hyperpage}{92}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.selection \textit{(module)}|)hyperpage}{92}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}|(hyperpage}{93}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.randn \textit{(function)}|hyperpage}{93}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}|)hyperpage}{94}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}|(hyperpage}{95}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}|(hyperpage}{95}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}!peach.nn.af.Activation.\_\_call\_\_ \textit{(method)}|hyperpage}{96}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}!peach.nn.af.Activation.derivative \textit{(method)}|hyperpage}{96}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Activation \textit{(class)}|)hyperpage}{97}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|(hyperpage}{97}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|)hyperpage}{99}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|(hyperpage}{99}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Threshold \textit{(class)}|)hyperpage}{101}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|(hyperpage}{101}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|)hyperpage}{102}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|(hyperpage}{102}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Linear \textit{(class)}|)hyperpage}{104}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Ramp \textit{(class)}|(hyperpage}{104}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Ramp \textit{(class)}|)hyperpage}{106}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|(hyperpage}{106}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|)hyperpage}{107}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|(hyperpage}{107}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Sigmoid \textit{(class)}|)hyperpage}{109}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Signum \textit{(class)}|(hyperpage}{109}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.Signum \textit{(class)}|)hyperpage}{111}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.ArcTan \textit{(class)}|(hyperpage}{111}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.ArcTan \textit{(class)}|)hyperpage}{112}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.TanH \textit{(class)}|(hyperpage}{112}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}!peach.nn.af.TanH \textit{(class)}|)hyperpage}{114}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.af \textit{(module)}|)hyperpage}{114}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}|(hyperpage}{115}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}|(hyperpage}{115}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}!peach.nn.base.Layer.\_\_getitem\_\_ \textit{(method)}|hyperpage}{116}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}!peach.nn.base.Layer.\_\_setitem\_\_ \textit{(method)}|hyperpage}{116}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}!peach.nn.base.Layer.\_\_call\_\_ \textit{(method)}|hyperpage}{117}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}!peach.nn.base.Layer \textit{(class)}|)hyperpage}{117}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.base \textit{(module)}|)hyperpage}{117}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}|(hyperpage}{118}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.FFLearning \textit{(class)}|(hyperpage}{118}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.FFLearning \textit{(class)}!peach.nn.lrules.FFLearning.\_\_call\_\_ \textit{(method)}|hyperpage}{119}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.FFLearning \textit{(class)}|)hyperpage}{119}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|(hyperpage}{119}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|)hyperpage}{121}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|(hyperpage}{121}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|)hyperpage}{122}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|(hyperpage}{122}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.LMS \textit{(class)}|)hyperpage}{124}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.BackPropagation \textit{(class)}|(hyperpage}{124}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.BackPropagation \textit{(class)}|)hyperpage}{125}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.SOMLearning \textit{(class)}|(hyperpage}{125}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.SOMLearning \textit{(class)}!peach.nn.lrules.SOMLearning.\_\_call\_\_ \textit{(method)}|hyperpage}{126}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.SOMLearning \textit{(class)}|)hyperpage}{126}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|(hyperpage}{126}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|)hyperpage}{128}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|(hyperpage}{128}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.WinnerTakesAll \textit{(class)}|)hyperpage}{129}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Competitive \textit{(class)}|(hyperpage}{129}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Competitive \textit{(class)}|)hyperpage}{130}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Cooperative \textit{(class)}|(hyperpage}{130}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}!peach.nn.lrules.Cooperative \textit{(class)}|)hyperpage}{132}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.lrules \textit{(module)}|)hyperpage}{132}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}|(hyperpage}{133}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.randn \textit{(function)}|hyperpage}{133}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}!peach.nn.mem.Hopfield \textit{(class)}|(hyperpage}{133}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}!peach.nn.mem.Hopfield \textit{(class)}!peach.nn.mem.Hopfield.learn \textit{(method)}|hyperpage}{134}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}!peach.nn.mem.Hopfield \textit{(class)}!peach.nn.mem.Hopfield.train \textit{(method)}|hyperpage}{135}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}!peach.nn.mem.Hopfield \textit{(class)}!peach.nn.mem.Hopfield.step \textit{(method)}|hyperpage}{135}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}!peach.nn.mem.Hopfield \textit{(class)}|)hyperpage}{137}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.mem \textit{(module)}|)hyperpage}{137}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}|(hyperpage}{138}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.randn \textit{(function)}|hyperpage}{138}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}|(hyperpage}{138}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.\_\_call\_\_ \textit{(method)}|hyperpage}{140}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.learn \textit{(method)}|hyperpage}{141}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.feed \textit{(method)}|hyperpage}{141}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}!peach.nn.nnet.FeedForward.train \textit{(method)}|hyperpage}{142}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.FeedForward \textit{(class)}|)hyperpage}{144}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}|(hyperpage}{144}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}!peach.nn.nnet.SOM.learn \textit{(method)}|hyperpage}{145}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}!peach.nn.nnet.SOM.feed \textit{(method)}|hyperpage}{146}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}!peach.nn.nnet.SOM.train \textit{(method)}|hyperpage}{146}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}!peach.nn.nnet.SOM \textit{(class)}|)hyperpage}{147}
+\indexentry{peach \textit{(package)}!peach.nn \textit{(package)}!peach.nn.nnet \textit{(module)}|)hyperpage}{147}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}|(hyperpage}{148}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}|)hyperpage}{148}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}|(hyperpage}{149}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.gradient \textit{(function)}|hyperpage}{150}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.hessian \textit{(function)}|hyperpage}{150}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}|(hyperpage}{151}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}!peach.optm.base.Optimizer.step \textit{(method)}|hyperpage}{153}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}!peach.optm.base.Optimizer.\_\_call\_\_ \textit{(method)}|hyperpage}{153}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}!peach.optm.base.Optimizer \textit{(class)}|)hyperpage}{153}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.base \textit{(module)}|)hyperpage}{153}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}|(hyperpage}{154}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Direct1D \textit{(class)}|(hyperpage}{154}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Direct1D \textit{(class)}!peach.optm.linear.Direct1D.restart \textit{(method)}|hyperpage}{155}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Direct1D \textit{(class)}|)hyperpage}{156}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Interpolation \textit{(class)}|(hyperpage}{156}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Interpolation \textit{(class)}!peach.optm.linear.Interpolation.restart \textit{(method)}|hyperpage}{158}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Interpolation \textit{(class)}|)hyperpage}{159}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.GoldenRule \textit{(class)}|(hyperpage}{159}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.GoldenRule \textit{(class)}!peach.optm.linear.GoldenRule.restart \textit{(method)}|hyperpage}{161}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.GoldenRule \textit{(class)}|)hyperpage}{162}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Fibonacci \textit{(class)}|(hyperpage}{162}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Fibonacci \textit{(class)}!peach.optm.linear.Fibonacci.restart \textit{(method)}|hyperpage}{164}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}!peach.optm.linear.Fibonacci \textit{(class)}|)hyperpage}{165}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.linear \textit{(module)}|)hyperpage}{165}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}|(hyperpage}{166}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Direct \textit{(class)}|(hyperpage}{166}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Direct \textit{(class)}!peach.optm.multivar.Direct.restart \textit{(method)}|hyperpage}{167}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Direct \textit{(class)}|)hyperpage}{169}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Gradient \textit{(class)}|(hyperpage}{169}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Gradient \textit{(class)}!peach.optm.multivar.Gradient.restart \textit{(method)}|hyperpage}{170}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Gradient \textit{(class)}|)hyperpage}{172}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.MomentumGradient \textit{(class)}|(hyperpage}{172}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.MomentumGradient \textit{(class)}!peach.optm.multivar.MomentumGradient.restart \textit{(method)}|hyperpage}{174}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.MomentumGradient \textit{(class)}|)hyperpage}{176}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Newton \textit{(class)}|(hyperpage}{176}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Newton \textit{(class)}!peach.optm.multivar.Newton.restart \textit{(method)}|hyperpage}{178}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}!peach.optm.multivar.Newton \textit{(class)}|)hyperpage}{180}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.multivar \textit{(module)}|)hyperpage}{180}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}|(hyperpage}{181}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.DFP \textit{(class)}|(hyperpage}{181}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.DFP \textit{(class)}!peach.optm.quasinewton.DFP.restart \textit{(method)}|hyperpage}{182}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.DFP \textit{(class)}|)hyperpage}{184}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.BFGS \textit{(class)}|(hyperpage}{184}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.BFGS \textit{(class)}!peach.optm.quasinewton.BFGS.restart \textit{(method)}|hyperpage}{185}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.BFGS \textit{(class)}|)hyperpage}{187}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.SR1 \textit{(class)}|(hyperpage}{187}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.SR1 \textit{(class)}!peach.optm.quasinewton.SR1.restart \textit{(method)}|hyperpage}{188}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}!peach.optm.quasinewton.SR1 \textit{(class)}|)hyperpage}{190}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.quasinewton \textit{(module)}|)hyperpage}{190}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}|(hyperpage}{191}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}!peach.optm.stochastic.CrossEntropy \textit{(class)}|(hyperpage}{191}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}!peach.optm.stochastic.CrossEntropy \textit{(class)}|)hyperpage}{193}
+\indexentry{peach \textit{(package)}!peach.optm \textit{(package)}!peach.optm.stochastic \textit{(module)}|)hyperpage}{193}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}|(hyperpage}{194}
+\indexentry{peach \textit{(package)}!peach.random \textit{(function)}|hyperpage}{195}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}|)hyperpage}{195}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}|(hyperpage}{196}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.Accelerator \textit{(class)}|(hyperpage}{196}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.Accelerator \textit{(class)}!peach.pso.acc.Accelerator.\_\_call\_\_ \textit{(method)}|hyperpage}{197}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.Accelerator \textit{(class)}|)hyperpage}{198}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.StandardPSO \textit{(class)}|(hyperpage}{198}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}!peach.pso.acc.StandardPSO \textit{(class)}|)hyperpage}{199}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.acc \textit{(module)}|)hyperpage}{199}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}|(hyperpage}{200}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}|(hyperpage}{200}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}!peach.pso.base.ParticleSwarmOptimizer.restart \textit{(method)}|hyperpage}{202}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}!peach.pso.base.ParticleSwarmOptimizer.step \textit{(method)}|hyperpage}{203}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}!peach.pso.base.ParticleSwarmOptimizer.\_\_call\_\_ \textit{(method)}|hyperpage}{203}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.ParticleSwarmOptimizer \textit{(class)}|)hyperpage}{204}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.PSO \textit{(class)}|(hyperpage}{204}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}!peach.pso.base.PSO \textit{(class)}|)hyperpage}{205}
+\indexentry{peach \textit{(package)}!peach.pso \textit{(package)}!peach.pso.base \textit{(module)}|)hyperpage}{205}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}|(hyperpage}{206}
+\indexentry{peach \textit{(package)}!peach.standard\_normal \textit{(function)}|hyperpage}{207}
+\indexentry{peach \textit{(package)}!peach.ga \textit{(package)}!peach.ga.uniform \textit{(function)}|hyperpage}{207}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}|)hyperpage}{209}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}|(hyperpage}{210}
+\indexentry{peach \textit{(package)}!peach.standard\_normal \textit{(function)}|hyperpage}{210}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}|(hyperpage}{210}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}!peach.sa.base.ContinuousSA.restart \textit{(method)}|hyperpage}{213}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}!peach.sa.base.ContinuousSA.step \textit{(method)}|hyperpage}{214}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}!peach.sa.base.ContinuousSA.\_\_call\_\_ \textit{(method)}|hyperpage}{214}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.ContinuousSA \textit{(class)}|)hyperpage}{215}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}|(hyperpage}{215}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}!peach.sa.base.BinarySA.restart \textit{(method)}|hyperpage}{218}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}!peach.sa.base.BinarySA.step \textit{(method)}|hyperpage}{219}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}!peach.sa.base.BinarySA.\_\_call\_\_ \textit{(method)}|hyperpage}{220}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}!peach.sa.base.BinarySA \textit{(class)}|)hyperpage}{220}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.base \textit{(module)}|)hyperpage}{220}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}|(hyperpage}{221}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.ContinuousNeighbor \textit{(class)}|(hyperpage}{221}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.ContinuousNeighbor \textit{(class)}!peach.sa.neighbor.ContinuousNeighbor.\_\_call\_\_ \textit{(method)}|hyperpage}{222}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.ContinuousNeighbor \textit{(class)}|)hyperpage}{222}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.GaussianNeighbor \textit{(class)}|(hyperpage}{222}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.GaussianNeighbor \textit{(class)}|)hyperpage}{223}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.UniformNeighbor \textit{(class)}|(hyperpage}{223}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.UniformNeighbor \textit{(class)}|)hyperpage}{225}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.BinaryNeighbor \textit{(class)}|(hyperpage}{225}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.BinaryNeighbor \textit{(class)}!peach.sa.neighbor.BinaryNeighbor.\_\_call\_\_ \textit{(method)}|hyperpage}{226}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.BinaryNeighbor \textit{(class)}|)hyperpage}{226}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.InvertBitsNeighbor \textit{(class)}|(hyperpage}{226}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}!peach.sa.neighbor.InvertBitsNeighbor \textit{(class)}|)hyperpage}{227}
+\indexentry{peach \textit{(package)}!peach.sa \textit{(package)}!peach.sa.neighbor \textit{(module)}|)hyperpage}{227}

@@ -18,7 +18,7 @@ further details.
 
 
 from numpy import array, argmin, amin, amax, where
-from numpy.random import random
+from numpy.random import random, uniform
 from acc import *
 
 
@@ -161,7 +161,9 @@ class ParticleSwarmOptimizer(list):
             format as in the object instantiation. Please, see the documentation
             on the instantiation of the class. New velocities will be computed.
         '''
+        self[:] = [ ]
         self.__fx = [ ]
+        f = self.__f
         for x in x0:
             x = array(x).ravel()
             self.append(x)
@@ -198,8 +200,8 @@ class ParticleSwarmOptimizer(list):
         if self.ranges is not None:
             r0 = self.ranges[:, 0]
             r1 = self.ranges[:, 1]
-            p = where(p < r0, r0, p)
-            p = where(p > r1, r1, p)
+            p = where(p < r0, uniform(r0, r1, p.shape), p)
+            p = where(p > r1, uniform(r0, r1, p.shape), p)
 
         # Update state
         self.__v = v

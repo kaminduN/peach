@@ -29,9 +29,9 @@ This package implements genetic algorithms. Consult:
 
 ################################################################################
 # Imports sub-packages
-from base import *
-from chromosome import *
-from crossover import *
-from fitness import *
-from mutation import *
-from selection import *
+from peach.ga.base import *
+from peach.ga.chromosome import *
+from peach.ga.crossover import *
+from peach.ga.fitness import *
+from peach.ga.mutation import *
+from peach.ga.selection import *

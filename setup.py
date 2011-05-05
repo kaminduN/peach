@@ -7,12 +7,12 @@ except ImportError as e:
     from distutils.core import setup
 
 long_description = '''
-    Peach is a pure-python module, based on SciPy and NumPy to implement 
-    algorithms for computational intelligence and machine learning. Methods 
-    implemented include, but are not limited to, artificial neural networks, 
+    Peach is a pure-python module, based on SciPy and NumPy to implement
+    algorithms for computational intelligence and machine learning. Methods
+    implemented include, but are not limited to, artificial neural networks,
     fuzzy logic, genetic algorithms, swarm intelligence and much more.
 
-    The aim of this library is primarily educational. Nonetheless, care was 
+    The aim of this library is primarily educational. Nonetheless, care was
     taken to make the methods implemented also very efficient.
 '''
 
@@ -23,7 +23,7 @@ setup(
     download_url='http://code.google.com/p/peach/downloads/list',
     license='GNU Lesser General Public License',
     author='Jose Alexandre Nalon',
-    author_email='nalon@terra.com.br',
+    author_email='jnalon@gmail.com',
     description='Python library for computational intelligence and machine learning',
     long_description=long_description,
     classifiers=[

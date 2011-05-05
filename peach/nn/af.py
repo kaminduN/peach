@@ -28,7 +28,7 @@ the neuron is activated or not.
 
 
 ################################################################################
-from numpy import vectorize, array, where, ones, select, exp, pi, arctan, tanh, cosh
+from numpy import vectorize, array, where, ones, select, exp, pi, arctan, tanh, cosh, sign
 import types
 
 
@@ -390,10 +390,7 @@ class Signum(Activation):
         :Returns:
           The activation function applied over the input vector.
         '''
-        try:
-            return where(x==0.0, 0.0, x/abs(x))
-        except ZeroDivisionError as e:
-            return 0
+        return sign(x)
 
     def derivative(self, x):
         '''

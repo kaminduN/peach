@@ -26,5 +26,5 @@ See the rest of the documentation for more information.
 
 ################################################################################
 # Imports sub-packages
-from base import *          # Basic definitions
-from acc import *           # Acceleration of particles
+from peach.pso.base import *          # Basic definitions
+from peach.pso.acc import *           # Acceleration of particles

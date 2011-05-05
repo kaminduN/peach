@@ -37,7 +37,7 @@ iMax = 100
 # the function to be optimized and the first estimate. Depending on the
 # algorithm, other parameters are available. Please, consult the documentation
 # for more information.
-grad = p.Gradient(f, (0.1, 0.2), df)
+grad = p.Gradient(f, (0.1, 0.2), df=df)
 xd = [ 0.1 ]         # We use those to keep track of the convergence
 yd = [ 0.2 ]
 i = 0
@@ -64,7 +64,7 @@ xe = array(xe)
 ye = array(ye)
 
 # Newton optimizer, with explicit declaration of the gradient and hessian.
-newton = p.Newton(f, (0.1, 0.2), df, hf)
+newton = p.Newton(f, (0.1, 0.2), df=df, hf=hf)
 xn = [ 0.1 ]
 yn = [ 0.2 ]
 i = 0

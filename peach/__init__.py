@@ -33,9 +33,9 @@ __version__ = "0.1.0"
 
 ################################################################################
 # Imports sub-packages
-from nn import *        # Neural network package
-from fuzzy import *     # Fuzzy logic package
-from optm import *      # Optimization package
-from ga import *        # Genetic Algorithms package
-from sa import *        # Simulated Annealing package
-from pso import *       # Particle Swarm Optimization package
+from peach.nn import *        # Neural network package
+from peach.fuzzy import *     # Fuzzy logic package
+from peach.optm import *      # Optimization package
+from peach.ga import *        # Genetic Algorithms package
+from peach.sa import *        # Simulated Annealing package
+from peach.pso import *       # Particle Swarm Optimization package

@@ -32,7 +32,7 @@ the search until the stop conditions are met. See each method for details.
 
 ################################################################################
 # Imports sub-packages
-from base import *          # Basic definitions
-from linear import *        # Linear and 1-D optimization
-from multivar import *      # Gradient and Newton methods
-from quasinewton import *   # Quasi-newton methods
+from peach.optm.base import *          # Basic definitions
+from peach.optm.linear import *        # Linear and 1-D optimization
+from peach.optm.multivar import *      # Gradient and Newton methods
+from peach.optm.quasinewton import *   # Quasi-newton methods

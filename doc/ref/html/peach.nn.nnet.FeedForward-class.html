@@ -64,35 +64,35 @@
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class FeedForward</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.nnet-pysrc.html#FeedForward">source&nbsp;code</a></span></p>
 <center>
-<center>  <map id="uml_class_diagram_for_peach_nn_17" name="uml_class_diagram_for_peach_nn_17">
-<area shape="rect" id="node124" href="javascript:void(0);" title="hash(x)" alt="" coords="220,31,496,49"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x+y" alt="" coords="220,52,496,71"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="y in x" alt="" coords="220,71,496,89"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="del x[y]" alt="" coords="220,89,496,108"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="del x[i:j]" alt="" coords="220,108,496,127"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x==y" alt="" coords="220,127,496,145"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x&gt;=y" alt="" coords="220,145,496,164"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="220,164,496,183"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x[y]" alt="" coords="220,183,496,201"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x[i:j]" alt="" coords="220,201,496,220"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x&gt;y" alt="" coords="220,220,496,239"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x+=y" alt="" coords="220,239,496,257"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="x*=y" alt="" coords="220,257,496,276"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="iter(x)" alt="" coords="220,276,496,295"/>
-<area shape="rect" id="node124" href="javascript:void(0);" title="stable sort IN PLACE; cmp(x, y) &#45;&gt; &#45;1, 0, 1" alt="" coords="220,313,496,332"/>
+<center>  <map id="uml_class_diagram_for_peach_nn_18" name="uml_class_diagram_for_peach_nn_18">
+<area shape="rect" id="node127" href="javascript:void(0);" title="hash(x)" alt="" coords="220,31,496,49"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x+y" alt="" coords="220,52,496,71"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="y in x" alt="" coords="220,71,496,89"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="del x[y]" alt="" coords="220,89,496,108"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="del x[i:j]" alt="" coords="220,108,496,127"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x==y" alt="" coords="220,127,496,145"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x&gt;=y" alt="" coords="220,145,496,164"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="220,164,496,183"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x[y]" alt="" coords="220,183,496,201"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x[i:j]" alt="" coords="220,201,496,220"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x&gt;y" alt="" coords="220,220,496,239"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x+=y" alt="" coords="220,239,496,257"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="x*=y" alt="" coords="220,257,496,276"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="iter(x)" alt="" coords="220,276,496,295"/>
+<area shape="rect" id="node127" href="javascript:void(0);" title="stable sort IN PLACE; cmp(x, y) &#45;&gt; &#45;1, 0, 1" alt="" coords="220,313,496,332"/>
 <area shape="rect" id="node1" href="javascript:void(0);" title="list() &#45;&gt; new empty list list(iterable) &#45;&gt; new list initialized from iterable&#39;s items" alt="" coords="208,6,507,338"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#nlayers" title="Number of layers of the neural network. Not writable." alt="" coords="17,383,699,401"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#bias" title="A tuple containing the bias of each layer. Not writable." alt="" coords="17,401,699,420"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#y" title="A list of activation values for each neuron in the last layer of the network, ie., the answer of the network. This property is available only after the network is fed some input." alt="" coords="17,420,699,439"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#phi" title="Activation functions for every layer in the network. It is a list of Activation objects, but can be set with only one function. In this case, the same function is used for every layer." alt="" coords="17,439,699,457"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#__init__" title="Initializes a feedforward neural network." alt="" coords="17,460,699,479"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#__call__" title="The feedforward method of the network." alt="" coords="17,479,699,497"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#learn" title="Applies one example of the training set to the network." alt="" coords="17,497,699,516"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#feed" title="Feed the network and applies one example of the training set to the network." alt="" coords="17,516,699,535"/>
-<area shape="rect" id="node123" href="peach.nn.nnet.FeedForward-class.html#train" title="Presents a training set to the network." alt="" coords="17,535,699,553"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#nlayers" title="Number of layers of the neural network. Not writable." alt="" coords="17,383,699,401"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#bias" title="A tuple containing the bias of each layer. Not writable." alt="" coords="17,401,699,420"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#y" title="A list of activation values for each neuron in the last layer of the network, ie., the answer of the network. This property is available only after the network is fed some input." alt="" coords="17,420,699,439"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#phi" title="Activation functions for every layer in the network. It is a list of Activation objects, but can be set with only one function. In this case, the same function is used for every layer." alt="" coords="17,439,699,457"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#__init__" title="Initializes a feedforward neural network." alt="" coords="17,460,699,479"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#__call__" title="The feedforward method of the network." alt="" coords="17,479,699,497"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#learn" title="Applies one example of the training set to the network." alt="" coords="17,497,699,516"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#feed" title="Feed the network and applies one example of the training set to the network." alt="" coords="17,516,699,535"/>
+<area shape="rect" id="node126" href="peach.nn.nnet.FeedForward-class.html#train" title="Presents a training set to the network." alt="" coords="17,535,699,553"/>
 <area shape="rect" id="node2" href="peach.nn.nnet.FeedForward-class.html" title="Classic completely connected neural network." alt="" coords="5,358,709,559"/>
 </map>
-  <img src="uml_class_diagram_for_peach_nn_17.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_17" ismap="ismap" class="graph-without-title" />
+  <img src="uml_class_diagram_for_peach_nn_18.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_18" ismap="ismap" class="graph-without-title" />
 </center>
 </center>
 <hr />
@@ -789,7 +789,7 @@ the same function is used for every layer.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Jan 24 15:38:02 2011
+    Generated by Epydoc 3.0.1 on Fri Feb  4 17:19:35 2011
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -34,7 +34,7 @@ iMax = 100
 # Gradient optimizer. To create an optimizer, we declare the function to be
 # optimized and the first estimate. Depending on the algorithm, other parameters
 # are available. Please, consult the documentation for more information.
-grad = p.Gradient(f, 0.84, df)
+grad = p.Gradient(f, 0.84, df=df)
 xd = [ 0.84 ]
 i = 0
 while i < iMax:
@@ -54,7 +54,7 @@ while i < iMax:
 xe = array(xe)
 
 # Newton optimizer with explicit declaration of derivatives
-newton = p.Newton(f, 0.84, df, ddf)
+newton = p.Newton(f, 0.84, df=df, hf=ddf)
 xn = [ 0.84 ]
 i = 0
 while i < iMax:

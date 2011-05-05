@@ -19,14 +19,17 @@ This package implements support for neural networks. Consult:
       Learning rules;
     nnet
       Implementation of different classes of neural networks;
+    mem
+      Associative memories and Hopfield model;
 """
 
 
-# __all__ = [ 'base', 'af', 'lrules', 'nnet' ]
+# __all__ = [ 'base', 'af', 'lrules', 'nnet', 'mem' ]
 
 ################################################################################
 # Imports sub-packages
-from base import *
-from af import *
-from lrules import *
-from nnet import *
+from peach.nn.base import *
+from peach.nn.af import *
+from peach.nn.lrules import *
+from peach.nn.nnet import *
+from peach.nn.mem import *

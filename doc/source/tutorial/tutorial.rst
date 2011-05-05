@@ -27,6 +27,7 @@ Tutorials on Neural Networks:
     polynomial-regression.rst
     basic-som.rst
     self-organizing-maps.rst
+    hopfield-model.rst
 
 Tutorials on Fuzzy Logic:
 

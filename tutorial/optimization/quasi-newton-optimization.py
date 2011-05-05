@@ -31,7 +31,7 @@ iMax = 200
 # creation of the optimizer is virtually the same as every other. We could, in
 # this and in the other optimizers, omit the derivative function and let Peach
 # estimate it for us.
-dfp = p.DFP(f, (0.1, 0.2), df)
+dfp = p.DFP(f, (0.1, 0.2), df=df)
 xd = [ 0.1 ]
 yd = [ 0.2 ]
 i = 0
@@ -44,7 +44,7 @@ xd = array(xd)
 yd = array(yd)
 
 # We now try the BFGS optimizer.
-bfgs = p.BFGS(f, (0.1, 0.2), df)
+bfgs = p.BFGS(f, (0.1, 0.2), df=df)
 xb = [ 0.1 ]
 yb = [ 0.2 ]
 i = 0
@@ -57,7 +57,7 @@ xb = array(xb)
 yb = array(yb)
 
 # Last but not least, the SR1 optimizer
-sr1 = p.SR1(f, (0.1, 0.2), df)
+sr1 = p.SR1(f, (0.1, 0.2), df=df)
 xs = [ 0.1 ]
 ys = [ 0.2 ]
 i = 0

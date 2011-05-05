@@ -28,8 +28,8 @@ This package implements fuzzy logic. Consult:
 
 ################################################################################
 # Imports sub-packages
-from base import *
-from control import *
-from mf import *
-from defuzzy import *
-from cmeans import *
+from peach.fuzzy.base import *
+from peach.fuzzy.control import *
+from peach.fuzzy.mf import *
+from peach.fuzzy.defuzzy import *
+from peach.fuzzy.cmeans import *
