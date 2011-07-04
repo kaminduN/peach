@@ -27,7 +27,7 @@ remember that, usually, it is recommended that a module is not imported in the
 main namespace.
 
 The network we are trying to build has 2 input neurons, 2 hidden neurons and 1
-input neuron. We create a new MLP by instantiating the ``FeedForward`` class, as
+output neuron. We create a new MLP by instantiating the ``FeedForward`` class, as
 below:
 
   >>> nn = FeedForward((2, 2, 1), Sigmoid, BackPropagation)
