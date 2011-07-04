@@ -1,0 +1,377 @@
+\BOOKMARK [1][-]{section*.2}{Contents}{}
+\BOOKMARK [1][-]{section.1}{Package peach}{}
+\BOOKMARK [2][-]{subsection.1.1}{Modules}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Functions}{section.1}
+\BOOKMARK [2][-]{subsection.1.3}{Variables}{section.1}
+\BOOKMARK [1][-]{section.2}{Package peach.fuzzy}{}
+\BOOKMARK [2][-]{subsection.2.1}{Modules}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Variables}{section.2}
+\BOOKMARK [1][-]{section.3}{Module peach.fuzzy.base}{}
+\BOOKMARK [2][-]{subsection.3.1}{Variables}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Class FuzzySet}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Methods}{subsection.3.2}
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Properties}{subsection.3.2}
+\BOOKMARK [1][-]{section.4}{Module peach.fuzzy.cmeans}{}
+\BOOKMARK [2][-]{subsection.4.1}{Variables}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Class FuzzyCMeans}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Methods}{subsection.4.2}
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Properties}{subsection.4.2}
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Instance Variables}{subsection.4.2}
+\BOOKMARK [1][-]{section.5}{Module peach.fuzzy.control}{}
+\BOOKMARK [2][-]{subsection.5.1}{Variables}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Class Controller}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Methods}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Properties}{subsection.5.2}
+\BOOKMARK [2][-]{subsection.5.3}{Class Mamdani}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Methods}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Properties}{subsection.5.3}
+\BOOKMARK [2][-]{subsection.5.4}{Class Parametric}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Methods}{subsection.5.4}
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Properties}{subsection.5.4}
+\BOOKMARK [2][-]{subsection.5.5}{Class Sugeno}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.5.1}{Methods}{subsection.5.5}
+\BOOKMARK [3][-]{subsubsection.5.5.2}{Properties}{subsection.5.5}
+\BOOKMARK [1][-]{section.6}{Module peach.fuzzy.defuzzy}{}
+\BOOKMARK [2][-]{subsection.6.1}{Functions}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Variables}{section.6}
+\BOOKMARK [1][-]{section.7}{Module peach.fuzzy.mf}{}
+\BOOKMARK [2][-]{subsection.7.1}{Functions}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Variables}{section.7}
+\BOOKMARK [2][-]{subsection.7.3}{Class Membership}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Methods}{subsection.7.3}
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Properties}{subsection.7.3}
+\BOOKMARK [2][-]{subsection.7.4}{Class IncreasingRamp}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Methods}{subsection.7.4}
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Properties}{subsection.7.4}
+\BOOKMARK [2][-]{subsection.7.5}{Class DecreasingRamp}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.5.1}{Methods}{subsection.7.5}
+\BOOKMARK [3][-]{subsubsection.7.5.2}{Properties}{subsection.7.5}
+\BOOKMARK [2][-]{subsection.7.6}{Class Triangle}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.6.1}{Methods}{subsection.7.6}
+\BOOKMARK [3][-]{subsubsection.7.6.2}{Properties}{subsection.7.6}
+\BOOKMARK [2][-]{subsection.7.7}{Class Trapezoid}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.7.1}{Methods}{subsection.7.7}
+\BOOKMARK [3][-]{subsubsection.7.7.2}{Properties}{subsection.7.7}
+\BOOKMARK [2][-]{subsection.7.8}{Class Gaussian}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.8.1}{Methods}{subsection.7.8}
+\BOOKMARK [3][-]{subsubsection.7.8.2}{Properties}{subsection.7.8}
+\BOOKMARK [2][-]{subsection.7.9}{Class IncreasingSigmoid}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.9.1}{Methods}{subsection.7.9}
+\BOOKMARK [3][-]{subsubsection.7.9.2}{Properties}{subsection.7.9}
+\BOOKMARK [2][-]{subsection.7.10}{Class DecreasingSigmoid}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.10.1}{Methods}{subsection.7.10}
+\BOOKMARK [3][-]{subsubsection.7.10.2}{Properties}{subsection.7.10}
+\BOOKMARK [2][-]{subsection.7.11}{Class RaisedCosine}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.11.1}{Methods}{subsection.7.11}
+\BOOKMARK [3][-]{subsubsection.7.11.2}{Properties}{subsection.7.11}
+\BOOKMARK [2][-]{subsection.7.12}{Class Bell}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.12.1}{Methods}{subsection.7.12}
+\BOOKMARK [3][-]{subsubsection.7.12.2}{Properties}{subsection.7.12}
+\BOOKMARK [2][-]{subsection.7.13}{Class Smf}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.13.1}{Methods}{subsection.7.13}
+\BOOKMARK [3][-]{subsubsection.7.13.2}{Properties}{subsection.7.13}
+\BOOKMARK [2][-]{subsection.7.14}{Class Zmf}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.14.1}{Methods}{subsection.7.14}
+\BOOKMARK [3][-]{subsubsection.7.14.2}{Properties}{subsection.7.14}
+\BOOKMARK [1][-]{section.8}{Module peach.fuzzy.norms}{}
+\BOOKMARK [2][-]{subsection.8.1}{Functions}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{Variables}{section.8}
+\BOOKMARK [1][-]{section.9}{Package peach.ga}{}
+\BOOKMARK [2][-]{subsection.9.1}{Modules}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{Functions}{section.9}
+\BOOKMARK [2][-]{subsection.9.3}{Variables}{section.9}
+\BOOKMARK [1][-]{section.10}{Module peach.ga.base}{}
+\BOOKMARK [2][-]{subsection.10.1}{Variables}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Class GeneticAlgorithm}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.2.1}{Methods}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.2}{Properties}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.3}{Class Variables}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.4}{Instance Variables}{subsection.10.2}
+\BOOKMARK [2][-]{subsection.10.3}{Class GA}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.3.1}{Methods}{subsection.10.3}
+\BOOKMARK [3][-]{subsubsection.10.3.2}{Properties}{subsection.10.3}
+\BOOKMARK [3][-]{subsubsection.10.3.3}{Class Variables}{subsection.10.3}
+\BOOKMARK [3][-]{subsubsection.10.3.4}{Instance Variables}{subsection.10.3}
+\BOOKMARK [1][-]{section.11}{Module peach.ga.chromosome}{}
+\BOOKMARK [2][-]{subsection.11.1}{Variables}{section.11}
+\BOOKMARK [2][-]{subsection.11.2}{Class Chromosome}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.2.1}{Methods}{subsection.11.2}
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Properties}{subsection.11.2}
+\BOOKMARK [3][-]{subsubsection.11.2.3}{Instance Variables}{subsection.11.2}
+\BOOKMARK [1][-]{section.12}{Module peach.ga.crossover}{}
+\BOOKMARK [2][-]{subsection.12.1}{Variables}{section.12}
+\BOOKMARK [2][-]{subsection.12.2}{Class Crossover}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.2.1}{Methods}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.2}{Properties}{subsection.12.2}
+\BOOKMARK [2][-]{subsection.12.3}{Class OnePoint}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.3.1}{Methods}{subsection.12.3}
+\BOOKMARK [3][-]{subsubsection.12.3.2}{Properties}{subsection.12.3}
+\BOOKMARK [3][-]{subsubsection.12.3.3}{Instance Variables}{subsection.12.3}
+\BOOKMARK [2][-]{subsection.12.4}{Class TwoPoint}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.4.1}{Methods}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.2}{Properties}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.3}{Instance Variables}{subsection.12.4}
+\BOOKMARK [2][-]{subsection.12.5}{Class Uniform}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.5.1}{Methods}{subsection.12.5}
+\BOOKMARK [3][-]{subsubsection.12.5.2}{Properties}{subsection.12.5}
+\BOOKMARK [3][-]{subsubsection.12.5.3}{Instance Variables}{subsection.12.5}
+\BOOKMARK [1][-]{section.13}{Module peach.ga.fitness}{}
+\BOOKMARK [2][-]{subsection.13.1}{Variables}{section.13}
+\BOOKMARK [2][-]{subsection.13.2}{Class Fitness}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.2.1}{Methods}{subsection.13.2}
+\BOOKMARK [3][-]{subsubsection.13.2.2}{Properties}{subsection.13.2}
+\BOOKMARK [2][-]{subsection.13.3}{Class Ranking}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.3.1}{Methods}{subsection.13.3}
+\BOOKMARK [3][-]{subsubsection.13.3.2}{Properties}{subsection.13.3}
+\BOOKMARK [1][-]{section.14}{Module peach.ga.mutation}{}
+\BOOKMARK [2][-]{subsection.14.1}{Variables}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Class Mutation}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.2.1}{Methods}{subsection.14.2}
+\BOOKMARK [3][-]{subsubsection.14.2.2}{Properties}{subsection.14.2}
+\BOOKMARK [2][-]{subsection.14.3}{Class BitToBit}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.3.1}{Methods}{subsection.14.3}
+\BOOKMARK [3][-]{subsubsection.14.3.2}{Properties}{subsection.14.3}
+\BOOKMARK [3][-]{subsubsection.14.3.3}{Instance Variables}{subsection.14.3}
+\BOOKMARK [1][-]{section.15}{Module peach.ga.selection}{}
+\BOOKMARK [2][-]{subsection.15.1}{Variables}{section.15}
+\BOOKMARK [2][-]{subsection.15.2}{Class Selection}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.2.1}{Methods}{subsection.15.2}
+\BOOKMARK [3][-]{subsubsection.15.2.2}{Properties}{subsection.15.2}
+\BOOKMARK [2][-]{subsection.15.3}{Class RouletteWheel}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.3.1}{Methods}{subsection.15.3}
+\BOOKMARK [3][-]{subsubsection.15.3.2}{Properties}{subsection.15.3}
+\BOOKMARK [2][-]{subsection.15.4}{Class BinaryTournament}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.4.1}{Methods}{subsection.15.4}
+\BOOKMARK [3][-]{subsubsection.15.4.2}{Properties}{subsection.15.4}
+\BOOKMARK [2][-]{subsection.15.5}{Class Baker}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.5.1}{Methods}{subsection.15.5}
+\BOOKMARK [3][-]{subsubsection.15.5.2}{Properties}{subsection.15.5}
+\BOOKMARK [1][-]{section.16}{Package peach.nn}{}
+\BOOKMARK [2][-]{subsection.16.1}{Modules}{section.16}
+\BOOKMARK [2][-]{subsection.16.2}{Functions}{section.16}
+\BOOKMARK [2][-]{subsection.16.3}{Variables}{section.16}
+\BOOKMARK [1][-]{section.17}{Module peach.nn.af}{}
+\BOOKMARK [2][-]{subsection.17.1}{Variables}{section.17}
+\BOOKMARK [2][-]{subsection.17.2}{Class Activation}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.2.1}{Methods}{subsection.17.2}
+\BOOKMARK [3][-]{subsubsection.17.2.2}{Properties}{subsection.17.2}
+\BOOKMARK [3][-]{subsubsection.17.2.3}{Instance Variables}{subsection.17.2}
+\BOOKMARK [2][-]{subsection.17.3}{Class Threshold}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.3.1}{Methods}{subsection.17.3}
+\BOOKMARK [3][-]{subsubsection.17.3.2}{Properties}{subsection.17.3}
+\BOOKMARK [3][-]{subsubsection.17.3.3}{Instance Variables}{subsection.17.3}
+\BOOKMARK [2][-]{subsection.17.4}{Class Threshold}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.4.1}{Methods}{subsection.17.4}
+\BOOKMARK [3][-]{subsubsection.17.4.2}{Properties}{subsection.17.4}
+\BOOKMARK [3][-]{subsubsection.17.4.3}{Instance Variables}{subsection.17.4}
+\BOOKMARK [2][-]{subsection.17.5}{Class Linear}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.5.1}{Methods}{subsection.17.5}
+\BOOKMARK [3][-]{subsubsection.17.5.2}{Properties}{subsection.17.5}
+\BOOKMARK [3][-]{subsubsection.17.5.3}{Instance Variables}{subsection.17.5}
+\BOOKMARK [2][-]{subsection.17.6}{Class Linear}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.6.1}{Methods}{subsection.17.6}
+\BOOKMARK [3][-]{subsubsection.17.6.2}{Properties}{subsection.17.6}
+\BOOKMARK [3][-]{subsubsection.17.6.3}{Instance Variables}{subsection.17.6}
+\BOOKMARK [2][-]{subsection.17.7}{Class Ramp}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.7.1}{Methods}{subsection.17.7}
+\BOOKMARK [3][-]{subsubsection.17.7.2}{Properties}{subsection.17.7}
+\BOOKMARK [3][-]{subsubsection.17.7.3}{Instance Variables}{subsection.17.7}
+\BOOKMARK [2][-]{subsection.17.8}{Class Sigmoid}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.8.1}{Methods}{subsection.17.8}
+\BOOKMARK [3][-]{subsubsection.17.8.2}{Properties}{subsection.17.8}
+\BOOKMARK [3][-]{subsubsection.17.8.3}{Instance Variables}{subsection.17.8}
+\BOOKMARK [2][-]{subsection.17.9}{Class Sigmoid}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.9.1}{Methods}{subsection.17.9}
+\BOOKMARK [3][-]{subsubsection.17.9.2}{Properties}{subsection.17.9}
+\BOOKMARK [3][-]{subsubsection.17.9.3}{Instance Variables}{subsection.17.9}
+\BOOKMARK [2][-]{subsection.17.10}{Class Signum}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.10.1}{Methods}{subsection.17.10}
+\BOOKMARK [3][-]{subsubsection.17.10.2}{Properties}{subsection.17.10}
+\BOOKMARK [3][-]{subsubsection.17.10.3}{Instance Variables}{subsection.17.10}
+\BOOKMARK [2][-]{subsection.17.11}{Class ArcTan}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.11.1}{Methods}{subsection.17.11}
+\BOOKMARK [3][-]{subsubsection.17.11.2}{Properties}{subsection.17.11}
+\BOOKMARK [3][-]{subsubsection.17.11.3}{Instance Variables}{subsection.17.11}
+\BOOKMARK [2][-]{subsection.17.12}{Class TanH}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.12.1}{Methods}{subsection.17.12}
+\BOOKMARK [3][-]{subsubsection.17.12.2}{Properties}{subsection.17.12}
+\BOOKMARK [3][-]{subsubsection.17.12.3}{Instance Variables}{subsection.17.12}
+\BOOKMARK [1][-]{section.18}{Module peach.nn.base}{}
+\BOOKMARK [2][-]{subsection.18.1}{Variables}{section.18}
+\BOOKMARK [2][-]{subsection.18.2}{Class Layer}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.2.1}{Methods}{subsection.18.2}
+\BOOKMARK [3][-]{subsubsection.18.2.2}{Properties}{subsection.18.2}
+\BOOKMARK [1][-]{section.19}{Module peach.nn.lrules}{}
+\BOOKMARK [2][-]{subsection.19.1}{Variables}{section.19}
+\BOOKMARK [2][-]{subsection.19.2}{Class FFLearning}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.2.1}{Methods}{subsection.19.2}
+\BOOKMARK [3][-]{subsubsection.19.2.2}{Properties}{subsection.19.2}
+\BOOKMARK [2][-]{subsection.19.3}{Class LMS}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.3.1}{Methods}{subsection.19.3}
+\BOOKMARK [3][-]{subsubsection.19.3.2}{Properties}{subsection.19.3}
+\BOOKMARK [3][-]{subsubsection.19.3.3}{Instance Variables}{subsection.19.3}
+\BOOKMARK [2][-]{subsection.19.4}{Class LMS}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.4.1}{Methods}{subsection.19.4}
+\BOOKMARK [3][-]{subsubsection.19.4.2}{Properties}{subsection.19.4}
+\BOOKMARK [3][-]{subsubsection.19.4.3}{Instance Variables}{subsection.19.4}
+\BOOKMARK [2][-]{subsection.19.5}{Class LMS}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.5.1}{Methods}{subsection.19.5}
+\BOOKMARK [3][-]{subsubsection.19.5.2}{Properties}{subsection.19.5}
+\BOOKMARK [3][-]{subsubsection.19.5.3}{Instance Variables}{subsection.19.5}
+\BOOKMARK [2][-]{subsection.19.6}{Class BackPropagation}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.6.1}{Methods}{subsection.19.6}
+\BOOKMARK [3][-]{subsubsection.19.6.2}{Properties}{subsection.19.6}
+\BOOKMARK [3][-]{subsubsection.19.6.3}{Instance Variables}{subsection.19.6}
+\BOOKMARK [2][-]{subsection.19.7}{Class SOMLearning}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.7.1}{Methods}{subsection.19.7}
+\BOOKMARK [3][-]{subsubsection.19.7.2}{Properties}{subsection.19.7}
+\BOOKMARK [2][-]{subsection.19.8}{Class WinnerTakesAll}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.8.1}{Methods}{subsection.19.8}
+\BOOKMARK [3][-]{subsubsection.19.8.2}{Properties}{subsection.19.8}
+\BOOKMARK [3][-]{subsubsection.19.8.3}{Instance Variables}{subsection.19.8}
+\BOOKMARK [2][-]{subsection.19.9}{Class WinnerTakesAll}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.9.1}{Methods}{subsection.19.9}
+\BOOKMARK [3][-]{subsubsection.19.9.2}{Properties}{subsection.19.9}
+\BOOKMARK [3][-]{subsubsection.19.9.3}{Instance Variables}{subsection.19.9}
+\BOOKMARK [2][-]{subsection.19.10}{Class Competitive}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.10.1}{Methods}{subsection.19.10}
+\BOOKMARK [3][-]{subsubsection.19.10.2}{Properties}{subsection.19.10}
+\BOOKMARK [2][-]{subsection.19.11}{Class Cooperative}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.11.1}{Methods}{subsection.19.11}
+\BOOKMARK [3][-]{subsubsection.19.11.2}{Properties}{subsection.19.11}
+\BOOKMARK [1][-]{section.20}{Module peach.nn.mem}{}
+\BOOKMARK [2][-]{subsection.20.1}{Functions}{section.20}
+\BOOKMARK [2][-]{subsection.20.2}{Variables}{section.20}
+\BOOKMARK [2][-]{subsection.20.3}{Class Hopfield}{section.20}
+\BOOKMARK [3][-]{subsubsection.20.3.1}{Methods}{subsection.20.3}
+\BOOKMARK [3][-]{subsubsection.20.3.2}{Properties}{subsection.20.3}
+\BOOKMARK [1][-]{section.21}{Module peach.nn.nnet}{}
+\BOOKMARK [2][-]{subsection.21.1}{Functions}{section.21}
+\BOOKMARK [2][-]{subsection.21.2}{Variables}{section.21}
+\BOOKMARK [2][-]{subsection.21.3}{Class FeedForward}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.3.1}{Methods}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.2}{Properties}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.3}{Class Variables}{subsection.21.3}
+\BOOKMARK [2][-]{subsection.21.4}{Class SOM}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.4.1}{Methods}{subsection.21.4}
+\BOOKMARK [3][-]{subsubsection.21.4.2}{Properties}{subsection.21.4}
+\BOOKMARK [1][-]{section.22}{Package peach.optm}{}
+\BOOKMARK [2][-]{subsection.22.1}{Modules}{section.22}
+\BOOKMARK [2][-]{subsection.22.2}{Variables}{section.22}
+\BOOKMARK [1][-]{section.23}{Module peach.optm.base}{}
+\BOOKMARK [2][-]{subsection.23.1}{Functions}{section.23}
+\BOOKMARK [2][-]{subsection.23.2}{Variables}{section.23}
+\BOOKMARK [2][-]{subsection.23.3}{Class Optimizer}{section.23}
+\BOOKMARK [3][-]{subsubsection.23.3.1}{Methods}{subsection.23.3}
+\BOOKMARK [3][-]{subsubsection.23.3.2}{Properties}{subsection.23.3}
+\BOOKMARK [1][-]{section.24}{Module peach.optm.linear}{}
+\BOOKMARK [2][-]{subsection.24.1}{Variables}{section.24}
+\BOOKMARK [2][-]{subsection.24.2}{Class Direct1D}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.2.1}{Methods}{subsection.24.2}
+\BOOKMARK [3][-]{subsubsection.24.2.2}{Properties}{subsection.24.2}
+\BOOKMARK [3][-]{subsubsection.24.2.3}{Instance Variables}{subsection.24.2}
+\BOOKMARK [2][-]{subsection.24.3}{Class Interpolation}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.3.1}{Methods}{subsection.24.3}
+\BOOKMARK [3][-]{subsubsection.24.3.2}{Properties}{subsection.24.3}
+\BOOKMARK [2][-]{subsection.24.4}{Class GoldenRule}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.4.1}{Methods}{subsection.24.4}
+\BOOKMARK [3][-]{subsubsection.24.4.2}{Properties}{subsection.24.4}
+\BOOKMARK [2][-]{subsection.24.5}{Class Fibonacci}{section.24}
+\BOOKMARK [3][-]{subsubsection.24.5.1}{Methods}{subsection.24.5}
+\BOOKMARK [3][-]{subsubsection.24.5.2}{Properties}{subsection.24.5}
+\BOOKMARK [1][-]{section.25}{Module peach.optm.multivar}{}
+\BOOKMARK [2][-]{subsection.25.1}{Variables}{section.25}
+\BOOKMARK [2][-]{subsection.25.2}{Class Direct}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.2.1}{Methods}{subsection.25.2}
+\BOOKMARK [3][-]{subsubsection.25.2.2}{Properties}{subsection.25.2}
+\BOOKMARK [3][-]{subsubsection.25.2.3}{Instance Variables}{subsection.25.2}
+\BOOKMARK [2][-]{subsection.25.3}{Class Gradient}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.3.1}{Methods}{subsection.25.3}
+\BOOKMARK [3][-]{subsubsection.25.3.2}{Properties}{subsection.25.3}
+\BOOKMARK [3][-]{subsubsection.25.3.3}{Instance Variables}{subsection.25.3}
+\BOOKMARK [2][-]{subsection.25.4}{Class MomentumGradient}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.4.1}{Methods}{subsection.25.4}
+\BOOKMARK [3][-]{subsubsection.25.4.2}{Properties}{subsection.25.4}
+\BOOKMARK [3][-]{subsubsection.25.4.3}{Instance Variables}{subsection.25.4}
+\BOOKMARK [2][-]{subsection.25.5}{Class Newton}{section.25}
+\BOOKMARK [3][-]{subsubsection.25.5.1}{Methods}{subsection.25.5}
+\BOOKMARK [3][-]{subsubsection.25.5.2}{Properties}{subsection.25.5}
+\BOOKMARK [3][-]{subsubsection.25.5.3}{Instance Variables}{subsection.25.5}
+\BOOKMARK [1][-]{section.26}{Module peach.optm.quasinewton}{}
+\BOOKMARK [2][-]{subsection.26.1}{Variables}{section.26}
+\BOOKMARK [2][-]{subsection.26.2}{Class DFP}{section.26}
+\BOOKMARK [3][-]{subsubsection.26.2.1}{Methods}{subsection.26.2}
+\BOOKMARK [3][-]{subsubsection.26.2.2}{Properties}{subsection.26.2}
+\BOOKMARK [3][-]{subsubsection.26.2.3}{Instance Variables}{subsection.26.2}
+\BOOKMARK [2][-]{subsection.26.3}{Class BFGS}{section.26}
+\BOOKMARK [3][-]{subsubsection.26.3.1}{Methods}{subsection.26.3}
+\BOOKMARK [3][-]{subsubsection.26.3.2}{Properties}{subsection.26.3}
+\BOOKMARK [3][-]{subsubsection.26.3.3}{Instance Variables}{subsection.26.3}
+\BOOKMARK [2][-]{subsection.26.4}{Class SR1}{section.26}
+\BOOKMARK [3][-]{subsubsection.26.4.1}{Methods}{subsection.26.4}
+\BOOKMARK [3][-]{subsubsection.26.4.2}{Properties}{subsection.26.4}
+\BOOKMARK [3][-]{subsubsection.26.4.3}{Instance Variables}{subsection.26.4}
+\BOOKMARK [1][-]{section.27}{Module peach.optm.stochastic}{}
+\BOOKMARK [2][-]{subsection.27.1}{Variables}{section.27}
+\BOOKMARK [2][-]{subsection.27.2}{Class CrossEntropy}{section.27}
+\BOOKMARK [3][-]{subsubsection.27.2.1}{Methods}{subsection.27.2}
+\BOOKMARK [3][-]{subsubsection.27.2.2}{Properties}{subsection.27.2}
+\BOOKMARK [1][-]{section.28}{Package peach.pso}{}
+\BOOKMARK [2][-]{subsection.28.1}{Modules}{section.28}
+\BOOKMARK [2][-]{subsection.28.2}{Functions}{section.28}
+\BOOKMARK [2][-]{subsection.28.3}{Variables}{section.28}
+\BOOKMARK [1][-]{section.29}{Module peach.pso.acc}{}
+\BOOKMARK [2][-]{subsection.29.1}{Variables}{section.29}
+\BOOKMARK [2][-]{subsection.29.2}{Class Accelerator}{section.29}
+\BOOKMARK [3][-]{subsubsection.29.2.1}{Methods}{subsection.29.2}
+\BOOKMARK [3][-]{subsubsection.29.2.2}{Properties}{subsection.29.2}
+\BOOKMARK [2][-]{subsection.29.3}{Class StandardPSO}{section.29}
+\BOOKMARK [3][-]{subsubsection.29.3.1}{Methods}{subsection.29.3}
+\BOOKMARK [3][-]{subsubsection.29.3.2}{Properties}{subsection.29.3}
+\BOOKMARK [3][-]{subsubsection.29.3.3}{Instance Variables}{subsection.29.3}
+\BOOKMARK [1][-]{section.30}{Module peach.pso.base}{}
+\BOOKMARK [2][-]{subsection.30.1}{Variables}{section.30}
+\BOOKMARK [2][-]{subsection.30.2}{Class ParticleSwarmOptimizer}{section.30}
+\BOOKMARK [3][-]{subsubsection.30.2.1}{Methods}{subsection.30.2}
+\BOOKMARK [3][-]{subsubsection.30.2.2}{Properties}{subsection.30.2}
+\BOOKMARK [3][-]{subsubsection.30.2.3}{Class Variables}{subsection.30.2}
+\BOOKMARK [3][-]{subsubsection.30.2.4}{Instance Variables}{subsection.30.2}
+\BOOKMARK [2][-]{subsection.30.3}{Class PSO}{section.30}
+\BOOKMARK [3][-]{subsubsection.30.3.1}{Methods}{subsection.30.3}
+\BOOKMARK [3][-]{subsubsection.30.3.2}{Properties}{subsection.30.3}
+\BOOKMARK [3][-]{subsubsection.30.3.3}{Class Variables}{subsection.30.3}
+\BOOKMARK [3][-]{subsubsection.30.3.4}{Instance Variables}{subsection.30.3}
+\BOOKMARK [1][-]{section.31}{Package peach.sa}{}
+\BOOKMARK [2][-]{subsection.31.1}{Modules}{section.31}
+\BOOKMARK [2][-]{subsection.31.2}{Functions}{section.31}
+\BOOKMARK [2][-]{subsection.31.3}{Variables}{section.31}
+\BOOKMARK [1][-]{section.32}{Module peach.sa.base}{}
+\BOOKMARK [2][-]{subsection.32.1}{Functions}{section.32}
+\BOOKMARK [2][-]{subsection.32.2}{Variables}{section.32}
+\BOOKMARK [2][-]{subsection.32.3}{Class ContinuousSA}{section.32}
+\BOOKMARK [3][-]{subsubsection.32.3.1}{Methods}{subsection.32.3}
+\BOOKMARK [3][-]{subsubsection.32.3.2}{Properties}{subsection.32.3}
+\BOOKMARK [3][-]{subsubsection.32.3.3}{Instance Variables}{subsection.32.3}
+\BOOKMARK [2][-]{subsection.32.4}{Class BinarySA}{section.32}
+\BOOKMARK [3][-]{subsubsection.32.4.1}{Methods}{subsection.32.4}
+\BOOKMARK [3][-]{subsubsection.32.4.2}{Properties}{subsection.32.4}
+\BOOKMARK [1][-]{section.33}{Module peach.sa.neighbor}{}
+\BOOKMARK [2][-]{subsection.33.1}{Variables}{section.33}
+\BOOKMARK [2][-]{subsection.33.2}{Class ContinuousNeighbor}{section.33}
+\BOOKMARK [3][-]{subsubsection.33.2.1}{Methods}{subsection.33.2}
+\BOOKMARK [3][-]{subsubsection.33.2.2}{Properties}{subsection.33.2}
+\BOOKMARK [2][-]{subsection.33.3}{Class GaussianNeighbor}{section.33}
+\BOOKMARK [3][-]{subsubsection.33.3.1}{Methods}{subsection.33.3}
+\BOOKMARK [3][-]{subsubsection.33.3.2}{Properties}{subsection.33.3}
+\BOOKMARK [3][-]{subsubsection.33.3.3}{Instance Variables}{subsection.33.3}
+\BOOKMARK [2][-]{subsection.33.4}{Class UniformNeighbor}{section.33}
+\BOOKMARK [3][-]{subsubsection.33.4.1}{Methods}{subsection.33.4}
+\BOOKMARK [3][-]{subsubsection.33.4.2}{Properties}{subsection.33.4}
+\BOOKMARK [3][-]{subsubsection.33.4.3}{Instance Variables}{subsection.33.4}
+\BOOKMARK [2][-]{subsection.33.5}{Class BinaryNeighbor}{section.33}
+\BOOKMARK [3][-]{subsubsection.33.5.1}{Methods}{subsection.33.5}
+\BOOKMARK [3][-]{subsubsection.33.5.2}{Properties}{subsection.33.5}
+\BOOKMARK [2][-]{subsection.33.6}{Class InvertBitsNeighbor}{section.33}
+\BOOKMARK [3][-]{subsubsection.33.6.1}{Methods}{subsection.33.6}
+\BOOKMARK [3][-]{subsubsection.33.6.2}{Properties}{subsection.33.6}
+\BOOKMARK [1][-]{section*.24}{Index}{}

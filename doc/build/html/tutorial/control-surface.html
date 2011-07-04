@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Generating a Control Surface &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Fuzzy C-Means" href="fuzzy-c-means.html" />
+    <link rel="prev" title="Simple Controller" href="simple-controller.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="simple-controller.html" title="Simple Controller"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="generating-a-control-surface">
+<h1>Generating a Control Surface<a class="headerlink" href="#generating-a-control-surface" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we will show how to use Peach to implement a two-variable
+Mamdani controller and generate its control surface. It is very easy to deal
+with controllers in Peach, as it implements the whole logic and a lot of support
+methods and functions. We won&#8217;t go into details of how a controller should work
+&#8211; please, consult the literature on the subject, as it is very rich and
+explains the topic a lot better than we could do here.</p>
+<p>We will build a controller that could control an inverted pendulum. The
+controller described here works fine in simulations, but was never tested on a
+physical implementation. Nonetheless, it is a nice example of how to use a
+controller in Peach. We won&#8217;t however, simulate it with a model of an inverted
+pendulum &#8211; if you want to see such simulation at work, please give a look in
+the Inverted Pendulum demo.</p>
+<p>We will control the angular position and the angular velocity of the pendulum.
+To do that, we need to create the membership functions for each controlled
+variable. We will use five membership functions for the angular position
+(in general represented by the greek letter <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/>): big negative
+(<tt class="docutils literal"><span class="pre">tbn</span></tt>), small negative (<tt class="docutils literal"><span class="pre">tsn</span></tt>), near zero (<tt class="docutils literal"><span class="pre">tz</span></tt>), small positive
+(<tt class="docutils literal"><span class="pre">tsp</span></tt>) and big positive (<tt class="docutils literal"><span class="pre">tbp</span></tt>). Also, we will use five membership
+functions for the angular velocity (in general represented by the greek letter
+<img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/>): big negative (<tt class="docutils literal"><span class="pre">wbn</span></tt>), small negative (<tt class="docutils literal"><span class="pre">wsn</span></tt>), near zero
+(<tt class="docutils literal"><span class="pre">wz</span></tt>), small positive (<tt class="docutils literal"><span class="pre">wsp</span></tt>) and big positive (<tt class="docutils literal"><span class="pre">wbp</span></tt>).</p>
+<p>Remember that, in the context of a controller, you should supply functions, not
+fuzzy sets! We define these functions below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Points</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">Points</span><span class="p">)</span>
+<span class="n">tbn</span> <span class="o">=</span> <span class="n">DecreasingRamp</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="n">tsn</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">tz</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="n">tsp</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">tbp</span> <span class="o">=</span> <span class="n">IncreasingRamp</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="n">omega</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">Points</span><span class="p">)</span>
+<span class="n">wbn</span> <span class="o">=</span> <span class="n">DecreasingRamp</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">8.0</span><span class="p">)</span>
+<span class="n">wsn</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">wz</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">8.0</span><span class="p">)</span>
+<span class="n">wsp</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="n">wbp</span> <span class="o">=</span> <span class="n">IncreasingRamp</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that we explicitly created each of the membership functions, but we could
+use auxiliary functions to do that. Since it is very common, in fuzzy
+controllers, to use a sequence of triangle functions to represent the membership
+functions of the variables, Peach supplies two functions to deal with that,
+<tt class="docutils literal"><span class="pre">Saw</span></tt>, which generates a sequence of triangles equally spaced in a given
+interval, and <tt class="docutils literal"><span class="pre">FlatSaw</span></tt>, which generates also a sequence of triangles, but
+ramps in the extremes. The creation of the membership functions could be done
+like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tbn</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">tz</span><span class="p">,</span> <span class="n">tsp</span><span class="p">,</span> <span class="n">tbp</span> <span class="o">=</span> <span class="n">FlatSaw</span><span class="p">((</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">wbn</span><span class="p">,</span> <span class="n">wsn</span><span class="p">,</span> <span class="n">wz</span><span class="p">,</span> <span class="n">wsp</span><span class="p">,</span> <span class="n">wbp</span> <span class="o">=</span> <span class="n">FlatSaw</span><span class="p">((</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also need to create membership functions to the output variable. In the case
+of the control of an inverted pendulum, this is the force applied to the chart.
+We will use, also, five membership functions, with naming similar to the ones
+above. The force F will range from -30 to 30 newtons. In the case of this
+example, this range is very arbitrary, it should be adjusted for more specific
+cases. The information about the output variable can be supplied as membership
+functions but, since these will be used to defuzzify the control, we can get an
+answer a little bit faster if we supply fuzzy sets:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">fbn</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">30.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">)(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">fsn</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">fz</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">fsp</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">fbp</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we create the controller and input the decision rules. Rules are tipically
+given in the form of a table, if there are two variables being controlled. A
+controller in Peach has a method, add_table, that allows to give all the
+decision rules in that form. Notice, however, that single variable controllers
+should use a different method to input the rules (see the previous tutorial for
+more information on that).</p>
+<p>In the case of add_table, there are three parameters: the first one is a list of
+membership functions for the first input variable and represent the rows of the
+table; the second is a list of membership functions for the second variable and
+represents the columns of the table; the last parameter is a list of list that
+makes the table itself &#8211; its elements are the membership function corresponding
+to the consequent of the crossing of the row and the column.</p>
+<p>In this example, we will use the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> \ <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/></th>
+<th class="head"><tt class="docutils literal"><span class="pre">wbn</span></tt></th>
+<th class="head"><tt class="docutils literal"><span class="pre">wsn</span></tt></th>
+<th class="head"><tt class="docutils literal"><span class="pre">wz</span></tt></th>
+<th class="head"><tt class="docutils literal"><span class="pre">wsp</span></tt></th>
+<th class="head"><tt class="docutils literal"><span class="pre">wbp</span></tt></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">tbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fz</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">tsn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fz</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsp</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">tz</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fz</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbp</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">tsp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsn</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fz</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbp</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">tbp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fz</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fsp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbp</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">fbp</span></tt></td>
+</tr>
+</tbody>
+</table>
+<p>Here is what these rules mean:</p>
+<p>IF <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is <tt class="docutils literal"><span class="pre">tbn</span></tt> AND <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> is <tt class="docutils literal"><span class="pre">wbn</span></tt> THEN F is <tt class="docutils literal"><span class="pre">fbn</span></tt></p>
+<p>IF <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is <tt class="docutils literal"><span class="pre">tbn</span></tt> AND <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> is <tt class="docutils literal"><span class="pre">wsn</span></tt> THEN F is <tt class="docutils literal"><span class="pre">fbn</span></tt></p>
+<p>IF <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is <tt class="docutils literal"><span class="pre">tbn</span></tt> AND <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> is <tt class="docutils literal"><span class="pre">wz</span></tt> THEN F is <tt class="docutils literal"><span class="pre">fbn</span></tt></p>
+<p>IF <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is <tt class="docutils literal"><span class="pre">tbn</span></tt> AND <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> is <tt class="docutils literal"><span class="pre">wsp</span></tt> THEN F is <tt class="docutils literal"><span class="pre">fsn</span></tt></p>
+<p>IF <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is <tt class="docutils literal"><span class="pre">tbn</span></tt> AND <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> is <tt class="docutils literal"><span class="pre">wbp</span></tt> THEN F is <tt class="docutils literal"><span class="pre">fz</span></tt></p>
+<p>and so on.</p>
+<p>With the commands below we create the controller. We won&#8217;t be adding directly
+any rules, and we will use centroid as defuzzification method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[],</span> <span class="n">Centroid</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_table</span><span class="p">([</span> <span class="n">tbn</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">tz</span><span class="p">,</span> <span class="n">tsp</span><span class="p">,</span> <span class="n">tbp</span> <span class="p">],</span> <span class="p">[</span> <span class="n">wbn</span><span class="p">,</span> <span class="n">wsn</span><span class="p">,</span> <span class="n">wz</span><span class="p">,</span> <span class="n">wsp</span><span class="p">,</span> <span class="n">wbp</span> <span class="p">],</span>
+    <span class="p">[</span> <span class="p">[</span> <span class="n">fbn</span><span class="p">,</span> <span class="n">fbn</span><span class="p">,</span> <span class="n">fbn</span><span class="p">,</span> <span class="n">fsn</span><span class="p">,</span> <span class="n">fz</span>  <span class="p">],</span>
+      <span class="p">[</span> <span class="n">fbn</span><span class="p">,</span> <span class="n">fbn</span><span class="p">,</span> <span class="n">fsn</span><span class="p">,</span> <span class="n">fz</span><span class="p">,</span>  <span class="n">fsp</span> <span class="p">],</span>
+      <span class="p">[</span> <span class="n">fbn</span><span class="p">,</span> <span class="n">fsn</span><span class="p">,</span> <span class="n">fz</span><span class="p">,</span>  <span class="n">fsp</span><span class="p">,</span> <span class="n">fbp</span> <span class="p">],</span>
+      <span class="p">[</span> <span class="n">fsn</span><span class="p">,</span> <span class="n">fz</span><span class="p">,</span>  <span class="n">fsp</span><span class="p">,</span> <span class="n">fbp</span><span class="p">,</span> <span class="n">fbp</span> <span class="p">],</span>
+      <span class="p">[</span> <span class="n">fz</span><span class="p">,</span>  <span class="n">fsp</span><span class="p">,</span> <span class="n">fbp</span><span class="p">,</span> <span class="n">fbp</span><span class="p">,</span> <span class="n">fbp</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice how the decision table was directly converted in a list of lists. The
+format of the table in the <tt class="docutils literal"><span class="pre">add_table</span></tt> method is exactly the same as the table
+in the definition of the controller. The following code generates the surface.
+This iterates over every point in the <img class="math" src="../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> and <img class="math" src="../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/>
+intervals and calls the controller to receive the value of the output variable.
+That will be <tt class="docutils literal"><span class="pre">Points**2</span></tt> samples, so it might take a while to compute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fh</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Points</span><span class="p">,</span> <span class="n">Points</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Points</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Points</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">Points</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Points</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">Points</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">Points</span> <span class="o">*</span> <span class="n">pi</span>
+        <span class="n">fh</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">matplotlib</span></tt> module has some capabilities to plot 3D graphics. We use them
+to obtain the following figure:</p>
+<div align="center" class="align-center"><img alt="../_images/control-surface.png" class="align-center" src="../_images/control-surface.png" /></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="simple-controller.html"
+                        title="previous chapter">Simple Controller</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fuzzy-c-means.html"
+                        title="next chapter">Fuzzy C-Means</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/control-surface.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fuzzy-c-means.html" title="Fuzzy C-Means"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="simple-controller.html" title="Simple Controller"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+                          Peach
+
+
+Peach is a pure Python module for computational intelligence, including, but not
+limited to, neural networks, fuzzy logic, genetic algorithms, stochastic
+optimization, nonlinear optimization, simulated annealing, particle swarm and
+other techniques. The main goal of this project is to build a pure Python module
+that can be easily understood and improved. Although it is not the primary
+concern, care was taken to make the code as efficient as possible. But be aware
+that there might be some optimizations that could be done, so if you find that a
+piece of code is running to slow, let us know (if you have a solution, this is
+even better).
+
+The other main goal of the project is to allow people to study and understand
+the code. The development began with the most basic techniques in the listed
+topics, so that a person who is starting his studies in the field can see and --
+hopefully -- understand the code. Some very basic scripts with the aims of
+serving as tutorials are included with the code. Some more elaborated programs
+are also included, so the full power of the module can be appreciated.
+
+This module uses some software that must be installed to be used:
+
+* The Python programming language, available at http://www.python.org/ -- if you
+  need to deal with scientific programming, you will like it a lot, so I suggest
+  you to try it even if using this module is not of your interest.
+
+* The NumPy numeric processing package for the language, available at
+  http://www.scipy.org/NumPy -- it is not, unfortunatelly, made available with
+  the standard distribution of the language. But there are some Python
+  distributions that embed it by default. Anyway, installing it is not difficult
+  and should pose no problem.
+
+* The bitarray module, available at http://pypi.python.org/pypi/bitarray/0.3.5
+  -- its installation is a little more difficult than the other packages, but it
+  can be done very easily. Please, follow the guidelines in the module's page.
+
+* Although it is not required, it is strongly suggested that the Matplotlib
+  module is used. It is used to plot 2D graphics, and their data model is
+  compatible with the one used in Peach (the NumPy array), so you can easily
+  plot your results when needed. Some of the scripts in the tutorial section
+  make use of it, if available.
+
+There is no special script or method to install this module, but if you follow
+these steps, no problem should arise:
+
+* First, make sure that the above listed modules are installed and working with
+  your Python distribution. In general, all you need to do is download the
+  installation file and run it; or, if you are using Linux, install the packages
+  using your package manager;
+
+* Unpack the Peach file in a folder. Within this folder, look for the `peach`
+  folder. Copy this folder to the site-packages folder on you Python
+  installation. You can test if these procedures worked by going to the Python
+  command line interface and typing:
+
+  >>> import peach
+
+Please, read the documentation on the module for more information. For those who
+are starting now, it is recomended that your study begins with the tutorials in
+the tutorial folder. This folder is divided in subfolders, each one dedicated to
+one of the techniques implemented in Peach. Feel free to modify them at your
+taste.
+
+If you build a demo program that you think is worth being used as a tutorial,
+please, write us and send the source. We will be delighted to see what you have
+done with Peach.
+
+This module is published under the LGPL license, please see the COPYING file. We
+apologize in advance for any bug that this module might have, and if you can
+describe us what happened and how to reproduce the error, we will do our best to
+fix it. Also, any suggestions are more than welcome.

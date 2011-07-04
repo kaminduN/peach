@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.pso.base.ParticleSwarmOptimizer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.pso-module.html">Package&nbsp;pso</a> ::
+        <a href="peach.pso.base-module.html">Module&nbsp;base</a> ::
+        Class&nbsp;ParticleSwarmOptimizer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.pso.base.ParticleSwarmOptimizer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ParticleSwarmOptimizer</h1><p class="nomargin-top"><span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_peach_ps_4" name="uml_class_diagram_for_peach_ps_4">
+<area shape="rect" id="node174" href="javascript:void(0);" title="hash(x)" alt="" coords="209,31,485,49"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x+y" alt="" coords="209,52,485,71"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="y in x" alt="" coords="209,71,485,89"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="del x[y]" alt="" coords="209,89,485,108"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="del x[i:j]" alt="" coords="209,108,485,127"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x==y" alt="" coords="209,127,485,145"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x&gt;=y" alt="" coords="209,145,485,164"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="209,164,485,183"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x[y]" alt="" coords="209,183,485,201"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x[i:j]" alt="" coords="209,201,485,220"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x&gt;y" alt="" coords="209,220,485,239"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x+=y" alt="" coords="209,239,485,257"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="x*=y" alt="" coords="209,257,485,276"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="iter(x)" alt="" coords="209,276,485,295"/>
+<area shape="rect" id="node174" href="javascript:void(0);" title="stable sort IN PLACE; cmp(x, y) &#45;&gt; &#45;1, 0, 1" alt="" coords="209,313,485,332"/>
+<area shape="rect" id="node1" href="javascript:void(0);" title="list() &#45;&gt; new empty list list(iterable) &#45;&gt; new list initialized from iterable&#39;s items" alt="" coords="197,6,496,338"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#ranges" title="Holds the ranges for every variable. Although it is a writable property, care should be taken in changing parameters before ending the convergence." alt="" coords="17,383,677,401"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#fx" title="Array containing the objective function values for each estimate in the swarm." alt="" coords="17,401,677,420"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#best" title="Single vector containing the position of the best point found by all the particles. Not writeable." alt="" coords="17,420,677,439"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#fbest" title="Single scalar value containing the function value of the best point by all the particles. Not writeable." alt="" coords="17,439,677,457"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__init__" title="Initializes the optimizer." alt="" coords="17,460,677,479"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#restart" title="Resets the optimizer, allowing the use of a new set of estimates. This can be used to avoid stagnation" alt="" coords="17,479,677,497"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#step" title="Computes the new positions of the particles, a step of the algorithm." alt="" coords="17,497,677,516"/>
+<area shape="rect" id="node173" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__call__" title="Transparently executes the search until the minimum is found. The stop criteria are the maximum error or the maximum number of iterations, whichever is reached first. Note that this is a __call__ method, so the object is called as a function. This method returns a tuple (x, e), with the best estimate of the minimum and the error." alt="" coords="17,516,677,535"/>
+<area shape="rect" id="node2" href="peach.pso.base.ParticleSwarmOptimizer-class.html" title="A standard Particle Swarm Optimizer" alt="" coords="5,358,688,541"/>
+<area shape="rect" id="node3" href="peach.pso.base.PSO-class.html" title="PSO is an alias to ParticleSwarmOptimizer" alt="" coords="316,561,380,599"/>
+</map>
+  <img src="uml_class_diagram_for_peach_ps_4.gif" alt='' usemap="#uml_class_diagram_for_peach_ps_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>A standard Particle Swarm Optimizer</p>
+<p>This class implements a particle swarm optimization (PSO) procedure. A
+swarm is a list of estimates, and should answer to every <tt class="rst-docutils literal">list</tt> method. A
+population of particles is created to travel through the search domain with
+a certain velocity. At each point, the objective function is evaluated for
+each particle, and the positions are adjusted correspondingly. The velocity
+is then modified (ie, the particles are accelerated) towards its 'personal'
+best (the best value found by that particle at the moment) and a global best
+(the best value found overall at the moment).</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">new empty list</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">x0</span>,
+        <span class="summary-sig-arg">ranges</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">accelerator</span>=<span class="summary-sig-default">&lt;class 'peach.pso.acc.StandardPSO'&gt;</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">1000</span>)</span><br />
+      Initializes the optimizer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__get_fx"></a><span class="summary-sig-name">__get_fx</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__get_fx">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__get_best"></a><span class="summary-sig-name">__get_best</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__get_best">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__get_fbest"></a><span class="summary-sig-name">__get_fbest</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__get_fbest">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#restart" class="summary-sig-name">restart</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x0</span>)</span><br />
+      Resets the optimizer, allowing the use of a new set of estimates. This
+can be used to avoid stagnation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.restart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#step" class="summary-sig-name">step</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Computes the new positions of the particles, a step of the algorithm.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.step">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-docutils literal">__call__</tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-docutils literal">(x, e)</tt>, with the best estimate of the minimum and the error.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>list</code></b>:
+      <code>__add__</code>,
+      <code>__contains__</code>,
+      <code>__delitem__</code>,
+      <code>__delslice__</code>,
+      <code>__eq__</code>,
+      <code>__ge__</code>,
+      <code>__getattribute__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__gt__</code>,
+      <code>__iadd__</code>,
+      <code>__imul__</code>,
+      <code>__iter__</code>,
+      <code>__le__</code>,
+      <code>__len__</code>,
+      <code>__lt__</code>,
+      <code>__mul__</code>,
+      <code>__ne__</code>,
+      <code>__new__</code>,
+      <code>__repr__</code>,
+      <code>__reversed__</code>,
+      <code>__rmul__</code>,
+      <code>__setitem__</code>,
+      <code>__setslice__</code>,
+      <code>__sizeof__</code>,
+      <code>append</code>,
+      <code>count</code>,
+      <code>extend</code>,
+      <code>index</code>,
+      <code>insert</code>,
+      <code>pop</code>,
+      <code>remove</code>,
+      <code>reverse</code>,
+      <code>sort</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>list</code></b>:
+      <code>__hash__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ranges"></a><span class="summary-name">ranges</span><br />
+      Holds the ranges for every variable. Although it is a writable
+property, care should be taken in changing parameters before ending the
+convergence.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.pso.base.ParticleSwarmOptimizer-class.html#fx" class="summary-name">fx</a><br />
+      Array containing the objective function values for each estimate in the
+swarm.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.pso.base.ParticleSwarmOptimizer-class.html#best" class="summary-name">best</a><br />
+      Single vector containing the position of the best point found by all the
+particles. Not writeable.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.pso.base.ParticleSwarmOptimizer-class.html#fbest" class="summary-name">fbest</a><br />
+      Single scalar value containing the function value of the best point by
+all the particles. Not writeable.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>,
+        <span class="sig-arg">x0</span>,
+        <span class="sig-arg">ranges</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">accelerator</span>=<span class="sig-default">&lt;class 'peach.pso.acc.StandardPSO'&gt;</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">1000</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Initializes the optimizer.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A multivariable function to be evaluated. It must receive only one
+parameter, a multidimensional line-vector with the same dimensions
+of the range list (see below) and return a real value, a scalar.</li>
+        <li><strong class="pname"><code>x0</code></strong> - A population of first estimates. This is a list, array or tuple of
+one-dimension arrays, each one corresponding to an estimate of the
+position of the minimum. The population size of the algorithm will
+be the same as the number of estimates in this list. Each component
+of the vectors in this list are one of the variables in the function
+to be optimized.</li>
+        <li><strong class="pname"><code>ranges</code></strong> - A range of values might be passed to the algorithm, but it is not
+necessary. If this parameter is not supplied, then the ranges will
+be computed from the estimates, but be aware that this might not
+represent the complete search space. If supplied, this parameter
+should be a list of ranges for each variable of the objective
+function. It is specified as a list of tuples of two values,
+<tt class="rst-docutils literal">(x0, x1)</tt>, where <tt class="rst-docutils literal">x0</tt> is the start of the interval, and <tt class="rst-docutils literal">x1</tt>
+its end. Obviously, <tt class="rst-docutils literal">x0</tt> should be smaller than <tt class="rst-docutils literal">x1</tt>. It can
+also be given as a list with a simple tuple in the same format. In
+that case, the same range will be applied for every variable in the
+optimization.</li>
+        <li><strong class="pname"><code>accelerator</code></strong> - An acceleration method, please consult the documentation on <tt class="rst-docutils literal">acc</tt>
+module. Defaults to StandardPSO, that is, velocities change based on
+local and global bests.</li>
+        <li><strong class="pname"><code>emax</code></strong> - Maximum allowed error. The algorithm stops as soon as the error is
+below this level. The error is absolute.</li>
+        <li><strong class="pname"><code>imax</code></strong> - Maximum number of iterations, the algorithm stops as soon this
+number of iterations are executed, no matter what the error is at
+the moment.</li>
+    </ul></dd>
+    <dt>Returns: new empty list</dt>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="restart"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">restart</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.restart">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Resets the optimizer, allowing the use of a new set of estimates. This
+can be used to avoid stagnation
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x0</code></strong> - A new set of estimates. It doesn't need to have the same size of the
+original swarm, but it must be a list of estimates in the same
+format as in the object instantiation. Please, see the documentation
+on the instantiation of the class. New velocities will be computed.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="step"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">step</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.step">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Computes the new positions of the particles, a step of the algorithm.</p>
+<p>This method updates the velocity given the constants associated with the
+particle and global bests; and then updates the positions accordingly.</p>
+<p>This method has no parameters and returns no values. The particles
+positions can be consulted with the <tt class="rst-docutils literal">[]</tt> interface (as a swarm of
+particles is a list of estimates), <tt class="rst-docutils literal">best</tt> property, to find the global
+best, and <tt class="rst-docutils literal">fbest</tt> property to find the minimum (see above).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.pso.base-pysrc.html#ParticleSwarmOptimizer.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-rst-docutils literal rst-docutils literal">(x, e)</tt>, with the best estimate of the minimum and the error.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal">(x, e)</tt>, where <tt class="rst-docutils literal">x</tt> is the best
+estimate of the minimum, and <tt class="rst-docutils literal">e</tt> is the estimated error.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="fx"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">fx</h3>
+  Array containing the objective function values for each estimate in the
+swarm.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#__get_fx" class="summary-sig-name" onclick="show_private();">__get_fx</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="best"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">best</h3>
+  Single vector containing the position of the best point found by all the
+particles. Not writeable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#__get_best" class="summary-sig-name" onclick="show_private();">__get_best</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="fbest"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">fbest</h3>
+  Single scalar value containing the function value of the best point by
+all the particles. Not writeable.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.pso.base.ParticleSwarmOptimizer-class.html#__get_fbest" class="summary-sig-name" onclick="show_private();">__get_fbest</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Feb  4 17:19:40 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
