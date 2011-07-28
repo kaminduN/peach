@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.nn.kmeans</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.nn-module.html">Package&nbsp;nn</a> ::
+        Module&nbsp;kmeans
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.nn.kmeans-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="peach.nn.kmeans-module.html">Module peach.nn.kmeans</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file: nn/kmeans.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Clustering for use in radial basis functions</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.kmeans.__doc__=peach.nn.kmeans-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.mem.__doc__=peach.nn.mem-module.html#__doc__,Variable peach.nn.nnet.__doc__=peach.nn.nnet-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.base.__doc__=peach.optm.base-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__,Variable peach.pso.__doc__=peach.pso-module.html#__doc__,Variable peach.pso.acc.__doc__=peach.pso.acc-module.html#__doc__,Variable peach.pso.base.__doc__=peach.pso.base-module.html#__doc__,Variable peach.sa.__doc__=peach.sa-module.html#__doc__,Variable peach.sa.base.__doc__=peach.sa.base-module.html#__doc__,Variable peach.sa.neighbor.__doc__=peach.sa.neighbor-module.html#__doc__"><a title="peach.__doc__
+peach.fuzzy.__doc__
+peach.fuzzy.base.__doc__
+peach.fuzzy.cmeans.__doc__
+peach.fuzzy.control.__doc__
+peach.fuzzy.defuzzy.__doc__
+peach.fuzzy.mf.__doc__
+peach.fuzzy.norms.__doc__
+peach.ga.__doc__
+peach.ga.base.__doc__
+peach.ga.chromosome.__doc__
+peach.ga.crossover.__doc__
+peach.ga.fitness.__doc__
+peach.ga.mutation.__doc__
+peach.ga.selection.__doc__
+peach.nn.__doc__
+peach.nn.af.__doc__
+peach.nn.base.__doc__
+peach.nn.kmeans.__doc__
+peach.nn.lrules.__doc__
+peach.nn.mem.__doc__
+peach.nn.nnet.__doc__
+peach.optm.__doc__
+peach.optm.base.__doc__
+peach.optm.linear.__doc__
+peach.optm.multivar.__doc__
+peach.optm.quasinewton.__doc__
+peach.optm.stochastic.__doc__
+peach.pso.__doc__
+peach.pso.acc.__doc__
+peach.pso.base.__doc__
+peach.sa.__doc__
+peach.sa.base.__doc__
+peach.sa.neighbor.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">K-Means clustering algorithm</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">This sub-package implements the K-Means clustering algorithm. This algorithm,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">given a set of points, finds a set of vectors that best represents a partition</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">for these points. These vectors represent the center of a cloud of points that</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">are nearest to them.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">This algorithm is one that can be used with radial basis function (RBF) networks</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">to find the centers of the RBFs. Usually, training a RBFN in two passes -- first</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">positioning them, and then computing their variance.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">sum</tt><tt class="py-op">,</tt> <tt class="py-name">argmin</tt><tt class="py-op">,</tt> <tt class="py-name">array</tt><tt class="py-op">,</tt> <tt class="py-name">mean</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Function peach.sa.base.standard_normal()=peach.sa.base-module.html#standard_normal"><a title="peach.sa.base.standard_normal" class="py-name" href="#" onclick="return doclink('link-1', 'standard_normal', 'link-1');">standard_normal</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"># Functions</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># Classifiers</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"># These functions classify a set of points associating them to centers according</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># to a given metric. To create a classifier, the first parameter must be the set</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># of points, and the second parameter must be the list of centers. No other</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># parameters are needed.</tt> </tt>
+<a name="ClassByDistance"></a><div id="ClassByDistance-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="ClassByDistance-toggle" onclick="return toggle('ClassByDistance');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans-module.html#ClassByDistance">ClassByDistance</a><tt class="py-op">(</tt><tt class="py-param">xs</tt><tt class="py-op">,</tt> <tt class="py-param">c</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClassByDistance-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ClassByDistance-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    Given a set of points and a list of centers, classify the points according</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    to their euclidian distance to the centers.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    :Parameters:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">      xs</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        Set of points to be classified. They must be given as a list or array of</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        one-dimensional vectors, one per line.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">      c</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">        Set of centers. Must also be given as a lista or array of</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">        one-dimensional vectors, one per line.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">      A list of index of the classification. The indices are the position of the</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">      cluster in the given parameters ``c``.</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-name">res</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-2" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.x=peach.fuzzy.cmeans.FuzzyCMeans-class.html#x,Variable peach.optm.linear.Direct1D.x=peach.optm.linear.Direct1D-class.html#x,Variable peach.optm.linear.GoldenRule.x=peach.optm.linear.GoldenRule-class.html#x,Variable peach.optm.linear.Interpolation.x=peach.optm.linear.Interpolation-class.html#x,Variable peach.optm.multivar.Direct.x=peach.optm.multivar.Direct-class.html#x,Variable peach.optm.multivar.Gradient.x=peach.optm.multivar.Gradient-class.html#x,Variable peach.optm.multivar.MomentumGradient.x=peach.optm.multivar.MomentumGradient-class.html#x,Variable peach.optm.multivar.Newton.x=peach.optm.multivar.Newton-class.html#x,Variable peach.optm.quasinewton.DFP.x=peach.optm.quasinewton.DFP-class.html#x,Variable peach.optm.quasinewton.SR1.x=peach.optm.quasinewton.SR1-class.html#x,Variable peach.sa.base.BinarySA.x=peach.sa.base.BinarySA-class.html#x,Variable peach.sa.base.ContinuousSA.x=peach.sa.base.ContinuousSA-class.html#x"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-2', 'x', 'link-2');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">xs</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">dists</tt> <tt class="py-op">=</tt> <tt class="py-name">sum</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-3" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-3', 'x', 'link-2');">x</a></tt> <tt class="py-op">-</tt> <tt id="link-4" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.c=peach.fuzzy.cmeans.FuzzyCMeans-class.html#c,Variable peach.nn.kmeans.KMeans.c=peach.nn.kmeans.KMeans-class.html#c"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-4', 'c', 'link-4');">c</a></tt><tt class="py-op">)</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">res</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">argmin</tt><tt class="py-op">(</tt><tt class="py-name">dists</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">res</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-comment"># Clusterers</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-comment"># These functions compute, from a set of points, a single vector that represents</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-comment"># the cluster. To create a clusterer, the function needs only one parameter, the</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-comment"># set of points to be clustered. This is given in form of a list. The function</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-comment"># must return a single vector representing the cluster.</tt> </tt>
+<a name="ClusterByMean"></a><div id="ClusterByMean-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="ClusterByMean-toggle" onclick="return toggle('ClusterByMean');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans-module.html#ClusterByMean">ClusterByMean</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClusterByMean-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ClusterByMean-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    This function computes the center of a cluster by averaging the vectors in</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    the input set by simply averaging each component.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    :Parameters:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">      x</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">        Set of points to be clustered. They must be given in the form of a list</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">        or array of one-dimensional points.</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">    :Returns:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">      A one-dimensional array representing the center of the cluster.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">mean</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-5', 'x', 'link-2');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-comment"># Classes</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="KMeans"></a><div id="KMeans-def"><a name="L86"></a><tt class="py-lineno"> 86</tt> <a class="py-toggle" href="#" id="KMeans-toggle" onclick="return toggle('KMeans');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.kmeans.KMeans-class.html">KMeans</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KMeans-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="KMeans-expanded"><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    K-Means clustering algorithm</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">    This class implements the known and very used K-Means clustering algorithm.</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">    In this algorithm, the centers of the clusters are selected randomly. The</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    points on the training set are classified in accord to their closeness to</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">    the cluster centers. This changes the positions of the centers, which</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    changes the classification of the points. This iteration is repeated until</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    no changes occur.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    Traditional K-Means implementations classify the points in the training set</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    according to the euclidian distance to the centers, and centers are computed</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">    as the average of the points associated to it. This is the default behaviour</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">    of this implementation, but it is configurable. Please, read below for more</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">    detail.</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="KMeans.__init__"></a><div id="KMeans.__init__-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="KMeans.__init__-toggle" onclick="return toggle('KMeans.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans.KMeans-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">training_set</tt><tt class="py-op">,</tt> <tt class="py-param">nclusters</tt><tt class="py-op">,</tt> <tt class="py-param">classifier</tt><tt class="py-op">=</tt><tt id="link-6" class="py-name" targets="Function peach.nn.kmeans.ClassByDistance()=peach.nn.kmeans-module.html#ClassByDistance"><a title="peach.nn.kmeans.ClassByDistance" class="py-name" href="#" onclick="return doclink('link-6', 'ClassByDistance', 'link-6');">ClassByDistance</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                 <tt class="py-param">clusterer</tt><tt class="py-op">=</tt><tt id="link-7" class="py-name" targets="Function peach.nn.kmeans.ClusterByMean()=peach.nn.kmeans-module.html#ClusterByMean"><a title="peach.nn.kmeans.ClusterByMean" class="py-name" href="#" onclick="return doclink('link-7', 'ClusterByMean', 'link-7');">ClusterByMean</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KMeans.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="KMeans.__init__-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        Initializes the algorithm.</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">          training_set</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">            A list or array of vectors containing the data to be classified.</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">            Each of the vectors in this list *must* have the same dimension, or</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">            the algorithm won't behave correctly. Notice that each vector can be</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">            given as a tuple -- internally, everything is converted to arrays.</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">          nclusters</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">            The number of clusters to be found. This must be, of course, bigger</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">            than 1. These represent the number of centers found once the</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">            algorithm terminates.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">          classifier</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">            A function that classifies each of the points in the training set.</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">            This function receives the training set and a list of centers, and</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">            classify each of the points according to the given metric. Please,</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">            look at the documentation on these functions for more information.</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">            Its default value is ``ClassByDistance` , which uses euclidian</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">            distance as metric.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">          clusterer</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">            A function that computes the center of the cluster, given a set of</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">            points. This function receives a list of points and returns the</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">            vector representing the cluster. For more information, look at the</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">            documentation for these functions. Its default value is</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">            ``ClusterByMean``, in which the cluster is represented by the mean</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">            value of the vectors.</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nclusters</tt> <tt class="py-op">=</tt> <tt class="py-name">nclusters</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__x</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">training_set</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="peach.sa.base.standard_normal" class="py-name" href="#" onclick="return doclink('link-8', 'standard_normal', 'link-1');">standard_normal</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">nclusters</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__x</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">classify</tt> <tt class="py-op">=</tt> <tt class="py-name">classifier</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cluster</tt> <tt class="py-op">=</tt> <tt class="py-name">clusterer</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__xc</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">classify</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__x</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="KMeans.__getc"></a><div id="KMeans.__getc-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="KMeans.__getc-toggle" onclick="return toggle('KMeans.__getc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans.KMeans-class.html#__getc">__getc</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KMeans.__getc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="KMeans.__getc-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> </tt>
+</div><a name="KMeans.__setc"></a><div id="KMeans.__setc-def"><a name="L142"></a><tt class="py-lineno">142</tt> <a class="py-toggle" href="#" id="KMeans.__setc-toggle" onclick="return toggle('KMeans.__setc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans.KMeans-class.html#__setc">__setc</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">c</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KMeans.__setc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="KMeans.__setc-expanded"><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">reshape</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-9', 'c', 'link-4');">c</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Variable peach.nn.base.Layer.shape=peach.nn.base.Layer-class.html#shape"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-10', 'shape', 'link-10');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt id="link-11" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-11', 'c', 'link-4');">c</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Method peach.fuzzy.cmeans.FuzzyCMeans.__getc()=peach.fuzzy.cmeans.FuzzyCMeans-class.html#__getc,Method peach.nn.kmeans.KMeans.__getc()=peach.nn.kmeans.KMeans-class.html#__getc"><a title="peach.fuzzy.cmeans.FuzzyCMeans.__getc
+peach.nn.kmeans.KMeans.__getc" class="py-name" href="#" onclick="return doclink('link-12', '__getc', 'link-12');">__getc</a></tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Method peach.fuzzy.cmeans.FuzzyCMeans.__setc()=peach.fuzzy.cmeans.FuzzyCMeans-class.html#__setc,Method peach.nn.kmeans.KMeans.__setc()=peach.nn.kmeans.KMeans-class.html#__setc"><a title="peach.fuzzy.cmeans.FuzzyCMeans.__setc
+peach.nn.kmeans.KMeans.__setc" class="py-name" href="#" onclick="return doclink('link-13', '__setc', 'link-13');">__setc</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-string">'''A ``numpy`` array containing the centers of the classes in the algorithm.</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-string">    Each line represents a center, and the number of lines is the number of</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-string">    classes. This property is read and write, but care must be taken when</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-string">    setting new centers: if the dimensions are not exactly the same as given in</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-string">    the instantiation of the class (*ie*, *C* centers of dimension *N*, an</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-string">    exception will be raised.'''</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">         </tt>
+<a name="KMeans.step"></a><div id="KMeans.step-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="KMeans.step-toggle" onclick="return toggle('KMeans.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans.KMeans-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KMeans.step-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="KMeans.step-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        This method runs one step of the algorithm. It might be useful to track</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        the changes in the parameters.</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        :Returns:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">          The computed centers for this iteration.</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-14', 'x', 'link-2');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__x</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-15', 'c', 'link-4');">c</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-name">xc</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">classify</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-16', 'x', 'link-2');">x</a></tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-17', 'c', 'link-4');">c</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__xc</tt> <tt class="py-op">=</tt> <tt class="py-name">xc</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">cnew</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nclusters</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">            <tt class="py-name">xi</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">xij</tt> <tt class="py-keyword">for</tt> <tt class="py-name">xij</tt><tt class="py-op">,</tt> <tt class="py-name">clij</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-18', 'x', 'link-2');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">xc</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">clij</tt> <tt class="py-op">==</tt> <tt class="py-name">i</tt> <tt class="py-op">]</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">xi</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">                <tt class="py-name">cnew</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cluster</tt><tt class="py-op">(</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">xi</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                <tt class="py-name">cnew</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="peach.sa.base.standard_normal" class="py-name" href="#" onclick="return doclink('link-19', 'standard_normal', 'link-1');">standard_normal</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-20', 'c', 'link-4');">c</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-21', 'shape', 'link-10');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">cnew</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"> </tt>
+<a name="KMeans.__call__"></a><div id="KMeans.__call__-def"><a name="L173"></a><tt class="py-lineno">173</tt> <a class="py-toggle" href="#" id="KMeans.__call__-toggle" onclick="return toggle('KMeans.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.kmeans.KMeans-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">imax</tt><tt class="py-op">=</tt><tt class="py-number">20</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="KMeans.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="KMeans.__call__-expanded"><a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">        The ``__call__`` interface is used to run the algorithm until</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">        convergence is found.</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-docstring">          imax</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-docstring">            Specifies the maximum number of iterations admitted in the execution</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-docstring">            of the algorithm. It defaults to 20.</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-docstring">        :Returns:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-docstring">          An array containing, at each line, the vectors representing the</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-docstring">          centers of the clustered regions.</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-name">xc</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">i</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">imax</tt> <tt class="py-keyword">and</tt> <tt class="py-name">xc</tt> <tt class="py-op">!=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__xc</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">            <tt class="py-name">xc</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__xc</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method peach.fuzzy.cmeans.FuzzyCMeans.step()=peach.fuzzy.cmeans.FuzzyCMeans-class.html#step,Method peach.ga.base.GeneticAlgorithm.step()=peach.ga.base.GeneticAlgorithm-class.html#step,Method peach.nn.kmeans.KMeans.step()=peach.nn.kmeans.KMeans-class.html#step,Method peach.nn.mem.Hopfield.step()=peach.nn.mem.Hopfield-class.html#step,Method peach.optm.base.Optimizer.step()=peach.optm.base.Optimizer-class.html#step,Method peach.optm.linear.Direct1D.step()=peach.optm.linear.Direct1D-class.html#step,Method peach.optm.linear.Fibonacci.step()=peach.optm.linear.Fibonacci-class.html#step,Method peach.optm.linear.GoldenRule.step()=peach.optm.linear.GoldenRule-class.html#step,Method peach.optm.linear.Interpolation.step()=peach.optm.linear.Interpolation-class.html#step,Method peach.optm.multivar.Direct.step()=peach.optm.multivar.Direct-class.html#step,Method peach.optm.multivar.Gradient.step()=peach.optm.multivar.Gradient-class.html#step,Method peach.optm.multivar.MomentumGradient.step()=peach.optm.multivar.MomentumGradient-class.html#step,Method peach.optm.multivar.Newton.step()=peach.optm.multivar.Newton-class.html#step,Method peach.optm.quasinewton.BFGS.step()=peach.optm.quasinewton.BFGS-class.html#step,Method peach.optm.quasinewton.DFP.step()=peach.optm.quasinewton.DFP-class.html#step,Method peach.optm.quasinewton.SR1.step()=peach.optm.quasinewton.SR1-class.html#step,Method peach.optm.stochastic.CrossEntropy.step()=peach.optm.stochastic.CrossEntropy-class.html#step,Method peach.pso.base.ParticleSwarmOptimizer.step()=peach.pso.base.ParticleSwarmOptimizer-class.html#step,Method peach.sa.base.BinarySA.step()=peach.sa.base.BinarySA-class.html#step,Method peach.sa.base.ContinuousSA.step()=peach.sa.base.ContinuousSA-class.html#step"><a title="peach.fuzzy.cmeans.FuzzyCMeans.step
+peach.ga.base.GeneticAlgorithm.step
+peach.nn.kmeans.KMeans.step
+peach.nn.mem.Hopfield.step
+peach.optm.base.Optimizer.step
+peach.optm.linear.Direct1D.step
+peach.optm.linear.Fibonacci.step
+peach.optm.linear.GoldenRule.step
+peach.optm.linear.Interpolation.step
+peach.optm.multivar.Direct.step
+peach.optm.multivar.Gradient.step
+peach.optm.multivar.MomentumGradient.step
+peach.optm.multivar.Newton.step
+peach.optm.quasinewton.BFGS.step
+peach.optm.quasinewton.DFP.step
+peach.optm.quasinewton.SR1.step
+peach.optm.stochastic.CrossEntropy.step
+peach.pso.base.ParticleSwarmOptimizer.step
+peach.sa.base.BinarySA.step
+peach.sa.base.ContinuousSA.step" class="py-name" href="#" onclick="return doclink('link-22', 'step', 'link-22');">step</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> </tt>
+</div></div><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">shuffle</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">basic</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">     </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">    <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">7</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-name">xs</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-op">-</tt><tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">1.</tt> <tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-number">0.1</tt><tt class="py-op">*</tt><tt id="link-23" class="py-name"><a title="peach.sa.base.standard_normal" class="py-name" href="#" onclick="return doclink('link-23', 'standard_normal', 'link-1');">standard_normal</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">7</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">        <tt class="py-name">xs</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">1.</tt> <tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-number">0.1</tt><tt class="py-op">*</tt><tt id="link-24" class="py-name"><a title="peach.sa.base.standard_normal" class="py-name" href="#" onclick="return doclink('link-24', 'standard_normal', 'link-1');">standard_normal</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">7</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-name">xs</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt> <tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-number">0.1</tt><tt class="py-op">*</tt><tt id="link-25" class="py-name"><a title="peach.sa.base.standard_normal" class="py-name" href="#" onclick="return doclink('link-25', 'standard_normal', 'link-1');">standard_normal</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">    <tt class="py-comment">#shuffle(xs)</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">     </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">    <tt class="py-name">k</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name" targets="Class peach.nn.kmeans.KMeans=peach.nn.kmeans.KMeans-class.html"><a title="peach.nn.kmeans.KMeans" class="py-name" href="#" onclick="return doclink('link-26', 'KMeans', 'link-26');">KMeans</a></tt><tt class="py-op">(</tt><tt class="py-name">xs</tt><tt class="py-op">,</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">    <tt id="link-27" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-27', 'c', 'link-4');">c</a></tt> <tt class="py-op">=</tt> <tt class="py-name">k</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-28" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-28', 'c', 'link-4');">c</a></tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">    <tt class="py-name">xc</tt> <tt class="py-op">=</tt> <tt class="py-name">k</tt><tt class="py-op">.</tt><tt class="py-name">classify</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-29', 'c', 'link-4');">c</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">xx</tt><tt class="py-op">,</tt> <tt class="py-name">xxc</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt><tt class="py-op">,</tt> <tt class="py-name">xc</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">xx</tt><tt class="py-op">,</tt> <tt class="py-name">xxc</tt><tt class="py-op">,</tt> <tt id="link-30" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-30', 'c', 'link-4');">c</a></tt><tt class="py-op">[</tt><tt class="py-name">xxc</tt><tt class="py-op">,</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">    <tt class="py-name">xs</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">xs</tt><tt class="py-op">)</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt class="py-name">a1</tt> <tt class="py-op">=</tt> <tt class="py-name">start_square</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">    <tt class="py-name">a1</tt><tt class="py-op">.</tt><tt class="py-name">hold</tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">    <tt class="py-name">a1</tt><tt class="py-op">.</tt><tt class="py-name">grid</tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">xx</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xs</tt><tt class="py-op">:</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-name">a1</tt><tt class="py-op">.</tt><tt class="py-name">scatter</tt><tt class="py-op">(</tt><tt class="py-name">xx</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">xx</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-31" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-31', 'c', 'link-4');">c</a></tt><tt class="py-op">=</tt><tt class="py-string">'black'</tt><tt class="py-op">,</tt> <tt class="py-name">marker</tt><tt class="py-op">=</tt><tt class="py-string">'x'</tt><tt class="py-op">)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">    <tt class="py-name">a1</tt><tt class="py-op">.</tt><tt class="py-name">scatter</tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-32', 'c', 'link-4');">c</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-33" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-33', 'c', 'link-4');">c</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-34" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-34', 'c', 'link-4');">c</a></tt><tt class="py-op">=</tt><tt class="py-string">'red'</tt><tt class="py-op">,</tt> <tt class="py-name">marker</tt><tt class="py-op">=</tt><tt class="py-string">'o'</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt class="py-name">savefig</tt><tt class="py-op">(</tt><tt class="py-string">'kmeans.png'</tt><tt class="py-op">)</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Jul 28 16:36:40 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

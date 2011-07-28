@@ -21,10 +21,12 @@ This package implements support for neural networks. Consult:
       Implementation of different classes of neural networks;
     mem
       Associative memories and Hopfield model;
+    kmeans
+      K-Means implementation for use with Radial Basis Networks;
 """
 
 
-# __all__ = [ 'base', 'af', 'lrules', 'nnet', 'mem' ]
+# __all__ = [ 'base', 'af', 'lrules', 'nnet', 'mem', 'kmeans' ]
 
 ################################################################################
 # Imports sub-packages
@@ -33,3 +35,4 @@ from peach.nn.af import *
 from peach.nn.lrules import *
 from peach.nn.nnet import *
 from peach.nn.mem import *
+from peach.nn.kmeans import *

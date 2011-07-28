@@ -1,6 +1,5 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.1.1)  4 FEB 2011 17:21
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.4.5)  28 JUL 2011 16:37
 entering extended mode
- restricted \write18 enabled.
  %&-line parsing enabled.
 **api.tex
 (./api.tex
@@ -469,17 +468,10 @@ File: pdfmark.def 2009/10/09 v6.79a Hyperref definitions for pdfmark specials
 
 
 Writing index file api.idx
-(./api.aux (./peach-module.aux
-
-LaTeX Warning: Label `parameters' multiply defined.
-
-
-LaTeX Warning: Label `returns' multiply defined.
-
-) (./peach.fuzzy-module.aux) (./peach.fuzzy.base-module.aux)
-(./peach.fuzzy.cmeans-module.aux) (./peach.fuzzy.control-module.aux)
-(./peach.fuzzy.defuzzy-module.aux) (./peach.fuzzy.mf-module.aux)
-(./peach.fuzzy.norms-module.aux
+(./api.aux (./peach-module.aux) (./peach.fuzzy-module.aux)
+(./peach.fuzzy.base-module.aux) (./peach.fuzzy.cmeans-module.aux)
+(./peach.fuzzy.control-module.aux) (./peach.fuzzy.defuzzy-module.aux)
+(./peach.fuzzy.mf-module.aux) (./peach.fuzzy.norms-module.aux
 
 LaTeX Warning: Label `peach:fuzzy:norms:ZadehAnd' multiply defined.
 
@@ -489,18 +481,11 @@ LaTeX Warning: Label `peach:fuzzy:norms:ZadehOr' multiply defined.
 
 LaTeX Warning: Label `peach:fuzzy:norms:ZadehNot' multiply defined.
 
-) (./peach.ga-module.aux
-
-LaTeX Warning: Label `peach:ga:uniform' multiply defined.
-
-) (./peach.ga.base-module.aux) (./peach.ga.chromosome-module.aux)
-(./peach.ga.crossover-module.aux) (./peach.ga.fitness-module.aux)
-(./peach.ga.mutation-module.aux) (./peach.ga.selection-module.aux)
-(./peach.nn-module.aux
-
-LaTeX Warning: Label `peach:nn:nnet:randn' multiply defined.
-
-) (./peach.nn.af-module.aux
+) (./peach.ga-module.aux) (./peach.ga.base-module.aux)
+(./peach.ga.chromosome-module.aux) (./peach.ga.crossover-module.aux)
+(./peach.ga.fitness-module.aux) (./peach.ga.mutation-module.aux)
+(./peach.ga.selection-module.aux) (./peach.nn-module.aux)
+(./peach.nn.af-module.aux
 
 LaTeX Warning: Label `peach:nn:af:Threshold' multiply defined.
 
@@ -510,7 +495,8 @@ LaTeX Warning: Label `peach:nn:af:Linear' multiply defined.
 
 LaTeX Warning: Label `peach:nn:af:Sigmoid' multiply defined.
 
-) (./peach.nn.base-module.aux) (./peach.nn.lrules-module.aux
+) (./peach.nn.base-module.aux) (./peach.nn.kmeans-module.aux)
+(./peach.nn.lrules-module.aux
 
 LaTeX Warning: Label `peach:nn:lrules:LMS' multiply defined.
 
@@ -520,52 +506,16 @@ LaTeX Warning: Label `peach:nn:lrules:LMS' multiply defined.
 
 LaTeX Warning: Label `peach:nn:lrules:WinnerTakesAll' multiply defined.
 
-) (./peach.nn.mem-module.aux
-
-LaTeX Warning: Label `peach:nn:nnet:randn' multiply defined.
-
-) (./peach.nn.nnet-module.aux
+) (./peach.nn.mem-module.aux) (./peach.nn.nnet-module.aux
 
 LaTeX Warning: Label `peach:nn:nnet:randn' multiply defined.
 
 ) (./peach.optm-module.aux) (./peach.optm.base-module.aux)
 (./peach.optm.linear-module.aux) (./peach.optm.multivar-module.aux)
 (./peach.optm.quasinewton-module.aux) (./peach.optm.stochastic-module.aux)
-(./peach.pso-module.aux
-
-LaTeX Warning: Label `peach:random' multiply defined.
-
-
-LaTeX Warning: Label `parameters' multiply defined.
-
-
-LaTeX Warning: Label `returns' multiply defined.
-
-) (./peach.pso.acc-module.aux) (./peach.pso.base-module.aux)
-(./peach.sa-module.aux
-
-LaTeX Warning: Label `peach:standard_normal' multiply defined.
-
-
-LaTeX Warning: Label `parameters' multiply defined.
-
-
-LaTeX Warning: Label `returns' multiply defined.
-
-
-LaTeX Warning: Label `peach:ga:uniform' multiply defined.
-
-) (./peach.sa.base-module.aux
-
-LaTeX Warning: Label `peach:standard_normal' multiply defined.
-
-
-LaTeX Warning: Label `parameters' multiply defined.
-
-
-LaTeX Warning: Label `returns' multiply defined.
-
-) (./peach.sa.neighbor-module.aux))
+(./peach.pso-module.aux) (./peach.pso.acc-module.aux)
+(./peach.pso.base-module.aux) (./peach.sa-module.aux)
+(./peach.sa.base-module.aux) (./peach.sa.neighbor-module.aux))
 \openout1 = `api.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
@@ -628,42 +578,20 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
  [10
 
-] [11]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 467
-.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 467.
-
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 467.
-
-LaTeX Font Info:    Try loading font information for OML+cmtt on input line 475
-.
-LaTeX Font Info:    No file OMLcmtt.fd. on input line 475.
-
-LaTeX Font Warning: Font shape `OML/cmtt/m/n' undefined
-(Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textgreater' on input line 475.
-
-[12]
-Overfull \vbox (186.04497pt too high) has occurred while \output is active []
-
-
-[13]) [14]
+]) [11]
 \openout2 = `peach.fuzzy-module.aux'.
 
- (./peach.fuzzy-module.tex) [15
+
+(./peach.fuzzy-module.tex) [12
 
 
 ]
 \openout2 = `peach.fuzzy.base-module.aux'.
 
- (./peach.fuzzy.base-module.tex
-[16
+ (./peach.fuzzy.base-module.tex [13
 
 
-] [17]
+] [14]
 Overfull \hbox (34.91292pt too wide) in paragraph at lines 387--388
 [][][]\OT1/cmr/m/n/12 abs[][](), [][]add[][](), [][]array[][](), [][]array[]wra
 p[][](), [][]contains[][](), [][]copy[][](), [][]deepcopy[][](),
@@ -717,25 +645,35 @@ Overfull \hbox (7.28767pt too wide) in paragraph at lines 393--394
 [][]hash[][](), [][]reduce[]ex[][](), [][]setattr[][](),
  []
 
-[18]) [19]
+[15]) [16]
 \openout2 = `peach.fuzzy.cmeans-module.aux'.
 
- (./peach.fuzzy.cmeans-module.tex [20
+ (./peach.fuzzy.cmeans-module.tex [17
 
 
-] [21]
+] [18]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 295--296
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[22]) [23]
+[19]) [20]
 \openout2 = `peach.fuzzy.control-module.aux'.
 
- (./peach.fuzzy.control-module.tex [24
+ (./peach.fuzzy.control-module.tex
+LaTeX Font Info:    Try loading font information for OML+cmtt on input line 68.
+
+LaTeX Font Info:    No file OMLcmtt.fd. on input line 68.
 
 
-] [25] [26] [27] [28] [29]
+LaTeX Font Warning: Font shape `OML/cmtt/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textless' on input line 68.
+
+[21
+
+
+] [22] [23] [24] [25] [26]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 614--615
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
@@ -747,29 +685,29 @@ Overfull \hbox (59.00017pt too wide) in paragraph at lines 687--688
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[30] [31] [32]
+[27] [28] [29]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 965--966
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[33]
+[30]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1036--1037
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [34]
+) [31]
 \openout2 = `peach.fuzzy.defuzzy-module.aux'.
 
- (./peach.fuzzy.defuzzy-module.tex [35
+ (./peach.fuzzy.defuzzy-module.tex [32
 
 
-] [36]) [37]
+] [33]) [34]
 \openout2 = `peach.fuzzy.mf-module.aux'.
 
 
-(./peach.fuzzy.mf-module.tex [38
+(./peach.fuzzy.mf-module.tex [35
 
 
 ]
@@ -790,151 +728,105 @@ Overfull \hbox (46.3563pt too wide) in paragraph at lines 218--230
 .Trapezoid, peach.fuzzy.mf.Triangle,
  []
 
-[39]
+[36]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 338--339
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[40] [41]
+[37] [38]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 486--487
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[42]
+[39]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 634--635
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[43]
+[40]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 786--787
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[44]
+[41]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 944--945
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[45]
+[42]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1088--1089
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[46]
+[43]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1234--1235
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[47] [48]
+[44] [45]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1380--1381
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[49]
+[46]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1527--1528
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[50]
+[47]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1678--1679
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[51]
+[48]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1816--1817
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[52]
+[49]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1954--1955
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [53]
+) [50]
 \openout2 = `peach.fuzzy.norms-module.aux'.
 
- (./peach.fuzzy.norms-module.tex [54
+ (./peach.fuzzy.norms-module.tex [51
 
 
-] [55] [56] [57]) [58]
+] [52] [53] [54]) [55]
 \openout2 = `peach.ga-module.aux'.
 
 
 (./peach.ga-module.tex
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
-
-Overfull \hbox (8.47565pt too wide) in paragraph at lines 116--116
-[]\OT1/cmtt/m/n/12 ``[low, high)`` (includes low, but excludes high).  In other
- words,[] 
- []
+) [56
 
 
-Overfull \hbox (39.35066pt too wide) in paragraph at lines 123--123
-[]    \OT1/cmtt/m/n/12 Lower boundary of the output interval.  All values gener
-ated will be[] 
- []
-
-
-Overfull \hbox (39.35066pt too wide) in paragraph at lines 126--126
-[]    \OT1/cmtt/m/n/12 Upper boundary of the output interval.  All values gener
-ated will be[] 
- []
-
-
-Overfull \hbox (57.87567pt too wide) in paragraph at lines 130--130
-[]    \OT1/cmtt/m/n/12 m*n*k samples are generated.  If no shape is specified, 
-a single sample[] 
- []
-
-
-Overfull \hbox (37.62166pt too wide) in paragraph at lines 141--141
-[]\OT1/cmtt/m/n/12 random[]integers : Discrete uniform distribution over the cl
-osed interval[] 
- []
-
-
-Overfull \hbox (8.47565pt too wide) in paragraph at lines 145--145
-[]\OT1/cmtt/m/n/12 rand : Convenience function that accepts dimensions as input
-, e.g.,[] 
- []
-
-
-Overfull \hbox (33.17566pt too wide) in paragraph at lines 146--146
-[]       \OT1/cmtt/m/n/12 ``rand(2,2)`` would generate a 2-by-2 array of floats
-, uniformly[] 
- []
-
-[59
-
-
-] [60]
-Overfull \vbox (350.36438pt too high) has occurred while \output is active []
-
-
-[61]) [62]
+]
 \openout2 = `peach.ga.base-module.aux'.
 
- (./peach.ga.base-module.tex [63
+ (./peach.ga.base-module.tex [57
 
 
-] [64] [65]
+] [58] [59]
 Overfull \vbox (1045.03113pt too high) has occurred while \output is active []
 
 
-[66] [67]
+[60] [61]
 Overfull \hbox (22.19695pt too wide) in paragraph at lines 403--404
 [][][]\OT1/cmr/m/n/12 add[][](), [][]contains[][](), [][]delitem[][](), [][]del
 slice[][](), [][]eq[][](), [][]ge[][](), [][]getattribute[][](),
@@ -958,7 +850,7 @@ Overfull \hbox (64.80983pt too wide) in paragraph at lines 409--410
 duce[]ex[][](), [][]setattr[][](), [][]str[][](), [][]subclasshook[][]() 
  []
 
-[68]
+[62]
 Overfull \hbox (22.19695pt too wide) in paragraph at lines 538--539
 [][][]\OT1/cmr/m/n/12 add[][](), [][]contains[][](), [][]delitem[][](), [][]del
 slice[][](), [][]eq[][](), [][]ge[][](), [][]getattribute[][](),
@@ -982,13 +874,13 @@ Overfull \hbox (64.80983pt too wide) in paragraph at lines 544--545
 duce[]ex[][](), [][]setattr[][](), [][]str[][](), [][]subclasshook[][]() 
  []
 
-[69]) [70]
+[63]) [64]
 \openout2 = `peach.ga.chromosome-module.aux'.
 
- (./peach.ga.chromosome-module.tex [71
+ (./peach.ga.chromosome-module.tex [65
 
 
-] [72] [73]
+] [66] [67]
 Overfull \hbox (65.35814pt too wide) in paragraph at lines 286--287
 [][][]\OT1/cmr/m/n/12 add[][](), [][]and[][](), [][]copy[][](), [][]deepcopy[][
 ](), [][]delitem[][](), [][]eq[][](), [][]ge[][](), [][]getattribute[][](),
@@ -1012,7 +904,7 @@ Overfull \hbox (19.70335pt too wide) in paragraph at lines 292--293
 ce[]ex[][](), [][]setattr[][](), [][]sizeof[][](), [][]str[][](),
  []
 
-) [74]
+) [68]
 \openout2 = `peach.ga.crossover-module.aux'.
 
  (./peach.ga.crossover-module.tex
@@ -1021,7 +913,7 @@ Overfull \hbox (89.04453pt too wide) in paragraph at lines 67--71
 nt, peach.ga.crossover.TwoPoint, peach.ga.crossover.Uniform 
  []
 
-[75
+[69
 
 
 ]
@@ -1030,28 +922,28 @@ Overfull \hbox (27.68022pt too wide) in paragraph at lines 127--128
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[76]
+[70]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 273--274
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[77]
+[71]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 435--436
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[78] [79]
+[72] [73]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 597--598
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [80]
+) [74]
 \openout2 = `peach.ga.fitness-module.aux'.
 
- (./peach.ga.fitness-module.tex [81
+ (./peach.ga.fitness-module.tex [75
 
 
 ]
@@ -1060,16 +952,16 @@ Overfull \hbox (59.00017pt too wide) in paragraph at lines 185--186
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[82]
+[76]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 315--316
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[83]) [84]
+[77]) [78]
 \openout2 = `peach.ga.mutation-module.aux'.
 
- (./peach.ga.mutation-module.tex [85
+ (./peach.ga.mutation-module.tex [79
 
 
 ]
@@ -1078,13 +970,13 @@ Overfull \hbox (27.68022pt too wide) in paragraph at lines 119--120
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[86]
+[80]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 265--266
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [87]
+) [81]
 \openout2 = `peach.ga.selection-module.aux'.
 
  (./peach.ga.selection-module.tex
@@ -1093,7 +985,7 @@ Overfull \hbox (144.49535pt too wide) in paragraph at lines 67--71
  peach.ga.selection.BinaryTournament, peach.ga.selection.RouletteWheel 
  []
 
-[88
+[82
 
 
 ]
@@ -1102,7 +994,7 @@ Overfull \hbox (27.68022pt too wide) in paragraph at lines 118--119
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[89]
+[83]
 Overfull \hbox (27.68022pt too wide) in paragraph at lines 231--232
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
@@ -1114,112 +1006,124 @@ Overfull \hbox (27.68022pt too wide) in paragraph at lines 343--344
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[90]
+[84]
 Overfull \hbox (27.68022pt too wide) in paragraph at lines 455--456
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[91]) [92]
+[85]) [86]
 \openout2 = `peach.nn-module.aux'.
 
- (./peach.nn-module.tex [93
+ (./peach.nn-module.tex) [87
 
 
-]) [94]
+]
 \openout2 = `peach.nn.af-module.aux'.
 
  (./peach.nn.af-module.tex
 Overfull \hbox (56.27542pt too wide) in paragraph at lines 75--83
-[]\OT1/cmr/bx/n/12 Known Sub-classes: \OT1/cmr/m/n/12 peach.nn.af.Linear, peach
-.nn.af.ArcTan, peach.nn.af.Sigmoid, peach.nn.af.Ramp,
+[]\OT1/cmr/bx/n/12 Known Sub-classes: \OT1/cmr/m/n/12 peach.nn.af.ArcTan, peach
+.nn.af.Linear, peach.nn.af.Sigmoid, peach.nn.af.Ramp,
  []
 
-[95
+[88
 
 
-] [96]
+] [89]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 264--265
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[97]
+[90]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 466--467
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[98] [99]
+[91] [92]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 669--670
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[100] [101]
+[93] [94]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 875--876
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[102] [103]
+[95] [96]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1081--1082
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[104] [105]
+[97] [98]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1288--1289
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[106]
+[99]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1488--1489
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[107] [108]
+[100] [101]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1688--1689
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[109] [110]
+[102] [103]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1896--1897
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[111]
+[104]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 2096--2097
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[112] [113]
+[105] [106]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 2296--2297
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [114]
+) [107]
 \openout2 = `peach.nn.base-module.aux'.
 
- (./peach.nn.base-module.tex [115
+ (./peach.nn.base-module.tex [108
 
 
-] [116]
+] [109]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 281--282
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [117]
+[110]) [111]
+\openout2 = `peach.nn.kmeans-module.aux'.
+
+ (./peach.nn.kmeans-module.tex [112
+
+
+] [113] [114]
+Overfull \hbox (59.00017pt too wide) in paragraph at lines 321--322
+[][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
+[][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
+ []
+
+) [115]
 \openout2 = `peach.nn.lrules-module.aux'.
 
- (./peach.nn.lrules-module.tex [118
+ (./peach.nn.lrules-module.tex [116
 
 
 ]
@@ -1228,25 +1132,25 @@ Overfull \hbox (27.68022pt too wide) in paragraph at lines 174--175
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[119]
+[117]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 319--320
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[120] [121]
+[118] [119]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 481--482
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[122]
+[120]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 643--644
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[123] [124]
+[121] [122]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 805--806
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
@@ -1258,55 +1162,55 @@ Overfull \hbox (103.6013pt too wide) in paragraph at lines 863--867
 ve, peach.nn.lrules.Cooperative, peach.nn.lrules.WinnerTakesAll 
  []
 
-[125]
+[123]
 Overfull \hbox (27.68022pt too wide) in paragraph at lines 956--957
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]init[][](), [][]new[][](), [][]reduce[][](),
  []
 
-[126]
+[124]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1097--1098
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[127] [128]
+[125] [126]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1255--1256
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[129]
+[127]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1419--1420
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[130] [131]
+[128] [129]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1580--1581
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [132]
+) [130]
 \openout2 = `peach.nn.mem-module.aux'.
 
- (./peach.nn.mem-module.tex [133
+ (./peach.nn.mem-module.tex [131
 
 
-] [134] [135]
+] [132] [133]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 391--392
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[136]) [137]
+[134]) [135]
 \openout2 = `peach.nn.nnet-module.aux'.
 
- (./peach.nn.nnet-module.tex [138
+ (./peach.nn.nnet-module.tex [136
 
 
-] [139] [140] [141] [142]
+] [137] [138] [139] [140]
 Overfull \hbox (22.19695pt too wide) in paragraph at lines 451--452
 [][][]\OT1/cmr/m/n/12 add[][](), [][]contains[][](), [][]delitem[][](), [][]del
 slice[][](), [][]eq[][](), [][]ge[][](), [][]getattribute[][](),
@@ -1330,26 +1234,38 @@ Overfull \hbox (64.80983pt too wide) in paragraph at lines 457--458
 duce[]ex[][](), [][]setattr[][](), [][]str[][](), [][]subclasshook[][]() 
  []
 
-[143] [144] [145] [146]
+[141] [142] [143] [144]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 821--822
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [147]
+[145] [146]
+Overfull \hbox (59.00017pt too wide) in paragraph at lines 1000--1001
+[][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
+[][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
+ []
+
+[147]
+Overfull \hbox (59.00017pt too wide) in paragraph at lines 1173--1174
+[][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
+[][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
+ []
+
+[148]) [149]
 \openout2 = `peach.optm-module.aux'.
 
- (./peach.optm-module.tex) [148
+ (./peach.optm-module.tex) [150
 
 
 ]
 \openout2 = `peach.optm.base-module.aux'.
 
- (./peach.optm.base-module.tex [149
+ (./peach.optm.base-module.tex
+[151
 
 
-]
-[150] [151]
+] [152] [153]
 Overfull \hbox (124.6317pt too wide) in paragraph at lines 224--236
 []\OT1/cmr/bx/n/12 Known Sub-classes: \OT1/cmr/m/n/12 peach.optm.quasinewton.BF
 GS, peach.optm.quasinewton.DFP, peach.optm.quasinewton.SR1,
@@ -1367,127 +1283,121 @@ Overfull \hbox (54.28123pt too wide) in paragraph at lines 224--236
 .optm.multivar.MomentumGradient,
  []
 
-[152]
+[154]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 374--375
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [153]
+) [155]
 \openout2 = `peach.optm.linear-module.aux'.
 
- (./peach.optm.linear-module.tex [154
+ (./peach.optm.linear-module.tex [156
 
 
-] [155]
+] [157]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 250--251
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[156] [157] [158]
+[158] [159] [160]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 498--499
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[159] [160] [161]
+[161] [162] [163]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 723--724
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[162] [163] [164]
+[164] [165] [166]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 953--954
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [165]
+) [167]
 \openout2 = `peach.optm.multivar-module.aux'.
 
- (./peach.optm.multivar-module.tex [166
+ (./peach.optm.multivar-module.tex [168
 
 
-] [167]
+] [169]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 256--257
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[168] [169] [170]
+[170] [171] [172]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 522--523
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[171] [172] [173]
+[173] [174] [175]
 Overfull \vbox (37.69775pt too high) has occurred while \output is active []
 
 
-[174] [175]
+[176] [177]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 803--804
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[176] [177]
+[178] [179]
 Overfull \vbox (23.69775pt too high) has occurred while \output is active []
 
 
-[178]
+[180]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 1075--1076
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[179]) [180]
+[181]) [182]
 \openout2 = `peach.optm.quasinewton-module.aux'.
 
- (./peach.optm.quasinewton-module.tex [181
+ (./peach.optm.quasinewton-module.tex [183
 
 
-] [182]
+] [184]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 263--264
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[183] [184] [185]
+[185] [186] [187]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 525--526
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[186] [187] [188]
+[188] [189] [190]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 785--786
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[189]) [190]
+[191]) [192]
 \openout2 = `peach.optm.stochastic-module.aux'.
 
- (./peach.optm.stochastic-module.tex [191
+ (./peach.optm.stochastic-module.tex) [193
+
+
+] [194]
+\openout2 = `peach.pso-module.aux'.
+
+
+(./peach.pso-module.tex) [195
 
 
 ]
-Overfull \hbox (59.00017pt too wide) in paragraph at lines 166--167
-[][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
-[][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
- []
-
-[192]) [193]
-\openout2 = `peach.pso-module.aux'.
-
- (./peach.pso-module.tex [194
-
-
-]) [195]
 \openout2 = `peach.pso.acc-module.aux'.
 
- (./peach.pso.acc-module.tex
-[196
+ (./peach.pso.acc-module.tex [196
 
 
 ]
@@ -1563,82 +1473,37 @@ duce[]ex[][](), [][]setattr[][](), [][]str[][](), [][]subclasshook[][]()
 ) [205]
 \openout2 = `peach.sa-module.aux'.
 
- (./peach.sa-module.tex [206
+ (./peach.sa-module.tex) [206
 
 
 ]
-Overfull \hbox (8.47565pt too wide) in paragraph at lines 145--145
-[]\OT1/cmtt/m/n/12 ``[low, high)`` (includes low, but excludes high).  In other
- words,[] 
- []
-
-
-Overfull \hbox (39.35066pt too wide) in paragraph at lines 152--152
-[]    \OT1/cmtt/m/n/12 Lower boundary of the output interval.  All values gener
-ated will be[] 
- []
-
-
-Overfull \hbox (39.35066pt too wide) in paragraph at lines 155--155
-[]    \OT1/cmtt/m/n/12 Upper boundary of the output interval.  All values gener
-ated will be[] 
- []
-
-
-Overfull \hbox (57.87567pt too wide) in paragraph at lines 159--159
-[]    \OT1/cmtt/m/n/12 m*n*k samples are generated.  If no shape is specified, 
-a single sample[] 
- []
-
-
-Overfull \hbox (37.62166pt too wide) in paragraph at lines 170--170
-[]\OT1/cmtt/m/n/12 random[]integers : Discrete uniform distribution over the cl
-osed interval[] 
- []
-
-
-Overfull \hbox (8.47565pt too wide) in paragraph at lines 174--174
-[]\OT1/cmtt/m/n/12 rand : Convenience function that accepts dimensions as input
-, e.g.,[] 
- []
-
-
-Overfull \hbox (33.17566pt too wide) in paragraph at lines 175--175
-[]       \OT1/cmtt/m/n/12 ``rand(2,2)`` would generate a 2-by-2 array of floats
-, uniformly[] 
- []
-
-[207]
-Overfull \vbox (320.41997pt too high) has occurred while \output is active []
-
-
-[208]) [209]
 \openout2 = `peach.sa.base-module.aux'.
 
- (./peach.sa.base-module.tex [210
+ (./peach.sa.base-module.tex [207
 
 
-] [211] [212]
+]
+[208] [209]
 Overfull \vbox (370.0311pt too high) has occurred while \output is active []
 
 
-[213] [214]
+[210] [211]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 373--374
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[215] [216] [217]
+[212] [213] [214]
 Overfull \vbox (511.53111pt too high) has occurred while \output is active []
 
 
-[218] [219]
+[215] [216]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 705--706
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [220]
+) [217]
 \openout2 = `peach.sa.neighbor-module.aux'.
 
  (./peach.sa.neighbor-module.tex
@@ -1647,7 +1512,7 @@ Overfull \hbox (21.16745pt too wide) in paragraph at lines 63--66
 nNeighbor, peach.sa.neighbor.UniformNeighbor 
  []
 
-[221
+[218
 
 
 ]
@@ -1656,61 +1521,49 @@ Overfull \hbox (59.00017pt too wide) in paragraph at lines 187--188
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[222]
+[219]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 322--323
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[223]
+[220]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 477--478
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[224] [225]
+[221] [222]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 660--661
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-[226]
+[223]
 Overfull \hbox (59.00017pt too wide) in paragraph at lines 796--797
 [][][]\OT1/cmr/m/n/12 delattr[][](), [][]format[][](), [][]getattribute[][](), 
 [][]hash[][](), [][]new[][](), [][]reduce[][](), [][]reduce[]ex[][](),
  []
 
-) [227] (./api.ind
-Overfull \hbox (1.6645pt too wide) in paragraph at lines 28--30
-[]| \OT1/cmr/m/n/12 peach.ga.uniform \OT1/cmr/m/it/12 (func-tion)\OT1/cmr/m/n/1
-2 , [][][][][][], [][][][][][], [][][][][][] 
- []
-
-
-Overfull \hbox (1.04352pt too wide) in paragraph at lines 42--44
+) [224] (./api.ind
+Overfull \hbox (1.04352pt too wide) in paragraph at lines 41--43
 []| \OT1/cmr/m/n/12 peach.optm.multivar \OT1/cmr/m/it/12 (mod-ule)\OT1/cmr/m/n/
 12 , [][][][][][]--[][][][][][] 
  []
 
 
-Overfull \hbox (4.04626pt too wide) in paragraph at lines 44--46
+Overfull \hbox (4.04626pt too wide) in paragraph at lines 43--45
 []| \OT1/cmr/m/n/12 peach.optm.quasinewton \OT1/cmr/m/it/12 (mod-ule)\OT1/cmr/m
 /n/12 , [][][][][][]--
  []
 
 
-Overfull \hbox (8.35455pt too wide) in paragraph at lines 46--48
+Overfull \hbox (8.35455pt too wide) in paragraph at lines 45--47
 []| \OT1/cmr/m/n/12 peach.optm.stochastic \OT1/cmr/m/it/12 (mod-ule)\OT1/cmr/m/
 n/12 , [][][][][][]--[][][][][][] 
  []
 
-
-Overfull \hbox (7.12212pt too wide) in paragraph at lines 58--60
-[]| \OT1/cmr/m/n/12 peach.standard[]normal \OT1/cmr/m/it/12 (func-tion)\OT1/cmr
-/m/n/12 , [][][][][][], [][][][][][],
- []
-
-[228
+[225
 
 
 
@@ -1723,14 +1576,14 @@ Overfull \hbox (7.12212pt too wide) in paragraph at lines 58--60
 (./peach.ga.fitness-module.aux) (./peach.ga.mutation-module.aux)
 (./peach.ga.selection-module.aux) (./peach.nn-module.aux)
 (./peach.nn.af-module.aux) (./peach.nn.base-module.aux)
-(./peach.nn.lrules-module.aux) (./peach.nn.mem-module.aux)
-(./peach.nn.nnet-module.aux) (./peach.optm-module.aux)
-(./peach.optm.base-module.aux) (./peach.optm.linear-module.aux)
-(./peach.optm.multivar-module.aux) (./peach.optm.quasinewton-module.aux)
-(./peach.optm.stochastic-module.aux) (./peach.pso-module.aux)
-(./peach.pso.acc-module.aux) (./peach.pso.base-module.aux)
-(./peach.sa-module.aux) (./peach.sa.base-module.aux)
-(./peach.sa.neighbor-module.aux))
+(./peach.nn.kmeans-module.aux) (./peach.nn.lrules-module.aux)
+(./peach.nn.mem-module.aux) (./peach.nn.nnet-module.aux)
+(./peach.optm-module.aux) (./peach.optm.base-module.aux)
+(./peach.optm.linear-module.aux) (./peach.optm.multivar-module.aux)
+(./peach.optm.quasinewton-module.aux) (./peach.optm.stochastic-module.aux)
+(./peach.pso-module.aux) (./peach.pso.acc-module.aux)
+(./peach.pso.base-module.aux) (./peach.sa-module.aux)
+(./peach.sa.base-module.aux) (./peach.sa.neighbor-module.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1739,12 +1592,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5917 strings out of 495042
- 91157 string characters out of 1181921
- 206070 words of memory out of 3000000
- 8757 multiletter control sequences out of 15000+50000
+ 5921 strings out of 495042
+ 91575 string characters out of 1181921
+ 205639 words of memory out of 3000000
+ 8756 multiletter control sequences out of 15000+50000
  13889 words of font info for 53 fonts, out of 3000000 for 9000
  30 hyphenation exceptions out of 8191
- 38i,12n,43p,1786b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,12n,43p,1786b,433s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on api.dvi (228 pages, 1182532 bytes).
+Output written on api.dvi (225 pages, 1168640 bytes).

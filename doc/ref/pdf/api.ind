@@ -1,61 +1,56 @@
 \begin{theindex}
 
-  \item peach \textit{(package)}, \hyperpage{10--14}
-    \subitem peach.fuzzy \textit{(package)}, \hyperpage{15}
-      \subsubitem peach.fuzzy.base \textit{(module)}, 
-		\hyperpage{16--19}
+  \item peach \textit{(package)}, \hyperpage{2--3}
+    \subitem peach.fuzzy \textit{(package)}, \hyperpage{4}
+      \subsubitem peach.fuzzy.base \textit{(module)}, \hyperpage{5--8}
       \subsubitem peach.fuzzy.cmeans \textit{(module)}, 
-		\hyperpage{20--23}
+		\hyperpage{9--12}
       \subsubitem peach.fuzzy.control \textit{(module)}, 
-		\hyperpage{24--34}
+		\hyperpage{13--23}
       \subsubitem peach.fuzzy.defuzzy \textit{(module)}, 
-		\hyperpage{35--37}
-      \subsubitem peach.fuzzy.mf \textit{(module)}, \hyperpage{38--53}
+		\hyperpage{24--26}
+      \subsubitem peach.fuzzy.mf \textit{(module)}, \hyperpage{27--42}
       \subsubitem peach.fuzzy.norms \textit{(module)}, 
-		\hyperpage{54--58}
-    \subitem peach.ga \textit{(package)}, \hyperpage{59--62}
-      \subsubitem peach.ga.base \textit{(module)}, \hyperpage{63--70}
+		\hyperpage{43--47}
+    \subitem peach.ga \textit{(package)}, \hyperpage{48}
+      \subsubitem peach.ga.base \textit{(module)}, \hyperpage{49--56}
       \subsubitem peach.ga.chromosome \textit{(module)}, 
-		\hyperpage{71--74}
+		\hyperpage{57--60}
       \subsubitem peach.ga.crossover \textit{(module)}, 
-		\hyperpage{75--80}
+		\hyperpage{61--66}
       \subsubitem peach.ga.fitness \textit{(module)}, 
-		\hyperpage{81--84}
+		\hyperpage{67--70}
       \subsubitem peach.ga.mutation \textit{(module)}, 
-		\hyperpage{85--87}
+		\hyperpage{71--73}
       \subsubitem peach.ga.selection \textit{(module)}, 
-		\hyperpage{88--92}
-      \subsubitem peach.ga.uniform \textit{(function)}, \hyperpage{12}, 
-		\hyperpage{61}, \hyperpage{207}
-    \subitem peach.nn \textit{(package)}, \hyperpage{93--94}
-      \subsubitem peach.nn.af \textit{(module)}, \hyperpage{95--114}
-      \subsubitem peach.nn.base \textit{(module)}, \hyperpage{115--117}
+		\hyperpage{74--78}
+    \subitem peach.nn \textit{(package)}, \hyperpage{79}
+      \subsubitem peach.nn.af \textit{(module)}, \hyperpage{80--99}
+      \subsubitem peach.nn.base \textit{(module)}, \hyperpage{100--103}
+      \subsubitem peach.nn.kmeans \textit{(module)}, 
+		\hyperpage{104--107}
       \subsubitem peach.nn.lrules \textit{(module)}, 
-		\hyperpage{118--132}
-      \subsubitem peach.nn.mem \textit{(module)}, \hyperpage{133--137}
-      \subsubitem peach.nn.nnet \textit{(module)}, \hyperpage{138--147}
-    \subitem peach.optm \textit{(package)}, \hyperpage{148}
+		\hyperpage{108--122}
+      \subsubitem peach.nn.mem \textit{(module)}, \hyperpage{123--127}
+      \subsubitem peach.nn.nnet \textit{(module)}, \hyperpage{128--141}
+    \subitem peach.optm \textit{(package)}, \hyperpage{142}
       \subsubitem peach.optm.base \textit{(module)}, 
-		\hyperpage{149--153}
+		\hyperpage{143--147}
       \subsubitem peach.optm.linear \textit{(module)}, 
-		\hyperpage{154--165}
+		\hyperpage{148--159}
       \subsubitem peach.optm.multivar \textit{(module)}, 
-		\hyperpage{166--180}
+		\hyperpage{160--174}
       \subsubitem peach.optm.quasinewton \textit{(module)}, 
-		\hyperpage{181--190}
+		\hyperpage{175--184}
       \subsubitem peach.optm.stochastic \textit{(module)}, 
-		\hyperpage{191--193}
-    \subitem peach.pso \textit{(package)}, \hyperpage{194--195}
-      \subsubitem peach.pso.acc \textit{(module)}, \hyperpage{196--199}
+		\hyperpage{185--186}
+    \subitem peach.pso \textit{(package)}, \hyperpage{187}
+      \subsubitem peach.pso.acc \textit{(module)}, \hyperpage{188--191}
       \subsubitem peach.pso.base \textit{(module)}, 
-		\hyperpage{200--205}
-    \subitem peach.random \textit{(function)}, \hyperpage{12}, 
-		\hyperpage{195}
-    \subitem peach.sa \textit{(package)}, \hyperpage{206--209}
-      \subsubitem peach.sa.base \textit{(module)}, \hyperpage{210--220}
+		\hyperpage{192--197}
+    \subitem peach.sa \textit{(package)}, \hyperpage{198}
+      \subsubitem peach.sa.base \textit{(module)}, \hyperpage{199--209}
       \subsubitem peach.sa.neighbor \textit{(module)}, 
-		\hyperpage{221--227}
-    \subitem peach.standard\_normal \textit{(function)}, \hyperpage{12}, 
-		\hyperpage{207}, \hyperpage{210}
+		\hyperpage{210--216}
 
 \end{theindex}
