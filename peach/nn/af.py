@@ -518,6 +518,65 @@ class TanH(Activation):
 
 
 ################################################################################
+# Radial Basis Functions
+class RadialBasis(Activation):
+    '''
+    This class is used as a base class for radial basis functions (RBFs). It is
+    in almost every aspect equal to ``Activation`` class, but it is used to
+    distinguish the two types. RBFs are used in Radial Basis Function Networks,
+    in which monotonic activations shouldn't be used.
+
+    Since it is symmetric according to the origin, a RBF takes no parameters in
+    its creation.
+    '''
+    pass
+
+
+################################################################################
+class Gaussian(RadialBasis):
+    '''
+    Gaussian activation function
+    '''
+    def __init__(self):
+        '''
+        Initializes the object. Takes no parameters
+        '''
+        self.d = self.derivative
+
+    def __call__(self, x):
+        '''
+        Call interface to the object.
+
+        This method applies the activation function over a vector of activation
+        potentials, and returns the results.
+
+        :Parameters:
+          x
+            A real number or a vector of real numbers representing the
+            activation potential of a neuron or a layer of neurons.
+
+        :Returns:
+          The activation function applied over the input vector.
+        '''
+        return exp(-x**2)
+
+    def derivative(self, x):
+        '''
+        The function derivative.
+
+        :Parameters:
+          x
+            A real number or a vector of real numbers representing the
+            activation potential of a neuron or a layer of neurons.
+
+        :Returns:
+          The derivative of the activation function applied over the input
+          vector.
+        '''
+        return -2.*x*exp(-x**2)
+
+
+################################################################################
 # Test
 if __name__ == "__main__":
     pass

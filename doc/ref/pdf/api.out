@@ -189,6 +189,14 @@
 \BOOKMARK [3][-]{subsubsection.17.12.1}{Methods}{subsection.17.12}
 \BOOKMARK [3][-]{subsubsection.17.12.2}{Properties}{subsection.17.12}
 \BOOKMARK [3][-]{subsubsection.17.12.3}{Instance Variables}{subsection.17.12}
+\BOOKMARK [2][-]{subsection.17.13}{Class RadialBasis}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.13.1}{Methods}{subsection.17.13}
+\BOOKMARK [3][-]{subsubsection.17.13.2}{Properties}{subsection.17.13}
+\BOOKMARK [3][-]{subsubsection.17.13.3}{Instance Variables}{subsection.17.13}
+\BOOKMARK [2][-]{subsection.17.14}{Class Gaussian}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.14.1}{Methods}{subsection.17.14}
+\BOOKMARK [3][-]{subsubsection.17.14.2}{Properties}{subsection.17.14}
+\BOOKMARK [3][-]{subsubsection.17.14.3}{Instance Variables}{subsection.17.14}
 \BOOKMARK [1][-]{section.18}{Module peach.nn.base}{}
 \BOOKMARK [2][-]{subsection.18.1}{Variables}{section.18}
 \BOOKMARK [2][-]{subsection.18.2}{Class Layer}{section.18}
@@ -260,117 +268,123 @@
 \BOOKMARK [2][-]{subsection.22.6}{Class PNN}{section.22}
 \BOOKMARK [3][-]{subsubsection.22.6.1}{Methods}{subsection.22.6}
 \BOOKMARK [3][-]{subsubsection.22.6.2}{Properties}{subsection.22.6}
-\BOOKMARK [1][-]{section.23}{Package peach.optm}{}
-\BOOKMARK [2][-]{subsection.23.1}{Modules}{section.23}
-\BOOKMARK [1][-]{section.24}{Module peach.optm.base}{}
-\BOOKMARK [2][-]{subsection.24.1}{Functions}{section.24}
-\BOOKMARK [2][-]{subsection.24.2}{Variables}{section.24}
-\BOOKMARK [2][-]{subsection.24.3}{Class Optimizer}{section.24}
-\BOOKMARK [3][-]{subsubsection.24.3.1}{Methods}{subsection.24.3}
-\BOOKMARK [3][-]{subsubsection.24.3.2}{Properties}{subsection.24.3}
-\BOOKMARK [1][-]{section.25}{Module peach.optm.linear}{}
-\BOOKMARK [2][-]{subsection.25.1}{Variables}{section.25}
-\BOOKMARK [2][-]{subsection.25.2}{Class Direct1D}{section.25}
-\BOOKMARK [3][-]{subsubsection.25.2.1}{Methods}{subsection.25.2}
-\BOOKMARK [3][-]{subsubsection.25.2.2}{Properties}{subsection.25.2}
-\BOOKMARK [3][-]{subsubsection.25.2.3}{Instance Variables}{subsection.25.2}
-\BOOKMARK [2][-]{subsection.25.3}{Class Interpolation}{section.25}
+\BOOKMARK [1][-]{section.23}{Module peach.nn.rbfn}{}
+\BOOKMARK [2][-]{subsection.23.1}{Functions}{section.23}
+\BOOKMARK [2][-]{subsection.23.2}{Variables}{section.23}
+\BOOKMARK [2][-]{subsection.23.3}{Class RBFN}{section.23}
+\BOOKMARK [3][-]{subsubsection.23.3.1}{Methods}{subsection.23.3}
+\BOOKMARK [3][-]{subsubsection.23.3.2}{Properties}{subsection.23.3}
+\BOOKMARK [1][-]{section.24}{Package peach.optm}{}
+\BOOKMARK [2][-]{subsection.24.1}{Modules}{section.24}
+\BOOKMARK [1][-]{section.25}{Module peach.optm.base}{}
+\BOOKMARK [2][-]{subsection.25.1}{Functions}{section.25}
+\BOOKMARK [2][-]{subsection.25.2}{Variables}{section.25}
+\BOOKMARK [2][-]{subsection.25.3}{Class Optimizer}{section.25}
 \BOOKMARK [3][-]{subsubsection.25.3.1}{Methods}{subsection.25.3}
 \BOOKMARK [3][-]{subsubsection.25.3.2}{Properties}{subsection.25.3}
-\BOOKMARK [2][-]{subsection.25.4}{Class GoldenRule}{section.25}
-\BOOKMARK [3][-]{subsubsection.25.4.1}{Methods}{subsection.25.4}
-\BOOKMARK [3][-]{subsubsection.25.4.2}{Properties}{subsection.25.4}
-\BOOKMARK [2][-]{subsection.25.5}{Class Fibonacci}{section.25}
-\BOOKMARK [3][-]{subsubsection.25.5.1}{Methods}{subsection.25.5}
-\BOOKMARK [3][-]{subsubsection.25.5.2}{Properties}{subsection.25.5}
-\BOOKMARK [1][-]{section.26}{Module peach.optm.multivar}{}
+\BOOKMARK [1][-]{section.26}{Module peach.optm.linear}{}
 \BOOKMARK [2][-]{subsection.26.1}{Variables}{section.26}
-\BOOKMARK [2][-]{subsection.26.2}{Class Direct}{section.26}
+\BOOKMARK [2][-]{subsection.26.2}{Class Direct1D}{section.26}
 \BOOKMARK [3][-]{subsubsection.26.2.1}{Methods}{subsection.26.2}
 \BOOKMARK [3][-]{subsubsection.26.2.2}{Properties}{subsection.26.2}
 \BOOKMARK [3][-]{subsubsection.26.2.3}{Instance Variables}{subsection.26.2}
-\BOOKMARK [2][-]{subsection.26.3}{Class Gradient}{section.26}
+\BOOKMARK [2][-]{subsection.26.3}{Class Interpolation}{section.26}
 \BOOKMARK [3][-]{subsubsection.26.3.1}{Methods}{subsection.26.3}
 \BOOKMARK [3][-]{subsubsection.26.3.2}{Properties}{subsection.26.3}
-\BOOKMARK [3][-]{subsubsection.26.3.3}{Instance Variables}{subsection.26.3}
-\BOOKMARK [2][-]{subsection.26.4}{Class MomentumGradient}{section.26}
+\BOOKMARK [2][-]{subsection.26.4}{Class GoldenRule}{section.26}
 \BOOKMARK [3][-]{subsubsection.26.4.1}{Methods}{subsection.26.4}
 \BOOKMARK [3][-]{subsubsection.26.4.2}{Properties}{subsection.26.4}
-\BOOKMARK [3][-]{subsubsection.26.4.3}{Instance Variables}{subsection.26.4}
-\BOOKMARK [2][-]{subsection.26.5}{Class Newton}{section.26}
+\BOOKMARK [2][-]{subsection.26.5}{Class Fibonacci}{section.26}
 \BOOKMARK [3][-]{subsubsection.26.5.1}{Methods}{subsection.26.5}
 \BOOKMARK [3][-]{subsubsection.26.5.2}{Properties}{subsection.26.5}
-\BOOKMARK [3][-]{subsubsection.26.5.3}{Instance Variables}{subsection.26.5}
-\BOOKMARK [1][-]{section.27}{Module peach.optm.quasinewton}{}
+\BOOKMARK [1][-]{section.27}{Module peach.optm.multivar}{}
 \BOOKMARK [2][-]{subsection.27.1}{Variables}{section.27}
-\BOOKMARK [2][-]{subsection.27.2}{Class DFP}{section.27}
+\BOOKMARK [2][-]{subsection.27.2}{Class Direct}{section.27}
 \BOOKMARK [3][-]{subsubsection.27.2.1}{Methods}{subsection.27.2}
 \BOOKMARK [3][-]{subsubsection.27.2.2}{Properties}{subsection.27.2}
 \BOOKMARK [3][-]{subsubsection.27.2.3}{Instance Variables}{subsection.27.2}
-\BOOKMARK [2][-]{subsection.27.3}{Class BFGS}{section.27}
+\BOOKMARK [2][-]{subsection.27.3}{Class Gradient}{section.27}
 \BOOKMARK [3][-]{subsubsection.27.3.1}{Methods}{subsection.27.3}
 \BOOKMARK [3][-]{subsubsection.27.3.2}{Properties}{subsection.27.3}
 \BOOKMARK [3][-]{subsubsection.27.3.3}{Instance Variables}{subsection.27.3}
-\BOOKMARK [2][-]{subsection.27.4}{Class SR1}{section.27}
+\BOOKMARK [2][-]{subsection.27.4}{Class MomentumGradient}{section.27}
 \BOOKMARK [3][-]{subsubsection.27.4.1}{Methods}{subsection.27.4}
 \BOOKMARK [3][-]{subsubsection.27.4.2}{Properties}{subsection.27.4}
 \BOOKMARK [3][-]{subsubsection.27.4.3}{Instance Variables}{subsection.27.4}
-\BOOKMARK [1][-]{section.28}{Module peach.optm.stochastic}{}
+\BOOKMARK [2][-]{subsection.27.5}{Class Newton}{section.27}
+\BOOKMARK [3][-]{subsubsection.27.5.1}{Methods}{subsection.27.5}
+\BOOKMARK [3][-]{subsubsection.27.5.2}{Properties}{subsection.27.5}
+\BOOKMARK [3][-]{subsubsection.27.5.3}{Instance Variables}{subsection.27.5}
+\BOOKMARK [1][-]{section.28}{Module peach.optm.quasinewton}{}
 \BOOKMARK [2][-]{subsection.28.1}{Variables}{section.28}
-\BOOKMARK [2][-]{subsection.28.2}{Class CrossEntropy}{section.28}
+\BOOKMARK [2][-]{subsection.28.2}{Class DFP}{section.28}
 \BOOKMARK [3][-]{subsubsection.28.2.1}{Methods}{subsection.28.2}
-\BOOKMARK [1][-]{section.29}{Package peach.pso}{}
-\BOOKMARK [2][-]{subsection.29.1}{Modules}{section.29}
-\BOOKMARK [1][-]{section.30}{Module peach.pso.acc}{}
-\BOOKMARK [2][-]{subsection.30.1}{Variables}{section.30}
-\BOOKMARK [2][-]{subsection.30.2}{Class Accelerator}{section.30}
-\BOOKMARK [3][-]{subsubsection.30.2.1}{Methods}{subsection.30.2}
-\BOOKMARK [3][-]{subsubsection.30.2.2}{Properties}{subsection.30.2}
-\BOOKMARK [2][-]{subsection.30.3}{Class StandardPSO}{section.30}
-\BOOKMARK [3][-]{subsubsection.30.3.1}{Methods}{subsection.30.3}
-\BOOKMARK [3][-]{subsubsection.30.3.2}{Properties}{subsection.30.3}
-\BOOKMARK [3][-]{subsubsection.30.3.3}{Instance Variables}{subsection.30.3}
-\BOOKMARK [1][-]{section.31}{Module peach.pso.base}{}
+\BOOKMARK [3][-]{subsubsection.28.2.2}{Properties}{subsection.28.2}
+\BOOKMARK [3][-]{subsubsection.28.2.3}{Instance Variables}{subsection.28.2}
+\BOOKMARK [2][-]{subsection.28.3}{Class BFGS}{section.28}
+\BOOKMARK [3][-]{subsubsection.28.3.1}{Methods}{subsection.28.3}
+\BOOKMARK [3][-]{subsubsection.28.3.2}{Properties}{subsection.28.3}
+\BOOKMARK [3][-]{subsubsection.28.3.3}{Instance Variables}{subsection.28.3}
+\BOOKMARK [2][-]{subsection.28.4}{Class SR1}{section.28}
+\BOOKMARK [3][-]{subsubsection.28.4.1}{Methods}{subsection.28.4}
+\BOOKMARK [3][-]{subsubsection.28.4.2}{Properties}{subsection.28.4}
+\BOOKMARK [3][-]{subsubsection.28.4.3}{Instance Variables}{subsection.28.4}
+\BOOKMARK [1][-]{section.29}{Module peach.optm.stochastic}{}
+\BOOKMARK [2][-]{subsection.29.1}{Variables}{section.29}
+\BOOKMARK [2][-]{subsection.29.2}{Class CrossEntropy}{section.29}
+\BOOKMARK [3][-]{subsubsection.29.2.1}{Methods}{subsection.29.2}
+\BOOKMARK [1][-]{section.30}{Package peach.pso}{}
+\BOOKMARK [2][-]{subsection.30.1}{Modules}{section.30}
+\BOOKMARK [1][-]{section.31}{Module peach.pso.acc}{}
 \BOOKMARK [2][-]{subsection.31.1}{Variables}{section.31}
-\BOOKMARK [2][-]{subsection.31.2}{Class ParticleSwarmOptimizer}{section.31}
+\BOOKMARK [2][-]{subsection.31.2}{Class Accelerator}{section.31}
 \BOOKMARK [3][-]{subsubsection.31.2.1}{Methods}{subsection.31.2}
 \BOOKMARK [3][-]{subsubsection.31.2.2}{Properties}{subsection.31.2}
-\BOOKMARK [3][-]{subsubsection.31.2.3}{Class Variables}{subsection.31.2}
-\BOOKMARK [3][-]{subsubsection.31.2.4}{Instance Variables}{subsection.31.2}
-\BOOKMARK [2][-]{subsection.31.3}{Class PSO}{section.31}
+\BOOKMARK [2][-]{subsection.31.3}{Class StandardPSO}{section.31}
 \BOOKMARK [3][-]{subsubsection.31.3.1}{Methods}{subsection.31.3}
 \BOOKMARK [3][-]{subsubsection.31.3.2}{Properties}{subsection.31.3}
-\BOOKMARK [3][-]{subsubsection.31.3.3}{Class Variables}{subsection.31.3}
-\BOOKMARK [3][-]{subsubsection.31.3.4}{Instance Variables}{subsection.31.3}
-\BOOKMARK [1][-]{section.32}{Package peach.sa}{}
-\BOOKMARK [2][-]{subsection.32.1}{Modules}{section.32}
-\BOOKMARK [1][-]{section.33}{Module peach.sa.base}{}
-\BOOKMARK [2][-]{subsection.33.1}{Functions}{section.33}
-\BOOKMARK [2][-]{subsection.33.2}{Variables}{section.33}
-\BOOKMARK [2][-]{subsection.33.3}{Class ContinuousSA}{section.33}
-\BOOKMARK [3][-]{subsubsection.33.3.1}{Methods}{subsection.33.3}
-\BOOKMARK [3][-]{subsubsection.33.3.2}{Properties}{subsection.33.3}
-\BOOKMARK [3][-]{subsubsection.33.3.3}{Instance Variables}{subsection.33.3}
-\BOOKMARK [2][-]{subsection.33.4}{Class BinarySA}{section.33}
-\BOOKMARK [3][-]{subsubsection.33.4.1}{Methods}{subsection.33.4}
-\BOOKMARK [3][-]{subsubsection.33.4.2}{Properties}{subsection.33.4}
-\BOOKMARK [1][-]{section.34}{Module peach.sa.neighbor}{}
-\BOOKMARK [2][-]{subsection.34.1}{Variables}{section.34}
-\BOOKMARK [2][-]{subsection.34.2}{Class ContinuousNeighbor}{section.34}
-\BOOKMARK [3][-]{subsubsection.34.2.1}{Methods}{subsection.34.2}
-\BOOKMARK [3][-]{subsubsection.34.2.2}{Properties}{subsection.34.2}
-\BOOKMARK [2][-]{subsection.34.3}{Class GaussianNeighbor}{section.34}
+\BOOKMARK [3][-]{subsubsection.31.3.3}{Instance Variables}{subsection.31.3}
+\BOOKMARK [1][-]{section.32}{Module peach.pso.base}{}
+\BOOKMARK [2][-]{subsection.32.1}{Variables}{section.32}
+\BOOKMARK [2][-]{subsection.32.2}{Class ParticleSwarmOptimizer}{section.32}
+\BOOKMARK [3][-]{subsubsection.32.2.1}{Methods}{subsection.32.2}
+\BOOKMARK [3][-]{subsubsection.32.2.2}{Properties}{subsection.32.2}
+\BOOKMARK [3][-]{subsubsection.32.2.3}{Class Variables}{subsection.32.2}
+\BOOKMARK [3][-]{subsubsection.32.2.4}{Instance Variables}{subsection.32.2}
+\BOOKMARK [2][-]{subsection.32.3}{Class PSO}{section.32}
+\BOOKMARK [3][-]{subsubsection.32.3.1}{Methods}{subsection.32.3}
+\BOOKMARK [3][-]{subsubsection.32.3.2}{Properties}{subsection.32.3}
+\BOOKMARK [3][-]{subsubsection.32.3.3}{Class Variables}{subsection.32.3}
+\BOOKMARK [3][-]{subsubsection.32.3.4}{Instance Variables}{subsection.32.3}
+\BOOKMARK [1][-]{section.33}{Package peach.sa}{}
+\BOOKMARK [2][-]{subsection.33.1}{Modules}{section.33}
+\BOOKMARK [1][-]{section.34}{Module peach.sa.base}{}
+\BOOKMARK [2][-]{subsection.34.1}{Functions}{section.34}
+\BOOKMARK [2][-]{subsection.34.2}{Variables}{section.34}
+\BOOKMARK [2][-]{subsection.34.3}{Class ContinuousSA}{section.34}
 \BOOKMARK [3][-]{subsubsection.34.3.1}{Methods}{subsection.34.3}
 \BOOKMARK [3][-]{subsubsection.34.3.2}{Properties}{subsection.34.3}
 \BOOKMARK [3][-]{subsubsection.34.3.3}{Instance Variables}{subsection.34.3}
-\BOOKMARK [2][-]{subsection.34.4}{Class UniformNeighbor}{section.34}
+\BOOKMARK [2][-]{subsection.34.4}{Class BinarySA}{section.34}
 \BOOKMARK [3][-]{subsubsection.34.4.1}{Methods}{subsection.34.4}
 \BOOKMARK [3][-]{subsubsection.34.4.2}{Properties}{subsection.34.4}
-\BOOKMARK [3][-]{subsubsection.34.4.3}{Instance Variables}{subsection.34.4}
-\BOOKMARK [2][-]{subsection.34.5}{Class BinaryNeighbor}{section.34}
-\BOOKMARK [3][-]{subsubsection.34.5.1}{Methods}{subsection.34.5}
-\BOOKMARK [3][-]{subsubsection.34.5.2}{Properties}{subsection.34.5}
-\BOOKMARK [2][-]{subsection.34.6}{Class InvertBitsNeighbor}{section.34}
-\BOOKMARK [3][-]{subsubsection.34.6.1}{Methods}{subsection.34.6}
-\BOOKMARK [3][-]{subsubsection.34.6.2}{Properties}{subsection.34.6}
+\BOOKMARK [1][-]{section.35}{Module peach.sa.neighbor}{}
+\BOOKMARK [2][-]{subsection.35.1}{Variables}{section.35}
+\BOOKMARK [2][-]{subsection.35.2}{Class ContinuousNeighbor}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.2.1}{Methods}{subsection.35.2}
+\BOOKMARK [3][-]{subsubsection.35.2.2}{Properties}{subsection.35.2}
+\BOOKMARK [2][-]{subsection.35.3}{Class GaussianNeighbor}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.3.1}{Methods}{subsection.35.3}
+\BOOKMARK [3][-]{subsubsection.35.3.2}{Properties}{subsection.35.3}
+\BOOKMARK [3][-]{subsubsection.35.3.3}{Instance Variables}{subsection.35.3}
+\BOOKMARK [2][-]{subsection.35.4}{Class UniformNeighbor}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.4.1}{Methods}{subsection.35.4}
+\BOOKMARK [3][-]{subsubsection.35.4.2}{Properties}{subsection.35.4}
+\BOOKMARK [3][-]{subsubsection.35.4.3}{Instance Variables}{subsection.35.4}
+\BOOKMARK [2][-]{subsection.35.5}{Class BinaryNeighbor}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.5.1}{Methods}{subsection.35.5}
+\BOOKMARK [3][-]{subsubsection.35.5.2}{Properties}{subsection.35.5}
+\BOOKMARK [2][-]{subsection.35.6}{Class InvertBitsNeighbor}{section.35}
+\BOOKMARK [3][-]{subsubsection.35.6.1}{Methods}{subsection.35.6}
+\BOOKMARK [3][-]{subsubsection.35.6.2}{Properties}{subsection.35.6}
 \BOOKMARK [1][-]{section*.8}{Index}{}

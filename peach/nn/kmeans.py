@@ -21,7 +21,7 @@ positioning them, and then computing their variance.
 """
 
 ################################################################################
-from numpy import sum, argmin, array, mean
+from numpy import sum, argmin, array, mean, reshape
 from numpy.random import standard_normal
 
 

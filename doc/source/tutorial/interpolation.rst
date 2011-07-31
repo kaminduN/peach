@@ -1,5 +1,5 @@
 Interpolation of a Number Sequence
-======================================
+==================================
 
 A neural network can also be used to interpolate values of a sequence or
 function of which little is known. The problem of interpolation is the

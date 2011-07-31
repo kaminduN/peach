@@ -1,56 +1,58 @@
 \begin{theindex}
 
-  \item peach \textit{(package)}, \hyperpage{2--3}
-    \subitem peach.fuzzy \textit{(package)}, \hyperpage{4}
-      \subsubitem peach.fuzzy.base \textit{(module)}, \hyperpage{5--8}
+  \item peach \textit{(package)}, \hyperpage{10--11}
+    \subitem peach.fuzzy \textit{(package)}, \hyperpage{12}
+      \subsubitem peach.fuzzy.base \textit{(module)}, 
+		\hyperpage{13--16}
       \subsubitem peach.fuzzy.cmeans \textit{(module)}, 
-		\hyperpage{9--12}
+		\hyperpage{17--20}
       \subsubitem peach.fuzzy.control \textit{(module)}, 
-		\hyperpage{13--23}
+		\hyperpage{21--31}
       \subsubitem peach.fuzzy.defuzzy \textit{(module)}, 
-		\hyperpage{24--26}
-      \subsubitem peach.fuzzy.mf \textit{(module)}, \hyperpage{27--42}
+		\hyperpage{32--34}
+      \subsubitem peach.fuzzy.mf \textit{(module)}, \hyperpage{35--50}
       \subsubitem peach.fuzzy.norms \textit{(module)}, 
-		\hyperpage{43--47}
-    \subitem peach.ga \textit{(package)}, \hyperpage{48}
-      \subsubitem peach.ga.base \textit{(module)}, \hyperpage{49--56}
+		\hyperpage{51--55}
+    \subitem peach.ga \textit{(package)}, \hyperpage{56}
+      \subsubitem peach.ga.base \textit{(module)}, \hyperpage{57--64}
       \subsubitem peach.ga.chromosome \textit{(module)}, 
-		\hyperpage{57--60}
+		\hyperpage{65--68}
       \subsubitem peach.ga.crossover \textit{(module)}, 
-		\hyperpage{61--66}
+		\hyperpage{69--74}
       \subsubitem peach.ga.fitness \textit{(module)}, 
-		\hyperpage{67--70}
+		\hyperpage{75--78}
       \subsubitem peach.ga.mutation \textit{(module)}, 
-		\hyperpage{71--73}
+		\hyperpage{79--81}
       \subsubitem peach.ga.selection \textit{(module)}, 
-		\hyperpage{74--78}
-    \subitem peach.nn \textit{(package)}, \hyperpage{79}
-      \subsubitem peach.nn.af \textit{(module)}, \hyperpage{80--99}
-      \subsubitem peach.nn.base \textit{(module)}, \hyperpage{100--103}
+		\hyperpage{82--86}
+    \subitem peach.nn \textit{(package)}, \hyperpage{87}
+      \subsubitem peach.nn.af \textit{(module)}, \hyperpage{88--110}
+      \subsubitem peach.nn.base \textit{(module)}, \hyperpage{111--114}
       \subsubitem peach.nn.kmeans \textit{(module)}, 
-		\hyperpage{104--107}
+		\hyperpage{115--118}
       \subsubitem peach.nn.lrules \textit{(module)}, 
-		\hyperpage{108--122}
-      \subsubitem peach.nn.mem \textit{(module)}, \hyperpage{123--127}
-      \subsubitem peach.nn.nnet \textit{(module)}, \hyperpage{128--141}
-    \subitem peach.optm \textit{(package)}, \hyperpage{142}
+		\hyperpage{119--133}
+      \subsubitem peach.nn.mem \textit{(module)}, \hyperpage{134--138}
+      \subsubitem peach.nn.nnet \textit{(module)}, \hyperpage{139--152}
+      \subsubitem peach.nn.rbfn \textit{(module)}, \hyperpage{153--157}
+    \subitem peach.optm \textit{(package)}, \hyperpage{158}
       \subsubitem peach.optm.base \textit{(module)}, 
-		\hyperpage{143--147}
+		\hyperpage{159--163}
       \subsubitem peach.optm.linear \textit{(module)}, 
-		\hyperpage{148--159}
+		\hyperpage{164--175}
       \subsubitem peach.optm.multivar \textit{(module)}, 
-		\hyperpage{160--174}
+		\hyperpage{176--190}
       \subsubitem peach.optm.quasinewton \textit{(module)}, 
-		\hyperpage{175--184}
+		\hyperpage{191--200}
       \subsubitem peach.optm.stochastic \textit{(module)}, 
-		\hyperpage{185--186}
-    \subitem peach.pso \textit{(package)}, \hyperpage{187}
-      \subsubitem peach.pso.acc \textit{(module)}, \hyperpage{188--191}
+		\hyperpage{201--202}
+    \subitem peach.pso \textit{(package)}, \hyperpage{203}
+      \subsubitem peach.pso.acc \textit{(module)}, \hyperpage{204--207}
       \subsubitem peach.pso.base \textit{(module)}, 
-		\hyperpage{192--197}
-    \subitem peach.sa \textit{(package)}, \hyperpage{198}
-      \subsubitem peach.sa.base \textit{(module)}, \hyperpage{199--209}
+		\hyperpage{208--213}
+    \subitem peach.sa \textit{(package)}, \hyperpage{214}
+      \subsubitem peach.sa.base \textit{(module)}, \hyperpage{215--225}
       \subsubitem peach.sa.neighbor \textit{(module)}, 
-		\hyperpage{210--216}
+		\hyperpage{226--232}
 
 \end{theindex}

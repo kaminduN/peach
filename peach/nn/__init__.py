@@ -23,10 +23,12 @@ This package implements support for neural networks. Consult:
       Associative memories and Hopfield model;
     kmeans
       K-Means implementation for use with Radial Basis Networks;
+    rbfn
+      Radial Basis Function Networks;
 """
 
 
-# __all__ = [ 'base', 'af', 'lrules', 'nnet', 'mem', 'kmeans' ]
+# __all__ = [ 'base', 'af', 'lrules', 'nnet', 'mem', 'kmeans', 'rbfn' ]
 
 ################################################################################
 # Imports sub-packages
@@ -36,3 +38,4 @@ from peach.nn.lrules import *
 from peach.nn.nnet import *
 from peach.nn.mem import *
 from peach.nn.kmeans import *
+from peach.nn.rbfn import *

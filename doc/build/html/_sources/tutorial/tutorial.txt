@@ -29,6 +29,7 @@ Tutorials on Neural Networks:
     self-organizing-maps.rst
     hopfield-model.rst
     k-means.rst
+    radial-basis-function.rst
 
 Tutorials on Fuzzy Logic:
 
