@@ -1,0 +1,392 @@
+\contentsline {section}{Contents}{1}{section*.2}
+\contentsline {section}{\numberline {1}Package peach}{10}{section.1}
+\contentsline {subsection}{\numberline {1.1}Modules}{10}{subsection.1.1}
+\contentsline {section}{\numberline {2}Package peach.fuzzy}{12}{section.2}
+\contentsline {subsection}{\numberline {2.1}Modules}{12}{subsection.2.1}
+\contentsline {section}{\numberline {3}Module peach.fuzzy.base}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Variables}{13}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Class FuzzySet}{13}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Methods}{13}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Properties}{16}{subsubsection.3.2.2}
+\contentsline {section}{\numberline {4}Module peach.fuzzy.cmeans}{17}{section.4}
+\contentsline {subsection}{\numberline {4.1}Variables}{17}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Class FuzzyCMeans}{17}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Methods}{18}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Properties}{19}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Instance Variables}{20}{subsubsection.4.2.3}
+\contentsline {section}{\numberline {5}Module peach.fuzzy.control}{21}{section.5}
+\contentsline {subsection}{\numberline {5.1}Variables}{21}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Class Controller}{21}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Methods}{23}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Properties}{27}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Class Mamdani}{27}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Methods}{27}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Properties}{28}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}Class Parametric}{28}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Methods}{29}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Properties}{30}{subsubsection.5.4.2}
+\contentsline {subsection}{\numberline {5.5}Class Sugeno}{31}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Methods}{31}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Properties}{31}{subsubsection.5.5.2}
+\contentsline {section}{\numberline {6}Module peach.fuzzy.defuzzy}{32}{section.6}
+\contentsline {subsection}{\numberline {6.1}Functions}{32}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Variables}{34}{subsection.6.2}
+\contentsline {section}{\numberline {7}Module peach.fuzzy.mf}{35}{section.7}
+\contentsline {subsection}{\numberline {7.1}Functions}{35}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Variables}{36}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Class Membership}{36}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Methods}{37}{subsubsection.7.3.1}
+\contentsline {subsubsection}{\numberline {7.3.2}Properties}{38}{subsubsection.7.3.2}
+\contentsline {subsection}{\numberline {7.4}Class IncreasingRamp}{38}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}Methods}{38}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.2}Properties}{39}{subsubsection.7.4.2}
+\contentsline {subsection}{\numberline {7.5}Class DecreasingRamp}{39}{subsection.7.5}
+\contentsline {subsubsection}{\numberline {7.5.1}Methods}{39}{subsubsection.7.5.1}
+\contentsline {subsubsection}{\numberline {7.5.2}Properties}{40}{subsubsection.7.5.2}
+\contentsline {subsection}{\numberline {7.6}Class Triangle}{40}{subsection.7.6}
+\contentsline {subsubsection}{\numberline {7.6.1}Methods}{41}{subsubsection.7.6.1}
+\contentsline {subsubsection}{\numberline {7.6.2}Properties}{41}{subsubsection.7.6.2}
+\contentsline {subsection}{\numberline {7.7}Class Trapezoid}{41}{subsection.7.7}
+\contentsline {subsubsection}{\numberline {7.7.1}Methods}{42}{subsubsection.7.7.1}
+\contentsline {subsubsection}{\numberline {7.7.2}Properties}{42}{subsubsection.7.7.2}
+\contentsline {subsection}{\numberline {7.8}Class Gaussian}{43}{subsection.7.8}
+\contentsline {subsubsection}{\numberline {7.8.1}Methods}{43}{subsubsection.7.8.1}
+\contentsline {subsubsection}{\numberline {7.8.2}Properties}{43}{subsubsection.7.8.2}
+\contentsline {subsection}{\numberline {7.9}Class IncreasingSigmoid}{44}{subsection.7.9}
+\contentsline {subsubsection}{\numberline {7.9.1}Methods}{44}{subsubsection.7.9.1}
+\contentsline {subsubsection}{\numberline {7.9.2}Properties}{45}{subsubsection.7.9.2}
+\contentsline {subsection}{\numberline {7.10}Class DecreasingSigmoid}{45}{subsection.7.10}
+\contentsline {subsubsection}{\numberline {7.10.1}Methods}{45}{subsubsection.7.10.1}
+\contentsline {subsubsection}{\numberline {7.10.2}Properties}{46}{subsubsection.7.10.2}
+\contentsline {subsection}{\numberline {7.11}Class RaisedCosine}{46}{subsection.7.11}
+\contentsline {subsubsection}{\numberline {7.11.1}Methods}{46}{subsubsection.7.11.1}
+\contentsline {subsubsection}{\numberline {7.11.2}Properties}{47}{subsubsection.7.11.2}
+\contentsline {subsection}{\numberline {7.12}Class Bell}{47}{subsection.7.12}
+\contentsline {subsubsection}{\numberline {7.12.1}Methods}{48}{subsubsection.7.12.1}
+\contentsline {subsubsection}{\numberline {7.12.2}Properties}{48}{subsubsection.7.12.2}
+\contentsline {subsection}{\numberline {7.13}Class Smf}{49}{subsection.7.13}
+\contentsline {subsubsection}{\numberline {7.13.1}Methods}{49}{subsubsection.7.13.1}
+\contentsline {subsubsection}{\numberline {7.13.2}Properties}{49}{subsubsection.7.13.2}
+\contentsline {subsection}{\numberline {7.14}Class Zmf}{50}{subsection.7.14}
+\contentsline {subsubsection}{\numberline {7.14.1}Methods}{50}{subsubsection.7.14.1}
+\contentsline {subsubsection}{\numberline {7.14.2}Properties}{50}{subsubsection.7.14.2}
+\contentsline {section}{\numberline {8}Module peach.fuzzy.norms}{51}{section.8}
+\contentsline {subsection}{\numberline {8.1}Functions}{51}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Variables}{54}{subsection.8.2}
+\contentsline {section}{\numberline {9}Package peach.ga}{56}{section.9}
+\contentsline {subsection}{\numberline {9.1}Modules}{56}{subsection.9.1}
+\contentsline {section}{\numberline {10}Module peach.ga.base}{57}{section.10}
+\contentsline {subsection}{\numberline {10.1}Variables}{57}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Class GeneticAlgorithm}{57}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}Methods}{60}{subsubsection.10.2.1}
+\contentsline {subsubsection}{\numberline {10.2.2}Properties}{62}{subsubsection.10.2.2}
+\contentsline {subsubsection}{\numberline {10.2.3}Class Variables}{62}{subsubsection.10.2.3}
+\contentsline {subsubsection}{\numberline {10.2.4}Instance Variables}{62}{subsubsection.10.2.4}
+\contentsline {subsection}{\numberline {10.3}Class GA}{63}{subsection.10.3}
+\contentsline {subsubsection}{\numberline {10.3.1}Methods}{63}{subsubsection.10.3.1}
+\contentsline {subsubsection}{\numberline {10.3.2}Properties}{63}{subsubsection.10.3.2}
+\contentsline {subsubsection}{\numberline {10.3.3}Class Variables}{64}{subsubsection.10.3.3}
+\contentsline {subsubsection}{\numberline {10.3.4}Instance Variables}{64}{subsubsection.10.3.4}
+\contentsline {section}{\numberline {11}Module peach.ga.chromosome}{65}{section.11}
+\contentsline {subsection}{\numberline {11.1}Variables}{65}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Class Chromosome}{65}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Methods}{66}{subsubsection.11.2.1}
+\contentsline {subsubsection}{\numberline {11.2.2}Properties}{68}{subsubsection.11.2.2}
+\contentsline {subsubsection}{\numberline {11.2.3}Instance Variables}{68}{subsubsection.11.2.3}
+\contentsline {section}{\numberline {12}Module peach.ga.crossover}{69}{section.12}
+\contentsline {subsection}{\numberline {12.1}Variables}{69}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Class Crossover}{69}{subsection.12.2}
+\contentsline {subsubsection}{\numberline {12.2.1}Methods}{70}{subsubsection.12.2.1}
+\contentsline {subsubsection}{\numberline {12.2.2}Properties}{70}{subsubsection.12.2.2}
+\contentsline {subsection}{\numberline {12.3}Class OnePoint}{70}{subsection.12.3}
+\contentsline {subsubsection}{\numberline {12.3.1}Methods}{70}{subsubsection.12.3.1}
+\contentsline {subsubsection}{\numberline {12.3.2}Properties}{71}{subsubsection.12.3.2}
+\contentsline {subsubsection}{\numberline {12.3.3}Instance Variables}{71}{subsubsection.12.3.3}
+\contentsline {subsection}{\numberline {12.4}Class TwoPoint}{71}{subsection.12.4}
+\contentsline {subsubsection}{\numberline {12.4.1}Methods}{72}{subsubsection.12.4.1}
+\contentsline {subsubsection}{\numberline {12.4.2}Properties}{72}{subsubsection.12.4.2}
+\contentsline {subsubsection}{\numberline {12.4.3}Instance Variables}{72}{subsubsection.12.4.3}
+\contentsline {subsection}{\numberline {12.5}Class Uniform}{73}{subsection.12.5}
+\contentsline {subsubsection}{\numberline {12.5.1}Methods}{73}{subsubsection.12.5.1}
+\contentsline {subsubsection}{\numberline {12.5.2}Properties}{74}{subsubsection.12.5.2}
+\contentsline {subsubsection}{\numberline {12.5.3}Instance Variables}{74}{subsubsection.12.5.3}
+\contentsline {section}{\numberline {13}Module peach.ga.fitness}{75}{section.13}
+\contentsline {subsection}{\numberline {13.1}Variables}{75}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Class Fitness}{75}{subsection.13.2}
+\contentsline {subsubsection}{\numberline {13.2.1}Methods}{76}{subsubsection.13.2.1}
+\contentsline {subsubsection}{\numberline {13.2.2}Properties}{76}{subsubsection.13.2.2}
+\contentsline {subsection}{\numberline {13.3}Class Ranking}{77}{subsection.13.3}
+\contentsline {subsubsection}{\numberline {13.3.1}Methods}{77}{subsubsection.13.3.1}
+\contentsline {subsubsection}{\numberline {13.3.2}Properties}{77}{subsubsection.13.3.2}
+\contentsline {section}{\numberline {14}Module peach.ga.mutation}{79}{section.14}
+\contentsline {subsection}{\numberline {14.1}Variables}{79}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Class Mutation}{79}{subsection.14.2}
+\contentsline {subsubsection}{\numberline {14.2.1}Methods}{80}{subsubsection.14.2.1}
+\contentsline {subsubsection}{\numberline {14.2.2}Properties}{80}{subsubsection.14.2.2}
+\contentsline {subsection}{\numberline {14.3}Class BitToBit}{80}{subsection.14.3}
+\contentsline {subsubsection}{\numberline {14.3.1}Methods}{80}{subsubsection.14.3.1}
+\contentsline {subsubsection}{\numberline {14.3.2}Properties}{81}{subsubsection.14.3.2}
+\contentsline {subsubsection}{\numberline {14.3.3}Instance Variables}{81}{subsubsection.14.3.3}
+\contentsline {section}{\numberline {15}Module peach.ga.selection}{82}{section.15}
+\contentsline {subsection}{\numberline {15.1}Variables}{82}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}Class Selection}{82}{subsection.15.2}
+\contentsline {subsubsection}{\numberline {15.2.1}Methods}{83}{subsubsection.15.2.1}
+\contentsline {subsubsection}{\numberline {15.2.2}Properties}{83}{subsubsection.15.2.2}
+\contentsline {subsection}{\numberline {15.3}Class RouletteWheel}{83}{subsection.15.3}
+\contentsline {subsubsection}{\numberline {15.3.1}Methods}{83}{subsubsection.15.3.1}
+\contentsline {subsubsection}{\numberline {15.3.2}Properties}{84}{subsubsection.15.3.2}
+\contentsline {subsection}{\numberline {15.4}Class BinaryTournament}{84}{subsection.15.4}
+\contentsline {subsubsection}{\numberline {15.4.1}Methods}{84}{subsubsection.15.4.1}
+\contentsline {subsubsection}{\numberline {15.4.2}Properties}{85}{subsubsection.15.4.2}
+\contentsline {subsection}{\numberline {15.5}Class Baker}{85}{subsection.15.5}
+\contentsline {subsubsection}{\numberline {15.5.1}Methods}{85}{subsubsection.15.5.1}
+\contentsline {subsubsection}{\numberline {15.5.2}Properties}{86}{subsubsection.15.5.2}
+\contentsline {section}{\numberline {16}Package peach.nn}{87}{section.16}
+\contentsline {subsection}{\numberline {16.1}Modules}{87}{subsection.16.1}
+\contentsline {section}{\numberline {17}Module peach.nn.af}{88}{section.17}
+\contentsline {subsection}{\numberline {17.1}Variables}{88}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}Class Activation}{88}{subsection.17.2}
+\contentsline {subsubsection}{\numberline {17.2.1}Methods}{89}{subsubsection.17.2.1}
+\contentsline {subsubsection}{\numberline {17.2.2}Properties}{90}{subsubsection.17.2.2}
+\contentsline {subsubsection}{\numberline {17.2.3}Instance Variables}{90}{subsubsection.17.2.3}
+\contentsline {subsection}{\numberline {17.3}Class Threshold}{90}{subsection.17.3}
+\contentsline {subsubsection}{\numberline {17.3.1}Methods}{91}{subsubsection.17.3.1}
+\contentsline {subsubsection}{\numberline {17.3.2}Properties}{92}{subsubsection.17.3.2}
+\contentsline {subsubsection}{\numberline {17.3.3}Instance Variables}{92}{subsubsection.17.3.3}
+\contentsline {subsection}{\numberline {17.4}Class Threshold}{92}{subsection.17.4}
+\contentsline {subsubsection}{\numberline {17.4.1}Methods}{92}{subsubsection.17.4.1}
+\contentsline {subsubsection}{\numberline {17.4.2}Properties}{93}{subsubsection.17.4.2}
+\contentsline {subsubsection}{\numberline {17.4.3}Instance Variables}{93}{subsubsection.17.4.3}
+\contentsline {subsection}{\numberline {17.5}Class Linear}{94}{subsection.17.5}
+\contentsline {subsubsection}{\numberline {17.5.1}Methods}{94}{subsubsection.17.5.1}
+\contentsline {subsubsection}{\numberline {17.5.2}Properties}{95}{subsubsection.17.5.2}
+\contentsline {subsubsection}{\numberline {17.5.3}Instance Variables}{95}{subsubsection.17.5.3}
+\contentsline {subsection}{\numberline {17.6}Class Linear}{96}{subsection.17.6}
+\contentsline {subsubsection}{\numberline {17.6.1}Methods}{96}{subsubsection.17.6.1}
+\contentsline {subsubsection}{\numberline {17.6.2}Properties}{97}{subsubsection.17.6.2}
+\contentsline {subsubsection}{\numberline {17.6.3}Instance Variables}{97}{subsubsection.17.6.3}
+\contentsline {subsection}{\numberline {17.7}Class Ramp}{97}{subsection.17.7}
+\contentsline {subsubsection}{\numberline {17.7.1}Methods}{98}{subsubsection.17.7.1}
+\contentsline {subsubsection}{\numberline {17.7.2}Properties}{99}{subsubsection.17.7.2}
+\contentsline {subsubsection}{\numberline {17.7.3}Instance Variables}{99}{subsubsection.17.7.3}
+\contentsline {subsection}{\numberline {17.8}Class Sigmoid}{99}{subsection.17.8}
+\contentsline {subsubsection}{\numberline {17.8.1}Methods}{99}{subsubsection.17.8.1}
+\contentsline {subsubsection}{\numberline {17.8.2}Properties}{100}{subsubsection.17.8.2}
+\contentsline {subsubsection}{\numberline {17.8.3}Instance Variables}{100}{subsubsection.17.8.3}
+\contentsline {subsection}{\numberline {17.9}Class Sigmoid}{101}{subsection.17.9}
+\contentsline {subsubsection}{\numberline {17.9.1}Methods}{101}{subsubsection.17.9.1}
+\contentsline {subsubsection}{\numberline {17.9.2}Properties}{102}{subsubsection.17.9.2}
+\contentsline {subsubsection}{\numberline {17.9.3}Instance Variables}{102}{subsubsection.17.9.3}
+\contentsline {subsection}{\numberline {17.10}Class Signum}{102}{subsection.17.10}
+\contentsline {subsubsection}{\numberline {17.10.1}Methods}{103}{subsubsection.17.10.1}
+\contentsline {subsubsection}{\numberline {17.10.2}Properties}{104}{subsubsection.17.10.2}
+\contentsline {subsubsection}{\numberline {17.10.3}Instance Variables}{104}{subsubsection.17.10.3}
+\contentsline {subsection}{\numberline {17.11}Class ArcTan}{104}{subsection.17.11}
+\contentsline {subsubsection}{\numberline {17.11.1}Methods}{104}{subsubsection.17.11.1}
+\contentsline {subsubsection}{\numberline {17.11.2}Properties}{105}{subsubsection.17.11.2}
+\contentsline {subsubsection}{\numberline {17.11.3}Instance Variables}{105}{subsubsection.17.11.3}
+\contentsline {subsection}{\numberline {17.12}Class TanH}{106}{subsection.17.12}
+\contentsline {subsubsection}{\numberline {17.12.1}Methods}{106}{subsubsection.17.12.1}
+\contentsline {subsubsection}{\numberline {17.12.2}Properties}{107}{subsubsection.17.12.2}
+\contentsline {subsubsection}{\numberline {17.12.3}Instance Variables}{107}{subsubsection.17.12.3}
+\contentsline {subsection}{\numberline {17.13}Class RadialBasis}{107}{subsection.17.13}
+\contentsline {subsubsection}{\numberline {17.13.1}Methods}{108}{subsubsection.17.13.1}
+\contentsline {subsubsection}{\numberline {17.13.2}Properties}{108}{subsubsection.17.13.2}
+\contentsline {subsubsection}{\numberline {17.13.3}Instance Variables}{108}{subsubsection.17.13.3}
+\contentsline {subsection}{\numberline {17.14}Class Gaussian}{108}{subsection.17.14}
+\contentsline {subsubsection}{\numberline {17.14.1}Methods}{109}{subsubsection.17.14.1}
+\contentsline {subsubsection}{\numberline {17.14.2}Properties}{110}{subsubsection.17.14.2}
+\contentsline {subsubsection}{\numberline {17.14.3}Instance Variables}{110}{subsubsection.17.14.3}
+\contentsline {section}{\numberline {18}Module peach.nn.base}{111}{section.18}
+\contentsline {subsection}{\numberline {18.1}Variables}{111}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Class Layer}{111}{subsection.18.2}
+\contentsline {subsubsection}{\numberline {18.2.1}Methods}{112}{subsubsection.18.2.1}
+\contentsline {subsubsection}{\numberline {18.2.2}Properties}{113}{subsubsection.18.2.2}
+\contentsline {section}{\numberline {19}Module peach.nn.kmeans}{115}{section.19}
+\contentsline {subsection}{\numberline {19.1}Functions}{115}{subsection.19.1}
+\contentsline {subsection}{\numberline {19.2}Variables}{115}{subsection.19.2}
+\contentsline {subsection}{\numberline {19.3}Class KMeans}{116}{subsection.19.3}
+\contentsline {subsubsection}{\numberline {19.3.1}Methods}{117}{subsubsection.19.3.1}
+\contentsline {subsubsection}{\numberline {19.3.2}Properties}{118}{subsubsection.19.3.2}
+\contentsline {section}{\numberline {20}Module peach.nn.lrules}{119}{section.20}
+\contentsline {subsection}{\numberline {20.1}Variables}{119}{subsection.20.1}
+\contentsline {subsection}{\numberline {20.2}Class FFLearning}{119}{subsection.20.2}
+\contentsline {subsubsection}{\numberline {20.2.1}Methods}{120}{subsubsection.20.2.1}
+\contentsline {subsubsection}{\numberline {20.2.2}Properties}{120}{subsubsection.20.2.2}
+\contentsline {subsection}{\numberline {20.3}Class LMS}{121}{subsection.20.3}
+\contentsline {subsubsection}{\numberline {20.3.1}Methods}{121}{subsubsection.20.3.1}
+\contentsline {subsubsection}{\numberline {20.3.2}Properties}{122}{subsubsection.20.3.2}
+\contentsline {subsubsection}{\numberline {20.3.3}Instance Variables}{122}{subsubsection.20.3.3}
+\contentsline {subsection}{\numberline {20.4}Class LMS}{122}{subsection.20.4}
+\contentsline {subsubsection}{\numberline {20.4.1}Methods}{122}{subsubsection.20.4.1}
+\contentsline {subsubsection}{\numberline {20.4.2}Properties}{123}{subsubsection.20.4.2}
+\contentsline {subsubsection}{\numberline {20.4.3}Instance Variables}{123}{subsubsection.20.4.3}
+\contentsline {subsection}{\numberline {20.5}Class LMS}{123}{subsection.20.5}
+\contentsline {subsubsection}{\numberline {20.5.1}Methods}{124}{subsubsection.20.5.1}
+\contentsline {subsubsection}{\numberline {20.5.2}Properties}{124}{subsubsection.20.5.2}
+\contentsline {subsubsection}{\numberline {20.5.3}Instance Variables}{125}{subsubsection.20.5.3}
+\contentsline {subsection}{\numberline {20.6}Class BackPropagation}{125}{subsection.20.6}
+\contentsline {subsubsection}{\numberline {20.6.1}Methods}{125}{subsubsection.20.6.1}
+\contentsline {subsubsection}{\numberline {20.6.2}Properties}{126}{subsubsection.20.6.2}
+\contentsline {subsubsection}{\numberline {20.6.3}Instance Variables}{126}{subsubsection.20.6.3}
+\contentsline {subsection}{\numberline {20.7}Class SOMLearning}{126}{subsection.20.7}
+\contentsline {subsubsection}{\numberline {20.7.1}Methods}{127}{subsubsection.20.7.1}
+\contentsline {subsubsection}{\numberline {20.7.2}Properties}{127}{subsubsection.20.7.2}
+\contentsline {subsection}{\numberline {20.8}Class WinnerTakesAll}{128}{subsection.20.8}
+\contentsline {subsubsection}{\numberline {20.8.1}Methods}{128}{subsubsection.20.8.1}
+\contentsline {subsubsection}{\numberline {20.8.2}Properties}{129}{subsubsection.20.8.2}
+\contentsline {subsubsection}{\numberline {20.8.3}Instance Variables}{129}{subsubsection.20.8.3}
+\contentsline {subsection}{\numberline {20.9}Class WinnerTakesAll}{129}{subsection.20.9}
+\contentsline {subsubsection}{\numberline {20.9.1}Methods}{129}{subsubsection.20.9.1}
+\contentsline {subsubsection}{\numberline {20.9.2}Properties}{130}{subsubsection.20.9.2}
+\contentsline {subsubsection}{\numberline {20.9.3}Instance Variables}{130}{subsubsection.20.9.3}
+\contentsline {subsection}{\numberline {20.10}Class Competitive}{130}{subsection.20.10}
+\contentsline {subsubsection}{\numberline {20.10.1}Methods}{131}{subsubsection.20.10.1}
+\contentsline {subsubsection}{\numberline {20.10.2}Properties}{131}{subsubsection.20.10.2}
+\contentsline {subsection}{\numberline {20.11}Class Cooperative}{132}{subsection.20.11}
+\contentsline {subsubsection}{\numberline {20.11.1}Methods}{132}{subsubsection.20.11.1}
+\contentsline {subsubsection}{\numberline {20.11.2}Properties}{133}{subsubsection.20.11.2}
+\contentsline {section}{\numberline {21}Module peach.nn.mem}{134}{section.21}
+\contentsline {subsection}{\numberline {21.1}Functions}{134}{subsection.21.1}
+\contentsline {subsection}{\numberline {21.2}Variables}{134}{subsection.21.2}
+\contentsline {subsection}{\numberline {21.3}Class Hopfield}{135}{subsection.21.3}
+\contentsline {subsubsection}{\numberline {21.3.1}Methods}{135}{subsubsection.21.3.1}
+\contentsline {subsubsection}{\numberline {21.3.2}Properties}{137}{subsubsection.21.3.2}
+\contentsline {section}{\numberline {22}Module peach.nn.nnet}{139}{section.22}
+\contentsline {subsection}{\numberline {22.1}Functions}{139}{subsection.22.1}
+\contentsline {subsection}{\numberline {22.2}Variables}{139}{subsection.22.2}
+\contentsline {subsection}{\numberline {22.3}Class FeedForward}{140}{subsection.22.3}
+\contentsline {subsubsection}{\numberline {22.3.1}Methods}{141}{subsubsection.22.3.1}
+\contentsline {subsubsection}{\numberline {22.3.2}Properties}{144}{subsubsection.22.3.2}
+\contentsline {subsubsection}{\numberline {22.3.3}Class Variables}{145}{subsubsection.22.3.3}
+\contentsline {subsection}{\numberline {22.4}Class SOM}{145}{subsection.22.4}
+\contentsline {subsubsection}{\numberline {22.4.1}Methods}{146}{subsubsection.22.4.1}
+\contentsline {subsubsection}{\numberline {22.4.2}Properties}{148}{subsubsection.22.4.2}
+\contentsline {subsection}{\numberline {22.5}Class GRNN}{149}{subsection.22.5}
+\contentsline {subsubsection}{\numberline {22.5.1}Methods}{149}{subsubsection.22.5.1}
+\contentsline {subsubsection}{\numberline {22.5.2}Properties}{150}{subsubsection.22.5.2}
+\contentsline {subsection}{\numberline {22.6}Class PNN}{150}{subsection.22.6}
+\contentsline {subsubsection}{\numberline {22.6.1}Methods}{151}{subsubsection.22.6.1}
+\contentsline {subsubsection}{\numberline {22.6.2}Properties}{152}{subsubsection.22.6.2}
+\contentsline {section}{\numberline {23}Module peach.nn.rbfn}{153}{section.23}
+\contentsline {subsection}{\numberline {23.1}Functions}{153}{subsection.23.1}
+\contentsline {subsection}{\numberline {23.2}Variables}{153}{subsection.23.2}
+\contentsline {subsection}{\numberline {23.3}Class RBFN}{154}{subsection.23.3}
+\contentsline {subsubsection}{\numberline {23.3.1}Methods}{154}{subsubsection.23.3.1}
+\contentsline {subsubsection}{\numberline {23.3.2}Properties}{157}{subsubsection.23.3.2}
+\contentsline {section}{\numberline {24}Package peach.optm}{158}{section.24}
+\contentsline {subsection}{\numberline {24.1}Modules}{158}{subsection.24.1}
+\contentsline {section}{\numberline {25}Module peach.optm.base}{159}{section.25}
+\contentsline {subsection}{\numberline {25.1}Functions}{160}{subsection.25.1}
+\contentsline {subsection}{\numberline {25.2}Variables}{161}{subsection.25.2}
+\contentsline {subsection}{\numberline {25.3}Class Optimizer}{162}{subsection.25.3}
+\contentsline {subsubsection}{\numberline {25.3.1}Methods}{163}{subsubsection.25.3.1}
+\contentsline {subsubsection}{\numberline {25.3.2}Properties}{163}{subsubsection.25.3.2}
+\contentsline {section}{\numberline {26}Module peach.optm.linear}{164}{section.26}
+\contentsline {subsection}{\numberline {26.1}Variables}{164}{subsection.26.1}
+\contentsline {subsection}{\numberline {26.2}Class Direct1D}{164}{subsection.26.2}
+\contentsline {subsubsection}{\numberline {26.2.1}Methods}{165}{subsubsection.26.2.1}
+\contentsline {subsubsection}{\numberline {26.2.2}Properties}{166}{subsubsection.26.2.2}
+\contentsline {subsubsection}{\numberline {26.2.3}Instance Variables}{166}{subsubsection.26.2.3}
+\contentsline {subsection}{\numberline {26.3}Class Interpolation}{167}{subsection.26.3}
+\contentsline {subsubsection}{\numberline {26.3.1}Methods}{168}{subsubsection.26.3.1}
+\contentsline {subsubsection}{\numberline {26.3.2}Properties}{169}{subsubsection.26.3.2}
+\contentsline {subsection}{\numberline {26.4}Class GoldenRule}{170}{subsection.26.4}
+\contentsline {subsubsection}{\numberline {26.4.1}Methods}{171}{subsubsection.26.4.1}
+\contentsline {subsubsection}{\numberline {26.4.2}Properties}{172}{subsubsection.26.4.2}
+\contentsline {subsection}{\numberline {26.5}Class Fibonacci}{173}{subsection.26.5}
+\contentsline {subsubsection}{\numberline {26.5.1}Methods}{174}{subsubsection.26.5.1}
+\contentsline {subsubsection}{\numberline {26.5.2}Properties}{175}{subsubsection.26.5.2}
+\contentsline {section}{\numberline {27}Module peach.optm.multivar}{176}{section.27}
+\contentsline {subsection}{\numberline {27.1}Variables}{176}{subsection.27.1}
+\contentsline {subsection}{\numberline {27.2}Class Direct}{176}{subsection.27.2}
+\contentsline {subsubsection}{\numberline {27.2.1}Methods}{177}{subsubsection.27.2.1}
+\contentsline {subsubsection}{\numberline {27.2.2}Properties}{178}{subsubsection.27.2.2}
+\contentsline {subsubsection}{\numberline {27.2.3}Instance Variables}{179}{subsubsection.27.2.3}
+\contentsline {subsection}{\numberline {27.3}Class Gradient}{179}{subsection.27.3}
+\contentsline {subsubsection}{\numberline {27.3.1}Methods}{180}{subsubsection.27.3.1}
+\contentsline {subsubsection}{\numberline {27.3.2}Properties}{182}{subsubsection.27.3.2}
+\contentsline {subsubsection}{\numberline {27.3.3}Instance Variables}{182}{subsubsection.27.3.3}
+\contentsline {subsection}{\numberline {27.4}Class MomentumGradient}{182}{subsection.27.4}
+\contentsline {subsubsection}{\numberline {27.4.1}Methods}{184}{subsubsection.27.4.1}
+\contentsline {subsubsection}{\numberline {27.4.2}Properties}{186}{subsubsection.27.4.2}
+\contentsline {subsubsection}{\numberline {27.4.3}Instance Variables}{186}{subsubsection.27.4.3}
+\contentsline {subsection}{\numberline {27.5}Class Newton}{186}{subsection.27.5}
+\contentsline {subsubsection}{\numberline {27.5.1}Methods}{188}{subsubsection.27.5.1}
+\contentsline {subsubsection}{\numberline {27.5.2}Properties}{190}{subsubsection.27.5.2}
+\contentsline {subsubsection}{\numberline {27.5.3}Instance Variables}{190}{subsubsection.27.5.3}
+\contentsline {section}{\numberline {28}Module peach.optm.quasinewton}{191}{section.28}
+\contentsline {subsection}{\numberline {28.1}Variables}{191}{subsection.28.1}
+\contentsline {subsection}{\numberline {28.2}Class DFP}{191}{subsection.28.2}
+\contentsline {subsubsection}{\numberline {28.2.1}Methods}{192}{subsubsection.28.2.1}
+\contentsline {subsubsection}{\numberline {28.2.2}Properties}{194}{subsubsection.28.2.2}
+\contentsline {subsubsection}{\numberline {28.2.3}Instance Variables}{194}{subsubsection.28.2.3}
+\contentsline {subsection}{\numberline {28.3}Class BFGS}{194}{subsection.28.3}
+\contentsline {subsubsection}{\numberline {28.3.1}Methods}{195}{subsubsection.28.3.1}
+\contentsline {subsubsection}{\numberline {28.3.2}Properties}{197}{subsubsection.28.3.2}
+\contentsline {subsubsection}{\numberline {28.3.3}Instance Variables}{197}{subsubsection.28.3.3}
+\contentsline {subsection}{\numberline {28.4}Class SR1}{197}{subsection.28.4}
+\contentsline {subsubsection}{\numberline {28.4.1}Methods}{198}{subsubsection.28.4.1}
+\contentsline {subsubsection}{\numberline {28.4.2}Properties}{200}{subsubsection.28.4.2}
+\contentsline {subsubsection}{\numberline {28.4.3}Instance Variables}{200}{subsubsection.28.4.3}
+\contentsline {section}{\numberline {29}Module peach.optm.stochastic}{201}{section.29}
+\contentsline {subsection}{\numberline {29.1}Variables}{201}{subsection.29.1}
+\contentsline {subsection}{\numberline {29.2}Class CrossEntropy}{201}{subsection.29.2}
+\contentsline {subsubsection}{\numberline {29.2.1}Methods}{201}{subsubsection.29.2.1}
+\contentsline {section}{\numberline {30}Package peach.pso}{203}{section.30}
+\contentsline {subsection}{\numberline {30.1}Modules}{203}{subsection.30.1}
+\contentsline {section}{\numberline {31}Module peach.pso.acc}{204}{section.31}
+\contentsline {subsection}{\numberline {31.1}Variables}{204}{subsection.31.1}
+\contentsline {subsection}{\numberline {31.2}Class Accelerator}{204}{subsection.31.2}
+\contentsline {subsubsection}{\numberline {31.2.1}Methods}{205}{subsubsection.31.2.1}
+\contentsline {subsubsection}{\numberline {31.2.2}Properties}{205}{subsubsection.31.2.2}
+\contentsline {subsection}{\numberline {31.3}Class StandardPSO}{206}{subsection.31.3}
+\contentsline {subsubsection}{\numberline {31.3.1}Methods}{206}{subsubsection.31.3.1}
+\contentsline {subsubsection}{\numberline {31.3.2}Properties}{207}{subsubsection.31.3.2}
+\contentsline {subsubsection}{\numberline {31.3.3}Instance Variables}{207}{subsubsection.31.3.3}
+\contentsline {section}{\numberline {32}Module peach.pso.base}{208}{section.32}
+\contentsline {subsection}{\numberline {32.1}Variables}{208}{subsection.32.1}
+\contentsline {subsection}{\numberline {32.2}Class ParticleSwarmOptimizer}{208}{subsection.32.2}
+\contentsline {subsubsection}{\numberline {32.2.1}Methods}{210}{subsubsection.32.2.1}
+\contentsline {subsubsection}{\numberline {32.2.2}Properties}{212}{subsubsection.32.2.2}
+\contentsline {subsubsection}{\numberline {32.2.3}Class Variables}{212}{subsubsection.32.2.3}
+\contentsline {subsubsection}{\numberline {32.2.4}Instance Variables}{212}{subsubsection.32.2.4}
+\contentsline {subsection}{\numberline {32.3}Class PSO}{212}{subsection.32.3}
+\contentsline {subsubsection}{\numberline {32.3.1}Methods}{212}{subsubsection.32.3.1}
+\contentsline {subsubsection}{\numberline {32.3.2}Properties}{213}{subsubsection.32.3.2}
+\contentsline {subsubsection}{\numberline {32.3.3}Class Variables}{213}{subsubsection.32.3.3}
+\contentsline {subsubsection}{\numberline {32.3.4}Instance Variables}{213}{subsubsection.32.3.4}
+\contentsline {section}{\numberline {33}Package peach.sa}{214}{section.33}
+\contentsline {subsection}{\numberline {33.1}Modules}{214}{subsection.33.1}
+\contentsline {section}{\numberline {34}Module peach.sa.base}{215}{section.34}
+\contentsline {subsection}{\numberline {34.1}Functions}{215}{subsection.34.1}
+\contentsline {paragraph}{Parameters}{215}{section*.4}
+\contentsline {paragraph}{Returns}{215}{section*.6}
+\contentsline {subsection}{\numberline {34.2}Variables}{215}{subsection.34.2}
+\contentsline {subsection}{\numberline {34.3}Class ContinuousSA}{215}{subsection.34.3}
+\contentsline {subsubsection}{\numberline {34.3.1}Methods}{218}{subsubsection.34.3.1}
+\contentsline {subsubsection}{\numberline {34.3.2}Properties}{220}{subsubsection.34.3.2}
+\contentsline {subsubsection}{\numberline {34.3.3}Instance Variables}{220}{subsubsection.34.3.3}
+\contentsline {subsection}{\numberline {34.4}Class BinarySA}{220}{subsection.34.4}
+\contentsline {subsubsection}{\numberline {34.4.1}Methods}{223}{subsubsection.34.4.1}
+\contentsline {subsubsection}{\numberline {34.4.2}Properties}{225}{subsubsection.34.4.2}
+\contentsline {section}{\numberline {35}Module peach.sa.neighbor}{226}{section.35}
+\contentsline {subsection}{\numberline {35.1}Variables}{226}{subsection.35.1}
+\contentsline {subsection}{\numberline {35.2}Class ContinuousNeighbor}{226}{subsection.35.2}
+\contentsline {subsubsection}{\numberline {35.2.1}Methods}{227}{subsubsection.35.2.1}
+\contentsline {subsubsection}{\numberline {35.2.2}Properties}{227}{subsubsection.35.2.2}
+\contentsline {subsection}{\numberline {35.3}Class GaussianNeighbor}{227}{subsection.35.3}
+\contentsline {subsubsection}{\numberline {35.3.1}Methods}{228}{subsubsection.35.3.1}
+\contentsline {subsubsection}{\numberline {35.3.2}Properties}{228}{subsubsection.35.3.2}
+\contentsline {subsubsection}{\numberline {35.3.3}Instance Variables}{228}{subsubsection.35.3.3}
+\contentsline {subsection}{\numberline {35.4}Class UniformNeighbor}{229}{subsection.35.4}
+\contentsline {subsubsection}{\numberline {35.4.1}Methods}{229}{subsubsection.35.4.1}
+\contentsline {subsubsection}{\numberline {35.4.2}Properties}{229}{subsubsection.35.4.2}
+\contentsline {subsubsection}{\numberline {35.4.3}Instance Variables}{230}{subsubsection.35.4.3}
+\contentsline {subsection}{\numberline {35.5}Class BinaryNeighbor}{230}{subsection.35.5}
+\contentsline {subsubsection}{\numberline {35.5.1}Methods}{231}{subsubsection.35.5.1}
+\contentsline {subsubsection}{\numberline {35.5.2}Properties}{231}{subsubsection.35.5.2}
+\contentsline {subsection}{\numberline {35.6}Class InvertBitsNeighbor}{231}{subsection.35.6}
+\contentsline {subsubsection}{\numberline {35.6.1}Methods}{232}{subsubsection.35.6.1}
+\contentsline {subsubsection}{\numberline {35.6.2}Properties}{232}{subsubsection.35.6.2}
+\contentsline {section}{Index}{233}{section*.8}

@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>K-Means Clustering &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Interpolation using Radial Basis Networks" href="radial-basis-function.html" />
+    <link rel="prev" title="Hopfield Model" href="hopfield-model.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="radial-basis-function.html" title="Interpolation using Radial Basis Networks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hopfield-model.html" title="Hopfield Model"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="k-means-clustering">
+<h1>K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h1>
+<p>K-Means is a very well known clustering method that finds use in many areas,
+from computer vision to signal processing. Its principle is very simple: given
+a set of examples, and a set of clusters represented by its centers, first it
+classifies the points in the training set according to the clusters. This makes
+the position of the centers to change, so they are recomputed. This, on the
+other hand, changes the clustering for some of the examples, and so on. This
+procedure is repeated as long as changes in the clustering happen. This tutorial
+shows how to work with K-Means using Peach.</p>
+<p>We will create clouds of points around five centers by adding a random number
+with gaussian distribution (zero average and small variance) to the vectors
+representing the center. Then we will create a K-Mean algorithm will converge
+five clusters to the clouds. We show the final result in a plot.</p>
+<p>We start, as always, by importing <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">peach</span></tt>. We will need the
+<tt class="docutils literal"><span class="pre">random</span></tt> module also to generate the training set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>The most important part on this tutorial is the creation of the training set. We
+will use five centers, positioned at the coordinates <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">0)</span></tt>, <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></tt>,
+<tt class="docutils literal"><span class="pre">(0,</span> <span class="pre">1)</span></tt>, <tt class="docutils literal"><span class="pre">(-1,</span> <span class="pre">1)</span></tt>, <tt class="docutils literal"><span class="pre">(-1,</span> <span class="pre">0)</span></tt>. Our training set will have 300 points.
+Each point of the training set is found by adding a gaussian generated number to
+each coordinate of the corresponding center. The following sequence of commands
+does the job:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">train_size</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[</span> <span class="n">array</span><span class="p">([</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">train_size</span><span class="p">):</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="n">array</span><span class="p">([</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Since we are working on the plane, each example and each cluster will have two
+components. We will have five clusters, since we have five centers. The
+K-Means instance is created below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">km</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface runs the algorithm till completion. It returns the
+centers of the classification. We might pass the parameter <tt class="docutils literal"><span class="pre">imax</span></tt> to the
+algorithm. This is the maximum number of passes. In general, K-Means will
+converge very fastly and with little error. The default value for this parameter
+is 20. Notice, however, that the algorithm automatically stops if there are no
+more changes in the clusters:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">km</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We get the following results for the centers (with four significant digits):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">cluster</th>
+<th class="head">center</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>0</td>
+<td>[  0.9978 -0.0069 ]</td>
+</tr>
+<tr><td>1</td>
+<td>[  0.9945  1.0046 ]</td>
+</tr>
+<tr><td>2</td>
+<td>[  0.0018  1.0086 ]</td>
+</tr>
+<tr><td>3</td>
+<td>[ -0.9857  1.0060 ]</td>
+</tr>
+<tr><td>4</td>
+<td>[ -1.0202 -0.0035 ]</td>
+</tr>
+</tbody>
+</table>
+<p>The figure shows the result. In black crosses we see the training set, and in
+red points we see the centers of the clusters.</p>
+<img alt="../_images/k-means.png" class="align-center" src="../_images/k-means.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hopfield-model.html"
+                        title="previous chapter">Hopfield Model</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="radial-basis-function.html"
+                        title="next chapter">Interpolation using Radial Basis Networks</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/k-means.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="radial-basis-function.html" title="Interpolation using Radial Basis Networks"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hopfield-model.html" title="Hopfield Model"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

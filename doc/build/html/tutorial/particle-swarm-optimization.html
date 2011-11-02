@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Optimization by Particle Swarms &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Dealing with Binary Objective Functions" href="binary-objective-function.html" />
+    <link rel="prev" title="Dealing with Binary Objective Functions" href="binary-objective-function.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="binary-objective-function.html" title="Dealing with Binary Objective Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="binary-objective-function.html" title="Dealing with Binary Objective Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="optimization-by-particle-swarms">
+<h1>Optimization by Particle Swarms<a class="headerlink" href="#optimization-by-particle-swarms" title="Permalink to this headline">¶</a></h1>
+<p>Among the stochastic methods available for multivariate optimization, the
+Particle Swarm is in general considered one of the most effective in continuous
+optimization. It tries to explore the whole search domain by emulating (in a
+very simplistic manner) the behaviour of birds in a flock. It is a populations
+based method (such as genetic algorithms), where each particle communicate with
+other particles to find the direction of the search.</p>
+<p>Each particle has a position and a velocity, both multidimensional vectors in
+the search space. They are capable of remembering the best point where each of
+them wandered, the local best; and the swarm as a whole is capable of
+remembering the best overall position found by any particle, the global best. By
+communicatint the global best, in what is called the social behaviour of the
+flock, particles are able to modify their velocities (ie, accelerate) in
+different directions, thus finding a minimum.</p>
+<p>In this tutorial, we will use particle swarm optimization to find &#8211; as in many
+of the other tutorials &#8211; the minimum of the Rosenbrock function. There is
+absolutelly no difference in how a simulated annealing optimizer is created and
+used. We start by importing <tt class="docutils literal"><span class="pre">peach</span></tt> and <tt class="docutils literal"><span class="pre">numpy</span></tt> in different namespaces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>We must also create the objective function and the gradient function, as the
+algorithms use them. Notice however that, as before, we can omit the gradient
+function and let Peach estimate them for us if needed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+</pre></div>
+</div>
+<p>We need to create a population of estimates. In algorithms based on populations,
+such as this or Genetic Algorithms, a list of estimates should be created. To
+this end, we will specify the ranges of the variables in the interval from 0 to
+2, and randomly choose from this. Ranges are specified as a list of tuples,
+where each element is the allowed range for the corresponding variable. In each
+tuple, the first value is the lower limit of the intervalo, and the second value
+is its upper limit:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ranges</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span> <span class="p">),</span> <span class="p">(</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span> <span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>We use the <tt class="docutils literal"><span class="pre">numpy.random</span></tt> function to generate a population of five particles,
+randomly positioned in a circle around the point <tt class="docutils literal"><span class="pre">(1.,</span> <span class="pre">1.)</span></tt>, with radius 1. We
+will do this to better observe the behaviour of the algorithm. In general,
+swarms should have more than five particles, but this is enough for this case.
+This line will be more effective if we convert ranges to a numpy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ranges</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">pi</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">c_</span><span class="p">[</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Now we will create the optimizer. We create these optimizers in the same way we
+created other optimizers: by instantiating the corresponding class, passing the
+function and the first estimate. Notice that the first estimates are given in
+the form of a list of tuples, with the first estimate of <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in the first
+place of each tuple, and the first estimate of <img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the second place.
+There is no need to use tuples: lists or arrays will do. To create the
+optimizers, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pso</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">ParticleSwarmOptimizer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">ranges</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that we included the <tt class="docutils literal"><span class="pre">ranges</span></tt> parameter in the creation of the
+optimizer. This is not needed &#8211; if <tt class="docutils literal"><span class="pre">ranges</span></tt> are not included, they will be
+automatically computed from the estimates. But notice that, if you randomly
+create your population, the ranges for each variable might not reflect the
+entire search space.</p>
+<p>As we done in the other optimization tutorials, we will execute the algorithm
+step by step. We can do this to keep track of the estimates to plot a graphic.
+We do this using the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">xd</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">pso</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">xd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pso</span><span class="p">[:])</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Notice that we used 500 iterations here. In general, stochastic methods pay this
+price to be able to find the global minimum: they need more iterations to
+converge. That&#8217;s not a problem, however, since finding the global minimum is
+a desired result, and the penalty in the convergence time is not that
+significant. However, particle swarms are usually very effective in multivariate
+continuous optimization &#8211; and in this specific problem, we do not expect more
+that 100 or even 50 iterations to take place.</p>
+<p>The <tt class="docutils literal"><span class="pre">xs</span></tt> variable will hold, in sequence, the estimates. We can plot them to
+see the convergence trace. Also, we keep track of every other estimate in the
+<tt class="docutils literal"><span class="pre">xd</span></tt> variable. We do this to track the convergence for every other particle in
+the swarm. The figure below is a representation of the execution of the method.
+The function itself is represented as contour curves in the plane, and the
+estimate tracks over them. In blue, we have the track of the best estimate at
+each iteration; in gray, the other estimates..</p>
+<img alt="../_images/particle-swarm-optimization.png" class="align-center" src="../_images/particle-swarm-optimization.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="binary-objective-function.html"
+                        title="previous chapter">Dealing with Binary Objective Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="binary-objective-function.html"
+                        title="next chapter">Dealing with Binary Objective Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/particle-swarm-optimization.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="binary-objective-function.html" title="Dealing with Binary Objective Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="binary-objective-function.html" title="Dealing with Binary Objective Functions"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

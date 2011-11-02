@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.pso.base &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.pso" href="peach.pso.html" />
+    <link rel="next" title="peach.sa" href="peach.sa.html" />
+    <link rel="prev" title="peach.pso.acc" href="peach.pso.acc.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.html" title="peach.sa"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.pso.acc.html" title="peach.pso.acc"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.pso.html" accesskey="U">peach.pso</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.pso.base">
+<span id="peach-pso-base"></span><h1>peach.pso.base<a class="headerlink" href="#module-peach.pso.base" title="Permalink to this headline">¶</a></h1>
+<p>This package implements the simple continuous version of the particle swarm
+optimizer. In this implementation, it is possible to specify, besides the
+objective function and the first estimates, the ranges of search, which will
+influence the max velocity of the particles, and the population size. Other
+parameters are available too, please refer to the rest of this documentation for
+further details.</p>
+<dl class="class">
+<dt id="peach.pso.base.PSO">
+<em class="property">class </em><tt class="descclassname">peach.pso.base.</tt><tt class="descname">PSO</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=None</em>, <em>accelerator=&lt;class 'peach.pso.acc.StandardPSO'&gt;</em>, <em>emax=1e-05</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.pso.base.PSO" title="Permalink to this definition">¶</a></dt>
+<dd><p>PSO is an alias to <tt class="docutils literal"><span class="pre">ParticleSwarmOptimizer</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.pso.base.ParticleSwarmOptimizer">
+<em class="property">class </em><tt class="descclassname">peach.pso.base.</tt><tt class="descname">ParticleSwarmOptimizer</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=None</em>, <em>accelerator=&lt;class 'peach.pso.acc.StandardPSO'&gt;</em>, <em>emax=1e-05</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A standard Particle Swarm Optimizer</p>
+<p>This class implements a particle swarm optimization (PSO) procedure. A
+swarm is a list of estimates, and should answer to every <tt class="docutils literal"><span class="pre">list</span></tt> method. A
+population of particles is created to travel through the search domain with
+a certain velocity. At each point, the objective function is evaluated for
+each particle, and the positions are adjusted correspondingly. The velocity
+is then modified (ie, the particles are accelerated) towards its &#8216;personal&#8217;
+best (the best value found by that particle at the moment) and a global best
+(the best value found overall at the moment).</p>
+<dl class="attribute">
+<dt id="peach.pso.base.ParticleSwarmOptimizer.best">
+<tt class="descname">best</tt><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer.best" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single vector containing the position of the best point found by all the
+particles. Not writeable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.pso.base.ParticleSwarmOptimizer.fbest">
+<tt class="descname">fbest</tt><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer.fbest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single scalar value containing the function value of the best point by
+all the particles. Not writeable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.pso.base.ParticleSwarmOptimizer.fx">
+<tt class="descname">fx</tt><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer.fx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array containing the objective function values for each estimate in the
+swarm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.pso.base.ParticleSwarmOptimizer.ranges">
+<tt class="descname">ranges</tt><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer.ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the ranges for every variable. Although it is a writable
+property, care should be taken in changing parameters before ending the
+convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.pso.base.ParticleSwarmOptimizer.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em><big>)</big><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, allowing the use of a new set of estimates. This
+can be used to avoid stagnation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">A new set of estimates. It doesn&#8217;t need to have the same size of the
+original swarm, but it must be a list of estimates in the same
+format as in the object instantiation. Please, see the documentation
+on the instantiation of the class. New velocities will be computed.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.pso.base.ParticleSwarmOptimizer.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.pso.base.ParticleSwarmOptimizer.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the new positions of the particles, a step of the algorithm.</p>
+<p>This method updates the velocity given the constants associated with the
+particle and global bests; and then updates the positions accordingly.</p>
+<p>This method has no parameters and returns no values. The particles
+positions can be consulted with the <tt class="docutils literal"><span class="pre">[]</span></tt> interface (as a swarm of
+particles is a list of estimates), <tt class="docutils literal"><span class="pre">best</span></tt> property, to find the global
+best, and <tt class="docutils literal"><span class="pre">fbest</span></tt> property to find the minimum (see above).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.pso.base.random">
+<tt class="descclassname">peach.pso.base.</tt><tt class="descname">random</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.pso.base.random" title="Permalink to this definition">¶</a></dt>
+<dd><p>random_sample(size=None)</p>
+<p>Return random floats in the half-open interval [0.0, 1.0).</p>
+<p>Results are from the &#8220;continuous uniform&#8221; distribution over the
+stated interval.  To sample <span class="math">Unif[a, b), b &gt; a</span> multiply
+the output of <cite>random_sample</cite> by <cite>(b-a)</cite> and add <cite>a</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">random_sample</span><span class="p">()</span> <span class="o">+</span> <span class="n">a</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Defines the shape of the returned array of random floats. If None
+(the default), returns a single float.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">float or ndarray of floats</span></dt>
+<dd>Array of random floats of shape <cite>size</cite> (unless <tt class="docutils literal"><span class="pre">size=None</span></tt>, in which
+case a single float is returned).</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">()</span>
+<span class="go">0.47108547995356098</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">())</span>
+<span class="go">&lt;type &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">((</span><span class="mi">5</span><span class="p">,))</span>
+<span class="go">array([ 0.30220482,  0.86820401,  0.1654503 ,  0.11659149,  0.54323428])</span>
+</pre></div>
+</div>
+<p>Three-by-two array of random numbers from [-5, 0):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">5</span>
+<span class="go">array([[-3.99149989, -0.52338984],</span>
+<span class="go">       [-2.99091858, -0.79479508],</span>
+<span class="go">       [-1.23204345, -1.75224494]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.pso.base.uniform">
+<tt class="descclassname">peach.pso.base.</tt><tt class="descname">uniform</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.pso.base.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>uniform(low=0.0, high=1.0, size=1)</p>
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half-open interval
+<tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high)</span></tt> (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by <cite>uniform</cite>.</p>
+<dl class="docutils">
+<dt>low <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd>Lower boundary of the output interval.  All values generated will be
+greater than or equal to low.  The default value is 0.</dd>
+<dt>high <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Upper boundary of the output interval.  All values generated will be
+less than high.  The default value is 1.0.</dd>
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Shape of output.  If the given size is, for example, (m,n,k),
+m*n*k samples are generated.  If no shape is specified, a single sample
+is returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Drawn samples, with shape <cite>size</cite>.</dd>
+</dl>
+<p>randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed</p>
+<blockquote>
+<div>interval <tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high]</span></tt>.</div></blockquote>
+<p>random_sample : Floats uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.
+random : Alias for <cite>random_sample</cite>.
+rand : Convenience function that accepts dimensions as input, e.g.,</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">rand(2,2)</span></tt> would generate a 2-by-2 array of floats,
+uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</div></blockquote>
+<p>The probability density function of the uniform distribution is</p>
+<div class="math">
+<p><span class="math">p(x) = \frac{1}{b - a}</span></p>
+</div><p>anywhere within the interval <tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b)</span></tt>, and zero elsewhere.</p>
+<p>Draw samples from the distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All values are within the given interval:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Display the histogram of the samples, along with the
+probability density function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.pso.acc.html"
+                        title="previous chapter">peach.pso.acc</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.sa.html"
+                        title="next chapter">peach.sa</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.pso.base.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.html" title="peach.sa"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.pso.acc.html" title="peach.pso.acc"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.pso.html" >peach.pso</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

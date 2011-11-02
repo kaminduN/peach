@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.sa.base.BinarySA</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.sa-module.html">Package&nbsp;sa</a> ::
+        <a href="peach.sa.base-module.html">Module&nbsp;base</a> ::
+        Class&nbsp;BinarySA
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.sa.base.BinarySA-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class BinarySA</h1><p class="nomargin-top"><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_peach_sa" name="uml_class_diagram_for_peach_sa">
+<area shape="rect" id="node187" href="peach.sa.base.BinarySA-class.html#x" title="The estimate of the minimum" alt="" coords="17,31,873,49"/>
+<area shape="rect" id="node187" href="peach.sa.base.BinarySA-class.html#best" title="A tuple (x, fx), where x is the best estimate so far, and fx is its value on the objective function." alt="" coords="17,49,873,68"/>
+<area shape="rect" id="node187" href="peach.sa.base.BinarySA-class.html#__init__" title="Initializes the optimizer." alt="" coords="17,71,873,89"/>
+<area shape="rect" id="node187" href="peach.sa.base.BinarySA-class.html#restart" title="Resets the optimizer, returning to its original state, and allowing to use a new first estimate. Restartings are essential to the working of simulated annealing algorithms, to allow them to leave local minima." alt="" coords="17,89,873,108"/>
+<area shape="rect" id="node187" href="peach.sa.base.BinarySA-class.html#step" title="One step of the search." alt="" coords="17,108,873,127"/>
+<area shape="rect" id="node187" href="peach.sa.base.BinarySA-class.html#__call__" title="Transparently executes the search until the minimum is found. The stop criteria are the maximum error or the maximum number of iterations, whichever is reached first. Note that this is a __call__ method, so the object is called as a function. This method returns a tuple (x, e), with the best estimate of the minimum and the error." alt="" coords="17,127,873,145"/>
+<area shape="rect" id="node1" href="peach.sa.base.BinarySA-class.html" title="Simulated Annealing binary optimization." alt="" coords="5,6,885,151"/>
+</map>
+  <img src="uml_class_diagram_for_peach_sa.gif" alt='' usemap="#uml_class_diagram_for_peach_sa" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Simulated Annealing binary optimization.</p>
+<p>This is a simulated annealing optimizer implemented to work with vectors of
+bits, which can be floating point or integer numbers, characters or anything
+allowed by the <tt class="rst-docutils literal">struct</tt> module of the Python standard library. The
+neighborhood of an estimate is calculated by an appropriate method given in
+the class instantiation. Given the nature of this implementation, no
+alternate convergence can be used in the case of rejection of an estimate.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">x0</span>,
+        <span class="summary-sig-arg">ranges</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">fmt</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">neighbor</span>=<span class="summary-sig-default">&lt;class 'peach.sa.neighbor.InvertBitsNeighbor'&gt;</span>,
+        <span class="summary-sig-arg">T0</span>=<span class="summary-sig-default">1000.0</span>,
+        <span class="summary-sig-arg">rt</span>=<span class="summary-sig-default">0.95</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-08</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">1000</span>)</span><br />
+      Initializes the optimizer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__encode" class="summary-sig-name" onclick="show_private();">__encode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">values</span>)</span><br />
+      Given the format of the estimate, encode the values. Return the
+corresponding bitarray. The format used is the one defined in the class
+instantiation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__encode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__decode" class="summary-sig-name" onclick="show_private();">__decode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">bits</span>)</span><br />
+      Given the format of the estimate, decode the bitarray. Return the
+corresponding values in the form of a tuple. The format used is the one
+defined in the class instantiation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__decode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__set_x" class="summary-sig-name" onclick="show_private();">__set_x</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">values</span>)</span><br />
+      Setter for the estimate. The estimate must be given according to the
+format given as parameter in the instantiation of the class, otherwise
+an error will be raised; in that case, the estimate will be converted to
+a bitarray and stored as this. In case that no format was informed, then
+the estimate must be a bitarray and will be stored as such.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__set_x">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__get_x" class="summary-sig-name" onclick="show_private();">__get_x</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Getter for the estimate. The estimate is decoded as the format supplied.
+If no format was supplied, then the estimate is returned as a bitarray.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__get_x">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__get_best" class="summary-sig-name" onclick="show_private();">__get_best</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Getter for the best value so far. Returns a tuple containing both the
+best estimate and its value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__get_best">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#restart" class="summary-sig-name">restart</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x0</span>,
+        <span class="summary-sig-arg">ranges</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">T0</span>=<span class="summary-sig-default">1000.0</span>,
+        <span class="summary-sig-arg">rt</span>=<span class="summary-sig-default">0.95</span>,
+        <span class="summary-sig-arg">h</span>=<span class="summary-sig-default">0.5</span>)</span><br />
+      Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate. Restartings are essential to the working of
+simulated annealing algorithms, to allow them to leave local minima.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.restart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#step" class="summary-sig-name">step</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      One step of the search.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.step">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-docutils literal">__call__</tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-docutils literal">(x, e)</tt>, with the best estimate of the minimum and the error.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.sa.base.BinarySA-class.html#x" class="summary-name">x</a><br />
+      The estimate of the minimum
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.sa.base.BinarySA-class.html#best" class="summary-name">best</a><br />
+      A tuple <tt class="rst-docutils literal">(x, fx)</tt>, where <tt class="rst-docutils literal">x</tt> is the best estimate so far, and
+<tt class="rst-docutils literal">fx</tt> is its value on the objective function.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>,
+        <span class="sig-arg">x0</span>,
+        <span class="sig-arg">ranges</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">fmt</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">neighbor</span>=<span class="sig-default">&lt;class 'peach.sa.neighbor.InvertBitsNeighbor'&gt;</span>,
+        <span class="sig-arg">T0</span>=<span class="sig-default">1000.0</span>,
+        <span class="sig-arg">rt</span>=<span class="sig-default">0.95</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-08</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">1000</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializes the optimizer.</p>
+<p>To create an optimizer of this type, instantiate the class with the
+parameters given below:</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A multivariable function to be optimized. The function should have
+only one parameter, a multidimensional line-vector, and return the
+function value, a scalar.</li>
+        <li><strong class="pname"><code>x0</code></strong> - First estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</li>
+        <li><strong class="pname"><code>ranges</code></strong> - Ranges of values allowed for each component of the input vector. If
+given, ranges are checked and a new estimate is generated in case
+any of the components fall beyond the value. <tt class="rst-docutils literal">range</tt> can be a
+tuple containing the inferior and superior limits of the interval;
+in that case, the same range is used for every variable in the input
+vector. <tt class="rst-docutils literal">range</tt> can also be a list of tuples of the same format,
+inferior and superior limits; in that case, the first tuple is
+assumed as the range allowed for the first variable, the second
+tuple is assumed as the range allowed for the second variable and so
+on.</li>
+        <li><p><strong class="pname"><code>fmt</code></strong> - A <tt class="rst-docutils literal">struct</tt>-module string with the format of the data used. Please,
+consult the <tt class="rst-docutils literal">struct</tt> documentation, since what is explained there
+is exactly what is used here. For example, if you are going to use
+the optimizer to deal with three-dimensional vectors of continuous
+variables, the format would be something like:</p>
+<pre class="rst-literal-block">
+fmt = 'fff'
+</pre>
+<p>Default value is an empty string. Notice that this is implemented as
+a <tt class="rst-docutils literal">bitarray</tt>, so this module must be present.</p>
+<p>It is strongly recommended that integer numbers are used! Floating
+point numbers can be simulated with long integers. The reason for
+this is that random bit sequences can have no representation as
+floating point numbers, and that can make the algorithm not perform
+adequatelly.</p>
+<p>The default value for this parameter is <tt class="rst-docutils literal">None</tt>, meaning that a
+default format is not supplied. If a format is not supplied, then
+the estimate will be passed as a bitarray to the objective function.
+This means that your function must take care to decode the bit
+stream to extract meaning from it.</p></li>
+        <li><strong class="pname"><code>neighbor</code></strong> - Neighbor function. This is a function used to compute the neighbor
+of the present estimate. You can use the ones defined in the
+<tt class="rst-docutils literal">neighbor</tt> module, or you can implement your own. In any case, the
+<tt class="rst-docutils literal">neighbor</tt> parameter must be an instance of <tt class="rst-docutils literal">BinaryNeighbor</tt> or
+of a subclass. Please, see the documentation on the <tt class="rst-docutils literal">neighbor</tt>
+module for more information. The default is <tt class="rst-docutils literal">InvertBitsNeighbor</tt>,
+which computes the new estimate by inverting some bits in the
+present estimate.</li>
+        <li><strong class="pname"><code>T0</code></strong> - Initial temperature of the system. The temperature is, of course, an
+analogy. Defaults to 1000.</li>
+        <li><strong class="pname"><code>rt</code></strong> - Temperature decreasing rate. The temperature must slowly decrease in
+simulated annealing algorithms. In this implementation, this is
+controlled by this parameter. At each step, the temperature is
+multiplied by this value, so it is necessary that <tt class="rst-docutils literal">0 &lt; rt &lt; 1</tt>.
+Defaults to 0.95, smaller values make the temperature decay faster,
+while larger values make the temperature decay slower.</li>
+        <li><strong class="pname"><code>emax</code></strong> - Maximum allowed error. The algorithm stops as soon as the error is
+below this level. The error is absolute.</li>
+        <li><strong class="pname"><code>imax</code></strong> - Maximum number of iterations, the algorithm stops as soon this
+number of iterations are executed, no matter what the error is at
+the moment.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__encode"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__encode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">values</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__encode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Given the format of the estimate, encode the values. Return the
+corresponding bitarray. The format used is the one defined in the class
+instantiation.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>values</code></strong> - An array, list or tuple of values to be encoded.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The encoded bitarray.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__decode"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__decode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">bits</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__decode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Given the format of the estimate, decode the bitarray. Return the
+corresponding values in the form of a tuple. The format used is the one
+defined in the class instantiation.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>bits</code></strong> - Bitarray containing the bits to be decoded. It must be compatible
+with the informed format.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A tuple with the decoded values.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__set_x"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__set_x</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">values</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__set_x">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Setter for the estimate. The estimate must be given according to the
+format given as parameter in the instantiation of the class, otherwise
+an error will be raised; in that case, the estimate will be converted to
+a bitarray and stored as this. In case that no format was informed, then
+the estimate must be a bitarray and will be stored as such.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - New estimate</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__get_x"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__get_x</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__get_x">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Getter for the estimate. The estimate is decoded as the format supplied.
+If no format was supplied, then the estimate is returned as a bitarray.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The estimate, decoded as the format.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__get_best"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__get_best</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__get_best">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Getter for the best value so far. Returns a tuple containing both the
+best estimate and its value.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>A tuple <tt class="rst-docutils literal">(x, fx)</tt>, where <tt class="rst-docutils literal">x</tt> is the best estimate so far, and
+<tt class="rst-docutils literal">fx</tt> is its value on the objective function.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="restart"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">restart</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x0</span>,
+        <span class="sig-arg">ranges</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">T0</span>=<span class="sig-default">1000.0</span>,
+        <span class="sig-arg">rt</span>=<span class="sig-default">0.95</span>,
+        <span class="sig-arg">h</span>=<span class="sig-default">0.5</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.restart">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate. Restartings are essential to the working of
+simulated annealing algorithms, to allow them to leave local minima.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x0</code></strong> - New estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</li>
+        <li><strong class="pname"><code>ranges</code></strong> - Ranges of values allowed for each component of the input vector. If
+given, ranges are checked and a new estimate is generated in case
+any of the components fall beyond the value. <tt class="rst-docutils literal">range</tt> can be a
+tuple containing the inferior and superior limits of the interval;
+in that case, the same range is used for every variable in the input
+vector. <tt class="rst-docutils literal">range</tt> can also be a list of tuples of the same format,
+inferior and superior limits; in that case, the first tuple is
+assumed as the range allowed for the first variable, the second
+tuple is assumed as the range allowed for the second variable and so
+on.</li>
+        <li><strong class="pname"><code>T0</code></strong> - Initial temperature of the system. The temperature is, of course, an
+analogy. Defaults to 1000.</li>
+        <li><strong class="pname"><code>rt</code></strong> - Temperature decreasing rate. The temperature must slowly decrease in
+simulated annealing algorithms. In this implementation, this is
+controlled by this parameter. At each step, the temperature is
+multiplied by this value, so it is necessary that <tt class="rst-docutils literal">0 &lt; rt &lt; 1</tt>.
+Defaults to 0.95, smaller values make the temperature decay faster,
+while larger values make the temperature decay slower.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="step"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">step</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.step">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>One step of the search.</p>
+<p>In this method, a neighbor of the given estimate is obtained from the
+present estimate by choosing <tt class="rst-docutils literal">nb</tt> bits and inverting them. It is
+accepted as a new estimate if it performs better in the cost function
+<em>or</em> if the temperature is high enough. In case it is not accepted, the
+previous estimate is mantained.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal">(x, e)</tt>, where <tt class="rst-docutils literal">x</tt> is the updated
+estimate of the minimum, and <tt class="rst-docutils literal">e</tt> is the estimated error.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.sa.base-pysrc.html#BinarySA.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-rst-docutils literal rst-docutils literal">(x, e)</tt>, with the best estimate of the minimum and the error.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal">(x, e)</tt>, where <tt class="rst-docutils literal">x</tt> is the best
+estimate of the minimum, and <tt class="rst-docutils literal">e</tt> is the estimated error.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="x"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">x</h3>
+  The estimate of the minimum
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__get_x" class="summary-sig-name" onclick="show_private();">__get_x</a>(<span class="summary-sig-arg">self</span>)</span>
+        - Getter for the estimate. The estimate is decoded as the format supplied.
+If no format was supplied, then the estimate is returned as a bitarray.
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__set_x" class="summary-sig-name" onclick="show_private();">__set_x</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">values</span>)</span>
+        - Setter for the estimate. The estimate must be given according to the
+format given as parameter in the instantiation of the class, otherwise
+an error will be raised; in that case, the estimate will be converted to
+a bitarray and stored as this. In case that no format was informed, then
+the estimate must be a bitarray and will be stored as such.
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="best"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">best</h3>
+  A tuple <tt class="rst-rst-docutils literal rst-docutils literal">(x, fx)</tt>, where <tt class="rst-rst-docutils literal rst-docutils literal">x</tt> is the best estimate so far, and
+<tt class="rst-rst-docutils literal rst-docutils literal">fx</tt> is its value on the objective function.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.sa.base.BinarySA-class.html#__get_best" class="summary-sig-name" onclick="show_private();">__get_best</a>(<span class="summary-sig-arg">self</span>)</span>
+        - Getter for the best value so far. Returns a tuple containing both the
+best estimate and its value.
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Jul 31 16:59:46 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.nn.mem &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.nn.mem">
+<span id="peach-nn-mem"></span><h1>peach.nn.mem<a class="headerlink" href="#module-peach.nn.mem" title="Permalink to this headline">¶</a></h1>
+<p>Associative memories and Hopfield network model.</p>
+<p>This sub-package implements associative memories. In associative memories,
+information is recovered by supplying not an exact index (such as in their
+usual counterparts), but supplying an index simmilar enough that the information
+can be deduced from what is stored in its synaptic weights. There are a number
+of different memories of this kind.</p>
+<p>The most common type is the Hopfield network. A Hopfield network is a recurrent
+self-associative memory. Although there are real-valued versions of the network,
+the binary type is more common. In it, patterns are recovered from an initial
+estimate through an iterative process.</p>
+<dl class="class">
+<dt id="peach.nn.mem.Hopfield">
+<em class="property">class </em><tt class="descclassname">peach.nn.mem.</tt><tt class="descname">Hopfield</tt><big>(</big><em>size</em>, <em>phi=&lt;class 'peach.nn.af.Signum'&gt;</em><big>)</big><a class="headerlink" href="#peach.nn.mem.Hopfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hopfield neural network model</p>
+<p>A Hopfield network is a recurrent network of one layer of neurons. There
+output of every neuron is conected to the inputs of every other neuron, but
+not to itself. This kind of network is autoassociative, or content-based
+memory. That means that, given a noisy version of a pattern stored in it,
+the network is capable of, through an iterative algorithm, recover the
+original pattern, removing the noise. There is a limit in the quantity of
+patterns that can be stored without causing error, and if a pattern is
+stored, its negated form is also stored.</p>
+<p>This is the binary form of the Hopfield network, which is the most common
+form. It implements a <tt class="docutils literal"><span class="pre">Layer</span></tt> of neurons, without bias, and with the
+Signum as the activation function.</p>
+<dl class="attribute">
+<dt id="peach.nn.mem.Hopfield.inputs">
+<tt class="descname">inputs</tt><a class="headerlink" href="#peach.nn.mem.Hopfield.inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of inputs for each neuron in the layer. For a Hopfield model,
+there are as much inputs as there are neurons. Not writable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.nn.mem.Hopfield.learn">
+<tt class="descname">learn</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.mem.Hopfield.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies one example of the training set to the network.</p>
+<p>Training a Hopfield network is not exactly an iterative procedure. The
+network usually stores a small number of patterns, and the learning
+procedure consists only in computing the synaptic weight matrix, which
+can be done in very few steps (in fact, just the number of patterns).
+This method is here for consistency with the rest of the library, but
+it works, anyway.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x</dt>
+<dd><p class="first last">The pattern to be stored. It must be a vector with the same size as
+the network, or else an exception will be raised. The pattern can be
+of any dimensionality, but it will internally be converted to a
+column vector.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.nn.mem.Hopfield.step">
+<tt class="descname">step</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.mem.Hopfield.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a step in the recovering procedure</p>
+<p>The algorithm for recovering the patterns stored in a Hopfield network
+is an iterative algorithm which goes from a starting test pattern (a
+stored pattern with noise) and recovers the noiseless version &#8211; if
+possible. This method takes the test pattern and performs one step of
+the convergence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">The noisy pattern.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The result of one step of the convergence. This might be the same as
+the input pattern, or the pattern with one component inverted.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.nn.mem.Hopfield.train">
+<tt class="descname">train</tt><big>(</big><em>train_set</em><big>)</big><a class="headerlink" href="#peach.nn.mem.Hopfield.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Presents a training set to the network</p>
+<p>This method stores all the patterns of the training set in the weight
+matrix. It calls the <tt class="docutils literal"><span class="pre">learn</span></tt> method for every pattern in the set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>train_set</dt>
+<dd><p class="first last">A list containing all the patterns to be stored in the network. Each
+pattern is a vector of any dimensions, which are converted
+internally to a column vector.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.mem.Hopfield.weights">
+<tt class="descname">weights</tt><a class="headerlink" href="#peach.nn.mem.Hopfield.weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <tt class="docutils literal"><span class="pre">numpy</span></tt> array containing the synaptic weights of the network. Each
+line is the weight vector of a neuron. It is writable, but the new weight
+array must be the same shape of the neuron, or an exception is raised.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.nn.mem.randn">
+<tt class="descclassname">peach.nn.mem.</tt><tt class="descname">randn</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.nn.mem.randn" title="Permalink to this definition">¶</a></dt>
+<dd><p>randn([d1, ..., dn])</p>
+<p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
+<p>If positive, int_like or int-convertible arguments are provided,
+<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
+with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
+distribution of mean 0 and variance 1 (if any of the <span class="math">d_i</span> are
+floats, they are first converted to integers by truncation). A single
+float randomly sampled from the distribution is returned if no
+argument is provided.</p>
+<p>This is a convenience function.  If you want an interface that takes a
+tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
+<dl class="docutils">
+<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
+<dd>The dimensions of the returned array, should be all positive.</dd>
+</dl>
+<dl class="docutils">
+<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
+<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
+the standard normal distribution, or a single such float if
+no parameters were supplied.</dd>
+</dl>
+<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
+<p>For random samples from <span class="math">N(\mu, \sigma^2)</span>, use:</p>
+<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+<span class="go">2.1923875335537315 #random</span>
+</pre></div>
+</div>
+<p>Two-by-four array of samples from N(3, 6.25):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
+<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.nn.mem.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.ga.chromosome &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.ga" href="peach.ga.html" />
+    <link rel="next" title="peach.ga.crossover" href="peach.ga.crossover.html" />
+    <link rel="prev" title="peach.ga.base" href="peach.ga.base.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.crossover.html" title="peach.ga.crossover"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.base.html" title="peach.ga.base"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" accesskey="U">peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.ga.chromosome">
+<span id="peach-ga-chromosome"></span><h1>peach.ga.chromosome<a class="headerlink" href="#module-peach.ga.chromosome" title="Permalink to this headline">¶</a></h1>
+<p>Basic definitions and classes for manipulating chromosomes</p>
+<p>This sub-package is a vital part of the genetic algorithms framework within the
+module. This uses the <tt class="docutils literal"><span class="pre">bitarray</span></tt> module to implement a chromosome as an array
+of bits. It is, thus, necessary that this module is installed in your Python
+system. Please, check within the Python website how to install the <tt class="docutils literal"><span class="pre">bitarray</span></tt>
+module.</p>
+<p>The class defined in this module is derived from <tt class="docutils literal"><span class="pre">bitarray</span></tt> and can also be
+derived if needed. In general, users or programmers won&#8217;t need to instance this
+class directly &#8211; it is manipulated by the genetic algorithm itself. Check the
+class definition for more information.</p>
+<dl class="class">
+<dt id="peach.ga.chromosome.Chromosome">
+<em class="property">class </em><tt class="descclassname">peach.ga.chromosome.</tt><tt class="descname">Chromosome</tt><big>(</big><em>fmt=''</em><big>)</big><a class="headerlink" href="#peach.ga.chromosome.Chromosome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements a chromosome as a bit array.</p>
+<p>Data is structured according to the <tt class="docutils literal"><span class="pre">struct</span></tt> module that exists in the
+Python standard library. Internally, data used in optimization with a
+genetic algorithm are represented as arrays of bits, so the <tt class="docutils literal"><span class="pre">bitarray</span></tt>
+module must be installed. Please consult the Python package index for more
+information on how to install <tt class="docutils literal"><span class="pre">bitarray</span></tt>. In general, the user don&#8217;t need
+to worry about how the data is manipulated internally, but a specification
+of the format as in the <tt class="docutils literal"><span class="pre">struct</span></tt> module is needed.</p>
+<p>If the internal format of the data is specified as an <tt class="docutils literal"><span class="pre">struct</span></tt> format, the
+genetic algorithm will take care of encoding and decoding data from and to
+the optimizer. However, it is possible to specify, instead of a format, the
+length of the chromosome. In that case, the fitness function must deal with
+the encoding and decoding of the information. It is strongly suggested that
+you use <tt class="docutils literal"><span class="pre">struct</span></tt> format strings, as they are much easier. This second
+option is provided as a convenience.</p>
+<p>The <tt class="docutils literal"><span class="pre">Chromosome</span></tt> class is derived from the <tt class="docutils literal"><span class="pre">bitarray</span></tt> class. So, every
+property and method of this class should be accessible.</p>
+<dl class="method">
+<dt id="peach.ga.chromosome.Chromosome.decode">
+<tt class="descname">decode</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.ga.chromosome.Chromosome.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method decodes the information given in the chromosome.</p>
+<p>Data in the chromosome is encoded as a <tt class="docutils literal"><span class="pre">struct</span></tt>-formated string in a
+<tt class="docutils literal"><span class="pre">bitarray</span></tt> object. This method decodes the information and returns the
+encoded values. If a format string is not given, then it is assumed that
+this chromosome is just an array of bits, which is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">A tuple containing the decoded values, in the order specified by the
+format string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.ga.chromosome.Chromosome.encode">
+<tt class="descname">encode</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#peach.ga.chromosome.Chromosome.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method encodes the information into the chromosome.</p>
+<p>Data in the chromosome is encoded as a <tt class="docutils literal"><span class="pre">struct</span></tt>-formated string in a
+<tt class="docutils literal"><span class="pre">bitarray</span></tt> object. This method encodes the given information in the
+bitarray. If a format string is not given, this method raises a
+<tt class="docutils literal"><span class="pre">TypeError</span></tt> exception.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>values</dt>
+<dd><p class="first last">A tuple containing the values to be encoded in an order consistent
+with the given <tt class="docutils literal"><span class="pre">struct</span></tt>-format.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.chromosome.Chromosome.format">
+<tt class="descname">format</tt><a class="headerlink" href="#peach.ga.chromosome.Chromosome.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that contains the chromosome <tt class="docutils literal"><span class="pre">struct</span></tt> format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.chromosome.Chromosome.size">
+<tt class="descname">size</tt><a class="headerlink" href="#peach.ga.chromosome.Chromosome.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the chromosome size. Not writable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.ga.base.html"
+                        title="previous chapter">peach.ga.base</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.ga.crossover.html"
+                        title="next chapter">peach.ga.crossover</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.ga.chromosome.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.crossover.html" title="peach.ga.crossover"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.base.html" title="peach.ga.base"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" >peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

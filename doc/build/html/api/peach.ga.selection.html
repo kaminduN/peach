@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.ga.selection &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.ga" href="peach.ga.html" />
+    <link rel="prev" title="peach.ga.mutation" href="peach.ga.mutation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.mutation.html" title="peach.ga.mutation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" accesskey="U">peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.ga.selection">
+<span id="peach-ga-selection"></span><h1>peach.ga.selection<a class="headerlink" href="#module-peach.ga.selection" title="Permalink to this headline">¶</a></h1>
+<p>Basic classes and definitions for selection operator.</p>
+<p>The first step in a genetic algorithm is the selection of the fittest
+individuals. The selection method typically uses the fitness of the population
+to compute which individuals are closer to the best solution. However, instead
+of deterministically deciding which individuals continue to the next generation,
+they are randomly choosen, the chances of an individual being choosen given by
+its fitness value. This sub-module implements selection methods.</p>
+<dl class="class">
+<dt id="peach.ga.selection.Baker">
+<em class="property">class </em><tt class="descclassname">peach.ga.selection.</tt><tt class="descname">Baker</tt><a class="headerlink" href="#peach.ga.selection.Baker" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Baker selection method.</p>
+<p>This method is very similar to the Roulette Wheel, but instead or randomly
+choosing every new member on the next generation, only the first probability
+is randomized. The others are determined as equally spaced numbers from 0 to
+1, from this number. Please, note that the selection is done <em>in loco</em>, that
+is, although the new population is returned, it is not a new list &#8211; it is
+the same list as before, but with values changed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.selection.BinaryTournament">
+<em class="property">class </em><tt class="descclassname">peach.ga.selection.</tt><tt class="descname">BinaryTournament</tt><a class="headerlink" href="#peach.ga.selection.BinaryTournament" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Binary Tournament selection method.</p>
+<p>This method randomly chooses a new population with the same size of the
+original population. Two individuals are choosen at random and they
+&#8220;battle&#8221;, the fittest surviving for the next generation. Please, note that
+the selection is done <em>in loco</em>, that is, although the new population is
+returned, it is not a new list &#8211; it is the same list as before, but with
+values changed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.selection.RouletteWheel">
+<em class="property">class </em><tt class="descclassname">peach.ga.selection.</tt><tt class="descname">RouletteWheel</tt><a class="headerlink" href="#peach.ga.selection.RouletteWheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Roulette Wheel selection method.</p>
+<p>This method randomly chooses a new population with the same size of the
+original population. An individual is choosen with a probability
+proportional to its fitness value, independent of what fitness method was
+used. This is usually abstracted as a roulette wheel in texts about the
+subject. Please, note that the selection is done <em>in loco</em>, that is,
+although the new population is returned, it is not a new list &#8211; it is the
+same list as before, but with values changed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.selection.Selection">
+<em class="property">class </em><tt class="descclassname">peach.ga.selection.</tt><tt class="descname">Selection</tt><a class="headerlink" href="#peach.ga.selection.Selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for selection operators.</p>
+<p>This class should be subclassed if you want to create your own selection
+operator. The base class doesn&#8217;t do much, it is only a prototype. As is done
+with all the base classes within this library, use the <tt class="docutils literal"><span class="pre">__init__</span></tt> method
+to configure your selection behaviour &#8211; if needed &#8211; and the <tt class="docutils literal"><span class="pre">__call__</span></tt>
+method to operate over a population.</p>
+<p>A class derived from this one should implement at least 2 methods, defined
+below:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>cnf, <a href="#id3"><span class="problematic" id="id4">**</span></a>kw)</dt>
+<dd>Initializes the object. There is no mandatory arguments, but any
+parameters can be used here to configure the operator. A default value
+should always be offered, if possible.</dd>
+<dt>__call__(self, population)</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__call__</span></tt> implementation should receive a population and operate
+over it. Please, consult the <tt class="docutils literal"><span class="pre">ga</span></tt> module to see more information on
+populations. It should return the processed population. No recomendation
+on the internals of the method is made.</dd>
+</dl>
+</div></blockquote>
+<p>Please, note that the GA implementations relies on this behaviour: it will
+pass a population to your <tt class="docutils literal"><span class="pre">__call__</span></tt> method and expects to received the
+result back.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.ga.selection.uniform">
+<tt class="descclassname">peach.ga.selection.</tt><tt class="descname">uniform</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.ga.selection.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>uniform(low=0.0, high=1.0, size=1)</p>
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half-open interval
+<tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high)</span></tt> (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by <cite>uniform</cite>.</p>
+<dl class="docutils">
+<dt>low <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd>Lower boundary of the output interval.  All values generated will be
+greater than or equal to low.  The default value is 0.</dd>
+<dt>high <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Upper boundary of the output interval.  All values generated will be
+less than high.  The default value is 1.0.</dd>
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Shape of output.  If the given size is, for example, (m,n,k),
+m*n*k samples are generated.  If no shape is specified, a single sample
+is returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Drawn samples, with shape <cite>size</cite>.</dd>
+</dl>
+<p>randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed</p>
+<blockquote>
+<div>interval <tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high]</span></tt>.</div></blockquote>
+<p>random_sample : Floats uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.
+random : Alias for <cite>random_sample</cite>.
+rand : Convenience function that accepts dimensions as input, e.g.,</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">rand(2,2)</span></tt> would generate a 2-by-2 array of floats,
+uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</div></blockquote>
+<p>The probability density function of the uniform distribution is</p>
+<div class="math">
+<p><span class="math">p(x) = \frac{1}{b - a}</span></p>
+</div><p>anywhere within the interval <tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b)</span></tt>, and zero elsewhere.</p>
+<p>Draw samples from the distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All values are within the given interval:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Display the histogram of the samples, along with the
+probability density function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.ga.mutation.html"
+                        title="previous chapter">peach.ga.mutation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.ga.selection.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.mutation.html" title="peach.ga.mutation"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" >peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

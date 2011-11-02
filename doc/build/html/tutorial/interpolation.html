@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interpolation of a Number Sequence &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Polynomial Regression" href="polynomial-regression.html" />
+    <link rel="prev" title="Linear Prediction of a Number Sequence" href="linear-prediction.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="polynomial-regression.html" title="Polynomial Regression"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="linear-prediction.html" title="Linear Prediction of a Number Sequence"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="interpolation-of-a-number-sequence">
+<h1>Interpolation of a Number Sequence<a class="headerlink" href="#interpolation-of-a-number-sequence" title="Permalink to this headline">¶</a></h1>
+<p>A neural network can also be used to interpolate values of a sequence or
+function of which little is known. The problem of interpolation is the
+following: given a limited set of the values of a function in a given interval,
+compute the function for any value of the independent variable in the same
+interval. There are a lot of techniques to deal with this problem, and most do
+well in a given set of conditions. The aim of this tutorial is to do that with
+neural networks.</p>
+<p>Typically, the structure used is a double layer neural network. In the first
+layer, neurons with sigmoid activation to map the nonlinearities in the
+function, and in the second layer a linear activated neuron, to combine the
+inputs. This structure is commonly known as <em>MADALINE</em> (<em>Multiple Adaptive
+Linear Element</em>). The goal of this tutorial is to show how to use Peach to do
+this.</p>
+<p>As always, we first import <tt class="docutils literal"><span class="pre">numpy</span></tt> for arrays and <tt class="docutils literal"><span class="pre">peach</span></tt> for the library.
+Actually, <tt class="docutils literal"><span class="pre">peach</span></tt> also the <tt class="docutils literal"><span class="pre">numpy</span></tt> module, but we want it in a separate
+namespace. We will also use the <tt class="docutils literal"><span class="pre">random</span></tt> module to generate noise:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+</pre></div>
+</div>
+<p>We must create the sequence of samples that we will interpolate. For this
+tutorial, we will use twenty samples of a sinus function, evenly spaced in the
+interval from <img class="math" src="../_images/math/d45899b464b92ec7d9086f93e2ff440b344cfb55.png" alt="-\pi/2"/> to <img class="math" src="../_images/math/039bf945c704ff98e6f81626bbad32550cc37193.png" alt="\pi/2"/>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We create the neural network with the command below. It should be a network with
+one input neuron (since it is a single variable function), and one output
+neuron. The hidden layer must have enough neurons to map the variations in the
+function. Since the sinus is a very simple function, and our frequency is low,
+10 neurons should be enough. We must make the neurons biased. The reason for
+this is that the sigmoids of the first layer must be shifted to the position of
+the variation it will map. The second layer does not need to be biased, in
+general, but there is no harm in letting it be. And, since we are using
+activation functions that are not linear, we must use the backpropagation
+learning rule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nn</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">FeedForward</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">phi</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">Identity</span><span class="p">),</span>
+                   <span class="n">lrule</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">BackPropagation</span><span class="p">(</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">bias</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Recalling &#8211; the tuple gives the number of neurons in the input, hidden and
+output layers in this order; <tt class="docutils literal"><span class="pre">phi</span></tt> gives the activation functions for each
+layer; <tt class="docutils literal"><span class="pre">lrule</span></tt> is the learning rule, which here is the backpropagation with a
+learning rate of 0.05; <tt class="docutils literal"><span class="pre">bias</span></tt> indicates that our neurons are biased.</p>
+<p>The learning loop will be executed at most 5000 times. Most of the time, this is
+an overkill, but given the stochastic nature of the learning, sometimes it is
+needed. Anyways, we put a stop trigger &#8211; when the error reaches 1e-5, the
+algorithm stops. The training sequence is a list of samples. We could shuffle
+the list and present the examples in the same order for many epochs. However, it
+can be useful to randomly choose a sample at every step of the training, since
+the randomnesse can help the convergence:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="ow">and</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mf">1.e-5</span><span class="p">:</span>
+
+    <span class="c"># Randomly choosing the sample</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">dd</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="c"># Here, the network is fed, the error is collected and logged, and the</span>
+    <span class="c"># learning process takes place.</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="p">(</span><span class="n">xx</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dd</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">dd</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>And in the end of this loop, the network will have converged and the function
+can be calculated as correctly as possible for values inside the given interval.
+Notice, however, that extrapolating will probably not work well. Using the
+<tt class="docutils literal"><span class="pre">matplotlib</span></tt> package we can plot the result of the prediction, the convergence
+of the prediction error, and in the second plot, the value of the prediction
+coefficients after convergence.</p>
+<img alt="../_images/interpolation.png" class="align-center" src="../_images/interpolation.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="linear-prediction.html"
+                        title="previous chapter">Linear Prediction of a Number Sequence</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="polynomial-regression.html"
+                        title="next chapter">Polynomial Regression</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/interpolation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="polynomial-regression.html" title="Polynomial Regression"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="linear-prediction.html" title="Linear Prediction of a Number Sequence"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.nn.af &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.nn.af">
+<span id="peach-nn-af"></span><h1>peach.nn.af<a class="headerlink" href="#module-peach.nn.af" title="Permalink to this headline">¶</a></h1>
+<p>Base activation functions and base class</p>
+<p>Activation functions define if a neuron is activated or not. There are a lot of
+different definitions for activation functions in the literature, and this
+sub-package implements some of them. An activation function is defined by its
+response and its derivative. Being conveniently defined as classes, it is
+possible to define a custom derivative method.</p>
+<p>In this package, also, there is a base class that should be subclassed if you
+want to define your own activation function. This class, however, can be
+instantiated with a standard Python function as an initialization parameter, and
+it is adjusted to work with the internals of the package.</p>
+<p>If the base class is instantiated, then the function should take a real number
+as input, and return a real number. The response of the function determines if
+the neuron is activated or not.</p>
+<dl class="class">
+<dt id="peach.nn.af.Activation">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Activation</tt><big>(</big><em>f=None</em>, <em>df=None</em><big>)</big><a class="headerlink" href="#peach.nn.af.Activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for activation functions.</p>
+<p>This class can be used as base for activation functions. A subclass should
+have at least three methods, described below:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__</dt>
+<dd>This method should be used to configure the function. In general, some
+parameters to change the behaviour of a simple function is passed. In a
+subclass, the <tt class="docutils literal"><span class="pre">__init__</span></tt> method should call the mother class
+initialization procedure.</dd>
+<dt>__call__</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface is the function call. It should receive a
+<em>vector</em> of real numbers and return a <em>vector</em> of real numbers. Using
+the capabilities of the <tt class="docutils literal"><span class="pre">numpy</span></tt> module will help a lot. In case you
+don&#8217;t know how to use, maybe instantiating this class instead will work
+better (see below).</dd>
+<dt>derivative</dt>
+<dd>This method implements the derivative of the activation function. It is
+used in the learning methods. If one is not provided (but remember to
+call the superclass <tt class="docutils literal"><span class="pre">__init__</span></tt> so that it is created).</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="peach.nn.af.Activation.d">
+<tt class="descname">d</tt><a class="headerlink" href="#peach.nn.af.Activation.d" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias to the derivative of the function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.nn.af.Activation.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em>, <em>dx=5e-05</em><big>)</big><a class="headerlink" href="#peach.nn.af.Activation.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>An estimate of the derivative of the activation function.</p>
+<p>This method estimates the derivative using difference equations. This is
+a simple estimate, but efficient nonetheless.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or vector of real numbers representing the point over
+which the derivative is to be calculated.</p>
+</dd>
+<dt>dx</dt>
+<dd><p class="first last">The value of the interval of the estimate. The smaller this number
+is, the better. However, if made too small, the precision is not
+enough to avoid errors. This defaults to 5e-5, which is the values
+that gives the best results.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The value of the derivative over the given point.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.ArcTan">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">ArcTan</tt><big>(</big><em>a=1.0</em>, <em>x0=0.0</em><big>)</big><a class="headerlink" href="#peach.nn.af.ArcTan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse tangent activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.ArcTan.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.ArcTan.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.Gaussian">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Gaussian</tt><a class="headerlink" href="#peach.nn.af.Gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gaussian activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.Gaussian.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.Gaussian.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.af.Identity">
+<tt class="descclassname">peach.nn.af.</tt><tt class="descname">Identity</tt><a class="headerlink" href="#peach.nn.af.Identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias to <tt class="docutils literal"><span class="pre">Linear</span></tt></p>
+<p>alias of <a class="reference internal" href="#peach.nn.af.Linear" title="peach.nn.af.Linear"><tt class="xref py py-class docutils literal"><span class="pre">Linear</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.Linear">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Linear</tt><a class="headerlink" href="#peach.nn.af.Linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.Linear.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.Linear.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.af.Logistic">
+<tt class="descclassname">peach.nn.af.</tt><tt class="descname">Logistic</tt><a class="headerlink" href="#peach.nn.af.Logistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias to <tt class="docutils literal"><span class="pre">Sigmoid</span></tt></p>
+<p>alias of <a class="reference internal" href="#peach.nn.af.Sigmoid" title="peach.nn.af.Sigmoid"><tt class="xref py py-class docutils literal"><span class="pre">Sigmoid</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.RadialBasis">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">RadialBasis</tt><big>(</big><em>f=None</em>, <em>df=None</em><big>)</big><a class="headerlink" href="#peach.nn.af.RadialBasis" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is used as a base class for radial basis functions (RBFs). It is
+in almost every aspect equal to <tt class="docutils literal"><span class="pre">Activation</span></tt> class, but it is used to
+distinguish the two types. RBFs are used in Radial Basis Function Networks,
+in which monotonic activations shouldn&#8217;t be used.</p>
+<p>Since it is symmetric according to the origin, a RBF takes no parameters in
+its creation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.Ramp">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Ramp</tt><big>(</big><em>p0=(-0.5</em>, <em>0.0)</em>, <em>p1=(0.5</em>, <em>1.0)</em><big>)</big><a class="headerlink" href="#peach.nn.af.Ramp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ramp activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.Ramp.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.Ramp.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.Sigmoid">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Sigmoid</tt><big>(</big><em>a=1.0</em>, <em>x0=0.0</em><big>)</big><a class="headerlink" href="#peach.nn.af.Sigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sigmoid activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.Sigmoid.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.Sigmoid.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.Signum">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Signum</tt><a class="headerlink" href="#peach.nn.af.Signum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signum activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.Signum.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.Signum.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative. Technically, this function doesn&#8217;t have a
+derivative, but making it equals to 1, this can be used in learning
+algorithms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.af.Step">
+<tt class="descclassname">peach.nn.af.</tt><tt class="descname">Step</tt><a class="headerlink" href="#peach.nn.af.Step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias to <tt class="docutils literal"><span class="pre">Threshold</span></tt></p>
+<p>alias of <a class="reference internal" href="#peach.nn.af.Threshold" title="peach.nn.af.Threshold"><tt class="xref py py-class docutils literal"><span class="pre">Threshold</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.TanH">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">TanH</tt><big>(</big><em>a=1.0</em>, <em>x0=0.0</em><big>)</big><a class="headerlink" href="#peach.nn.af.TanH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hyperbolic tangent activation function</p>
+<dl class="method">
+<dt id="peach.nn.af.TanH.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.TanH.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.af.Threshold">
+<em class="property">class </em><tt class="descclassname">peach.nn.af.</tt><tt class="descname">Threshold</tt><big>(</big><em>threshold=0.0</em>, <em>amplitude=1.0</em><big>)</big><a class="headerlink" href="#peach.nn.af.Threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold activation function.</p>
+<dl class="method">
+<dt id="peach.nn.af.Threshold.derivative">
+<tt class="descname">derivative</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.af.Threshold.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function derivative. Technically, this function doesn&#8217;t have a
+derivative, but making it equals to 1, this can be used in learning
+algorithms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">A real number or a vector of real numbers representing the
+activation potential of a neuron or a layer of neurons.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The derivative of the activation function applied over the input
+vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.nn.af.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

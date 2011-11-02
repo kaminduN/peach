@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.ga.crossover &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.ga" href="peach.ga.html" />
+    <link rel="next" title="peach.ga.fitness" href="peach.ga.fitness.html" />
+    <link rel="prev" title="peach.ga.chromosome" href="peach.ga.chromosome.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.fitness.html" title="peach.ga.fitness"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.chromosome.html" title="peach.ga.chromosome"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" accesskey="U">peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.ga.crossover">
+<span id="peach-ga-crossover"></span><h1>peach.ga.crossover<a class="headerlink" href="#module-peach.ga.crossover" title="Permalink to this headline">¶</a></h1>
+<p>Basic definitions for crossover operations and base classes.</p>
+<p>Crossover is a very basic and important operation in genetic algorithms. It is
+by means of crossover among the chromosomes that population gains diversity,
+thus exploring more completelly the solution space and giving better answers.
+This sub-module provides definitions of the most common crossover operations,
+and provides a class that can be subclassed to construct different types of
+crossover for experimentation.</p>
+<dl class="class">
+<dt id="peach.ga.crossover.Crossover">
+<em class="property">class </em><tt class="descclassname">peach.ga.crossover.</tt><tt class="descname">Crossover</tt><a class="headerlink" href="#peach.ga.crossover.Crossover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for crossover operators.</p>
+<p>This class should be subclassed if you want to create your own crossover
+operator. The base class doesn&#8217;t do much, it is only a prototype. As is done
+with all the base classes within this library, use the <tt class="docutils literal"><span class="pre">__init__</span></tt> method
+to configure your crossover behaviour &#8211; if needed &#8211; and the <tt class="docutils literal"><span class="pre">__call__</span></tt>
+method to operate over a population.</p>
+<p>A class derived from this one should implement at least 2 methods, defined
+below:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>cnf, <a href="#id3"><span class="problematic" id="id4">**</span></a>kw)</dt>
+<dd><p class="first">Initializes the object. There are no mandatory arguments, but any
+parameters can be used here to configure the operator. For example, a
+class can define a crossover rate &#8211; this should be defined here:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">A default value should always be offered, if possible.</p>
+</dd>
+<dt>__call__(self, population)</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__call__</span></tt> implementation should receive a population and operate
+over it. Please, consult the <tt class="docutils literal"><span class="pre">ga</span></tt> module to see more information on
+populations. It should return the processed population. No recomendation
+on the internals of the method is made. That being said, in general the
+crossover operators pairs chromosomes and swap bits among them (but
+there is nothing to say that you can&#8217;t do it differently).</dd>
+</dl>
+</div></blockquote>
+<p>Please, note that the GA implementations relies on this behaviour: it will
+pass a population to your <tt class="docutils literal"><span class="pre">__call__</span></tt> method and expects to received the
+result back.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.crossover.OnePoint">
+<em class="property">class </em><tt class="descclassname">peach.ga.crossover.</tt><tt class="descname">OnePoint</tt><big>(</big><em>rate=0.75</em><big>)</big><a class="headerlink" href="#peach.ga.crossover.OnePoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>A one-point crossover operator.</p>
+<p>A one-point crossover randomly selects a single point in two chromosomes and
+swaps the bits among them from that point until the end of the bit stream.
+The crossover rate is the probability that two paired chromosomes will
+exchange bits.</p>
+<dl class="attribute">
+<dt id="peach.ga.crossover.OnePoint.rate">
+<tt class="descname">rate</tt><a class="headerlink" href="#peach.ga.crossover.OnePoint.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that contains the crossover rate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.crossover.TwoPoint">
+<em class="property">class </em><tt class="descclassname">peach.ga.crossover.</tt><tt class="descname">TwoPoint</tt><big>(</big><em>rate=0.75</em><big>)</big><a class="headerlink" href="#peach.ga.crossover.TwoPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>A two-point crossover operator.</p>
+<p>A two-point crossover randomly selects two points in two chromosomes and
+swaps the bits among them between these points. The crossover rate is the
+probability that two paired chromosomes will exchange bits.</p>
+<dl class="attribute">
+<dt id="peach.ga.crossover.TwoPoint.rate">
+<tt class="descname">rate</tt><a class="headerlink" href="#peach.ga.crossover.TwoPoint.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that contains the crossover rate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.crossover.Uniform">
+<em class="property">class </em><tt class="descclassname">peach.ga.crossover.</tt><tt class="descname">Uniform</tt><big>(</big><em>rate=0.75</em><big>)</big><a class="headerlink" href="#peach.ga.crossover.Uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>A uniform crossover operator.</p>
+<p>A uniform crossover scans two chromosomes in a bit-to-bit fashion. According
+to a given crossover rate, the corresponding bits are exchanged. The
+crossover rate is the probability that two bits will be exchanged.</p>
+<dl class="attribute">
+<dt id="peach.ga.crossover.Uniform.rate">
+<tt class="descname">rate</tt><a class="headerlink" href="#peach.ga.crossover.Uniform.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that contains the crossover rate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.ga.crossover.uniform">
+<tt class="descclassname">peach.ga.crossover.</tt><tt class="descname">uniform</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.ga.crossover.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>uniform(low=0.0, high=1.0, size=1)</p>
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half-open interval
+<tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high)</span></tt> (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by <cite>uniform</cite>.</p>
+<dl class="docutils">
+<dt>low <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd>Lower boundary of the output interval.  All values generated will be
+greater than or equal to low.  The default value is 0.</dd>
+<dt>high <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Upper boundary of the output interval.  All values generated will be
+less than high.  The default value is 1.0.</dd>
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Shape of output.  If the given size is, for example, (m,n,k),
+m*n*k samples are generated.  If no shape is specified, a single sample
+is returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Drawn samples, with shape <cite>size</cite>.</dd>
+</dl>
+<p>randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed</p>
+<blockquote>
+<div>interval <tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high]</span></tt>.</div></blockquote>
+<p>random_sample : Floats uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.
+random : Alias for <cite>random_sample</cite>.
+rand : Convenience function that accepts dimensions as input, e.g.,</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">rand(2,2)</span></tt> would generate a 2-by-2 array of floats,
+uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</div></blockquote>
+<p>The probability density function of the uniform distribution is</p>
+<div class="math">
+<p><span class="math">p(x) = \frac{1}{b - a}</span></p>
+</div><p>anywhere within the interval <tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b)</span></tt>, and zero elsewhere.</p>
+<p>Draw samples from the distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All values are within the given interval:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Display the histogram of the samples, along with the
+probability density function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.ga.chromosome.html"
+                        title="previous chapter">peach.ga.chromosome</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.ga.fitness.html"
+                        title="next chapter">peach.ga.fitness</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.ga.crossover.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.fitness.html" title="peach.ga.fitness"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.chromosome.html" title="peach.ga.chromosome"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" >peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+- The specification of the Acceleration method in PSO needs a reference to the
+  swarm. This doesn't allow configuration in the creation of the swarm. A
+  different method to specify the reference to the swarm must be developed.
+
+- It might be useful that, in population methods, the signature of the
+  intialization is:
+
+  Algorithm(f, x0, ranges, format, ...)
+
+  Such that, in every algorithm, the first parameter is the objective function,
+  the second is the population of estimates, the third is the ranges. Since not
+  all methods implement the format, it can be put later, so the first three
+  parameters are standardized.

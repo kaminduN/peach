@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.fuzzy.norms &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.fuzzy" href="peach.fuzzy.html" />
+    <link rel="prev" title="peach.fuzzy.mf" href="peach.fuzzy.mf.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.mf.html" title="peach.fuzzy.mf"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" accesskey="U">peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.fuzzy.norms">
+<span id="peach-fuzzy-norms"></span><h1>peach.fuzzy.norms<a class="headerlink" href="#module-peach.fuzzy.norms" title="Permalink to this headline">¶</a></h1>
+<p>This package implements operations of fuzzy logic.</p>
+<p>Basic operations are <tt class="docutils literal"><span class="pre">and</span> <span class="pre">(&amp;)</span></tt>, <tt class="docutils literal"><span class="pre">or</span> <span class="pre">(|)</span></tt> and <tt class="docutils literal"><span class="pre">not</span> <span class="pre">(~)</span></tt>. Those are
+implemented as functions of, respectively, two, two and one values. The <tt class="docutils literal"><span class="pre">and</span></tt>
+is the t-norm of the fuzzy logic, and it is a function that takes two values and
+returns the result of the <tt class="docutils literal"><span class="pre">and</span></tt> operation. The <tt class="docutils literal"><span class="pre">or</span></tt> is a function that takes
+two values and returns the result of the <tt class="docutils literal"><span class="pre">or</span></tt> operation. the <tt class="docutils literal"><span class="pre">not</span></tt> is a
+function that takes one value and returns the result of the <tt class="docutils literal"><span class="pre">not</span></tt> operation.
+To implement your own operations there is no need to subclass &#8211; just create the
+functions and use them where appropriate.</p>
+<p>Also, implication and aglutination functions are defined here. Implication is
+the result of the generalized modus ponens used in fuzzy inference systems.
+Aglutination is the generalization from two different conclusions used in fuzzy
+inference systems. Both are implemented as functions that take two values and
+return the result of the operation. As above, to implement your own operations,
+there is no need to subclass &#8211; just create the functions and use them where
+appropriate.</p>
+<p>The functions here are provided as convenience.</p>
+<dl class="data">
+<dt id="peach.fuzzy.norms.DRASTIC_NORMS">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">DRASTIC_NORMS</tt><a class="headerlink" href="#peach.fuzzy.norms.DRASTIC_NORMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple containing, in order, Drastic product (and), Drastic sum (or) and Zadeh
+not operations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.DienesRescherImplication">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">DienesRescherImplication</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.DienesRescherImplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Natural implication as in truth table, defined by Dienes-Rescher</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the implication.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.DrasticProduct">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">DrasticProduct</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.DrasticProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drastic product that can be used as and operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the and operation</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.DrasticSum">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">DrasticSum</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.DrasticSum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drastic sum that can be used as or operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the or operation</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="peach.fuzzy.norms.EINSTEIN_NORMS">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">EINSTEIN_NORMS</tt><a class="headerlink" href="#peach.fuzzy.norms.EINSTEIN_NORMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple containing, in order, Einstein product (and), Einstein sum (or) and
+Zadeh not operations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.EinsteinProduct">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">EinsteinProduct</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.EinsteinProduct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Einstein product that can be used as and operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the and operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.EinsteinSum">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">EinsteinSum</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.EinsteinSum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Einstein sum that can be used as or operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the or operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.GodelImplication">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">GodelImplication</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.GodelImplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implication as defined by Godel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the implication.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.LukasiewiczImplication">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">LukasiewiczImplication</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.LukasiewiczImplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implication of the Lukasiewicz three-valued logic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the implication.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="peach.fuzzy.norms.MAMDANI_INFERENCE">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">MAMDANI_INFERENCE</tt><a class="headerlink" href="#peach.fuzzy.norms.MAMDANI_INFERENCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple containing, in order, Mamdani implication and algutination</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.MamdaniAglutination">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">MamdaniAglutination</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.MamdaniAglutination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aglutination as defined by Mamdani.</p>
+<p>Aglutination is the maximum of the two values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the aglutination.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.MamdaniImplication">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">MamdaniImplication</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.MamdaniImplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implication operation as defined by Mamdani.</p>
+<p>Implication is the minimum of the two values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the implication.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="peach.fuzzy.norms.PROB_INFERENCE">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">PROB_INFERENCE</tt><a class="headerlink" href="#peach.fuzzy.norms.PROB_INFERENCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple containing, in order, probabilistic implication and algutination</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="peach.fuzzy.norms.PROB_NORMS">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">PROB_NORMS</tt><a class="headerlink" href="#peach.fuzzy.norms.PROB_NORMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple containing, in order, probabilistic and, or and not operations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ProbabilisticAglutination">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ProbabilisticAglutination</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ProbabilisticAglutination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implication as a probabilistic operation.</p>
+<p>Implication is given as the probability of the intersection of two events,
+that is, x + y - xy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the and algutination.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ProbabilisticAnd">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ProbabilisticAnd</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ProbabilisticAnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>And operation as a probabilistic operation.</p>
+<p>And operation is the product of the two values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the and operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ProbabilisticImplication">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ProbabilisticImplication</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ProbabilisticImplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implication as a probabilistic operation.</p>
+<p>Implication is the product of the two values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the and implication.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ProbabilisticNot">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ProbabilisticNot</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ProbabilisticNot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not operation as a probabilistic operation.</p>
+<p>Not operation is the complement to 1 of the given value, that is, <tt class="docutils literal"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">x</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the not operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ProbabilisticOr">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ProbabilisticOr</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ProbabilisticOr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Or operation as a probabilistic operation.</p>
+<p>Or operation is given as the probability of the intersection of two events,
+that is, x + y - xy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the or operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="peach.fuzzy.norms.ZADEH_NORMS">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ZADEH_NORMS</tt><a class="headerlink" href="#peach.fuzzy.norms.ZADEH_NORMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple containing, in order, Zadeh and, or and not operations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ZadehAnd">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ZadehAnd</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ZadehAnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>And operation as defined by Lofti Zadeh.</p>
+<p>And operation is the minimum of the two values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the and operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ZadehImplication">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ZadehImplication</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ZadehImplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implication operation as defined by Zadeh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the implication.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ZadehNot">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ZadehNot</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ZadehNot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not operation as defined by Lofti Zadeh.</p>
+<p>Not operation is the complement to 1 of the given value, that is, <tt class="docutils literal"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">x</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the not operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.norms.ZadehOr">
+<tt class="descclassname">peach.fuzzy.norms.</tt><tt class="descname">ZadehOr</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.norms.ZadehOr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Or operation as defined by Lofti Zadeh.</p>
+<p>Or operation is the maximum of the two values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The result of the or operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.fuzzy.mf.html"
+                        title="previous chapter">peach.fuzzy.mf</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.fuzzy.norms.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.mf.html" title="peach.fuzzy.mf"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" >peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

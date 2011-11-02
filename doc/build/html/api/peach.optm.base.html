@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.optm.base &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.optm" href="peach.optm.html" />
+    <link rel="next" title="peach.optm.linear" href="peach.optm.linear.html" />
+    <link rel="prev" title="peach.optm" href="peach.optm.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.linear.html" title="peach.optm.linear"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.html" title="peach.optm"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.optm.html" accesskey="U">peach.optm</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.optm.base">
+<span id="peach-optm-base"></span><h1>peach.optm.base<a class="headerlink" href="#module-peach.optm.base" title="Permalink to this headline">¶</a></h1>
+<p>Basic definitons and base class for optimizers</p>
+<p>This sub-package exports some auxiliary functions to work with cost functions,
+namely, a function to calculate gradient vectors and hessian matrices, which are
+extremely important in optimization.</p>
+<p>Also, a base class, <tt class="docutils literal"><span class="pre">Optimizer</span></tt>, for all optimizers. Sub-class this class if
+you want to create your own optmizer, and follow the interface. This will allow
+easy configuration of your own scripts and comparison between methods.</p>
+<dl class="class">
+<dt id="peach.optm.base.Optimizer">
+<em class="property">class </em><tt class="descclassname">peach.optm.base.</tt><tt class="descname">Optimizer</tt><big>(</big><em>f=None</em>, <em>x0=None</em>, <em>emax=1e-08</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.optm.base.Optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all optimizers.</p>
+<p>This class does nothing, and shouldn&#8217;t be instantiated. Its only purpose is
+to serve as a template (or interface) to implemented optimizers. To create
+your own optimizer, subclass this.</p>
+<p>This class defines 3 methods that should be present in any subclass. They
+are defined here:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__</dt>
+<dd><p class="first">Initializes the optimizer. There are three usual parameters in this
+method, which signature should be:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">emax</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>where:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">f</span></tt> is the cost function to be minimized;</li>
+<li><tt class="docutils literal"><span class="pre">x0</span></tt> is the first estimate of the location of the minimum;</li>
+<li><tt class="docutils literal"><span class="pre">...</span></tt> represent additional configuration of the optimizer, and it
+is dependent of the technique implemented;</li>
+<li><tt class="docutils literal"><span class="pre">emax</span></tt> is the maximum allowed error. The default value above is
+only a suggestion;</li>
+<li><tt class="docutils literal"><span class="pre">imax</span></tt> is the maximum number of iterations of the method. The
+default value above is only a suggestions.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>step()</dt>
+<dd><p class="first">This method should take an estimate and calculate the next, possibly
+better, estimate. Notice that the next estimate is strongly dependent of
+the method, the optimizer state and configuration, and two calls to this
+method with the same estimate might not give the same results. The
+method signature is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">and the implementation should keep track of all the needed parameters.
+The method should return a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt> with the new estimate of the
+solution and the estimate of the error.</p>
+</dd>
+<dt>restart()</dt>
+<dd>Implement this method to restart the optimizer. An optimizer might be
+restarted for a number of reasons: to escape a local minimum, to try
+different estimates and so on. This method should take at least one
+argument, <tt class="docutils literal"><span class="pre">x0</span></tt>, a new estimate for the optimizer. Optionally, new
+configuration might be given, but, if not, the old ones must be used.</dd>
+<dt>__call__</dt>
+<dd><p class="first">This method should take an estimate and iterate the optimizer until one
+of the stop criteria is met: either less than the maximum error or more
+than the maximum number of iterations. Error is usually calculated as an
+estimate using the previous estimate, but any technique might be used.
+Use a counter to keep track of the number of iterations. The method
+signature is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">and the implementation should keep track of all the needed parameters.
+The method should return a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt> with the final estimate of
+the solution and the estimate of the error.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="method">
+<dt id="peach.optm.base.Optimizer.step">
+<tt class="descname">step</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.optm.base.Optimizer.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.optm.base.gradient">
+<tt class="descclassname">peach.optm.base.</tt><tt class="descname">gradient</tt><big>(</big><em>f</em>, <em>dx=1e-05</em><big>)</big><a class="headerlink" href="#peach.optm.base.gradient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a function that computes the gradient vector of a scalar field.</p>
+<p>This function takes as a parameter a scalar function and creates a new
+function that is able to compute the derivative (in case of single variable
+functions) or the gradient vector (in case of multivariable functions.
+Please, note that this function takes as a parameter a <em>function</em>, and
+returns as a result <em>another function</em>. Calling the returned function on a
+point will give the gradient vector of the original function at that point:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="go">        return x^2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">gradient</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>In the above example, <tt class="docutils literal"><span class="pre">df</span></tt> is a generated function which will return the
+result of the expression <tt class="docutils literal"><span class="pre">2*x</span></tt>, the derivative of the original function.
+In the case <tt class="docutils literal"><span class="pre">f</span></tt> is a multivariable function, it is assumed that its
+argument is a line vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>f</dt>
+<dd><p class="first last">Any function, one- or multivariable. The function must be an scalar
+function, though there is no checking at the moment the function is
+created. If <tt class="docutils literal"><span class="pre">f</span></tt> is not an scalar function, an exception will be
+raised at the moment the returned function is used.</p>
+</dd>
+<dt>dx</dt>
+<dd><p class="first last">Optional argument that gives the precision of the calculation. It is
+recommended that <tt class="docutils literal"><span class="pre">dx</span> <span class="pre">=</span> <span class="pre">sqrt(D)</span></tt>, where <tt class="docutils literal"><span class="pre">D</span></tt> is the machine precision.
+It defaults to <tt class="docutils literal"><span class="pre">1e-5</span></tt>, which usually gives a good estimate.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A new function which, upon calling, gives the derivative or gradient
+vector of the original function on the analised point. The parameter of
+the returned function is a real number or a line vector where the gradient
+should be calculated.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.optm.base.hessian">
+<tt class="descclassname">peach.optm.base.</tt><tt class="descname">hessian</tt><big>(</big><em>f</em>, <em>dx=1e-05</em><big>)</big><a class="headerlink" href="#peach.optm.base.hessian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a function that computes the hessian matrix of a scalar field.</p>
+<p>This function takes as a parameter a scalar function and creates a new
+function that is able to calculate the second derivative (in case of single
+variable functions) or the hessian matrix (in case of multivariable
+functions. Please, note that this function takes as a parameter a
+<em>function</em>, and returns as a result <em>another function</em>. Calling the returned
+function on a point will give the hessian matrix of the original function
+at that point:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="go">        return x^4</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ddf</span> <span class="o">=</span> <span class="n">hessian</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ddf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<p>In the above example, <tt class="docutils literal"><span class="pre">ddf</span></tt> is a generated function which will return the
+result of the expression <tt class="docutils literal"><span class="pre">12*x**2</span></tt>, the second derivative of the original
+function. In the case <tt class="docutils literal"><span class="pre">f</span></tt> is a multivariable function, it is assumed that
+its argument is a line vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>f</dt>
+<dd><p class="first last">Any function, one- or multivariable. The function must be an scalar
+function, though there is no checking at the moment the function is
+created. If <tt class="docutils literal"><span class="pre">f</span></tt> is not an scalar function, an exception will be
+raised at the moment the returned function is used.</p>
+</dd>
+<dt>dx</dt>
+<dd><p class="first last">Optional argument that gives the precision of the calculation. It is
+recommended that <tt class="docutils literal"><span class="pre">dx</span> <span class="pre">=</span> <span class="pre">sqrt(D)</span></tt>, where <tt class="docutils literal"><span class="pre">D</span></tt> is the machine precision.
+It defaults to <tt class="docutils literal"><span class="pre">1e-5</span></tt>, which usually gives a good estimate.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A new function which, upon calling, gives the second derivative or hessian
+matrix of the original function on the analised point. The parameter of
+the returned function is a real number or a line vector where the hessian
+should be calculated.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.optm.html"
+                        title="previous chapter">peach.optm</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.optm.linear.html"
+                        title="next chapter">peach.optm.linear</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.optm.base.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.linear.html" title="peach.optm.linear"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.html" title="peach.optm"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.optm.html" >peach.optm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

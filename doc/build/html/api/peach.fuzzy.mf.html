@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.fuzzy.mf &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.fuzzy" href="peach.fuzzy.html" />
+    <link rel="next" title="peach.fuzzy.norms" href="peach.fuzzy.norms.html" />
+    <link rel="prev" title="peach.fuzzy.defuzzy" href="peach.fuzzy.defuzzy.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.norms.html" title="peach.fuzzy.norms"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.defuzzy.html" title="peach.fuzzy.defuzzy"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" accesskey="U">peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.fuzzy.mf">
+<span id="peach-fuzzy-mf"></span><h1>peach.fuzzy.mf<a class="headerlink" href="#module-peach.fuzzy.mf" title="Permalink to this headline">¶</a></h1>
+<p>Membership functions</p>
+<p>Membership functions are actually subclasses of a main class called Membership,
+see below. Instantiate a class to generate a function, optional arguments can be
+specified to configure the function as needed. For example, to create a triangle
+function starting at 0, with peak in 3, and ending in 4, use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mu</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Please notice that the return value is a <em>function</em>. To use it, apply it as a
+normal function. For example, the function above, applied to the value 1.5
+should return 0.5:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">mu</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="peach.fuzzy.mf.Bell">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Bell</tt><big>(</big><em>x0=0.0</em>, <em>a=1.0</em>, <em>b=1.0</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Bell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generalized Bell function.</p>
+<p>A generalized bell is a symmetric function with its peak in its center and
+fast decreasing to <tt class="docutils literal"><span class="pre">0</span></tt> outside a given interval, that is:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">((x</span> <span class="pre">-</span> <span class="pre">x0)/a)**(2*b))</span></tt></div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.DecreasingRamp">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">DecreasingRamp</tt><big>(</big><em>x0</em>, <em>x1</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.DecreasingRamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decreasing ramp.</p>
+<p>Given two points, <tt class="docutils literal"><span class="pre">x0</span></tt> and <tt class="docutils literal"><span class="pre">x1</span></tt>, with <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x1</span></tt>, creates a function
+which returns:</p>
+<blockquote>
+<div><p>1, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x0</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">(x1</span> <span class="pre">-</span> <span class="pre">x)</span> <span class="pre">/</span> <span class="pre">(x1</span> <span class="pre">-</span> <span class="pre">x0)</span></tt>, if <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x1</span></tt>;</p>
+<p>0, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">x1</span></tt>.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.DecreasingSigmoid">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">DecreasingSigmoid</tt><big>(</big><em>x0=0.0</em>, <em>a=1.0</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.DecreasingSigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decreasing Sigmoid function.</p>
+<p>Given the center and the slope, creates an decreasing sigmoidal function.
+It goes to <tt class="docutils literal"><span class="pre">1</span></tt> as <tt class="docutils literal"><span class="pre">x</span></tt> approaches to -infinity, and goes to <tt class="docutils literal"><span class="pre">0</span></tt> as
+<tt class="docutils literal"><span class="pre">x</span></tt> approaches infinity, that is:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">exp(a*(x</span> <span class="pre">-</span> <span class="pre">x0))</span></tt></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.mf.FlatSaw">
+<tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">FlatSaw</tt><big>(</big><em>interval</em>, <em>n</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.FlatSaw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits an <tt class="docutils literal"><span class="pre">interval</span></tt> into a decreasing ramp, <tt class="docutils literal"><span class="pre">n-2</span></tt> triangle functions
+and an increasing ramp.</p>
+<p>Given an interval in any domain, this function will create a decreasing ramp
+in the start of the interval, <tt class="docutils literal"><span class="pre">n-2</span></tt> triangle functions of the same size
+equally spaced in the interval, and a increasing ramp in the end of the
+interval. It is very useful to create membership functions for controllers.
+The command below will create a decreasing ramp, a triangle function and an
+increasing ramp equally spaced in the interval (0, 2):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">mf3</span> <span class="o">=</span> <span class="n">FlatSaw</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the same as the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mf1</span> <span class="o">=</span> <span class="n">DecreasingRamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">mf2</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mf3</span> <span class="o">=</span> <span class="n">Increasingramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>interval</dt>
+<dd><p class="first last">A tuple containing the start and the end of the interval, in the format
+<tt class="docutils literal"><span class="pre">(start,</span> <span class="pre">end)</span></tt>;</p>
+</dd>
+<dt>n</dt>
+<dd><p class="first last">The number of functions in which the interval must be split.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A list of corresponding functions, in order.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.Gaussian">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Gaussian</tt><big>(</big><em>x0=0.0</em>, <em>a=1.0</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gaussian function.</p>
+<p>Given the center and the width, creates a function which returns a gaussian
+fit to these parameters, that is:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">exp(-(x</span> <span class="pre">-</span> <span class="pre">x0)**2)/a</span></tt></div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.IncreasingRamp">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">IncreasingRamp</tt><big>(</big><em>x0</em>, <em>x1</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.IncreasingRamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increasing ramp.</p>
+<p>Given two points, <tt class="docutils literal"><span class="pre">x0</span></tt> and <tt class="docutils literal"><span class="pre">x1</span></tt>, with <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x1</span></tt>, creates a function
+which returns:</p>
+<blockquote>
+<div><p>0, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x0</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">(x</span> <span class="pre">-</span> <span class="pre">x0)</span> <span class="pre">/</span> <span class="pre">(x1</span> <span class="pre">-</span> <span class="pre">x0)</span></tt>, if <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x1</span></tt>;</p>
+<p>1, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">x1</span></tt>.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.IncreasingSigmoid">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">IncreasingSigmoid</tt><big>(</big><em>x0=0.0</em>, <em>a=1.0</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.IncreasingSigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increasing Sigmoid function.</p>
+<p>Given the center and the slope, creates an increasing sigmoidal function.
+It goes to <tt class="docutils literal"><span class="pre">0</span></tt> as <tt class="docutils literal"><span class="pre">x</span></tt> approaches to -infinity, and goes to <tt class="docutils literal"><span class="pre">1</span></tt> as
+<tt class="docutils literal"><span class="pre">x</span></tt> approaches infinity, that is:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">exp(-a*(x</span> <span class="pre">-</span> <span class="pre">x0))</span></tt></div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.Membership">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Membership</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Membership" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class of all membership functions.</p>
+<p>This class is used as base of the implemented membership functions, and can
+also be used to transform a regular function in a membership function that
+can be used with the fuzzy logic package.</p>
+<p>To create a membership function from a regular function <tt class="docutils literal"><span class="pre">f</span></tt>, use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mf</span> <span class="o">=</span> <span class="n">Membership</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A function this converted can be used with vectors and matrices and always
+return a FuzzySet object. Notice that the value range is not verified so
+that it fits in the range [ 0, 1 ]. It is responsibility of the programmer
+to warrant that.</p>
+<p>To subclass Membership, just use it as a base class. It is suggested that
+the <tt class="docutils literal"><span class="pre">__init__</span></tt> method of the derived class allows configuration, and the
+<tt class="docutils literal"><span class="pre">__call__</span></tt> method is used to apply the function over its arguments.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.RaisedCosine">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">RaisedCosine</tt><big>(</big><em>xm=0.0</em>, <em>w=1.0</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.RaisedCosine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised Cosine function.</p>
+<p>Given the center and the frequency, creates a function that is a period of
+a raised cosine, that is:</p>
+<blockquote>
+<div><p>0, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">xm</span> <span class="pre">-</span> <span class="pre">pi/w</span></tt> or <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">xm</span> <span class="pre">+</span> <span class="pre">pi/w</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">0.5</span> <span class="pre">+</span> <span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">cos(w*(x</span> <span class="pre">-</span> <span class="pre">xm))</span></tt>, if <tt class="docutils literal"><span class="pre">xm</span> <span class="pre">-</span> <span class="pre">pi/w</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">xm</span> <span class="pre">+</span> <span class="pre">pi/w</span></tt>;</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.mf.Saw">
+<tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Saw</tt><big>(</big><em>interval</em>, <em>n</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Saw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits an <tt class="docutils literal"><span class="pre">interval</span></tt> into <tt class="docutils literal"><span class="pre">n</span></tt> triangle functions.</p>
+<p>Given an interval in any domain, this function will create <tt class="docutils literal"><span class="pre">n</span></tt> triangle
+functions of the same size equally spaced in the interval. It is very
+useful to create membership functions for controllers. The command below
+will create 3 triangle functions equally spaced in the interval (0, 4):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mf1</span><span class="p">,</span> <span class="n">mf2</span><span class="p">,</span> <span class="n">mf3</span> <span class="o">=</span> <span class="n">Saw</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the same as the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mf1</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mf2</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">mf3</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>interval</dt>
+<dd><p class="first last">A tuple containing the start and the end of the interval, in the format
+<tt class="docutils literal"><span class="pre">(start,</span> <span class="pre">end)</span></tt>;</p>
+</dd>
+<dt>n</dt>
+<dd><p class="first last">The number of functions in which the interval must be split.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A list of triangle membership functions, in order.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.Smf">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Smf</tt><big>(</big><em>x0</em>, <em>x1</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Smf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increasing smooth curve with 0 and 1 minimum and maximum values outside a
+given range.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.Trapezoid">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Trapezoid</tt><big>(</big><em>x0</em>, <em>x1</em>, <em>x2</em>, <em>x3</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Trapezoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trapezoid function.</p>
+<p>Given four points, <tt class="docutils literal"><span class="pre">x0</span></tt>, <tt class="docutils literal"><span class="pre">x1</span></tt>, <tt class="docutils literal"><span class="pre">x2</span></tt> and <tt class="docutils literal"><span class="pre">x3</span></tt>, with
+<tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x1</span> <span class="pre">&lt;</span> <span class="pre">x2</span> <span class="pre">&lt;</span> <span class="pre">x3</span></tt>, creates a function which returns:</p>
+<blockquote>
+<div><p>0, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x0</span></tt> or <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">x3</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">(x</span> <span class="pre">-</span> <span class="pre">x0)/(x1</span> <span class="pre">-</span> <span class="pre">x0)</span></tt>, if <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">x1</span></tt>;</p>
+<p>1, if <tt class="docutils literal"><span class="pre">x1</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">x2</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">(x3</span> <span class="pre">-</span> <span class="pre">x)/(x3</span> <span class="pre">-</span> <span class="pre">x2)</span></tt>, if <tt class="docutils literal"><span class="pre">x2</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">x3</span></tt>.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.Triangle">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Triangle</tt><big>(</big><em>x0</em>, <em>x1</em>, <em>x2</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Triangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triangle function.</p>
+<p>Given three points, <tt class="docutils literal"><span class="pre">x0</span></tt>, <tt class="docutils literal"><span class="pre">x1</span></tt> and <tt class="docutils literal"><span class="pre">x2</span></tt>, with <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x1</span> <span class="pre">&lt;</span> <span class="pre">x2</span></tt>,
+creates a function which returns:</p>
+<blockquote>
+<div><p>0, if <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x0</span></tt> or <tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">x2</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">(x</span> <span class="pre">-</span> <span class="pre">x0)</span> <span class="pre">/</span> <span class="pre">(x1</span> <span class="pre">-</span> <span class="pre">x0)</span></tt>, if <tt class="docutils literal"><span class="pre">x0</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x1</span></tt>;</p>
+<p><tt class="docutils literal"><span class="pre">(x2</span> <span class="pre">-</span> <span class="pre">x)</span> <span class="pre">/</span> <span class="pre">(x2</span> <span class="pre">-</span> <span class="pre">x1)</span></tt>, if <tt class="docutils literal"><span class="pre">x1</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">x2</span></tt>.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.mf.Zmf">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.mf.</tt><tt class="descname">Zmf</tt><big>(</big><em>x0</em>, <em>x1</em><big>)</big><a class="headerlink" href="#peach.fuzzy.mf.Zmf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decreasing smooth curve with 0 and 1 minimum and maximum values outside a
+given range.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.fuzzy.defuzzy.html"
+                        title="previous chapter">peach.fuzzy.defuzzy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.fuzzy.norms.html"
+                        title="next chapter">peach.fuzzy.norms</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.fuzzy.mf.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.norms.html" title="peach.fuzzy.norms"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.defuzzy.html" title="peach.fuzzy.defuzzy"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" >peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

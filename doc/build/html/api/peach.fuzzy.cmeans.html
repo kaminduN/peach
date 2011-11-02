@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.fuzzy.cmeans &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.fuzzy" href="peach.fuzzy.html" />
+    <link rel="next" title="peach.fuzzy.defuzzy" href="peach.fuzzy.defuzzy.html" />
+    <link rel="prev" title="peach.fuzzy.base" href="peach.fuzzy.base.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.defuzzy.html" title="peach.fuzzy.defuzzy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.base.html" title="peach.fuzzy.base"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" accesskey="U">peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.fuzzy.cmeans">
+<span id="peach-fuzzy-cmeans"></span><h1>peach.fuzzy.cmeans<a class="headerlink" href="#module-peach.fuzzy.cmeans" title="Permalink to this headline">¶</a></h1>
+<p>Fuzzy C-Means</p>
+<p>Fuzzy C-Means is a clustering algorithm based on fuzzy logic.</p>
+<p>This package implements the fuzzy c-means algorithm for clustering and
+classification. This algorithm is very simple, yet very efficient. From a
+training set and an initial condition which gives the membership values of each
+example in the training set to the clusters, it converges very fastly to crisper
+sets.</p>
+<p>The initial conditions, ie, the starting membership, must follow some rules.
+Please, refer to any bibliography about the subject to see why. Those rules are:
+no example might have membership 1 in every class, and the sum of the membership
+of every component must be equal to 1. This means that the initial condition is
+a fuzzy partition of the universe.</p>
+<dl class="class">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.cmeans.</tt><tt class="descname">FuzzyCMeans</tt><big>(</big><em>training_set</em>, <em>initial_conditions</em>, <em>m=2.0</em><big>)</big><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fuzzy C-Means convergence.</p>
+<p>Use this class to instantiate a fuzzy c-means object. The object must be
+given a training set and initial conditions. The training set is a list or
+an array of N-dimensional vectors; the initial conditions are a list of the
+initial membership values for every vector in the training set &#8211; thus, the
+length of both lists must be the same. The number of columns in the initial
+conditions must be the same number of classes. That is, if you are, for
+example, classifying in <tt class="docutils literal"><span class="pre">C</span></tt> classes, then the initial conditions must have
+<tt class="docutils literal"><span class="pre">C</span></tt> columns.</p>
+<p>There are restrictions in the initial conditions: first, no column can be
+all zeros or all ones &#8211; if that happened, then the class described by this
+column is unnecessary; second, the sum of the memberships of every example
+must be one &#8211; that is, the sum of the membership in every column in each
+line must be one. This means that the initial condition is a perfect
+partition of <tt class="docutils literal"><span class="pre">C</span></tt> subsets.</p>
+<p>Notice, however, that <em>no checking</em> is done. If your algorithm seems to be
+behaving strangely, try to check these conditions.</p>
+<dl class="attribute">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.c">
+<tt class="descname">c</tt><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.c" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <tt class="docutils literal"><span class="pre">numpy</span></tt> array containing the centers of the classes in the algorithm.
+Each line represents a center, and the number of lines is the number of
+classes. This property is read and write, but care must be taken when
+setting new centers: if the dimensions are not exactly the same as given in
+the instantiation of the class (<em>ie</em>, <em>C</em> centers of dimension <em>N</em>, an
+exception will be raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.centers">
+<tt class="descname">centers</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.centers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the present state of the algorithm, recalculates the centers, that
+is, the position of the vectors representing each of the classes. Notice
+that this method modifies the state of the algorithm if any change was
+made to any parameter. This method receives no arguments and will seldom
+be used externally. It can be useful if you want to step over the
+algorithm. <em>This method has a colateral effect!</em> If you use it, the
+<tt class="docutils literal"><span class="pre">c</span></tt> property (see above) will be modified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">A vector containing, in each line, the position of the centers of the
+algorithm.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.m">
+<tt class="descname">m</tt><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.m" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fuzzyness coefficient. Must be bigger than 1, the closest it is
+to 1, the smoother the membership curves will be.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.membership">
+<tt class="descname">membership</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.membership" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the present state of the algorithm, recalculates the membership of
+each example on each class. That is, it modifies the initial conditions
+to represent an evolved state of the algorithm. Notice that this method
+modifies the state of the algorithm if any change was made to any
+parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">A vector containing, in each line, the membership of the corresponding
+example in each class.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.mu">
+<tt class="descname">mu</tt><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership values for every vector in the training set. This property
+is modified at each step of the execution of the algorithm. This property is
+not writable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method runs one step of the algorithm. It might be useful to track
+the changes in the parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The norm of the change in the membership values of the examples. It
+can be used to track convergence and as an estimate of the error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.fuzzy.cmeans.FuzzyCMeans.x">
+<tt class="descname">x</tt><a class="headerlink" href="#peach.fuzzy.cmeans.FuzzyCMeans.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vectors in which the algorithm bases its convergence. This property
+is not writable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.fuzzy.base.html"
+                        title="previous chapter">peach.fuzzy.base</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.fuzzy.defuzzy.html"
+                        title="next chapter">peach.fuzzy.defuzzy</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.fuzzy.cmeans.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.defuzzy.html" title="peach.fuzzy.defuzzy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.base.html" title="peach.fuzzy.base"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" >peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

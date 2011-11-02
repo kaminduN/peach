@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.nn.rbfn.RBFN</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.nn-module.html">Package&nbsp;nn</a> ::
+        <a href="peach.nn.rbfn-module.html">Module&nbsp;rbfn</a> ::
+        Class&nbsp;RBFN
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.nn.rbfn.RBFN-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class RBFN</h1><p class="nomargin-top"><span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_peach_nn_25" name="uml_class_diagram_for_peach_nn_25">
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#width" title="The computed width of the RBFs. This property can be read and written. If a single value is written, then it is used for every center. If a vector of values is supplied, then it must be one for each center." alt="" coords="17,31,535,49"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#weights" title="A numpy array containing the synaptic weights of the second layer of the network. It is writable, but the new weight array must be the same shape of the neuron, or an exception is raised." alt="" coords="17,49,535,68"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#y" title="The activation value for the second layer of the network, ie., the answer of the network. This property is available only after the network is fed some input." alt="" coords="17,68,535,87"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#phi" title="The radial basis function. It can be set with a RadialBasis instance or a standard Python function. If a standard function is given, it must receive a real value and return a real value that is the activation value of the neuron. In that case, it is adjusted to work accordingly with the internals of the layer." alt="" coords="17,87,535,105"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#phi2" title="The activation function for the second layer. It can be set with an Activation instance or a standard Python function. If a standard function is given, it must receive a real value and return a real value that is the activation value of the neuron. In that case, it is adjusted to work accordingly with the internals of the layer." alt="" coords="17,105,535,124"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#__init__" title="Initializes the radial basis function network." alt="" coords="17,127,535,145"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#__call__" title="Feeds the network and return the result." alt="" coords="17,145,535,164"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#learn" title="Applies one example of the training set to the network." alt="" coords="17,164,535,183"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#feed" title="Feed the network and applies one example of the training set to the network. This adapts only the synaptic weights in the second layer of the RBFN." alt="" coords="17,183,535,201"/>
+<area shape="rect" id="node141" href="peach.nn.rbfn.RBFN-class.html#train" title="Presents a training set to the network." alt="" coords="17,201,535,220"/>
+<area shape="rect" id="node1" href="peach.nn.rbfn.RBFN-class.html" title="peach.nn.rbfn.RBFN" alt="" coords="5,6,547,226"/>
+</map>
+  <img src="uml_class_diagram_for_peach_nn_25.gif" alt='' usemap="#uml_class_diagram_for_peach_nn_25" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">c</span>,
+        <span class="summary-sig-arg">phi</span>=<span class="summary-sig-default">&lt;class 'peach.nn.af.Gaussian'&gt;</span>,
+        <span class="summary-sig-arg">phi2</span>=<span class="summary-sig-default">&lt;class 'peach.nn.af.Linear'&gt;</span>)</span><br />
+      Initializes the radial basis function network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getwidth"></a><span class="summary-sig-name">__getwidth</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__getwidth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setwidth"></a><span class="summary-sig-name">__setwidth</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">w</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__setwidth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getweights"></a><span class="summary-sig-name">__getweights</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__getweights">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setweights"></a><span class="summary-sig-name">__setweights</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">w</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__setweights">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__gety"></a><span class="summary-sig-name">__gety</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__gety">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getphi"></a><span class="summary-sig-name">__getphi</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__getphi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setphi"></a><span class="summary-sig-name">__setphi</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phi</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__setphi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__getphi2"></a><span class="summary-sig-name">__getphi2</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__getphi2">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__setphi2"></a><span class="summary-sig-name">__setphi2</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phi</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__setphi2">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Feeds the network and return the result.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#learn" class="summary-sig-name">learn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">d</span>)</span><br />
+      Applies one example of the training set to the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.learn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#feed" class="summary-sig-name">feed</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">d</span>)</span><br />
+      Feed the network and applies one example of the training set to the
+network. This adapts only the synaptic weights in the second layer of
+the RBFN.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.feed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#train" class="summary-sig-name">train</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">train_set</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">2000</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">randomize</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Presents a training set to the network.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.train">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.rbfn.RBFN-class.html#width" class="summary-name">width</a><br />
+      The computed width of the RBFs. This property can be read and written. If
+a single value is written, then it is used for every center. If a vector of
+values is supplied, then it must be one for each center.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.rbfn.RBFN-class.html#weights" class="summary-name">weights</a><br />
+      A <tt class="rst-docutils literal">numpy</tt> array containing the synaptic weights of the second layer of
+the network. It is writable, but the new weight array must be the same shape
+of the neuron, or an exception is raised.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.rbfn.RBFN-class.html#y" class="summary-name">y</a><br />
+      The activation value for the second layer of the network, ie., the answer
+of the network. This property is available only after the network is fed
+some input.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.rbfn.RBFN-class.html#phi" class="summary-name">phi</a><br />
+      The radial basis function. It can be set with a <tt class="rst-docutils literal">RadialBasis</tt> instance
+or a standard Python function. If a standard function is given, it must
+receive a real value and return a real value that is the activation value of
+the neuron. In that case, it is adjusted to work accordingly with the
+internals of the layer.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.nn.rbfn.RBFN-class.html#phi2" class="summary-name">phi2</a><br />
+      The activation function for the second layer. It can be set with an
+<tt class="rst-docutils literal">Activation</tt> instance or a standard Python function. If a standard
+function is given, it must receive a real value and return a real value that
+is the activation value of the neuron. In that case, it is adjusted to work
+accordingly with the internals of the layer.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">c</span>,
+        <span class="sig-arg">phi</span>=<span class="sig-default">&lt;class 'peach.nn.af.Gaussian'&gt;</span>,
+        <span class="sig-arg">phi2</span>=<span class="sig-default">&lt;class 'peach.nn.af.Linear'&gt;</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializes the radial basis function network.</p>
+<p>A radial basis function is implemented as two layers of neurons, the
+first one with the RBFs, the second one a linear combinator.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>c</code></strong> - Two-dimensional array containing the centers of the radial basis
+functions, where each line is a vector with the components of the
+center. Thus, the number of lines in this array is the number of
+centers of the network.</li>
+        <li><strong class="pname"><code>phi</code></strong> - The radial basis function to be used in the first layer. Defaults to
+the gaussian.</li>
+        <li><strong class="pname"><code>phi2</code></strong> - The activation function of the second layer. If the network is being
+used to approximate functions, this should be Linear. Since this is
+the most commom situation, it is the default value. In occasions,
+this can be made (say) a sigmoid, for pattern recognition.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Feeds the network and return the result.</p>
+<p>The <tt class="rst-docutils literal">__call__</tt> interface should be called if the answer of the neuron
+network to a given input vector <tt class="rst-docutils literal">x</tt> is desired. <em>This method has
+collateral effects</em>, so beware. After the calling of this method, the
+<tt class="rst-docutils literal">y</tt> property is set with the activation potential and the answer of
+the neurons, respectivelly.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - The input vector to the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The vector containing the answer of every neuron in the last layer, in
+the respective order.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="learn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">learn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">d</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.learn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Applies one example of the training set to the network.</p>
+<p>Using this method, one iteration of the learning procedure is executed
+for the second layer of the network. This method presents one example
+(not necessarilly from a training set) and applies the learning rule
+over the layer. The learning rule is defined in the initialization of
+the network, and some are implemented on the <tt class="rst-docutils literal">lrules</tt> method. New
+methods can be created, consult the <tt class="rst-docutils literal">lrules</tt> documentation but, for
+the second layer of a <tt class="rst-docutils literal">RBFN'' instance, only ``FFLearning</tt> learning is
+allowed.</p>
+<p>Also, notice that <em>this method only applies the learning method!</em> The
+network should be fed with the same input vector before trying to learn
+anything first. Consult the <tt class="rst-docutils literal">feed</tt> and <tt class="rst-docutils literal">train</tt> methods below for
+more ways to train a network.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - Input vector of the example. It should be a column vector of the
+correct dimension, that is, the number of input neurons.</li>
+        <li><strong class="pname"><code>d</code></strong> - The desired answer of the network for this particular input vector.
+Notice that the desired answer should have the same dimension of the
+last layer of the network. This means that a desired answer should
+be given for every output of the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The error obtained by the network.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="feed"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">feed</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">d</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.feed">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Feed the network and applies one example of the training set to the
+network. This adapts only the synaptic weights in the second layer of
+the RBFN.</p>
+<p>Using this method, one iteration of the learning procedure is made with
+the neurons of this network. This method presents one example (not
+necessarilly from a training set) and applies the learning rule over the
+network. The learning rule is defined in the initialization of the
+network, and some are implemented on the <tt class="rst-docutils literal">lrules</tt> method. New methods
+can be created, consult the <tt class="rst-docutils literal">lrules</tt> documentation but, for the second
+layer of a <tt class="rst-docutils literal">RBFN</tt>, only <tt class="rst-docutils literal">FFLearning</tt> learning is allowed.</p>
+<p>Also, notice that <em>this method feeds the network</em> before applying the
+learning rule. Feeding the network has collateral effects, and some
+properties change when this happens. Namely, the <tt class="rst-docutils literal">y</tt> property is set.
+Please consult the <tt class="rst-docutils literal">__call__</tt> interface.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x</code></strong> - Input vector of the example. It should be a column vector of the
+correct dimension, that is, the number of input neurons.</li>
+        <li><strong class="pname"><code>d</code></strong> - The desired answer of the network for this particular input vector.
+Notice that the desired answer should have the same dimension of the
+last layer of the network. This means that a desired answer should
+be given for every output of the network.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The error obtained by the network.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="train"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">train</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">train_set</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">2000</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">randomize</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.nn.rbfn-pysrc.html#RBFN.train">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Presents a training set to the network.</p>
+<p>This method automatizes the training of the network. Given a training
+set, the examples are shown to the network (possibly in a randomized
+way). A maximum number of iterations or a maximum admitted error should
+be given as a stop condition.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>train_set</code></strong> - The training set is a list of examples. It can have any size and can
+contain repeated examples. In fact, the definition of the training
+set is open. Each element of the training set, however, should be a
+two-tuple <tt class="rst-docutils literal">(x, d)</tt>, where <tt class="rst-docutils literal">x</tt> is the input vector, and <tt class="rst-docutils literal">d</tt> is
+the desired response of the network for this particular input. See
+the <tt class="rst-docutils literal">learn</tt> and <tt class="rst-docutils literal">feed</tt> for more information.</li>
+        <li><strong class="pname"><code>imax</code></strong> - The maximum number of iterations. Examples from the training set
+will be presented to the network while this limit is not reached.
+Defaults to 2000.</li>
+        <li><strong class="pname"><code>emax</code></strong> - The maximum admitted error. Examples from the training set will be
+presented to the network until the error obtained is lower than this
+limit. Defaults to 1e-5.</li>
+        <li><strong class="pname"><code>randomize</code></strong> - If this is <tt class="rst-docutils literal">True</tt>, then the examples are shown in a randomized
+order. If <tt class="rst-docutils literal">False</tt>, then the examples are shown in the same order
+that they appear in the <tt class="rst-docutils literal">train_set</tt> list. Defaults to <tt class="rst-docutils literal">False</tt>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="width"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">width</h3>
+  The computed width of the RBFs. This property can be read and written. If
+a single value is written, then it is used for every center. If a vector of
+values is supplied, then it must be one for each center.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__getwidth" class="summary-sig-name" onclick="show_private();">__getwidth</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__setwidth" class="summary-sig-name" onclick="show_private();">__setwidth</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">w</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="weights"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">weights</h3>
+  A <tt class="rst-rst-docutils literal rst-docutils literal">numpy</tt> array containing the synaptic weights of the second layer of
+the network. It is writable, but the new weight array must be the same shape
+of the neuron, or an exception is raised.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__getweights" class="summary-sig-name" onclick="show_private();">__getweights</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__setweights" class="summary-sig-name" onclick="show_private();">__setweights</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">w</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="y"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">y</h3>
+  The activation value for the second layer of the network, ie., the answer
+of the network. This property is available only after the network is fed
+some input.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__gety" class="summary-sig-name" onclick="show_private();">__gety</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="phi"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">phi</h3>
+  The radial basis function. It can be set with a <tt class="rst-rst-docutils literal rst-docutils literal">RadialBasis</tt> instance
+or a standard Python function. If a standard function is given, it must
+receive a real value and return a real value that is the activation value of
+the neuron. In that case, it is adjusted to work accordingly with the
+internals of the layer.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__getphi" class="summary-sig-name" onclick="show_private();">__getphi</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__setphi" class="summary-sig-name" onclick="show_private();">__setphi</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phi</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="phi2"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">phi2</h3>
+  The activation function for the second layer. It can be set with an
+<tt class="rst-rst-docutils literal rst-docutils literal">Activation</tt> instance or a standard Python function. If a standard
+function is given, it must receive a real value and return a real value that
+is the activation value of the neuron. In that case, it is adjusted to work
+accordingly with the internals of the layer.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__getphi" class="summary-sig-name" onclick="show_private();">__getphi</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.nn.rbfn.RBFN-class.html#__setphi" class="summary-sig-name" onclick="show_private();">__setphi</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">phi</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Jul 31 16:59:42 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

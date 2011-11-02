@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interpolation using Radial Basis Networks &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Fuzzy Sets" href="fuzzy-sets.html" />
+    <link rel="prev" title="K-Means Clustering" href="k-means.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="fuzzy-sets.html" title="Fuzzy Sets"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="k-means.html" title="K-Means Clustering"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="interpolation-using-radial-basis-networks">
+<h1>Interpolation using Radial Basis Networks<a class="headerlink" href="#interpolation-using-radial-basis-networks" title="Permalink to this headline">¶</a></h1>
+<p>Different kinds of neural network use different functions as activations for
+some neurons. The Radial Basis Network (RBFN) uses radial basis functions
+(RBFs), which are functions that are symmetric according to the origin. These
+functions offer good local approximation for a function and, for that reason,
+they are especially good for interpolation and function approximation. In fact,
+it can be prooved that any continuous function can be approximated by this type
+of neural network.</p>
+<p>In this network, the first layer contains RBFs as activation functions. Because
+of this, the training is done in a different way, even though a gradient
+approach could be used. However, it is in general better to use a clustering
+algorithm, such as K-Means, to find the centers of the functions, and compute
+the width of the functions proportionally to the greatest distance among
+centers. The second layer of the network is a linear weighted combiner that sums
+the contribution of each neuron.</p>
+<p>In this tutorial, we will see how to use Peach&#8217;s implementation of RBFNs to
+interpolate a function. We start, as always, by importing the necessary
+modules. We will use the <tt class="docutils literal"><span class="pre">randrange`</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">``random</span></tt> module to randomize
+the presentation of examples to the network:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+</pre></div>
+</div>
+<p>Let&#8217;s define the parameters of the simulation. We desire to interpolate a
+period of a cosine, from 20 samples of the function. The lines below create
+the training set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we create the network and the corresponding algorithms. We will use a
+7th-order network to make the interpolation. This must suffice, but it is
+expected that small errors occur, especially near the limits of the interval. We
+will see if this actually happens in the result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p>We will use the K-Means algorithm (implemented in the <tt class="docutils literal"><span class="pre">KMeans</span></tt> class) to
+clusterize the centers. Any other such algorithm (such as <tt class="docutils literal"><span class="pre">SOM</span></tt> or
+<tt class="docutils literal"><span class="pre">FuzzyCMeans</span></tt>) could be used. We initialize the centers with a reasonable set
+of values. linearly distributed through the interval. While this step is not
+necessary, it will guarantee that good centers are found. Upon calling the
+<tt class="docutils literal"><span class="pre">KMeans</span></tt> instance, we receive the clustered centers as the result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">km</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">km</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">km</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here, we initialize the Radial Basis Network. Notice that we don&#8217;t need to pass
+a lot of parameters to the network &#8211; only the centers, here represented by
+<tt class="docutils literal"><span class="pre">c</span></tt>, are mandatory. The default RBF is the gaussian, and the default combiner
+is <tt class="docutils literal"><span class="pre">Linear</span></tt>, but we could specify different functions using <tt class="docutils literal"><span class="pre">phi</span></tt> and
+<tt class="docutils literal"><span class="pre">phi2</span></tt> arguments, respectively. The learning procedure for the second layer is
+the <tt class="docutils literal"><span class="pre">BackPropagation</span></tt> (to take care of the situations in which <tt class="docutils literal"><span class="pre">phi2</span></tt> is not
+linear) but this can be changed through the <tt class="docutils literal"><span class="pre">lrule</span></tt> argument:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">rbf</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">RBFN</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we present some examples from the training set to the network. Notice that
+we already know where the centers are located, and in the instantiation of the
+<tt class="docutils literal"><span class="pre">RBFN</span></tt> algorithm the widths of the RBFs were computed. You can access the
+widths through the <tt class="docutils literal"><span class="pre">width</span></tt> property. To present the examples, we first
+randomly select and example and feed it to the network:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">error</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="ow">and</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mf">5.e-2</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">rbf</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>In the end of the training, you can inspect the weights of the second layer by
+using the <tt class="docutils literal"><span class="pre">weights</span></tt> property. We print them here, for reference:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">rbf</span><span class="o">.</span><span class="n">weights</span>
+</pre></div>
+</div>
+<p>We will now plot the result. We apply the RBFN in 500 points in the domain from
+<img class="math" src="../_images/math/982fdbaebff169debdd3620c5346e8481a3741bd.png" alt="-\pi"/> to <img class="math" src="../_images/math/f2ca003a7da0de4994b4733e203b74ff52d42553.png" alt="\pi"/>. To activate the network and obtain the result, we
+just use the <tt class="docutils literal"><span class="pre">__call__</span></tt> interface. Notice that the result of a neural network
+is a two-dimension array, so we select first line, first column:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">yh</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">tj</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+   <span class="n">yh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rbf</span><span class="p">(</span><span class="n">tj</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>By using the <tt class="docutils literal"><span class="pre">matplotlib</span></tt>, we can plot the result over this domain to see the
+results. We get a little distortion in the beginning and the end of the
+interval, but a very good approximation in the middle.</p>
+<img alt="../_images/radial-basis-function.png" class="align-center" src="../_images/radial-basis-function.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="k-means.html"
+                        title="previous chapter">K-Means Clustering</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fuzzy-sets.html"
+                        title="next chapter">Fuzzy Sets</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/radial-basis-function.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="fuzzy-sets.html" title="Fuzzy Sets"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="k-means.html" title="K-Means Clustering"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

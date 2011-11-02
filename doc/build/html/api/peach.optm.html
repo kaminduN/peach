@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.optm &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="API" href="index.html" />
+    <link rel="next" title="peach.optm.base" href="peach.optm.base.html" />
+    <link rel="prev" title="peach.nn.rbfn" href="peach.nn.rbfn.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.base.html" title="peach.optm.base"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.nn.rbfn.html" title="peach.nn.rbfn"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">API</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.optm">
+<span id="peach-optm"></span><h1>peach.optm<a class="headerlink" href="#module-peach.optm" title="Permalink to this headline">¶</a></h1>
+<p>This package implements deterministic optimization methods. Consult:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>base</dt>
+<dd>Basic definitions and interface with the optimization methods;</dd>
+<dt>linear</dt>
+<dd>Basic methods for one variable optimization;</dd>
+<dt>multivar</dt>
+<dd>Gradient, Newton and othe multivariable optimization methods;</dd>
+<dt>quasinewton</dt>
+<dd>Quasi-Newton methods;</dd>
+</dl>
+</div></blockquote>
+<p>Every optimizer works in pretty much the same way. Instantiate the respective
+class, using as parameter the cost function to be optimized, the first estimate
+(a scalar in case of a single variable optimization, and a one-dimensional array
+in case of multivariable optimization) and some other parameters. Use <tt class="docutils literal"><span class="pre">step()</span></tt>
+to perform one iteration of the method, use the <tt class="docutils literal"><span class="pre">__call__()</span></tt> method to perform
+the search until the stop conditions are met. See each method for details.</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="peach.optm.base.html">peach.optm.base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peach.optm.linear.html">peach.optm.linear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peach.optm.multivar.html">peach.optm.multivar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peach.optm.quasinewton.html">peach.optm.quasinewton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peach.optm.stochastic.html">peach.optm.stochastic</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.nn.rbfn.html"
+                        title="previous chapter">peach.nn.rbfn</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.optm.base.html"
+                        title="next chapter">peach.optm.base</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.optm.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.base.html" title="peach.optm.base"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.nn.rbfn.html" title="peach.nn.rbfn"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Optimization by Binary Simulated Annealing &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Dealing with Binary Objective Functions" href="binary-objective-function.html" />
+    <link rel="prev" title="Using Custom Neighbor Functions" href="custom-neighbor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="binary-objective-function.html" title="Dealing with Binary Objective Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="custom-neighbor.html" title="Using Custom Neighbor Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="optimization-by-binary-simulated-annealing">
+<h1>Optimization by Binary Simulated Annealing<a class="headerlink" href="#optimization-by-binary-simulated-annealing" title="Permalink to this headline">¶</a></h1>
+<p>The simulated annealing is actually a meta-heuristic to drive the optimization.
+There is nothing to say that it can&#8217;t be used to optimize functions of discrete
+variables. In fact, simulated annealing excels in this kind of optimization.
+Peach provides a discrete optimizer based on arrays of bits. Notice that you
+must have the <tt class="docutils literal"><span class="pre">bitarray</span></tt> module installed so you can use this.</p>
+<p>The discrete simulated annealing behaves basically in the same way that the
+continuous simulated annealing algorithm. The instantiation, however, is a bit
+different. We will get there soon. As before, we will use the algorithm to find
+the minimum of the Rosenbrock function. We start by importing <tt class="docutils literal"><span class="pre">peach</span></tt> and
+<tt class="docutils literal"><span class="pre">numpy</span></tt> in different namespaces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>We must also create the objective function for the algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+</pre></div>
+</div>
+<p>Notice that, even though the optimizer behaves in a different way, you define
+your function in pretty much the same way, if you want to. But the discrete
+optimizer is more powerful, as you can, if you so wish, receive not floating
+point numbers in your objective function, but integers, characters or even the
+bitarray itself, so you can decode it anyway you want to. More on this soon.</p>
+<p>Now we will create the optimizer. We create these optimizers in the same way we
+created other optimizers: by instantiating the corresponding class, passing the
+function and the first estimate. Notice that the first estimates are given in
+the form of a tuple, with the first estimate of <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in the first place,
+and the first estimate of <img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the second place. There is no need to use
+tuples: lists or arrays will do. To create the optimizers, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dsa</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">DiscreteSA</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="s">&#39;ff&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>The creation of the optimizer is somewhat different than in previous occasions.
+The first two parameters are the ones we are used to see: the objective function
+to be optimized, and the first estimate of the location of the minimum. The next
+two need some explanation.</p>
+<p>In the discrete optimizer, the estimate is not encoded as an array, but as an
+array of bits. Unfortunatelly, there is no unique way to interpret what the bits
+mean, so we must inform the algorithm how to deal with them. The third argument
+to the instantiation of the class is exactly what does this: it is a string of
+characters that inform what kind of value will be in which place. Although it
+seems quite cryptical, it is very simple: use &#8216;L&#8217; for each integer, and &#8216;f&#8217; for
+each float. The object will decode the bit stream and send to your objective
+function a tuple containing the decoded values. In fact, you could use it
+differently: the decoding is based on the <tt class="docutils literal"><span class="pre">struct</span></tt> module, which is standard
+in every Python installation. Please, consult the official documentation for
+more information. Here, we will be using two floating points, so the format is
+<tt class="docutils literal"><span class="pre">'ff'</span></tt>.</p>
+<p>The next parameter lists the ranges of allowed values for each variable. This
+should be informed if you are using floating points, since there are sequences
+of bits that do not decode to valid numbers. The algorithm will use this
+information to check if the decoded values are legal and, if not, to random
+choose new estimates. While this randomness might seem strange, it is a good
+thing &#8211; remember, the simulated annealing is an stochastic optimization method.
+If you, however, are dealing only with integers or you don&#8217;t want the algorithm
+to make this check, you don&#8217;t need to inform ranges at all.</p>
+<p>There are some ways to inform the algorithm what are the ranges. A range, in
+this context, is a two-tuple of values, <tt class="docutils literal"><span class="pre">(x0,</span> <span class="pre">x1)</span></tt>, where <tt class="docutils literal"><span class="pre">x0</span></tt> is the lower
+limit and <tt class="docutils literal"><span class="pre">x1</span></tt> is the higher limit of the interval. The ranges must be given
+as a list, each range applying to the respective variable (that is, the first
+range applies to the first variable in the optimization, the second range to the
+second variable and so on). If you, however, use only one range in the range
+list (as in this case), the same range will apply to every variable. In this
+case, all variables will range from 0 to 2, thus <tt class="docutils literal"><span class="pre">[</span> <span class="pre">(0.,</span> <span class="pre">2.)</span> <span class="pre">]</span></tt>.</p>
+<p>As we done in the other optimization tutorials, we will execute the algorithm
+step by step. We can do this to keep track of the estimates to plot a graphic.
+We do this using the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">dsa</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Notice that we used 500 iterations here. In general, stochastic methods pay this
+price to be able to find the global minimum: they need more iterations to
+converge. That&#8217;s not a problem, however, since finding the global minimum is
+a desired result, and the penalty in the convergence time is not that
+significant. But discrete simulated annealing executes so incredibly fast that
+this won&#8217;t be a problem in any way.</p>
+<p>The <tt class="docutils literal"><span class="pre">xs</span></tt> variable will hold, in sequence, the estimates. We can plot them to
+see the convergence trace. The figure below is a representation of the execution
+of the method. The function itself is represented as contour curves in the
+plane, and the estimate tracks over them. Notice the unusual path that the
+estimate followed to arrive at the result.</p>
+<img alt="../_images/discrete-simulated-annealing.png" class="align-center" src="../_images/discrete-simulated-annealing.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="custom-neighbor.html"
+                        title="previous chapter">Using Custom Neighbor Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="binary-objective-function.html"
+                        title="next chapter">Dealing with Binary Objective Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/binary-simulated-annealing.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="binary-objective-function.html" title="Dealing with Binary Objective Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="custom-neighbor.html" title="Using Custom Neighbor Functions"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Norms and Conorms &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Defuzzification" href="defuzzification.html" />
+    <link rel="prev" title="Using Custom Membership Functions" href="custom-membership.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="defuzzification.html" title="Defuzzification"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="custom-membership.html" title="Using Custom Membership Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="norms-and-conorms">
+<h1>Norms and Conorms<a class="headerlink" href="#norms-and-conorms" title="Permalink to this headline">¶</a></h1>
+<p>Fuzzy logic can be seen as an extension of classical logic. Classical sets can
+be seen as fuzzy sets with membership values 0 or 1. The same holds true for
+standard set operations. But things can be extended in infinite ways, so there
+are infinite ways to define fuzzy set intersection, union and complement.</p>
+<p>Intersections are defined as a function <em>t</em>(<em>x</em>, <em>y</em>) taking two arguments and
+returning one result, and satisfying the properties:</p>
+<blockquote>
+<div><ul class="simple">
+<li>It is comutative, that is: <em>t</em>(<em>x</em>, <em>y</em>) = <em>t</em>(<em>y</em>, <em>x</em>)</li>
+<li>Its neutral element is 1, that is <em>t</em>(<em>x</em>, 1) = <em>x</em></li>
+<li>It has the property <em>t</em>(<em>x</em>, 0) = 0</li>
+<li>It is associative, that is <em>t</em>(<em>x</em>, <em>t</em>(<em>y</em>, <em>z</em>)) =
+<em>t</em>(<em>t</em>(<em>x</em>, <em>y</em>), <em>z</em>)</li>
+<li>It is monotonic, that is, if <em>w</em> &lt; <em>x</em> and <em>z</em> &lt; <em>y</em>, then
+<em>t</em>(<em>w</em>, <em>z</em>) &lt; <em>t</em>(<em>x</em>, <em>y</em>)</li>
+</ul>
+</div></blockquote>
+<p>Functions with these properties are called norms, or <em>t</em>-norms. The traditional
+function used as intersection operator over fuzzy sets is the minimum function,
+that takes two values and returns the smallest of them. This is called the
+<em>Zadeh intersection</em>, or <em>Zadeh and</em>.</p>
+<p>Unions are defined as a function <em>s</em>(<em>x</em>, <em>y</em>) taking two arguments and
+returning one result, and satisfying the properties:</p>
+<blockquote>
+<div><ul class="simple">
+<li>It is comutative, that is: <em>s</em>(<em>x</em>, <em>y</em>) = <em>s</em>(<em>y</em>, <em>x</em>)</li>
+<li>Its neutral element is 0, that is <em>s</em>(<em>x</em>, 0) = <em>x</em></li>
+<li>It has the property <em>s</em>(<em>x</em>, 1) = 1</li>
+<li>It is associative, that is <em>s</em>(<em>x</em>, <em>s</em>(<em>y</em>, <em>z</em>)) =
+<em>s</em>(<em>s</em>(<em>x</em>, <em>y</em>), <em>z</em>)</li>
+<li>It is monotonic, that is, if <em>w</em> &lt; <em>x</em> and <em>z</em> &lt; <em>y</em>, then
+<em>s</em>(<em>w</em>, <em>z</em>) &lt; <em>s</em>(<em>x</em>, <em>y</em>)</li>
+</ul>
+</div></blockquote>
+<p>Functions with these properties are called conorms, or <em>s</em>-norms. The
+traditional function used as union operator over fuzzy sets is the maximum
+function, that takes two values and returns the largest of them. This is called
+the <em>Zadeh union</em>, or <em>Zadeh or</em>.</p>
+<p>Complements are implemented by negations. Negations are functions of one
+variable with the following properties:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>n</em>(0) = 1</li>
+<li><em>n</em>(1) = 0</li>
+<li><em>n</em>(<em>n</em>(x)) = x</li>
+<li>if <em>y</em> &lt; <em>x</em>, then <em>n</em>(<em>y</em>) &gt; <em>n</em>(<em>x</em>)</li>
+</ul>
+</div></blockquote>
+<p>The standard negation used in fuzzy logic is the 1-complement, that is 1 - <em>x</em>.</p>
+<p>In Peach, to set norms, conorms and negations, we use, respectively, the methods
+<tt class="docutils literal"><span class="pre">set_norm</span></tt>, <tt class="docutils literal"><span class="pre">set_conorm</span></tt> and <tt class="docutils literal"><span class="pre">set_negation</span></tt>. Notice that those are class
+methods, so if you change the norm for one instance of a set, you change for
+them all! So, it is better to use the class name to select the methods.</p>
+<p>We import <tt class="docutils literal"><span class="pre">numpy</span></tt> for arrays and <tt class="docutils literal"><span class="pre">peach</span></tt> for the library:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">peach</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>First, remember that we must create the sets. A FuzzySet instance is returned
+when you apply a membership function over a domain. It is, in fact, a standard
+array, but making it a new class allow us to redefine operations. Here we create
+the sets:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Zadeh norms (<tt class="docutils literal"><span class="pre">min</span></tt>, <tt class="docutils literal"><span class="pre">max</span></tt> and 1-complement) are the default methods for
+intersection, union and complement, respectively. Notice that we use the
+standard operators for and, or and not operations (that is, <tt class="docutils literal"><span class="pre">&amp;</span></tt>, <tt class="docutils literal"><span class="pre">|</span></tt> e
+<tt class="docutils literal"><span class="pre">~</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">aandb_zadeh</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>             <span class="c"># A and B</span>
+<span class="n">aorb_zadeh</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span>              <span class="c"># A or B</span>
+</pre></div>
+</div>
+<p>There are a number of norms implemented in Peach. Probabilistic norms are based
+on the corresponding operations in probability. We will configure the
+<tt class="docutils literal"><span class="pre">FuzzySet</span></tt> class to use them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">FuzzySet</span><span class="o">.</span><span class="n">set_norm</span><span class="p">(</span><span class="n">ProbabilisticAnd</span><span class="p">)</span>
+<span class="n">FuzzySet</span><span class="o">.</span><span class="n">set_conorm</span><span class="p">(</span><span class="n">ProbabilisticOr</span><span class="p">)</span>
+<span class="n">aandb_prob</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+<span class="n">aorb_prob</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>There are other norms that we could use. Please, check the documentation for a
+complete list. Here are some of them:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Norms:</dt>
+<dd><tt class="docutils literal"><span class="pre">ZadehAnd</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticAnd</span></tt>, <tt class="docutils literal"><span class="pre">DrasticProduct</span></tt>,
+<tt class="docutils literal"><span class="pre">EinsteinProduct</span></tt></dd>
+<dt>Conorms:</dt>
+<dd><tt class="docutils literal"><span class="pre">ZadehOr</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticOr</span></tt>, <tt class="docutils literal"><span class="pre">DrasticSum</span></tt>, <tt class="docutils literal"><span class="pre">EinsteinSum</span></tt></dd>
+<dt>Negations:</dt>
+<dd><tt class="docutils literal"><span class="pre">ZadehNot</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticNot</span></tt></dd>
+</dl>
+</div></blockquote>
+<p>You can easily create your own norms, too. Norms and negations are simple
+functions, with no need to instantiation of classes. To create a norm or a
+conorm, implement it as a function that takes two arguments and return the
+result of the operation. To create a negation, implement it as a function that
+takes one argument and return the result of the operation. These functions can
+be used anywhere a norm, a conorm or a negation are expected.</p>
+<p>The figure below shows the results of the using the norms.</p>
+<img alt="../_images/norms-conorms.png" class="align-center" src="../_images/norms-conorms.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="custom-membership.html"
+                        title="previous chapter">Using Custom Membership Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="defuzzification.html"
+                        title="next chapter">Defuzzification</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/norms-conorms.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="defuzzification.html" title="Defuzzification"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="custom-membership.html" title="Using Custom Membership Functions"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

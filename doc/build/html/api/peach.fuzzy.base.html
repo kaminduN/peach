@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.fuzzy.base &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.fuzzy" href="peach.fuzzy.html" />
+    <link rel="prev" title="peach.fuzzy" href="peach.fuzzy.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.html" title="peach.fuzzy"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" accesskey="U">peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.fuzzy.base">
+<span id="peach-fuzzy-base"></span><h1>peach.fuzzy.base<a class="headerlink" href="#module-peach.fuzzy.base" title="Permalink to this headline">¶</a></h1>
+<p>This package implements basic definitions for fuzzy logic</p>
+<dl class="class">
+<dt id="peach.fuzzy.base.FuzzySet">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.base.</tt><tt class="descname">FuzzySet</tt><big>(</big><em>data=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#peach.fuzzy.base.FuzzySet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array containing fuzzy values for a set.</p>
+<p>This class defines the behavior of a fuzzy set. It is an array of values in
+the range from 0 to 1, and the basic operations of the logic &#8211; and (using
+the <tt class="docutils literal"><span class="pre">&amp;</span></tt> operator); or (using the <tt class="docutils literal"><span class="pre">|</span></tt> operator); not (using <tt class="docutils literal"><span class="pre">~</span></tt>
+operator) &#8211; can be defined according to a set of norms. The norms can be
+redefined using the appropriated methods.</p>
+<p>To create a FuzzySet, instantiate this class with a sequence as argument,
+for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fuzzy_set</span> <span class="o">=</span> <span class="n">FuzzySet</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">])</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="peach.fuzzy.base.FuzzySet.set_conorm">
+<em class="property">classmethod </em><tt class="descname">set_conorm</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.base.FuzzySet.set_conorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects a t-conorm (or operation)</p>
+<p>Use this method to change the behaviour of the or operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">A function of two parameters which must return the <tt class="docutils literal"><span class="pre">or</span></tt> of the
+values.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="peach.fuzzy.base.FuzzySet.set_negation">
+<em class="property">classmethod </em><tt class="descname">set_negation</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.base.FuzzySet.set_negation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects a negation (not operation)</p>
+<p>Use this method to change the behaviour of the not operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">A function of one parameter which must return the <tt class="docutils literal"><span class="pre">not</span></tt> of the
+value.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="peach.fuzzy.base.FuzzySet.set_norm">
+<em class="property">classmethod </em><tt class="descname">set_norm</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.base.FuzzySet.set_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects a t-norm (and operation)</p>
+<p>Use this method to change the behaviour of the and operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">A function of two parameters which must return the <tt class="docutils literal"><span class="pre">and</span></tt> of the
+values.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.fuzzy.html"
+                        title="previous chapter">peach.fuzzy</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.fuzzy.base.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.html" title="peach.fuzzy"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" >peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

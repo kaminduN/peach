@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Optimization of a Multivariate Function by Quasi-Newton Methods &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Optimization by Simulated Annealing" href="simulated-annealing.html" />
+    <link rel="prev" title="Optimization of a Multivariate Function" href="multivariate-optimization.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="simulated-annealing.html" title="Optimization by Simulated Annealing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="multivariate-optimization.html" title="Optimization of a Multivariate Function"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="optimization-of-a-multivariate-function-by-quasi-newton-methods">
+<h1>Optimization of a Multivariate Function by Quasi-Newton Methods<a class="headerlink" href="#optimization-of-a-multivariate-function-by-quasi-newton-methods" title="Permalink to this headline">¶</a></h1>
+<p>Theoretically, the Newton search is the best known method to minimize a
+function. It has its drawbacks, however. The main problem with the method is
+that it must compute the inverse of the hessian matrix at every iteration of the
+algorithm. This is not a problem if the problem to be solved has low
+dimensionality (that is, few variables to optimize). Unfortunatelly, this is not
+always the case, so alternative methods had to be developed.</p>
+<p>The <em>quasi-Newton methods</em> are a class of methods based on the Newton search
+where, instead of computing the hessian of the function, and then inverting the
+resulting matrix, an estimate of the inverse hessian is kept and updated by the
+algorithm. There are some different methods that implement this idea. Peach has
+implemented in it three of them: DFP, BFGS and SR1.</p>
+<p>There is absolutelly no difference in how a quasi-Newton optimizer is created
+and used. We will be minimizing the Rosenbrock function, as always. We start by
+importing <tt class="docutils literal"><span class="pre">peach</span></tt> and <tt class="docutils literal"><span class="pre">numpy</span></tt> in different namespaces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">peach</span> <span class="kn">as</span> <span class="nn">p</span>
+</pre></div>
+</div>
+<p>We must also create the objective function and the gradient function, as the
+algorithms use them. Notice however that, as before, we can omit the gradient
+function and let Peach estimate them for us if needed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="mf">2.</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Now we will create the optimizers. We create these optimizers in the same way we
+created other optimizers: by instantiating the corresponding class, passing the
+function and the first estimate. Notice that the first estimates are given in
+the form of a tuple, with the first estimate of <img class="math" src="../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> in the first place,
+and the first estimate of <img class="math" src="../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the second place. There is no need to use
+tuples: lists or arrays will do. To create the optimizers, we issue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dfp</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">DFP</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">[</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">],</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">bfgs</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">BFGS</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">[</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">],</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">sr1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">SR1</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="p">[</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="p">],</span> <span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that we specified ranges and derivative of the objective function. As
+before, these are not needed, and if not given, the same results apply: no
+restrictions on the values of the variables, and derivatives are estimated. As
+we done in the other optimization tutorials, we will execute the algorithm step
+by step. We can do this to keep track of the estimates to plot a graphic. We do
+this using the commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xd</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">xb</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">dfp</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">bfgs</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">sr1</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Notice that we used 200 iterations here. In general, although each iteration is
+executed faster than in standard Newton search, we will need a little more
+iterations to achieve the same results. But the real culprit here is the SR1
+method: although its derivation is simple (consult a good reference for a
+demonstration), it is a very inefficient method if compared with the other two.
+The <tt class="docutils literal"><span class="pre">xd</span></tt>, <tt class="docutils literal"><span class="pre">xb</span></tt> and  <tt class="docutils literal"><span class="pre">xs</span></tt> variables will hold, in sequence, the estimates.
+We can plot them to see the convergence trace. The figure below is a
+representation of the execution of these methods. The function itself is
+represented as contour curves in the plane, and the estimate tracks over them.
+It is difficult to see how fast they converged with this representation &#8211;
+nonetheless, we can see that the results were those desired.</p>
+<img alt="../_images/quasi-newton-optimization.png" class="align-center" src="../_images/quasi-newton-optimization.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="multivariate-optimization.html"
+                        title="previous chapter">Optimization of a Multivariate Function</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="simulated-annealing.html"
+                        title="next chapter">Optimization by Simulated Annealing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/quasi-newton-optimization.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="simulated-annealing.html" title="Optimization by Simulated Annealing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="multivariate-optimization.html" title="Optimization of a Multivariate Function"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

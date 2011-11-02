@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.nn.kmeans &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.nn.kmeans">
+<span id="peach-nn-kmeans"></span><h1>peach.nn.kmeans<a class="headerlink" href="#module-peach.nn.kmeans" title="Permalink to this headline">¶</a></h1>
+<p>K-Means clustering algorithm</p>
+<p>This sub-package implements the K-Means clustering algorithm. This algorithm,
+given a set of points, finds a set of vectors that best represents a partition
+for these points. These vectors represent the center of a cloud of points that
+are nearest to them.</p>
+<p>This algorithm is one that can be used with radial basis function (RBF) networks
+to find the centers of the RBFs. Usually, training a RBFN in two passes &#8211; first
+positioning them, and then computing their variance.</p>
+<dl class="function">
+<dt id="peach.nn.kmeans.ClassByDistance">
+<tt class="descclassname">peach.nn.kmeans.</tt><tt class="descname">ClassByDistance</tt><big>(</big><em>xs</em>, <em>c</em><big>)</big><a class="headerlink" href="#peach.nn.kmeans.ClassByDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a set of points and a list of centers, classify the points according
+to their euclidian distance to the centers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>xs</dt>
+<dd><p class="first last">Set of points to be classified. They must be given as a list or array of
+one-dimensional vectors, one per line.</p>
+</dd>
+<dt>c</dt>
+<dd><p class="first last">Set of centers. Must also be given as a lista or array of
+one-dimensional vectors, one per line.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A list of index of the classification. The indices are the position of the
+cluster in the given parameters <tt class="docutils literal"><span class="pre">c</span></tt>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.nn.kmeans.ClusterByMean">
+<tt class="descclassname">peach.nn.kmeans.</tt><tt class="descname">ClusterByMean</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#peach.nn.kmeans.ClusterByMean" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function computes the center of a cluster by averaging the vectors in
+the input set by simply averaging each component.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>x</dt>
+<dd><p class="first last">Set of points to be clustered. They must be given in the form of a list
+or array of one-dimensional points.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A one-dimensional array representing the center of the cluster.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.kmeans.KMeans">
+<em class="property">class </em><tt class="descclassname">peach.nn.kmeans.</tt><tt class="descname">KMeans</tt><big>(</big><em>training_set</em>, <em>nclusters</em>, <em>classifier=&lt;function ClassByDistance at 0x039ACDB0&gt;</em>, <em>clusterer=&lt;function ClusterByMean at 0x039ACDF0&gt;</em><big>)</big><a class="headerlink" href="#peach.nn.kmeans.KMeans" title="Permalink to this definition">¶</a></dt>
+<dd><p>K-Means clustering algorithm</p>
+<p>This class implements the known and very used K-Means clustering algorithm.
+In this algorithm, the centers of the clusters are selected randomly. The
+points on the training set are classified in accord to their closeness to
+the cluster centers. This changes the positions of the centers, which
+changes the classification of the points. This iteration is repeated until
+no changes occur.</p>
+<p>Traditional K-Means implementations classify the points in the training set
+according to the euclidian distance to the centers, and centers are computed
+as the average of the points associated to it. This is the default behaviour
+of this implementation, but it is configurable. Please, read below for more
+detail.</p>
+<dl class="attribute">
+<dt id="peach.nn.kmeans.KMeans.c">
+<tt class="descname">c</tt><a class="headerlink" href="#peach.nn.kmeans.KMeans.c" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <tt class="docutils literal"><span class="pre">numpy</span></tt> array containing the centers of the classes in the algorithm.
+Each line represents a center, and the number of lines is the number of
+classes. This property is read and write, but care must be taken when
+setting new centers: if the dimensions are not exactly the same as given in
+the instantiation of the class (<em>ie</em>, <em>C</em> centers of dimension <em>N</em>, an
+exception will be raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.nn.kmeans.KMeans.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.nn.kmeans.KMeans.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method runs one step of the algorithm. It might be useful to track
+the changes in the parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">The computed centers for this iteration.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.nn.kmeans.standard_normal">
+<tt class="descclassname">peach.nn.kmeans.</tt><tt class="descname">standard_normal</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.nn.kmeans.standard_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>standard_normal(size=None)</p>
+<p>Returns samples from a Standard Normal distribution (mean=0, stdev=1).</p>
+<dl class="docutils">
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Output shape. Default is None, in which case a single value is
+returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">float or ndarray</span></dt>
+<dd>Drawn samples.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">array([ 0.6888893 ,  0.78096262, -0.89086505, ...,  0.49876311, #random</span>
+<span class="go">       -0.38672696, -0.4685006 ])                               #random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(8000,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(3, 4, 2)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.nn.kmeans.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

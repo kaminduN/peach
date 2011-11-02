@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.optm.linear.GoldenRule</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.optm-module.html">Package&nbsp;optm</a> ::
+        <a href="peach.optm.linear-module.html">Module&nbsp;linear</a> ::
+        Class&nbsp;GoldenRule
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.optm.linear.GoldenRule-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GoldenRule</h1><p class="nomargin-top"><span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_peach_op_4" name="uml_class_diagram_for_peach_op_4">
+<area shape="rect" id="node1" href="peach.optm.base.Optimizer-class.html" title="Base class for all optimizers." alt="" coords="95,6,209,50"/>
+<area shape="rect" id="node158" href="peach.optm.linear.GoldenRule-class.html#x" title="The estimate of the position of the minimum." alt="" coords="17,95,285,113"/>
+<area shape="rect" id="node158" href="peach.optm.linear.GoldenRule-class.html#__init__" title="Initializes the optimizer." alt="" coords="17,116,285,135"/>
+<area shape="rect" id="node158" href="peach.optm.linear.GoldenRule-class.html#restart" title="Resets the optimizer, returning to its original state, and allowing to use a new first estimate." alt="" coords="17,135,285,153"/>
+<area shape="rect" id="node158" href="peach.optm.linear.GoldenRule-class.html#step" title="One step of the search." alt="" coords="17,153,285,172"/>
+<area shape="rect" id="node158" href="peach.optm.linear.GoldenRule-class.html#__call__" title="Transparently executes the search until the minimum is found. The stop criteria are the maximum error or the maximum number of iterations, whichever is reached first. Note that this is a __call__ method, so the object is called as a function. This method returns a tuple (x, e), with the best estimate of the minimum and the error." alt="" coords="17,172,285,191"/>
+<area shape="rect" id="node2" href="peach.optm.linear.GoldenRule-class.html" title="Optimizer by the Golden Section Rule" alt="" coords="5,70,296,197"/>
+</map>
+  <img src="uml_class_diagram_for_peach_op_4.gif" alt='' usemap="#uml_class_diagram_for_peach_op_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Optimizer by the Golden Section Rule</p>
+<p>This optimizer uses the golden rule to section an interval in search of the
+minimum. Using a simple heuristic, the interval is refined until an interval
+small enough to satisfy the error requirements is found.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.linear.GoldenRule-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">x0</span>,
+        <span class="summary-sig-arg">emax</span>=<span class="summary-sig-default">1e-08</span>,
+        <span class="summary-sig-arg">imax</span>=<span class="summary-sig-default">1000</span>)</span><br />
+      Initializes the optimizer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__get_x"></a><span class="summary-sig-name">__get_x</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.__get_x">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__set_x"></a><span class="summary-sig-name">__set_x</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x0</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.__set_x">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.linear.GoldenRule-class.html#restart" class="summary-sig-name">restart</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x0</span>)</span><br />
+      Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.restart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.linear.GoldenRule-class.html#step" class="summary-sig-name">step</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      One step of the search.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.step">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="peach.optm.linear.GoldenRule-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-docutils literal">__call__</tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-docutils literal">(x, e)</tt>, with the best estimate of the minimum and the error.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="peach.optm.linear.GoldenRule-class.html#x" class="summary-name">x</a><br />
+      The estimate of the position of the minimum.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">f</span>,
+        <span class="sig-arg">x0</span>,
+        <span class="sig-arg">emax</span>=<span class="sig-default">1e-08</span>,
+        <span class="sig-arg">imax</span>=<span class="sig-default">1000</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializes the optimizer.</p>
+<p>To create an optimizer of this type, instantiate the class with the
+parameters given below:</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>f</code></strong> - A one variable only function to be optimized. The function should
+have only one parameter and return the function value.</li>
+        <li><p><strong class="pname"><code>x0</code></strong> - First estimate of the minimum. The golden rule search needs two
+estimates to partition the interval. Thus, the first estimate must
+be a duple <tt class="rst-docutils literal">(xl, xh)</tt>, with the property that <tt class="rst-docutils literal">xl &lt; xh</tt>. Be
+aware, however, that no checking is done -- if the estimate doesn't
+correspond to this condition, in some point an exception will be
+raised.</p>
+<p>Notice that, given the nature of the estimate of the golden rule
+method, it is not necessary to have a specific parameter to restrict
+the range of acceptable values -- it is already embedded in the
+estimate. If you need to restrict your estimate between an interval,
+just use its limits as <tt class="rst-docutils literal">xl</tt> and <tt class="rst-docutils literal">xh</tt> in the estimate.</p></li>
+        <li><strong class="pname"><code>emax</code></strong> - Maximum allowed error. The algorithm stops as soon as the error is
+below this level. The error is absolute.</li>
+        <li><strong class="pname"><code>imax</code></strong> - Maximum number of iterations, the algorithm stops as soon this
+number of iterations are executed, no matter what the error is at
+the moment.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="restart"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">restart</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.restart">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>x0</code></strong> - The new value of the estimate of the minimum. The golden rule search
+needs two estimates to partition the interval. Thus, the estimate
+must be a duple <tt class="rst-docutils literal">(xl, xh)</tt>, with the property that <tt class="rst-docutils literal">xl &lt; xh</tt>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="step"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">step</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.step">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>One step of the search.</p>
+<p>In this method, the result of the step is dependent only of the given
+estimated, so it can be used for different kind of investigations on the
+same cost function.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal">(x, e)</tt>, where <tt class="rst-docutils literal">x</tt> is the updated
+duple of estimates of the minimum, and <tt class="rst-docutils literal">e</tt> is the estimated error.</dd>
+    <dt>Overrides:
+        <a href="peach.optm.base.Optimizer-class.html#step">base.Optimizer.step</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="peach.optm.linear-pysrc.html#GoldenRule.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Transparently executes the search until the minimum is found. The stop
+criteria are the maximum error or the maximum number of iterations,
+whichever is reached first. Note that this is a <tt class="rst-rst-docutils literal rst-docutils literal">__call__</tt> method, so
+the object is called as a function. This method returns a tuple
+<tt class="rst-rst-docutils literal rst-docutils literal">(x, e)</tt>, with the best estimate of the minimum and the error.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>This method returns a tuple <tt class="rst-docutils literal">(x, e)</tt>, where <tt class="rst-docutils literal">x</tt> is the best
+estimate of the minimum, and <tt class="rst-docutils literal">e</tt> is the estimated error.</dd>
+    <dt>Overrides:
+        <a href="peach.optm.base.Optimizer-class.html#__call__">base.Optimizer.__call__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Property Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-PropertyDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="x"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">x</h3>
+  The estimate of the position of the minimum.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.optm.linear.GoldenRule-class.html#__get_x" class="summary-sig-name" onclick="show_private();">__get_x</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="peach.optm.linear.GoldenRule-class.html#__set_x" class="summary-sig-name" onclick="show_private();">__set_x</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x0</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Jul 31 16:59:43 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

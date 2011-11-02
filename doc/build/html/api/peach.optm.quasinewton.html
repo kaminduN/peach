@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.optm.quasinewton &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.optm" href="peach.optm.html" />
+    <link rel="next" title="peach.optm.stochastic" href="peach.optm.stochastic.html" />
+    <link rel="prev" title="peach.optm.multivar" href="peach.optm.multivar.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.stochastic.html" title="peach.optm.stochastic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.multivar.html" title="peach.optm.multivar"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.optm.html" accesskey="U">peach.optm</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.optm.quasinewton">
+<span id="peach-optm-quasinewton"></span><h1>peach.optm.quasinewton<a class="headerlink" href="#module-peach.optm.quasinewton" title="Permalink to this headline">¶</a></h1>
+<p>This package implements basic quasi-Newton optimizers. Newton optimizer is very
+efficient, except that inverse matrices need to be calculated at each
+convergence step. These methods try to estimate the hessian inverse iteratively,
+thus increasing performance.</p>
+<dl class="class">
+<dt id="peach.optm.quasinewton.BFGS">
+<em class="property">class </em><tt class="descclassname">peach.optm.quasinewton.</tt><tt class="descname">BFGS</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=None</em>, <em>df=None</em>, <em>h=0.1</em>, <em>emax=1e-05</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.BFGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>BFGS (<em>Broyden-Fletcher-Goldfarb-Shanno</em>) search</p>
+<dl class="attribute">
+<dt id="peach.optm.quasinewton.BFGS.ranges">
+<tt class="descname">ranges</tt><a class="headerlink" href="#peach.optm.quasinewton.BFGS.ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the ranges for every variable. Although it is a writable
+property, care should be taken in changing parameters before ending the
+convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.optm.quasinewton.BFGS.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em>, <em>h=None</em><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.BFGS.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">New estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</p>
+</dd>
+<dt>h</dt>
+<dd><p class="first last">Convergence step. This method does not takes into consideration the
+possibility of varying the convergence step, to avoid Stiefel cages.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.optm.quasinewton.BFGS.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.BFGS.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>One step of the search.</p>
+<p>In this method, the result of the step is dependent of parameters
+calculated before (namely, the estimate of the inverse hessian), so it
+is not recomended that different investigations are used with the same
+optimizer in the same cost function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">This method returns a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the updated
+estimate of the minimum, and <tt class="docutils literal"><span class="pre">e</span></tt> is the estimated error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.optm.quasinewton.DFP">
+<em class="property">class </em><tt class="descclassname">peach.optm.quasinewton.</tt><tt class="descname">DFP</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=None</em>, <em>df=None</em>, <em>h=0.1</em>, <em>emax=1e-08</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.DFP" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFP (<em>Davidon-Fletcher-Powell</em>) search</p>
+<dl class="attribute">
+<dt id="peach.optm.quasinewton.DFP.ranges">
+<tt class="descname">ranges</tt><a class="headerlink" href="#peach.optm.quasinewton.DFP.ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the ranges for every variable. Although it is a writable
+property, care should be taken in changing parameters before ending the
+convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.optm.quasinewton.DFP.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em>, <em>h=None</em><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.DFP.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">New estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</p>
+</dd>
+<dt>h</dt>
+<dd><p class="first last">Convergence step. This method does not takes into consideration the
+possibility of varying the convergence step, to avoid Stiefel cages.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.optm.quasinewton.DFP.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.DFP.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>One step of the search.</p>
+<p>In this method, the result of the step is dependent of parameters
+calculated before (namely, the estimate of the inverse hessian), so it
+is not recomended that different investigations are used with the same
+optimizer in the same cost function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">This method returns a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the updated
+estimate of the minimum, and <tt class="docutils literal"><span class="pre">e</span></tt> is the estimated error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.optm.quasinewton.DFP.x">
+<tt class="descname">x</tt><a class="headerlink" href="#peach.optm.quasinewton.DFP.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimate of the position of the minimum.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.optm.quasinewton.SR1">
+<em class="property">class </em><tt class="descclassname">peach.optm.quasinewton.</tt><tt class="descname">SR1</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=None</em>, <em>df=None</em>, <em>h=0.1</em>, <em>emax=1e-05</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.SR1" title="Permalink to this definition">¶</a></dt>
+<dd><p>SR1 (<em>Symmetric Rank 1</em> ) search method</p>
+<dl class="attribute">
+<dt id="peach.optm.quasinewton.SR1.ranges">
+<tt class="descname">ranges</tt><a class="headerlink" href="#peach.optm.quasinewton.SR1.ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the ranges for every variable. Although it is a writable
+property, care should be taken in changing parameters before ending the
+convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.optm.quasinewton.SR1.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em>, <em>h=None</em><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.SR1.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">New estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</p>
+</dd>
+<dt>h</dt>
+<dd><p class="first last">Convergence step. This method does not takes into consideration the
+possibility of varying the convergence step, to avoid Stiefel cages.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.optm.quasinewton.SR1.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.optm.quasinewton.SR1.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>One step of the search.</p>
+<p>In this method, the result of the step is dependent of parameters
+calculated before (namely, the estimate of the inverse hessian), so it
+is not recomended that different investigations are used with the same
+optimizer in the same cost function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">This method returns a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the updated
+estimate of the minimum, and <tt class="docutils literal"><span class="pre">e</span></tt> is the estimated error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.optm.quasinewton.SR1.x">
+<tt class="descname">x</tt><a class="headerlink" href="#peach.optm.quasinewton.SR1.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimate of the position of the minimum.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.optm.multivar.html"
+                        title="previous chapter">peach.optm.multivar</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.optm.stochastic.html"
+                        title="next chapter">peach.optm.stochastic</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.optm.quasinewton.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.stochastic.html" title="peach.optm.stochastic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.optm.multivar.html" title="peach.optm.multivar"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.optm.html" >peach.optm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

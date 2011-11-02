@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.ga.base &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.ga" href="peach.ga.html" />
+    <link rel="next" title="peach.ga.chromosome" href="peach.ga.chromosome.html" />
+    <link rel="prev" title="peach.ga" href="peach.ga.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.chromosome.html" title="peach.ga.chromosome"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.html" title="peach.ga"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" accesskey="U">peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.ga.base">
+<span id="peach-ga-base"></span><h1>peach.ga.base<a class="headerlink" href="#module-peach.ga.base" title="Permalink to this headline">¶</a></h1>
+<p>Basic Genetic Algorithm (GA)</p>
+<p>This sub-package implements a traditional genetic algorithm as described in
+books and papers. It consists of selecting, breeding and mutating a population
+of chromosomes (arrays of bits) and reinserting the fittest individual from the
+previous generation if the GA is elitist. Please, consult a good reference on
+the subject, for the subject is way too complicated to be explained here.</p>
+<p>Within the algorithm implemented here, it is possible to specify and configure
+the selection, crossover and mutation methods using the classes in the
+respective sub-modules and custom methods can be implemented (check
+<tt class="docutils literal"><span class="pre">selection</span></tt>, <tt class="docutils literal"><span class="pre">crossover</span></tt> and <tt class="docutils literal"><span class="pre">mutation</span></tt> modules).</p>
+<p>A GA object is actually a list of chromosomes. Please, refer to the
+documentation of the class below for more information.</p>
+<dl class="class">
+<dt id="peach.ga.base.GA">
+<em class="property">class </em><tt class="descclassname">peach.ga.base.</tt><tt class="descname">GA</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=</em><span class="optional">[</span><span class="optional">]</span>, <em>fmt='f'</em>, <em>fitness=&lt;class 'peach.ga.fitness.Fitness'&gt;</em>, <em>selection=&lt;class 'peach.ga.selection.RouletteWheel'&gt;</em>, <em>crossover=&lt;class 'peach.ga.crossover.TwoPoint'&gt;</em>, <em>mutation=&lt;class 'peach.ga.mutation.BitToBit'&gt;</em>, <em>elitist=True</em><big>)</big><a class="headerlink" href="#peach.ga.base.GA" title="Permalink to this definition">¶</a></dt>
+<dd><p>GA is an alias to <tt class="docutils literal"><span class="pre">GeneticAlgorithm</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.ga.base.GeneticAlgorithm">
+<em class="property">class </em><tt class="descclassname">peach.ga.base.</tt><tt class="descname">GeneticAlgorithm</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=</em><span class="optional">[</span><span class="optional">]</span>, <em>fmt='f'</em>, <em>fitness=&lt;class 'peach.ga.fitness.Fitness'&gt;</em>, <em>selection=&lt;class 'peach.ga.selection.RouletteWheel'&gt;</em>, <em>crossover=&lt;class 'peach.ga.crossover.TwoPoint'&gt;</em>, <em>mutation=&lt;class 'peach.ga.mutation.BitToBit'&gt;</em>, <em>elitist=True</em><big>)</big><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>A standard Genetic Algorithm</p>
+<p>This class implements the methods to generate, initialize and evolve a
+population of chromosomes according to a given fitness function. A standard
+GA implements, in this order:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A selection method, to choose, from this generation, which individuals
+will be present in the next generation;</li>
+<li>A crossover method, to exchange information between selected individuals
+to add diversity to the population;</li>
+<li>A mutation method, to change information in a selected individual, also
+to add diversity to the population;</li>
+<li>The reinsertion of the fittest individual, if the population is elitist
+(which is almost always the case).</li>
+</ul>
+</div></blockquote>
+<p>A population is actually a list of chromosomes, and individuals can be
+read and set as in a normal list. Use the <tt class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> operators to access
+individual chromosomes but please be aware that modifying the information on
+the list before the end of convergence can cause unpredictable results. The
+population and the algorithm have also other properties, check below to see
+more information on them.</p>
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.best">
+<tt class="descname">best</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.best" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single vector containing the position of the best point found by all the
+individuals. Not writeable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.chromosome_size">
+<tt class="descname">chromosome_size</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.chromosome_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property hold the chromosome size for the population. Not
+writable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.elitist">
+<tt class="descname">elitist</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.elitist" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <tt class="xref docutils literal"><span class="pre">True</span></tt>, then the population is elitist.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.fbest">
+<tt class="descname">fbest</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.fbest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single scalar value containing the function value of the best point by
+all the individuals. Not writeable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.fitness">
+<tt class="descname">fitness</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.fitness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vector containing the fitness value for every individual in the
+population. This is not the same as the objective function value. Not
+writeable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.fx">
+<tt class="descname">fx</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.fx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array containing the fitness value for every estimate in the
+population. Not writeable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.ga.base.GeneticAlgorithm.ranges">
+<tt class="descname">ranges</tt><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the ranges for every variable. Although it is a
+writable property, care should be taken in changing parameters
+before ending the convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.ga.base.GeneticAlgorithm.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em><big>)</big><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, allowing the use of a new set of estimates. This
+can be used to avoid stagnation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">A new set of estimates. It doesn&#8217;t need to have the same size of the
+original population, but it must be a list of estimates in the same
+format as in the object instantiation. Please, see the documentation
+on the instantiation of the class.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.ga.base.GeneticAlgorithm.sanity">
+<tt class="descname">sanity</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.sanity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sanitizes the chromosomes in the population.</p>
+<p>Since not every individual generated by the crossover and mutation
+operations might be a valid result, this method verifies if they are
+inside the allowed ranges (or if it is a number at all). Each invalid
+individual is discarded and a new one is generated.</p>
+<p>This method has no parameters and returns no values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.ga.base.GeneticAlgorithm.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.ga.base.GeneticAlgorithm.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes a new generation of the population, a step of the adaptation.</p>
+<p>This method goes through all the steps of the GA, as described above. If
+the selection, crossover and mutation operators are defined, they are
+applied over the population. If the population is elitist, then the
+fittest individual of the past generation is reinserted.</p>
+<p>This method has no parameters and returns no values. The GA itself can
+be consulted (using <tt class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt>) to find the fittest individual which is the
+result of the process.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.ga.base.uniform">
+<tt class="descclassname">peach.ga.base.</tt><tt class="descname">uniform</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.ga.base.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>uniform(low=0.0, high=1.0, size=1)</p>
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half-open interval
+<tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high)</span></tt> (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by <cite>uniform</cite>.</p>
+<dl class="docutils">
+<dt>low <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd>Lower boundary of the output interval.  All values generated will be
+greater than or equal to low.  The default value is 0.</dd>
+<dt>high <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Upper boundary of the output interval.  All values generated will be
+less than high.  The default value is 1.0.</dd>
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Shape of output.  If the given size is, for example, (m,n,k),
+m*n*k samples are generated.  If no shape is specified, a single sample
+is returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Drawn samples, with shape <cite>size</cite>.</dd>
+</dl>
+<p>randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed</p>
+<blockquote>
+<div>interval <tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high]</span></tt>.</div></blockquote>
+<p>random_sample : Floats uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.
+random : Alias for <cite>random_sample</cite>.
+rand : Convenience function that accepts dimensions as input, e.g.,</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">rand(2,2)</span></tt> would generate a 2-by-2 array of floats,
+uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</div></blockquote>
+<p>The probability density function of the uniform distribution is</p>
+<div class="math">
+<p><span class="math">p(x) = \frac{1}{b - a}</span></p>
+</div><p>anywhere within the interval <tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b)</span></tt>, and zero elsewhere.</p>
+<p>Draw samples from the distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All values are within the given interval:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Display the histogram of the samples, along with the
+probability density function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.ga.html"
+                        title="previous chapter">peach.ga</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.ga.chromosome.html"
+                        title="next chapter">peach.ga.chromosome</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.ga.base.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.chromosome.html" title="peach.ga.chromosome"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.ga.html" title="peach.ga"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.ga.html" >peach.ga</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

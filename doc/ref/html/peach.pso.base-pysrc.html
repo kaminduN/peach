@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.pso.base</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.pso-module.html">Package&nbsp;pso</a> ::
+        Module&nbsp;base
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.pso.base-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="peach.pso.base-module.html">Module peach.pso.base</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file: pso/base.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Basic particle swarm optimization</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.kmeans.__doc__=peach.nn.kmeans-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.mem.__doc__=peach.nn.mem-module.html#__doc__,Variable peach.nn.nnet.__doc__=peach.nn.nnet-module.html#__doc__,Variable peach.nn.rbfn.__doc__=peach.nn.rbfn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.base.__doc__=peach.optm.base-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__,Variable peach.pso.__doc__=peach.pso-module.html#__doc__,Variable peach.pso.acc.__doc__=peach.pso.acc-module.html#__doc__,Variable peach.pso.base.__doc__=peach.pso.base-module.html#__doc__,Variable peach.sa.__doc__=peach.sa-module.html#__doc__,Variable peach.sa.base.__doc__=peach.sa.base-module.html#__doc__,Variable peach.sa.neighbor.__doc__=peach.sa.neighbor-module.html#__doc__"><a title="peach.__doc__
+peach.fuzzy.__doc__
+peach.fuzzy.base.__doc__
+peach.fuzzy.cmeans.__doc__
+peach.fuzzy.control.__doc__
+peach.fuzzy.defuzzy.__doc__
+peach.fuzzy.mf.__doc__
+peach.fuzzy.norms.__doc__
+peach.ga.__doc__
+peach.ga.base.__doc__
+peach.ga.chromosome.__doc__
+peach.ga.crossover.__doc__
+peach.ga.fitness.__doc__
+peach.ga.mutation.__doc__
+peach.ga.selection.__doc__
+peach.nn.__doc__
+peach.nn.af.__doc__
+peach.nn.base.__doc__
+peach.nn.kmeans.__doc__
+peach.nn.lrules.__doc__
+peach.nn.mem.__doc__
+peach.nn.nnet.__doc__
+peach.nn.rbfn.__doc__
+peach.optm.__doc__
+peach.optm.base.__doc__
+peach.optm.linear.__doc__
+peach.optm.multivar.__doc__
+peach.optm.quasinewton.__doc__
+peach.optm.stochastic.__doc__
+peach.pso.__doc__
+peach.pso.acc.__doc__
+peach.pso.base.__doc__
+peach.sa.__doc__
+peach.sa.base.__doc__
+peach.sa.neighbor.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">This package implements the simple continuous version of the particle swarm</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">optimizer. In this implementation, it is possible to specify, besides the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">objective function and the first estimates, the ranges of search, which will</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">influence the max velocity of the particles, and the population size. Other</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">parameters are available too, please refer to the rest of this documentation for</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">further details.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">array</tt><tt class="py-op">,</tt> <tt class="py-name">argmin</tt><tt class="py-op">,</tt> <tt class="py-name">amin</tt><tt class="py-op">,</tt> <tt class="py-name">amax</tt><tt class="py-op">,</tt> <tt class="py-name">where</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt><tt class="py-op">.</tt><tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">random</tt><tt class="py-op">,</tt> <tt class="py-name">uniform</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module peach.pso.acc=peach.pso.acc-module.html"><a title="peach.pso.acc" class="py-name" href="#" onclick="return doclink('link-1', 'acc', 'link-1');">acc</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"># Classes</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="ParticleSwarmOptimizer"></a><div id="ParticleSwarmOptimizer-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer-toggle" onclick="return toggle('ParticleSwarmOptimizer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html">ParticleSwarmOptimizer</a><tt class="py-op">(</tt><tt class="py-base-class">list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ParticleSwarmOptimizer-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    A standard Particle Swarm Optimizer</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    This class implements a particle swarm optimization (PSO) procedure. A</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    swarm is a list of estimates, and should answer to every ``list`` method. A</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    population of particles is created to travel through the search domain with</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    a certain velocity. At each point, the objective function is evaluated for</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    each particle, and the positions are adjusted correspondingly. The velocity</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">    is then modified (ie, the particles are accelerated) towards its 'personal'</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    best (the best value found by that particle at the moment) and a global best</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    (the best value found overall at the moment).</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="ParticleSwarmOptimizer.__init__"></a><div id="ParticleSwarmOptimizer.__init__-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.__init__-toggle" onclick="return toggle('ParticleSwarmOptimizer.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">f</tt><tt class="py-op">,</tt> <tt class="py-param">x0</tt><tt class="py-op">,</tt> <tt class="py-param">ranges</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">accelerator</tt><tt class="py-op">=</tt><tt id="link-2" class="py-name" targets="Class peach.pso.acc.StandardPSO=peach.pso.acc.StandardPSO-class.html"><a title="peach.pso.acc.StandardPSO" class="py-name" href="#" onclick="return doclink('link-2', 'StandardPSO', 'link-2');">StandardPSO</a></tt><tt class="py-op">,</tt> <tt class="py-param">emax</tt><tt class="py-op">=</tt><tt class="py-number">1e-5</tt><tt class="py-op">,</tt> <tt class="py-param">imax</tt><tt class="py-op">=</tt><tt class="py-number">1000</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.__init__-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        Initializes the optimizer.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">          f</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">            A multivariable function to be evaluated. It must receive only one</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">            parameter, a multidimensional line-vector with the same dimensions</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">            of the range list (see below) and return a real value, a scalar.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">          x0</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">            A population of first estimates. This is a list, array or tuple of</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">            one-dimension arrays, each one corresponding to an estimate of the</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">            position of the minimum. The population size of the algorithm will</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">            be the same as the number of estimates in this list. Each component</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">            of the vectors in this list are one of the variables in the function</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">            to be optimized.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">          ranges</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">            A range of values might be passed to the algorithm, but it is not</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">            necessary. If this parameter is not supplied, then the ranges will</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">            be computed from the estimates, but be aware that this might not</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">            represent the complete search space. If supplied, this parameter</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">            should be a list of ranges for each variable of the objective</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">            function. It is specified as a list of tuples of two values,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">            ``(x0, x1)``, where ``x0`` is the start of the interval, and ``x1``</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">            its end. Obviously, ``x0`` should be smaller than ``x1``. It can</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">            also be given as a list with a simple tuple in the same format. In</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">            that case, the same range will be applied for every variable in the</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">            optimization.</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">          accelerator</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">            An acceleration method, please consult the documentation on ``acc``</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">            module. Defaults to StandardPSO, that is, velocities change based on</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">            local and global bests.</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">          emax</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">            Maximum allowed error. The algorithm stops as soon as the error is</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">            below this level. The error is absolute.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">          imax</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">            Maximum number of iterations, the algorithm stops as soon this</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">            number of iterations are executed, no matter what the error is at</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">            the moment.</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-name">list</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method peach.fuzzy.base.FuzzySet.__init__()=peach.fuzzy.base.FuzzySet-class.html#__init__,Method peach.fuzzy.cmeans.FuzzyCMeans.__init__()=peach.fuzzy.cmeans.FuzzyCMeans-class.html#__init__,Method peach.fuzzy.control.Controller.__init__()=peach.fuzzy.control.Controller-class.html#__init__,Method peach.fuzzy.control.Parametric.__init__()=peach.fuzzy.control.Parametric-class.html#__init__,Method peach.fuzzy.mf.Bell.__init__()=peach.fuzzy.mf.Bell-class.html#__init__,Method peach.fuzzy.mf.DecreasingRamp.__init__()=peach.fuzzy.mf.DecreasingRamp-class.html#__init__,Method peach.fuzzy.mf.DecreasingSigmoid.__init__()=peach.fuzzy.mf.DecreasingSigmoid-class.html#__init__,Method peach.fuzzy.mf.Gaussian.__init__()=peach.fuzzy.mf.Gaussian-class.html#__init__,Method peach.fuzzy.mf.IncreasingRamp.__init__()=peach.fuzzy.mf.IncreasingRamp-class.html#__init__,Method peach.fuzzy.mf.IncreasingSigmoid.__init__()=peach.fuzzy.mf.IncreasingSigmoid-class.html#__init__,Method peach.fuzzy.mf.Membership.__init__()=peach.fuzzy.mf.Membership-class.html#__init__,Method peach.fuzzy.mf.RaisedCosine.__init__()=peach.fuzzy.mf.RaisedCosine-class.html#__init__,Method peach.fuzzy.mf.Smf.__init__()=peach.fuzzy.mf.Smf-class.html#__init__,Method peach.fuzzy.mf.Trapezoid.__init__()=peach.fuzzy.mf.Trapezoid-class.html#__init__,Method peach.fuzzy.mf.Triangle.__init__()=peach.fuzzy.mf.Triangle-class.html#__init__,Method peach.fuzzy.mf.Zmf.__init__()=peach.fuzzy.mf.Zmf-class.html#__init__,Method peach.ga.base.GeneticAlgorithm.__init__()=peach.ga.base.GeneticAlgorithm-class.html#__init__,Method peach.ga.chromosome.Chromosome.__init__()=peach.ga.chromosome.Chromosome-class.html#__init__,Method peach.ga.crossover.OnePoint.__init__()=peach.ga.crossover.OnePoint-class.html#__init__,Method peach.ga.crossover.TwoPoint.__init__()=peach.ga.crossover.TwoPoint-class.html#__init__,Method peach.ga.crossover.Uniform.__init__()=peach.ga.crossover.Uniform-class.html#__init__,Method peach.ga.fitness.Fitness.__init__()=peach.ga.fitness.Fitness-class.html#__init__,Method peach.ga.fitness.Ranking.__init__()=peach.ga.fitness.Ranking-class.html#__init__,Method peach.ga.mutation.BitToBit.__init__()=peach.ga.mutation.BitToBit-class.html#__init__,Method peach.nn.af.Activation.__init__()=peach.nn.af.Activation-class.html#__init__,Method peach.nn.af.ArcTan.__init__()=peach.nn.af.ArcTan-class.html#__init__,Method peach.nn.af.Gaussian.__init__()=peach.nn.af.Gaussian-class.html#__init__,Method peach.nn.af.Linear.__init__()=peach.nn.af.Linear-class.html#__init__,Method peach.nn.af.Ramp.__init__()=peach.nn.af.Ramp-class.html#__init__,Method peach.nn.af.Sigmoid.__init__()=peach.nn.af.Sigmoid-class.html#__init__,Method peach.nn.af.Signum.__init__()=peach.nn.af.Signum-class.html#__init__,Method peach.nn.af.TanH.__init__()=peach.nn.af.TanH-class.html#__init__,Method peach.nn.af.Threshold.__init__()=peach.nn.af.Threshold-class.html#__init__,Method peach.nn.base.Layer.__init__()=peach.nn.base.Layer-class.html#__init__,Method peach.nn.kmeans.KMeans.__init__()=peach.nn.kmeans.KMeans-class.html#__init__,Method peach.nn.lrules.BackPropagation.__init__()=peach.nn.lrules.BackPropagation-class.html#__init__,Method peach.nn.lrules.Competitive.__init__()=peach.nn.lrules.Competitive-class.html#__init__,Method peach.nn.lrules.Cooperative.__init__()=peach.nn.lrules.Cooperative-class.html#__init__,Method peach.nn.lrules.LMS.__init__()=peach.nn.lrules.LMS-class.html#__init__,Method peach.nn.lrules.WinnerTakesAll.__init__()=peach.nn.lrules.WinnerTakesAll-class.html#__init__,Method peach.nn.mem.Hopfield.__init__()=peach.nn.mem.Hopfield-class.html#__init__,Method peach.nn.nnet.FeedForward.__init__()=peach.nn.nnet.FeedForward-class.html#__init__,Method peach.nn.nnet.GRNN.__init__()=peach.nn.nnet.GRNN-class.html#__init__,Method peach.nn.nnet.PNN.__init__()=peach.nn.nnet.PNN-class.html#__init__,Method peach.nn.nnet.SOM.__init__()=peach.nn.nnet.SOM-class.html#__init__,Method peach.nn.rbfn.RBFN.__init__()=peach.nn.rbfn.RBFN-class.html#__init__,Method peach.optm.base.Optimizer.__init__()=peach.optm.base.Optimizer-class.html#__init__,Method peach.optm.linear.Direct1D.__init__()=peach.optm.linear.Direct1D-class.html#__init__,Method peach.optm.linear.Fibonacci.__init__()=peach.optm.linear.Fibonacci-class.html#__init__,Method peach.optm.linear.GoldenRule.__init__()=peach.optm.linear.GoldenRule-class.html#__init__,Method peach.optm.linear.Interpolation.__init__()=peach.optm.linear.Interpolation-class.html#__init__,Method peach.optm.multivar.Direct.__init__()=peach.optm.multivar.Direct-class.html#__init__,Method peach.optm.multivar.Gradient.__init__()=peach.optm.multivar.Gradient-class.html#__init__,Method peach.optm.multivar.MomentumGradient.__init__()=peach.optm.multivar.MomentumGradient-class.html#__init__,Method peach.optm.multivar.Newton.__init__()=peach.optm.multivar.Newton-class.html#__init__,Method peach.optm.quasinewton.BFGS.__init__()=peach.optm.quasinewton.BFGS-class.html#__init__,Method peach.optm.quasinewton.DFP.__init__()=peach.optm.quasinewton.DFP-class.html#__init__,Method peach.optm.quasinewton.SR1.__init__()=peach.optm.quasinewton.SR1-class.html#__init__,Method peach.optm.stochastic.CrossEntropy.__init__()=peach.optm.stochastic.CrossEntropy-class.html#__init__,Method peach.pso.acc.Accelerator.__init__()=peach.pso.acc.Accelerator-class.html#__init__,Method peach.pso.acc.StandardPSO.__init__()=peach.pso.acc.StandardPSO-class.html#__init__,Method peach.pso.base.ParticleSwarmOptimizer.__init__()=peach.pso.base.ParticleSwarmOptimizer-class.html#__init__,Method peach.sa.base.BinarySA.__init__()=peach.sa.base.BinarySA-class.html#__init__,Method peach.sa.base.ContinuousSA.__init__()=peach.sa.base.ContinuousSA-class.html#__init__,Method peach.sa.neighbor.BinaryNeighbor.__init__()=peach.sa.neighbor.BinaryNeighbor-class.html#__init__,Method peach.sa.neighbor.ContinuousNeighbor.__init__()=peach.sa.neighbor.ContinuousNeighbor-class.html#__init__,Method peach.sa.neighbor.GaussianNeighbor.__init__()=peach.sa.neighbor.GaussianNeighbor-class.html#__init__,Method peach.sa.neighbor.InvertBitsNeighbor.__init__()=peach.sa.neighbor.InvertBitsNeighbor-class.html#__init__,Method peach.sa.neighbor.UniformNeighbor.__init__()=peach.sa.neighbor.UniformNeighbor-class.html#__init__"><a title="peach.fuzzy.base.FuzzySet.__init__
+peach.fuzzy.cmeans.FuzzyCMeans.__init__
+peach.fuzzy.control.Controller.__init__
+peach.fuzzy.control.Parametric.__init__
+peach.fuzzy.mf.Bell.__init__
+peach.fuzzy.mf.DecreasingRamp.__init__
+peach.fuzzy.mf.DecreasingSigmoid.__init__
+peach.fuzzy.mf.Gaussian.__init__
+peach.fuzzy.mf.IncreasingRamp.__init__
+peach.fuzzy.mf.IncreasingSigmoid.__init__
+peach.fuzzy.mf.Membership.__init__
+peach.fuzzy.mf.RaisedCosine.__init__
+peach.fuzzy.mf.Smf.__init__
+peach.fuzzy.mf.Trapezoid.__init__
+peach.fuzzy.mf.Triangle.__init__
+peach.fuzzy.mf.Zmf.__init__
+peach.ga.base.GeneticAlgorithm.__init__
+peach.ga.chromosome.Chromosome.__init__
+peach.ga.crossover.OnePoint.__init__
+peach.ga.crossover.TwoPoint.__init__
+peach.ga.crossover.Uniform.__init__
+peach.ga.fitness.Fitness.__init__
+peach.ga.fitness.Ranking.__init__
+peach.ga.mutation.BitToBit.__init__
+peach.nn.af.Activation.__init__
+peach.nn.af.ArcTan.__init__
+peach.nn.af.Gaussian.__init__
+peach.nn.af.Linear.__init__
+peach.nn.af.Ramp.__init__
+peach.nn.af.Sigmoid.__init__
+peach.nn.af.Signum.__init__
+peach.nn.af.TanH.__init__
+peach.nn.af.Threshold.__init__
+peach.nn.base.Layer.__init__
+peach.nn.kmeans.KMeans.__init__
+peach.nn.lrules.BackPropagation.__init__
+peach.nn.lrules.Competitive.__init__
+peach.nn.lrules.Cooperative.__init__
+peach.nn.lrules.LMS.__init__
+peach.nn.lrules.WinnerTakesAll.__init__
+peach.nn.mem.Hopfield.__init__
+peach.nn.nnet.FeedForward.__init__
+peach.nn.nnet.GRNN.__init__
+peach.nn.nnet.PNN.__init__
+peach.nn.nnet.SOM.__init__
+peach.nn.rbfn.RBFN.__init__
+peach.optm.base.Optimizer.__init__
+peach.optm.linear.Direct1D.__init__
+peach.optm.linear.Fibonacci.__init__
+peach.optm.linear.GoldenRule.__init__
+peach.optm.linear.Interpolation.__init__
+peach.optm.multivar.Direct.__init__
+peach.optm.multivar.Gradient.__init__
+peach.optm.multivar.MomentumGradient.__init__
+peach.optm.multivar.Newton.__init__
+peach.optm.quasinewton.BFGS.__init__
+peach.optm.quasinewton.DFP.__init__
+peach.optm.quasinewton.SR1.__init__
+peach.optm.stochastic.CrossEntropy.__init__
+peach.pso.acc.Accelerator.__init__
+peach.pso.acc.StandardPSO.__init__
+peach.pso.base.ParticleSwarmOptimizer.__init__
+peach.sa.base.BinarySA.__init__
+peach.sa.base.ContinuousSA.__init__
+peach.sa.neighbor.BinaryNeighbor.__init__
+peach.sa.neighbor.ContinuousNeighbor.__init__
+peach.sa.neighbor.GaussianNeighbor.__init__
+peach.sa.neighbor.InvertBitsNeighbor.__init__
+peach.sa.neighbor.UniformNeighbor.__init__" class="py-name" href="#" onclick="return doclink('link-3', '__init__', 'link-3');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-4" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.x=peach.fuzzy.cmeans.FuzzyCMeans-class.html#x,Variable peach.optm.linear.Direct1D.x=peach.optm.linear.Direct1D-class.html#x,Variable peach.optm.linear.GoldenRule.x=peach.optm.linear.GoldenRule-class.html#x,Variable peach.optm.linear.Interpolation.x=peach.optm.linear.Interpolation-class.html#x,Variable peach.optm.multivar.Direct.x=peach.optm.multivar.Direct-class.html#x,Variable peach.optm.multivar.Gradient.x=peach.optm.multivar.Gradient-class.html#x,Variable peach.optm.multivar.MomentumGradient.x=peach.optm.multivar.MomentumGradient-class.html#x,Variable peach.optm.multivar.Newton.x=peach.optm.multivar.Newton-class.html#x,Variable peach.optm.quasinewton.DFP.x=peach.optm.quasinewton.DFP-class.html#x,Variable peach.optm.quasinewton.SR1.x=peach.optm.quasinewton.SR1-class.html#x,Variable peach.sa.base.BinarySA.x=peach.sa.base.BinarySA-class.html#x,Variable peach.sa.base.ContinuousSA.x=peach.sa.base.ContinuousSA-class.html#x"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-4', 'x', 'link-4');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">x0</tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt id="link-5" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-5', 'x', 'link-4');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-6', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">ravel</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-7', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-8', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__f</tt> <tt class="py-op">=</tt> <tt class="py-name">f</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-comment"># Determine ranges of the variables</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">ranges</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">amin</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">amax</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt> <tt class="py-op">*</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">x0</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">ranges</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-op">=</tt> <tt class="py-name">ranges</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-string">'''Holds the ranges for every variable. Although it is a writable</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-string">        property, care should be taken in changing parameters before ending the</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-string">        convergence.'''</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-comment"># Randomly computes the initial velocities</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">x0</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__v</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">,</tt> <tt class="py-name">d</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-number">0.5</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">-</tt> <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">10.</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-comment"># Verifies the validity of the acceleration method</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-name">issubclass</tt><tt class="py-op">(</tt><tt class="py-name">accelerator</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Class peach.pso.acc.Accelerator=peach.pso.acc.Accelerator-class.html"><a title="peach.pso.acc.Accelerator" class="py-name" href="#" onclick="return doclink('link-9', 'Accelerator', 'link-9');">Accelerator</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-name">accelerator</tt> <tt class="py-op">=</tt> <tt class="py-name">accelerator</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">accelerator</tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name"><a title="peach.pso.acc.Accelerator" class="py-name" href="#" onclick="return doclink('link-10', 'Accelerator', 'link-9');">Accelerator</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">,</tt> <tt class="py-string">'not a valid acceleration method'</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__acc</tt> <tt class="py-op">=</tt> <tt class="py-name">accelerator</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__emax</tt> <tt class="py-op">=</tt> <tt class="py-name">emax</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__imax</tt> <tt class="py-op">=</tt> <tt class="py-name">imax</tt> </tt>
+</div><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="ParticleSwarmOptimizer.__get_fx"></a><div id="ParticleSwarmOptimizer.__get_fx-def"><a name="L129"></a><tt class="py-lineno">129</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.__get_fx-toggle" onclick="return toggle('ParticleSwarmOptimizer.__get_fx');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__get_fx">__get_fx</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.__get_fx-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.__get_fx-expanded"><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt> </tt>
+</div><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable peach.ga.base.GeneticAlgorithm.fx=peach.ga.base.GeneticAlgorithm-class.html#fx,Variable peach.pso.base.ParticleSwarmOptimizer.fx=peach.pso.base.ParticleSwarmOptimizer-class.html#fx,Variable peach.sa.base.ContinuousSA.fx=peach.sa.base.ContinuousSA-class.html#fx"><a title="peach.ga.base.GeneticAlgorithm.fx
+peach.pso.base.ParticleSwarmOptimizer.fx
+peach.sa.base.ContinuousSA.fx" class="py-name" href="#" onclick="return doclink('link-11', 'fx', 'link-11');">fx</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Method peach.ga.base.GeneticAlgorithm.__get_fx()=peach.ga.base.GeneticAlgorithm-class.html#__get_fx,Method peach.pso.base.ParticleSwarmOptimizer.__get_fx()=peach.pso.base.ParticleSwarmOptimizer-class.html#__get_fx,Method peach.sa.base.ContinuousSA.__get_fx()=peach.sa.base.ContinuousSA-class.html#__get_fx"><a title="peach.ga.base.GeneticAlgorithm.__get_fx
+peach.pso.base.ParticleSwarmOptimizer.__get_fx
+peach.sa.base.ContinuousSA.__get_fx" class="py-name" href="#" onclick="return doclink('link-12', '__get_fx', 'link-12');">__get_fx</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-string">'''Array containing the objective function values for each estimate in the</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-string">    swarm.'''</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"> </tt>
+<a name="ParticleSwarmOptimizer.__get_best"></a><div id="ParticleSwarmOptimizer.__get_best-def"><a name="L136"></a><tt class="py-lineno">136</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.__get_best-toggle" onclick="return toggle('ParticleSwarmOptimizer.__get_best');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__get_best">__get_best</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.__get_best-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.__get_best-expanded"><a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-name">argmin</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-name">m</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt id="link-13" class="py-name" targets="Variable peach.ga.base.GeneticAlgorithm.best=peach.ga.base.GeneticAlgorithm-class.html#best,Variable peach.pso.base.ParticleSwarmOptimizer.best=peach.pso.base.ParticleSwarmOptimizer-class.html#best,Variable peach.sa.base.BinarySA.best=peach.sa.base.BinarySA-class.html#best"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-13', 'best', 'link-13');">best</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name" targets="Method peach.ga.base.GeneticAlgorithm.__get_best()=peach.ga.base.GeneticAlgorithm-class.html#__get_best,Method peach.pso.base.ParticleSwarmOptimizer.__get_best()=peach.pso.base.ParticleSwarmOptimizer-class.html#__get_best,Method peach.sa.base.BinarySA.__get_best()=peach.sa.base.BinarySA-class.html#__get_best"><a title="peach.ga.base.GeneticAlgorithm.__get_best
+peach.pso.base.ParticleSwarmOptimizer.__get_best
+peach.sa.base.BinarySA.__get_best" class="py-name" href="#" onclick="return doclink('link-14', '__get_best', 'link-14');">__get_best</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-string">'''Single vector containing the position of the best point found by all the</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-string">    particles. Not writeable.'''</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="ParticleSwarmOptimizer.__get_fbest"></a><div id="ParticleSwarmOptimizer.__get_fbest-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.__get_fbest-toggle" onclick="return toggle('ParticleSwarmOptimizer.__get_fbest');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__get_fbest">__get_fbest</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.__get_fbest-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.__get_fbest-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-name">argmin</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt><tt class="py-op">[</tt><tt class="py-name">m</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Variable peach.ga.base.GeneticAlgorithm.fbest=peach.ga.base.GeneticAlgorithm-class.html#fbest,Variable peach.pso.base.ParticleSwarmOptimizer.fbest=peach.pso.base.ParticleSwarmOptimizer-class.html#fbest"><a title="peach.ga.base.GeneticAlgorithm.fbest
+peach.pso.base.ParticleSwarmOptimizer.fbest" class="py-name" href="#" onclick="return doclink('link-15', 'fbest', 'link-15');">fbest</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name" targets="Method peach.ga.base.GeneticAlgorithm.__get_fbest()=peach.ga.base.GeneticAlgorithm-class.html#__get_fbest,Method peach.pso.base.ParticleSwarmOptimizer.__get_fbest()=peach.pso.base.ParticleSwarmOptimizer-class.html#__get_fbest"><a title="peach.ga.base.GeneticAlgorithm.__get_fbest
+peach.pso.base.ParticleSwarmOptimizer.__get_fbest" class="py-name" href="#" onclick="return doclink('link-16', '__get_fbest', 'link-16');">__get_fbest</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-string">'''Single scalar value containing the function value of the best point by</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-string">    all the particles. Not writeable.'''</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="ParticleSwarmOptimizer.restart"></a><div id="ParticleSwarmOptimizer.restart-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.restart-toggle" onclick="return toggle('ParticleSwarmOptimizer.restart');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#restart">restart</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">x0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.restart-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.restart-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        Resets the optimizer, allowing the use of a new set of estimates. This</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        can be used to avoid stagnation</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">          x0</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">            A new set of estimates. It doesn't need to have the same size of the</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">            original swarm, but it must be a list of estimates in the same</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">            format as in the object instantiation. Please, see the documentation</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">            on the instantiation of the class. New velocities will be computed.</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-op">]</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__f</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-17" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-17', 'x', 'link-4');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">x0</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">            <tt id="link-18" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-18', 'x', 'link-4');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-19', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">ravel</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-20', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-21', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-comment"># Randomly computes the initial velocities</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">x0</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__v</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">,</tt> <tt class="py-name">d</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-number">0.5</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">-</tt> <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">10.</tt> </tt>
+</div><a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"> </tt>
+<a name="ParticleSwarmOptimizer.step"></a><div id="ParticleSwarmOptimizer.step-def"><a name="L179"></a><tt class="py-lineno">179</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.step-toggle" onclick="return toggle('ParticleSwarmOptimizer.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.step-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.step-expanded"><a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-docstring">        Computes the new positions of the particles, a step of the algorithm.</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-docstring">        This method updates the velocity given the constants associated with the</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-docstring">        particle and global bests; and then updates the positions accordingly.</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-docstring">        This method has no parameters and returns no values. The particles</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-docstring">        positions can be consulted with the ``[]`` interface (as a swarm of</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-docstring">        particles is a list of estimates), ``best`` property, to find the global</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-docstring">        best, and ``fbest`` property to find the minimum (see above).</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-name">oldbest</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-22', 'best', 'link-13');">best</a></tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">        <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__f</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt id="link-23" class="py-name" targets="Variable peach.nn.base.Layer.v=peach.nn.base.Layer-class.html#v"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-23', 'v', 'link-23');">v</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__acc</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__v</tt><tt class="py-op">)</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-comment"># Next estimates</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">p</tt> <tt class="py-op">+</tt> <tt id="link-24" class="py-name"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-24', 'v', 'link-23');">v</a></tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-comment"># Sanity check</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">            <tt class="py-name">r0</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">            <tt class="py-name">r1</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ranges</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">            <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">where</tt><tt class="py-op">(</tt><tt class="py-name">p</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">r0</tt><tt class="py-op">,</tt> <tt class="py-name">uniform</tt><tt class="py-op">(</tt><tt class="py-name">r0</tt><tt class="py-op">,</tt> <tt class="py-name">r1</tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Variable peach.nn.base.Layer.shape=peach.nn.base.Layer-class.html#shape"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-25', 'shape', 'link-25');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">            <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">where</tt><tt class="py-op">(</tt><tt class="py-name">p</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">r1</tt><tt class="py-op">,</tt> <tt class="py-name">uniform</tt><tt class="py-op">(</tt><tt class="py-name">r0</tt><tt class="py-op">,</tt> <tt class="py-name">r1</tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="peach.nn.base.Layer.shape" class="py-name" href="#" onclick="return doclink('link-26', 'shape', 'link-25');">shape</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">)</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">        <tt class="py-comment"># Update state</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__v</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="peach.nn.base.Layer.v" class="py-name" href="#" onclick="return doclink('link-27', 'v', 'link-23');">v</a></tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fx</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">f</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt id="link-28" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-28', 'best', 'link-13');">best</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-29', 'best', 'link-13');">best</a></tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-30" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-30', 'best', 'link-13');">best</a></tt><tt class="py-op">,</tt> <tt id="link-31" class="py-name" targets="Variable peach.nn.rbfn.abs=peach.nn.rbfn-module.html#abs,Variable peach.pso.base.abs=peach.pso.base-module.html#abs"><a title="peach.nn.rbfn.abs
+peach.pso.base.abs" class="py-name" href="#" onclick="return doclink('link-31', 'abs', 'link-31');">abs</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-32', 'best', 'link-13');">best</a></tt> <tt class="py-op">-</tt> <tt class="py-name">oldbest</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt id="link-33" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-33', 'best', 'link-13');">best</a></tt> </tt>
+</div><a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"> </tt>
+<a name="ParticleSwarmOptimizer.__call__"></a><div id="ParticleSwarmOptimizer.__call__-def"><a name="L215"></a><tt class="py-lineno">215</tt> <a class="py-toggle" href="#" id="ParticleSwarmOptimizer.__call__-toggle" onclick="return toggle('ParticleSwarmOptimizer.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base.ParticleSwarmOptimizer-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ParticleSwarmOptimizer.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ParticleSwarmOptimizer.__call__-expanded"><a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-docstring">        Transparently executes the search until the minimum is found. The stop</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-docstring">        criteria are the maximum error or the maximum number of iterations,</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring">        whichever is reached first. Note that this is a ``__call__`` method, so</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-docstring">        the object is called as a function. This method returns a tuple</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-docstring">        ``(x, e)``, with the best estimate of the minimum and the error.</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-docstring">        :Returns:</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"><tt class="py-docstring">          This method returns a tuple ``(x, e)``, where ``x`` is the best</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-docstring">          estimate of the minimum, and ``e`` is the estimated error.</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">emax</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__emax</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt class="py-name">imax</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__imax</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-name">emax</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">e</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">emax</tt><tt class="py-op">/</tt><tt class="py-number">2.</tt> <tt class="py-keyword">and</tt> <tt class="py-name">i</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">imax</tt><tt class="py-op">:</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">            <tt id="link-34" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-34', 'x', 'link-4');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method peach.fuzzy.cmeans.FuzzyCMeans.step()=peach.fuzzy.cmeans.FuzzyCMeans-class.html#step,Method peach.ga.base.GeneticAlgorithm.step()=peach.ga.base.GeneticAlgorithm-class.html#step,Method peach.nn.kmeans.KMeans.step()=peach.nn.kmeans.KMeans-class.html#step,Method peach.nn.mem.Hopfield.step()=peach.nn.mem.Hopfield-class.html#step,Method peach.optm.base.Optimizer.step()=peach.optm.base.Optimizer-class.html#step,Method peach.optm.linear.Direct1D.step()=peach.optm.linear.Direct1D-class.html#step,Method peach.optm.linear.Fibonacci.step()=peach.optm.linear.Fibonacci-class.html#step,Method peach.optm.linear.GoldenRule.step()=peach.optm.linear.GoldenRule-class.html#step,Method peach.optm.linear.Interpolation.step()=peach.optm.linear.Interpolation-class.html#step,Method peach.optm.multivar.Direct.step()=peach.optm.multivar.Direct-class.html#step,Method peach.optm.multivar.Gradient.step()=peach.optm.multivar.Gradient-class.html#step,Method peach.optm.multivar.MomentumGradient.step()=peach.optm.multivar.MomentumGradient-class.html#step,Method peach.optm.multivar.Newton.step()=peach.optm.multivar.Newton-class.html#step,Method peach.optm.quasinewton.BFGS.step()=peach.optm.quasinewton.BFGS-class.html#step,Method peach.optm.quasinewton.DFP.step()=peach.optm.quasinewton.DFP-class.html#step,Method peach.optm.quasinewton.SR1.step()=peach.optm.quasinewton.SR1-class.html#step,Method peach.optm.stochastic.CrossEntropy.step()=peach.optm.stochastic.CrossEntropy-class.html#step,Method peach.pso.base.ParticleSwarmOptimizer.step()=peach.pso.base.ParticleSwarmOptimizer-class.html#step,Method peach.sa.base.BinarySA.step()=peach.sa.base.BinarySA-class.html#step,Method peach.sa.base.ContinuousSA.step()=peach.sa.base.ContinuousSA-class.html#step"><a title="peach.fuzzy.cmeans.FuzzyCMeans.step
+peach.ga.base.GeneticAlgorithm.step
+peach.nn.kmeans.KMeans.step
+peach.nn.mem.Hopfield.step
+peach.optm.base.Optimizer.step
+peach.optm.linear.Direct1D.step
+peach.optm.linear.Fibonacci.step
+peach.optm.linear.GoldenRule.step
+peach.optm.linear.Interpolation.step
+peach.optm.multivar.Direct.step
+peach.optm.multivar.Gradient.step
+peach.optm.multivar.MomentumGradient.step
+peach.optm.multivar.Newton.step
+peach.optm.quasinewton.BFGS.step
+peach.optm.quasinewton.DFP.step
+peach.optm.quasinewton.SR1.step
+peach.optm.stochastic.CrossEntropy.step
+peach.pso.base.ParticleSwarmOptimizer.step
+peach.sa.base.BinarySA.step
+peach.sa.base.ContinuousSA.step" class="py-name" href="#" onclick="return doclink('link-35', 'step', 'link-35');">step</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">            <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-36" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-36', 'x', 'link-4');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">e</tt> </tt>
+</div></div><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"> </tt>
+<a name="PSO"></a><div id="PSO-def"><a name="L237"></a><tt class="py-lineno">237</tt> <a class="py-toggle" href="#" id="PSO-toggle" onclick="return toggle('PSO');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.pso.base.PSO-class.html">PSO</a><tt class="py-op">(</tt><tt class="py-base-class">ParticleSwarmOptimizer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PSO-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PSO-expanded"><a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"><tt class="py-docstring">    PSO is an alias to ``ParticleSwarmOptimizer``</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-comment"># Test</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"> </tt>
+<a name="f"></a><div id="f-def"><a name="L248"></a><tt class="py-lineno">248</tt> <a class="py-toggle" href="#" id="f-toggle" onclick="return toggle('f');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.pso.base-module.html#f">f</a><tt class="py-op">(</tt><tt class="py-param">xy</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="f-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="f-expanded"><a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt id="link-37" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-37', 'x', 'link-4');">x</a></tt><tt class="py-op">,</tt> <tt id="link-38" class="py-name" targets="Variable peach.fuzzy.control.Controller.y=peach.fuzzy.control.Controller-class.html#y,Variable peach.nn.base.Layer.y=peach.nn.base.Layer-class.html#y,Variable peach.nn.nnet.FeedForward.y=peach.nn.nnet.FeedForward-class.html#y,Variable peach.nn.nnet.SOM.y=peach.nn.nnet.SOM-class.html#y,Variable peach.nn.rbfn.RBFN.y=peach.nn.rbfn.RBFN-class.html#y"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y
+peach.nn.rbfn.RBFN.y" class="py-name" href="#" onclick="return doclink('link-38', 'y', 'link-38');">y</a></tt> <tt class="py-op">=</tt> <tt class="py-name">xy</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">-</tt><tt id="link-39" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-39', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt id="link-40" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y
+peach.nn.rbfn.RBFN.y" class="py-name" href="#" onclick="return doclink('link-40', 'y', 'link-38');">y</a></tt><tt class="py-op">-</tt><tt id="link-41" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-41', 'x', 'link-4');">x</a></tt><tt class="py-op">*</tt><tt id="link-42" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-42', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> </tt>
+</div><a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">    <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">    <tt class="py-name">x0</tt> <tt class="py-op">=</tt> <tt class="py-name">random</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">5</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-number">2</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">    <tt class="py-comment">#p = ParticleSwarmOptimizer(f, x0, [ (0., 2.), (0., 2.) ])</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">    <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt id="link-43" class="py-name" targets="Class peach.pso.base.ParticleSwarmOptimizer=peach.pso.base.ParticleSwarmOptimizer-class.html"><a title="peach.pso.base.ParticleSwarmOptimizer" class="py-name" href="#" onclick="return doclink('link-43', 'ParticleSwarmOptimizer', 'link-43');">ParticleSwarmOptimizer</a></tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">x0</tt><tt class="py-op">)</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.fbest
+peach.pso.base.ParticleSwarmOptimizer.fbest" class="py-name" href="#" onclick="return doclink('link-44', 'fbest', 'link-15');">fbest</a></tt> <tt class="py-op">&gt;</tt> <tt class="py-number">5e-7</tt><tt class="py-op">:</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">p</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-45', 'best', 'link-13');">best</a></tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.fbest
+peach.pso.base.ParticleSwarmOptimizer.fbest" class="py-name" href="#" onclick="return doclink('link-46', 'fbest', 'link-15');">fbest</a></tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.step
+peach.ga.base.GeneticAlgorithm.step
+peach.nn.kmeans.KMeans.step
+peach.nn.mem.Hopfield.step
+peach.optm.base.Optimizer.step
+peach.optm.linear.Direct1D.step
+peach.optm.linear.Fibonacci.step
+peach.optm.linear.GoldenRule.step
+peach.optm.linear.Interpolation.step
+peach.optm.multivar.Direct.step
+peach.optm.multivar.Gradient.step
+peach.optm.multivar.MomentumGradient.step
+peach.optm.multivar.Newton.step
+peach.optm.quasinewton.BFGS.step
+peach.optm.quasinewton.DFP.step
+peach.optm.quasinewton.SR1.step
+peach.optm.stochastic.CrossEntropy.step
+peach.pso.base.ParticleSwarmOptimizer.step
+peach.sa.base.BinarySA.step
+peach.sa.base.ContinuousSA.step" class="py-name" href="#" onclick="return doclink('link-47', 'step', 'link-35');">step</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">'-'</tt><tt class="py-op">*</tt><tt class="py-number">50</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.best
+peach.pso.base.ParticleSwarmOptimizer.best
+peach.sa.base.BinarySA.best" class="py-name" href="#" onclick="return doclink('link-48', 'best', 'link-13');">best</a></tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="peach.ga.base.GeneticAlgorithm.fbest
+peach.pso.base.ParticleSwarmOptimizer.fbest" class="py-name" href="#" onclick="return doclink('link-49', 'fbest', 'link-15');">fbest</a></tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Jul 31 16:59:48 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

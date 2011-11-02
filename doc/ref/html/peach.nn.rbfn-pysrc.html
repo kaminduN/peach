@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.nn.rbfn</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.nn-module.html">Package&nbsp;nn</a> ::
+        Module&nbsp;rbfn
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.nn.rbfn-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="peach.nn.rbfn-module.html">Module peach.nn.rbfn</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Peach - Computational Intelligence for Python</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Jose Alexandre Nalon</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># This file: nn/nn.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Basic topologies of neural networks</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Doc string, reStructuredText formatted:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable peach.__doc__=peach-module.html#__doc__,Variable peach.fuzzy.__doc__=peach.fuzzy-module.html#__doc__,Variable peach.fuzzy.base.__doc__=peach.fuzzy.base-module.html#__doc__,Variable peach.fuzzy.cmeans.__doc__=peach.fuzzy.cmeans-module.html#__doc__,Variable peach.fuzzy.control.__doc__=peach.fuzzy.control-module.html#__doc__,Variable peach.fuzzy.defuzzy.__doc__=peach.fuzzy.defuzzy-module.html#__doc__,Variable peach.fuzzy.mf.__doc__=peach.fuzzy.mf-module.html#__doc__,Variable peach.fuzzy.norms.__doc__=peach.fuzzy.norms-module.html#__doc__,Variable peach.ga.__doc__=peach.ga-module.html#__doc__,Variable peach.ga.base.__doc__=peach.ga.base-module.html#__doc__,Variable peach.ga.chromosome.__doc__=peach.ga.chromosome-module.html#__doc__,Variable peach.ga.crossover.__doc__=peach.ga.crossover-module.html#__doc__,Variable peach.ga.fitness.__doc__=peach.ga.fitness-module.html#__doc__,Variable peach.ga.mutation.__doc__=peach.ga.mutation-module.html#__doc__,Variable peach.ga.selection.__doc__=peach.ga.selection-module.html#__doc__,Variable peach.nn.__doc__=peach.nn-module.html#__doc__,Variable peach.nn.af.__doc__=peach.nn.af-module.html#__doc__,Variable peach.nn.base.__doc__=peach.nn.base-module.html#__doc__,Variable peach.nn.kmeans.__doc__=peach.nn.kmeans-module.html#__doc__,Variable peach.nn.lrules.__doc__=peach.nn.lrules-module.html#__doc__,Variable peach.nn.mem.__doc__=peach.nn.mem-module.html#__doc__,Variable peach.nn.nnet.__doc__=peach.nn.nnet-module.html#__doc__,Variable peach.nn.rbfn.__doc__=peach.nn.rbfn-module.html#__doc__,Variable peach.optm.__doc__=peach.optm-module.html#__doc__,Variable peach.optm.base.__doc__=peach.optm.base-module.html#__doc__,Variable peach.optm.linear.__doc__=peach.optm.linear-module.html#__doc__,Variable peach.optm.multivar.__doc__=peach.optm.multivar-module.html#__doc__,Variable peach.optm.quasinewton.__doc__=peach.optm.quasinewton-module.html#__doc__,Variable peach.optm.stochastic.__doc__=peach.optm.stochastic-module.html#__doc__,Variable peach.pso.__doc__=peach.pso-module.html#__doc__,Variable peach.pso.acc.__doc__=peach.pso.acc-module.html#__doc__,Variable peach.pso.base.__doc__=peach.pso.base-module.html#__doc__,Variable peach.sa.__doc__=peach.sa-module.html#__doc__,Variable peach.sa.base.__doc__=peach.sa.base-module.html#__doc__,Variable peach.sa.neighbor.__doc__=peach.sa.neighbor-module.html#__doc__"><a title="peach.__doc__
+peach.fuzzy.__doc__
+peach.fuzzy.base.__doc__
+peach.fuzzy.cmeans.__doc__
+peach.fuzzy.control.__doc__
+peach.fuzzy.defuzzy.__doc__
+peach.fuzzy.mf.__doc__
+peach.fuzzy.norms.__doc__
+peach.ga.__doc__
+peach.ga.base.__doc__
+peach.ga.chromosome.__doc__
+peach.ga.crossover.__doc__
+peach.ga.fitness.__doc__
+peach.ga.mutation.__doc__
+peach.ga.selection.__doc__
+peach.nn.__doc__
+peach.nn.af.__doc__
+peach.nn.base.__doc__
+peach.nn.kmeans.__doc__
+peach.nn.lrules.__doc__
+peach.nn.mem.__doc__
+peach.nn.nnet.__doc__
+peach.nn.rbfn.__doc__
+peach.optm.__doc__
+peach.optm.base.__doc__
+peach.optm.linear.__doc__
+peach.optm.multivar.__doc__
+peach.optm.quasinewton.__doc__
+peach.optm.stochastic.__doc__
+peach.pso.__doc__
+peach.pso.acc.__doc__
+peach.pso.base.__doc__
+peach.sa.__doc__
+peach.sa.base.__doc__
+peach.sa.neighbor.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">Radial Basis Function Networks</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">This sub-package implements the basic behaviour of radial basis function</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">networks. This is a two-layer neural network that works as a universal function</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">approximator. The activation functions of the first layer are radial basis</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">functions (RBFs), that are symmetric around the origin, that is, the value of</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">this kind of function depends only on the distance of the evaluated point to the</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">origin. The second layer has only one neuron with linear activation, that is, it</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">only combines the inputs of the first layer.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">The training of this kind of network, while it can be done using a traditional</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">optimization technique such as gradient descent, is usually made in two steps.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">In the first step, the position of the centers and the width of the RBFs are</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">computed. In the second step, the weights of the second layer are adapted. In</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">this module, the RBFN architecture is implemented, allowing training of the</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">second layer. Centers must be supplied, but they can be easily found from the</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">training set using algorithms such as K-Means (the one traditionally used),</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">SOMs or Fuzzy C-Means.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">array</tt><tt class="py-op">,</tt> <tt class="py-name">amax</tt><tt class="py-op">,</tt> <tt class="py-name">sum</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">choice</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module peach.nn.nnet=peach.nn.nnet-module.html"><a title="peach.nn.nnet" class="py-name" href="#" onclick="return doclink('link-1', 'nnet', 'link-1');">nnet</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># Classes</tt> </tt>
+<a name="RBFN"></a><div id="RBFN-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="RBFN-toggle" onclick="return toggle('RBFN');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html">RBFN</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RBFN-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__init__"></a><div id="RBFN.__init__-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="RBFN.__init__-toggle" onclick="return toggle('RBFN.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">c</tt><tt class="py-op">,</tt> <tt class="py-param">phi</tt><tt class="py-op">=</tt><tt id="link-2" class="py-name" targets="Class peach.fuzzy.mf.Gaussian=peach.fuzzy.mf.Gaussian-class.html,Class peach.nn.af.Gaussian=peach.nn.af.Gaussian-class.html"><a title="peach.fuzzy.mf.Gaussian
+peach.nn.af.Gaussian" class="py-name" href="#" onclick="return doclink('link-2', 'Gaussian', 'link-2');">Gaussian</a></tt><tt class="py-op">,</tt> <tt class="py-param">phi2</tt><tt class="py-op">=</tt><tt id="link-3" class="py-name" targets="Class peach.nn.af.Linear=peach.nn.af.Linear-class.html"><a title="peach.nn.af.Linear" class="py-name" href="#" onclick="return doclink('link-3', 'Linear', 'link-3');">Linear</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__init__-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">        Initializes the radial basis function network.</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        A radial basis function is implemented as two layers of neurons, the</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        first one with the RBFs, the second one a linear combinator.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">          c</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">            Two-dimensional array containing the centers of the radial basis</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">            functions, where each line is a vector with the components of the</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">            center. Thus, the number of lines in this array is the number of</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">            centers of the network.</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">          phi</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">            The radial basis function to be used in the first layer. Defaults to</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">            the gaussian.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">          phi2</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">            The activation function of the second layer. If the network is being</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">            used to approximate functions, this should be Linear. Since this is</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">            the most commom situation, it is the default value. In occasions,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">            this can be made (say) a sigmoid, for pattern recognition.</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.c=peach.fuzzy.cmeans.FuzzyCMeans-class.html#c,Variable peach.nn.kmeans.KMeans.c=peach.nn.kmeans.KMeans-class.html#c"><a title="peach.fuzzy.cmeans.FuzzyCMeans.c
+peach.nn.kmeans.KMeans.c" class="py-name" href="#" onclick="return doclink('link-4', 'c', 'link-4');">c</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__n</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">wmax</tt> <tt class="py-op">=</tt> <tt class="py-number">0.</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">ci</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-name">amax</tt><tt class="py-op">(</tt><tt class="py-name">sum</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">ci</tt> <tt class="py-op">-</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">)</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">w</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">wmax</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-name">wmax</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt id="link-5" class="py-name" targets="Variable peach.nn.rbfn.sqrt=peach.nn.rbfn-module.html#sqrt,Variable peach.pso.base.sqrt=peach.pso.base-module.html#sqrt"><a title="peach.nn.rbfn.sqrt
+peach.pso.base.sqrt" class="py-name" href="#" onclick="return doclink('link-5', 'sqrt', 'link-5');">sqrt</a></tt><tt class="py-op">(</tt><tt class="py-name">wmax</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__n</tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__n</tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable peach.nn.base.Layer.phi=peach.nn.base.Layer-class.html#phi,Variable peach.nn.nnet.FeedForward.phi=peach.nn.nnet.FeedForward-class.html#phi,Variable peach.nn.rbfn.RBFN.phi=peach.nn.rbfn.RBFN-class.html#phi"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-6', 'phi', 'link-6');">phi</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-7', 'phi', 'link-6');">phi</a></tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name" targets="Class peach.nn.nnet.FeedForward=peach.nn.nnet.FeedForward-class.html"><a title="peach.nn.nnet.FeedForward" class="py-name" href="#" onclick="return doclink('link-8', 'FeedForward', 'link-8');">FeedForward</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__n</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-9', 'phi', 'link-6');">phi</a></tt><tt class="py-op">=</tt><tt id="link-10" class="py-name" targets="Variable peach.nn.rbfn.RBFN.phi2=peach.nn.rbfn.RBFN-class.html#phi2"><a title="peach.nn.rbfn.RBFN.phi2" class="py-name" href="#" onclick="return doclink('link-10', 'phi2', 'link-10');">phi2</a></tt><tt class="py-op">,</tt> <tt class="py-name">lrule</tt><tt class="py-op">=</tt><tt id="link-11" class="py-name" targets="Class peach.nn.lrules.BackPropagation=peach.nn.lrules.BackPropagation-class.html"><a title="peach.nn.lrules.BackPropagation" class="py-name" href="#" onclick="return doclink('link-11', 'BackPropagation', 'link-11');">BackPropagation</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__getwidth"></a><div id="RBFN.__getwidth-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="RBFN.__getwidth-toggle" onclick="return toggle('RBFN.__getwidth');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__getwidth">__getwidth</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__getwidth-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__getwidth-expanded"><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt> </tt>
+</div><a name="RBFN.__setwidth"></a><div id="RBFN.__setwidth-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="RBFN.__setwidth-toggle" onclick="return toggle('RBFN.__setwidth');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__setwidth">__setwidth</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">w</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__setwidth-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__setwidth-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">w</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">(</tt><tt class="py-string">'Width array must have the same number of componets as the number of centers'</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">w</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-name">w</tt> <tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__n</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable peach.nn.rbfn.RBFN.width=peach.nn.rbfn.RBFN-class.html#width"><a title="peach.nn.rbfn.RBFN.width" class="py-name" href="#" onclick="return doclink('link-12', 'width', 'link-12');">width</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name" targets="Method peach.nn.rbfn.RBFN.__getwidth()=peach.nn.rbfn.RBFN-class.html#__getwidth"><a title="peach.nn.rbfn.RBFN.__getwidth" class="py-name" href="#" onclick="return doclink('link-13', '__getwidth', 'link-13');">__getwidth</a></tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name" targets="Method peach.nn.rbfn.RBFN.__setwidth()=peach.nn.rbfn.RBFN-class.html#__setwidth"><a title="peach.nn.rbfn.RBFN.__setwidth" class="py-name" href="#" onclick="return doclink('link-14', '__setwidth', 'link-14');">__setwidth</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-string">'''The computed width of the RBFs. This property can be read and written. If</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-string">    a single value is written, then it is used for every center. If a vector of</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-string">    values is supplied, then it must be one for each center.'''</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__getweights"></a><div id="RBFN.__getweights-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="RBFN.__getweights-toggle" onclick="return toggle('RBFN.__getweights');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__getweights">__getweights</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__getweights-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__getweights-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable peach.nn.base.Layer.weights=peach.nn.base.Layer-class.html#weights,Variable peach.nn.mem.Hopfield.weights=peach.nn.mem.Hopfield-class.html#weights,Variable peach.nn.rbfn.RBFN.weights=peach.nn.rbfn.RBFN-class.html#weights"><a title="peach.nn.base.Layer.weights
+peach.nn.mem.Hopfield.weights
+peach.nn.rbfn.RBFN.weights" class="py-name" href="#" onclick="return doclink('link-15', 'weights', 'link-15');">weights</a></tt> </tt>
+</div><a name="RBFN.__setweights"></a><div id="RBFN.__setweights-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="RBFN.__setweights-toggle" onclick="return toggle('RBFN.__setweights');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__setweights">__setweights</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">w</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__setweights-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__setweights-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="peach.nn.base.Layer.weights
+peach.nn.mem.Hopfield.weights
+peach.nn.rbfn.RBFN.weights" class="py-name" href="#" onclick="return doclink('link-16', 'weights', 'link-15');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> </tt>
+</div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt id="link-17" class="py-name"><a title="peach.nn.base.Layer.weights
+peach.nn.mem.Hopfield.weights
+peach.nn.rbfn.RBFN.weights" class="py-name" href="#" onclick="return doclink('link-17', 'weights', 'link-15');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name" targets="Method peach.nn.base.Layer.__getweights()=peach.nn.base.Layer-class.html#__getweights,Method peach.nn.mem.Hopfield.__getweights()=peach.nn.mem.Hopfield-class.html#__getweights,Method peach.nn.rbfn.RBFN.__getweights()=peach.nn.rbfn.RBFN-class.html#__getweights"><a title="peach.nn.base.Layer.__getweights
+peach.nn.mem.Hopfield.__getweights
+peach.nn.rbfn.RBFN.__getweights" class="py-name" href="#" onclick="return doclink('link-18', '__getweights', 'link-18');">__getweights</a></tt><tt class="py-op">,</tt> <tt id="link-19" class="py-name" targets="Method peach.nn.base.Layer.__setweights()=peach.nn.base.Layer-class.html#__setweights,Method peach.nn.mem.Hopfield.__setweights()=peach.nn.mem.Hopfield-class.html#__setweights,Method peach.nn.rbfn.RBFN.__setweights()=peach.nn.rbfn.RBFN-class.html#__setweights"><a title="peach.nn.base.Layer.__setweights
+peach.nn.mem.Hopfield.__setweights
+peach.nn.rbfn.RBFN.__setweights" class="py-name" href="#" onclick="return doclink('link-19', '__setweights', 'link-19');">__setweights</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-string">'''A ``numpy`` array containing the synaptic weights of the second layer of</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-string">    the network. It is writable, but the new weight array must be the same shape</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-string">    of the neuron, or an exception is raised.'''</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__gety"></a><div id="RBFN.__gety-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="RBFN.__gety-toggle" onclick="return toggle('RBFN.__gety');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__gety">__gety</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__gety-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__gety-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Variable peach.fuzzy.control.Controller.y=peach.fuzzy.control.Controller-class.html#y,Variable peach.nn.base.Layer.y=peach.nn.base.Layer-class.html#y,Variable peach.nn.nnet.FeedForward.y=peach.nn.nnet.FeedForward-class.html#y,Variable peach.nn.nnet.SOM.y=peach.nn.nnet.SOM-class.html#y,Variable peach.nn.rbfn.RBFN.y=peach.nn.rbfn.RBFN-class.html#y"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y
+peach.nn.rbfn.RBFN.y" class="py-name" href="#" onclick="return doclink('link-20', 'y', 'link-20');">y</a></tt> </tt>
+</div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt id="link-21" class="py-name"><a title="peach.fuzzy.control.Controller.y
+peach.nn.base.Layer.y
+peach.nn.nnet.FeedForward.y
+peach.nn.nnet.SOM.y
+peach.nn.rbfn.RBFN.y" class="py-name" href="#" onclick="return doclink('link-21', 'y', 'link-20');">y</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-22" class="py-name" targets="Method peach.fuzzy.control.Controller.__gety()=peach.fuzzy.control.Controller-class.html#__gety,Method peach.nn.base.Layer.__gety()=peach.nn.base.Layer-class.html#__gety,Method peach.nn.nnet.FeedForward.__gety()=peach.nn.nnet.FeedForward-class.html#__gety,Method peach.nn.nnet.SOM.__gety()=peach.nn.nnet.SOM-class.html#__gety,Method peach.nn.rbfn.RBFN.__gety()=peach.nn.rbfn.RBFN-class.html#__gety"><a title="peach.fuzzy.control.Controller.__gety
+peach.nn.base.Layer.__gety
+peach.nn.nnet.FeedForward.__gety
+peach.nn.nnet.SOM.__gety
+peach.nn.rbfn.RBFN.__gety" class="py-name" href="#" onclick="return doclink('link-22', '__gety', 'link-22');">__gety</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-string">'''The activation value for the second layer of the network, ie., the answer</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-string">    of the network. This property is available only after the network is fed</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-string">    some input.'''</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__getphi"></a><div id="RBFN.__getphi-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="RBFN.__getphi-toggle" onclick="return toggle('RBFN.__getphi');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__getphi">__getphi</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__getphi-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__getphi-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi</tt> </tt>
+</div><a name="RBFN.__setphi"></a><div id="RBFN.__setphi-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="RBFN.__setphi-toggle" onclick="return toggle('RBFN.__setphi');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__setphi">__setphi</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">phi</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__setphi-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__setphi-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">            <tt class="py-name">issubclass</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-23', 'phi', 'link-6');">phi</a></tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name" targets="Class peach.nn.af.RadialBasis=peach.nn.af.RadialBasis-class.html"><a title="peach.nn.af.RadialBasis" class="py-name" href="#" onclick="return doclink('link-24', 'RadialBasis', 'link-24');">RadialBasis</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt id="link-25" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-25', 'phi', 'link-6');">phi</a></tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-26', 'phi', 'link-6');">phi</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-27', 'phi', 'link-6');">phi</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="peach.nn.af.RadialBasis" class="py-name" href="#" onclick="return doclink('link-28', 'RadialBasis', 'link-24');">RadialBasis</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-29', 'phi', 'link-6');">phi</a></tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi</tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="peach.nn.af.RadialBasis" class="py-name" href="#" onclick="return doclink('link-30', 'RadialBasis', 'link-24');">RadialBasis</a></tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-31', 'phi', 'link-6');">phi</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">    <tt id="link-32" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-32', 'phi', 'link-6');">phi</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name" targets="Method peach.nn.base.Layer.__getphi()=peach.nn.base.Layer-class.html#__getphi,Method peach.nn.nnet.FeedForward.__getphi()=peach.nn.nnet.FeedForward-class.html#__getphi,Method peach.nn.rbfn.RBFN.__getphi()=peach.nn.rbfn.RBFN-class.html#__getphi"><a title="peach.nn.base.Layer.__getphi
+peach.nn.nnet.FeedForward.__getphi
+peach.nn.rbfn.RBFN.__getphi" class="py-name" href="#" onclick="return doclink('link-33', '__getphi', 'link-33');">__getphi</a></tt><tt class="py-op">,</tt> <tt id="link-34" class="py-name" targets="Method peach.nn.base.Layer.__setphi()=peach.nn.base.Layer-class.html#__setphi,Method peach.nn.nnet.FeedForward.__setphi()=peach.nn.nnet.FeedForward-class.html#__setphi,Method peach.nn.rbfn.RBFN.__setphi()=peach.nn.rbfn.RBFN-class.html#__setphi"><a title="peach.nn.base.Layer.__setphi
+peach.nn.nnet.FeedForward.__setphi
+peach.nn.rbfn.RBFN.__setphi" class="py-name" href="#" onclick="return doclink('link-34', '__setphi', 'link-34');">__setphi</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-string">'''The radial basis function. It can be set with a ``RadialBasis`` instance</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-string">    or a standard Python function. If a standard function is given, it must</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-string">    receive a real value and return a real value that is the activation value of</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-string">    the neuron. In that case, it is adjusted to work accordingly with the</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-string">    internals of the layer.'''</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__getphi2"></a><div id="RBFN.__getphi2-def"><a name="L128"></a><tt class="py-lineno">128</tt> <a class="py-toggle" href="#" id="RBFN.__getphi2-toggle" onclick="return toggle('RBFN.__getphi2');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__getphi2">__getphi2</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__getphi2-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__getphi2-expanded"><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi2</tt> </tt>
+</div><a name="RBFN.__setphi2"></a><div id="RBFN.__setphi2-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="RBFN.__setphi2-toggle" onclick="return toggle('RBFN.__setphi2');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__setphi2">__setphi2</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">phi</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__setphi2-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__setphi2-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-name">issubclass</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-35', 'phi', 'link-6');">phi</a></tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name" targets="Class peach.nn.af.Activation=peach.nn.af.Activation-class.html"><a title="peach.nn.af.Activation" class="py-name" href="#" onclick="return doclink('link-36', 'Activation', 'link-36');">Activation</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt id="link-37" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-37', 'phi', 'link-6');">phi</a></tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-38', 'phi', 'link-6');">phi</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-39', 'phi', 'link-6');">phi</a></tt><tt class="py-op">,</tt> <tt id="link-40" class="py-name"><a title="peach.nn.af.Activation" class="py-name" href="#" onclick="return doclink('link-40', 'Activation', 'link-36');">Activation</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi2</tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-41', 'phi', 'link-6');">phi</a></tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi2</tt> <tt class="py-op">=</tt> <tt id="link-42" class="py-name"><a title="peach.nn.af.Activation" class="py-name" href="#" onclick="return doclink('link-42', 'Activation', 'link-36');">Activation</a></tt><tt class="py-op">(</tt><tt id="link-43" class="py-name"><a title="peach.nn.base.Layer.phi
+peach.nn.nnet.FeedForward.phi
+peach.nn.rbfn.RBFN.phi" class="py-name" href="#" onclick="return doclink('link-43', 'phi', 'link-6');">phi</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt id="link-44" class="py-name"><a title="peach.nn.rbfn.RBFN.phi2" class="py-name" href="#" onclick="return doclink('link-44', 'phi2', 'link-10');">phi2</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt id="link-45" class="py-name"><a title="peach.nn.base.Layer.__getphi
+peach.nn.nnet.FeedForward.__getphi
+peach.nn.rbfn.RBFN.__getphi" class="py-name" href="#" onclick="return doclink('link-45', '__getphi', 'link-33');">__getphi</a></tt><tt class="py-op">,</tt> <tt id="link-46" class="py-name"><a title="peach.nn.base.Layer.__setphi
+peach.nn.nnet.FeedForward.__setphi
+peach.nn.rbfn.RBFN.__setphi" class="py-name" href="#" onclick="return doclink('link-46', '__setphi', 'link-34');">__setphi</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-string">'''The activation function for the second layer. It can be set with an</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-string">    ``Activation`` instance or a standard Python function. If a standard</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-string">    function is given, it must receive a real value and return a real value that</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-string">    is the activation value of the neuron. In that case, it is adjusted to work</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-string">    accordingly with the internals of the layer.'''</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.__call__"></a><div id="RBFN.__call__-def"><a name="L148"></a><tt class="py-lineno">148</tt> <a class="py-toggle" href="#" id="RBFN.__call__-toggle" onclick="return toggle('RBFN.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.__call__-expanded"><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">        Feeds the network and return the result.</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">        The ``__call__`` interface should be called if the answer of the neuron</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">        network to a given input vector ``x`` is desired. *This method has</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        collateral effects*, so beware. After the calling of this method, the</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        ``y`` property is set with the activation potential and the answer of</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">        the neurons, respectivelly.</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">          x</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">            The input vector to the network.</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">        :Returns:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">          The vector containing the answer of every neuron in the last layer, in</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring">          the respective order.</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt id="link-47" class="py-name" targets="Variable peach.fuzzy.cmeans.FuzzyCMeans.x=peach.fuzzy.cmeans.FuzzyCMeans-class.html#x,Variable peach.optm.linear.Direct1D.x=peach.optm.linear.Direct1D-class.html#x,Variable peach.optm.linear.GoldenRule.x=peach.optm.linear.GoldenRule-class.html#x,Variable peach.optm.linear.Interpolation.x=peach.optm.linear.Interpolation-class.html#x,Variable peach.optm.multivar.Direct.x=peach.optm.multivar.Direct-class.html#x,Variable peach.optm.multivar.Gradient.x=peach.optm.multivar.Gradient-class.html#x,Variable peach.optm.multivar.MomentumGradient.x=peach.optm.multivar.MomentumGradient-class.html#x,Variable peach.optm.multivar.Newton.x=peach.optm.multivar.Newton-class.html#x,Variable peach.optm.quasinewton.DFP.x=peach.optm.quasinewton.DFP-class.html#x,Variable peach.optm.quasinewton.SR1.x=peach.optm.quasinewton.SR1-class.html#x,Variable peach.sa.base.BinarySA.x=peach.sa.base.BinarySA-class.html#x,Variable peach.sa.base.ContinuousSA.x=peach.sa.base.ContinuousSA-class.html#x"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-47', 'x', 'link-47');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-48" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-48', 'x', 'link-47');">x</a></tt><tt class="py-op">-</tt><tt class="py-name">ci</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-name">wi</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">ci</tt><tt class="py-op">,</tt> <tt class="py-name">wi</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt><tt class="py-op">(</tt><tt id="link-49" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-49', 'x', 'link-47');">x</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.learn"></a><div id="RBFN.learn-def"><a name="L170"></a><tt class="py-lineno">170</tt> <a class="py-toggle" href="#" id="RBFN.learn-toggle" onclick="return toggle('RBFN.learn');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#learn">learn</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">d</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.learn-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.learn-expanded"><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-docstring">        Applies one example of the training set to the network.</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">        Using this method, one iteration of the learning procedure is executed</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">        for the second layer of the network. This method presents one example</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">        (not necessarilly from a training set) and applies the learning rule</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring">        over the layer. The learning rule is defined in the initialization of</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-docstring">        the network, and some are implemented on the ``lrules`` method. New</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-docstring">        methods can be created, consult the ``lrules`` documentation but, for</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-docstring">        the second layer of a ``RBFN'' instance, only ``FFLearning`` learning is</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-docstring">        allowed.</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-docstring">        Also, notice that *this method only applies the learning method!* The</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-docstring">        network should be fed with the same input vector before trying to learn</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-docstring">        anything first. Consult the ``feed`` and ``train`` methods below for</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-docstring">        more ways to train a network.</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-docstring">          x</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-docstring">            Input vector of the example. It should be a column vector of the</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-docstring">            correct dimension, that is, the number of input neurons.</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-docstring">          d</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"><tt class="py-docstring">            The desired answer of the network for this particular input vector.</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-docstring">            Notice that the desired answer should have the same dimension of the</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">            last layer of the network. This means that a desired answer should</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-docstring">            be given for every output of the network.</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-docstring">        :Returns:</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring">          The error obtained by the network.</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">        <tt id="link-50" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-50', 'x', 'link-47');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-51', 'x', 'link-47');">x</a></tt><tt class="py-op">-</tt><tt class="py-name">ci</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-name">wi</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">ci</tt><tt class="py-op">,</tt> <tt class="py-name">wi</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method peach.nn.mem.Hopfield.learn()=peach.nn.mem.Hopfield-class.html#learn,Method peach.nn.nnet.FeedForward.learn()=peach.nn.nnet.FeedForward-class.html#learn,Method peach.nn.nnet.SOM.learn()=peach.nn.nnet.SOM-class.html#learn,Method peach.nn.rbfn.RBFN.learn()=peach.nn.rbfn.RBFN-class.html#learn"><a title="peach.nn.mem.Hopfield.learn
+peach.nn.nnet.FeedForward.learn
+peach.nn.nnet.SOM.learn
+peach.nn.rbfn.RBFN.learn" class="py-name" href="#" onclick="return doclink('link-52', 'learn', 'link-52');">learn</a></tt><tt class="py-op">(</tt><tt id="link-53" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-53', 'x', 'link-47');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.feed"></a><div id="RBFN.feed-def"><a name="L205"></a><tt class="py-lineno">205</tt> <a class="py-toggle" href="#" id="RBFN.feed-toggle" onclick="return toggle('RBFN.feed');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#feed">feed</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">d</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.feed-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.feed-expanded"><a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"><tt class="py-docstring">        Feed the network and applies one example of the training set to the</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-docstring">        network. This adapts only the synaptic weights in the second layer of</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-docstring">        the RBFN.</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring">        Using this method, one iteration of the learning procedure is made with</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">        the neurons of this network. This method presents one example (not</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">        necessarilly from a training set) and applies the learning rule over the</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">        network. The learning rule is defined in the initialization of the</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-docstring">        network, and some are implemented on the ``lrules`` method. New methods</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"><tt class="py-docstring">        can be created, consult the ``lrules`` documentation but, for the second</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-docstring">        layer of a ``RBFN``, only ``FFLearning`` learning is allowed.</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring">        Also, notice that *this method feeds the network* before applying the</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-docstring">        learning rule. Feeding the network has collateral effects, and some</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-docstring">        properties change when this happens. Namely, the ``y`` property is set.</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-docstring">        Please consult the ``__call__`` interface.</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-docstring">          x</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"><tt class="py-docstring">            Input vector of the example. It should be a column vector of the</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line"><tt class="py-docstring">            correct dimension, that is, the number of input neurons.</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"><tt class="py-docstring">          d</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line"><tt class="py-docstring">            The desired answer of the network for this particular input vector.</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"><tt class="py-docstring">            Notice that the desired answer should have the same dimension of the</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"><tt class="py-docstring">            last layer of the network. This means that a desired answer should</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"><tt class="py-docstring">            be given for every output of the network.</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"><tt class="py-docstring">        :Returns:</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"><tt class="py-docstring">          The error obtained by the network.</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">        <tt id="link-54" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-54', 'x', 'link-47');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__phi</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-55', 'x', 'link-47');">x</a></tt><tt class="py-op">-</tt><tt class="py-name">ci</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-name">wi</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">ci</tt><tt class="py-op">,</tt> <tt class="py-name">wi</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__c</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__w</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__l</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Method peach.nn.nnet.FeedForward.feed()=peach.nn.nnet.FeedForward-class.html#feed,Method peach.nn.nnet.SOM.feed()=peach.nn.nnet.SOM-class.html#feed,Method peach.nn.rbfn.RBFN.feed()=peach.nn.rbfn.RBFN-class.html#feed"><a title="peach.nn.nnet.FeedForward.feed
+peach.nn.nnet.SOM.feed
+peach.nn.rbfn.RBFN.feed" class="py-name" href="#" onclick="return doclink('link-56', 'feed', 'link-56');">feed</a></tt><tt class="py-op">(</tt><tt id="link-57" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-57', 'x', 'link-47');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"> </tt>
+<a name="RBFN.train"></a><div id="RBFN.train-def"><a name="L241"></a><tt class="py-lineno">241</tt> <a class="py-toggle" href="#" id="RBFN.train-toggle" onclick="return toggle('RBFN.train');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="peach.nn.rbfn.RBFN-class.html#train">train</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">train_set</tt><tt class="py-op">,</tt> <tt class="py-param">imax</tt><tt class="py-op">=</tt><tt class="py-number">2000</tt><tt class="py-op">,</tt> <tt class="py-param">emax</tt><tt class="py-op">=</tt><tt class="py-number">1e-5</tt><tt class="py-op">,</tt> <tt class="py-param">randomize</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RBFN.train-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RBFN.train-expanded"><a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"><tt class="py-docstring">        Presents a training set to the network.</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-docstring">        This method automatizes the training of the network. Given a training</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-docstring">        set, the examples are shown to the network (possibly in a randomized</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-docstring">        way). A maximum number of iterations or a maximum admitted error should</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"><tt class="py-docstring">        be given as a stop condition.</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-docstring">        :Parameters:</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"><tt class="py-docstring">          train_set</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"><tt class="py-docstring">            The training set is a list of examples. It can have any size and can</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"><tt class="py-docstring">            contain repeated examples. In fact, the definition of the training</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-docstring">            set is open. Each element of the training set, however, should be a</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"><tt class="py-docstring">            two-tuple ``(x, d)``, where ``x`` is the input vector, and ``d`` is</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"><tt class="py-docstring">            the desired response of the network for this particular input. See</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line"><tt class="py-docstring">            the ``learn`` and ``feed`` for more information.</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"><tt class="py-docstring">          imax</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-docstring">            The maximum number of iterations. Examples from the training set</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-docstring">            will be presented to the network while this limit is not reached.</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-docstring">            Defaults to 2000.</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-docstring">          emax</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"><tt class="py-docstring">            The maximum admitted error. Examples from the training set will be</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-docstring">            presented to the network until the error obtained is lower than this</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-docstring">            limit. Defaults to 1e-5.</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-docstring">          randomize</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-docstring">            If this is ``True``, then the examples are shown in a randomized</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-docstring">            order. If ``False``, then the examples are shown in the same order</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-docstring">            that they appear in the ``train_set`` list. Defaults to ``False``.</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">        <tt class="py-name">error</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">train_set</tt><tt class="py-op">)</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">i</tt><tt class="py-op">&lt;</tt><tt class="py-name">imax</tt> <tt class="py-keyword">and</tt> <tt class="py-name">error</tt><tt class="py-op">&gt;</tt><tt class="py-name">emax</tt><tt class="py-op">:</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">randomize</tt><tt class="py-op">:</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">                <tt id="link-58" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-58', 'x', 'link-47');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">choice</tt><tt class="py-op">(</tt><tt class="py-name">train_set</tt><tt class="py-op">)</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">                <tt id="link-59" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-59', 'x', 'link-47');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">train_set</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">%</tt><tt class="py-name">s</tt><tt class="py-op">]</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">            <tt class="py-name">error</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="peach.nn.nnet.FeedForward.feed
+peach.nn.nnet.SOM.feed
+peach.nn.rbfn.RBFN.feed" class="py-name" href="#" onclick="return doclink('link-60', 'feed', 'link-56');">feed</a></tt><tt class="py-op">(</tt><tt id="link-61" class="py-name"><a title="peach.fuzzy.cmeans.FuzzyCMeans.x
+peach.optm.linear.Direct1D.x
+peach.optm.linear.GoldenRule.x
+peach.optm.linear.Interpolation.x
+peach.optm.multivar.Direct.x
+peach.optm.multivar.Gradient.x
+peach.optm.multivar.MomentumGradient.x
+peach.optm.multivar.Newton.x
+peach.optm.quasinewton.DFP.x
+peach.optm.quasinewton.SR1.x
+peach.sa.base.BinarySA.x
+peach.sa.base.ContinuousSA.x" class="py-name" href="#" onclick="return doclink('link-61', 'x', 'link-47');">x</a></tt><tt class="py-op">,</tt> <tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">            <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt><tt class="py-op">+</tt><tt class="py-number">1</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">error</tt> </tt>
+</div></div><a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Jul 31 16:59:52 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.sa.neighbor &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.sa" href="peach.sa.html" />
+    <link rel="prev" title="peach.sa.base" href="peach.sa.base.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.base.html" title="peach.sa.base"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.sa.html" accesskey="U">peach.sa</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.sa.neighbor">
+<span id="peach-sa-neighbor"></span><h1>peach.sa.neighbor<a class="headerlink" href="#module-peach.sa.neighbor" title="Permalink to this headline">¶</a></h1>
+<p>This module implements a general class to compute neighbors for continuous and
+binary simulated annealing algorithms. The continuous neighbor functions return
+an array with a neighbor of a given estimate; the binary neighbor functions
+return a <tt class="docutils literal"><span class="pre">bitarray</span></tt> object.</p>
+<dl class="class">
+<dt id="peach.sa.neighbor.BinaryNeighbor">
+<em class="property">class </em><tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">BinaryNeighbor</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.sa.neighbor.BinaryNeighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for binary neighbor functions</p>
+<p>This class should be derived to implement a function which computes the
+neighbor of a given estimate. Every neighbor functions should implement at
+least two methods, defined below:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__(self, <a href="#id1"><span class="problematic" id="id2">*</span></a>cnf, <a href="#id3"><span class="problematic" id="id4">**</span></a>kw)</dt>
+<dd><p class="first">Initializes the object. There are no mandatory arguments, but any
+parameters can be used here to configure the operator. For example, a
+class can define a bit change rate &#8211; this should be defined here:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">A default value should always be offered, if possible.</p>
+</dd>
+<dt>__call__(self, x):</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface should be programmed to actually compute the
+value of the neighbor. This method should receive an estimate in <tt class="docutils literal"><span class="pre">x</span></tt>
+and use whatever parameters from the instantiation to compute the new
+estimate. It should return the new estimate.</dd>
+</dl>
+</div></blockquote>
+<p>Please, note that the SA implementations relies on this behaviour: it will
+pass an estimate to your <tt class="docutils literal"><span class="pre">__call__</span></tt> method and expects to received the
+result back. Notice, however, that the SA implementation does not expect
+that the result is sane, ie, that it is in conformity with the
+representation used in the algorithm. A sanity check is done inside the
+binary SA class. Please, consult the documentation on <tt class="docutils literal"><span class="pre">BinarySA</span></tt> for
+further details.</p>
+<p>This class can be used also to transform a simple function in a neighbor
+function. In this case, the outside function must compute in an appropriate
+way the new estimate.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.sa.neighbor.ContinuousNeighbor">
+<em class="property">class </em><tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">ContinuousNeighbor</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.sa.neighbor.ContinuousNeighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for continuous neighbor functions</p>
+<p>This class should be derived to implement a function which computes the
+neighbor of a given estimate. Every neighbor function should implement at
+least two methods, defined below:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__(self, <a href="#id5"><span class="problematic" id="id6">*</span></a>cnf, <a href="#id7"><span class="problematic" id="id8">**</span></a>kw)</dt>
+<dd><p class="first">Initializes the object. There are no mandatory arguments, but any
+parameters can be used here to configure the operator. For example, a
+class can define a variance for randomly chose the neighbor &#8211; this
+should be defined here:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">A default value should always be offered, if possible.</p>
+</dd>
+<dt>__call__(self, x):</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface should be programmed to actually compute the
+value of the neighbor. This method should receive an estimate in <tt class="docutils literal"><span class="pre">x</span></tt>
+and use whatever parameters from the instantiation to compute the new
+estimate. It should return the new estimate.</dd>
+</dl>
+</div></blockquote>
+<p>Please, note that the SA implementations relies on this behaviour: it will
+pass an estimate to your <tt class="docutils literal"><span class="pre">__call__</span></tt> method and expects to received the
+result back.</p>
+<p>This class can be used also to transform a simple function in a neighbor
+function. In this case, the outside function must compute in an appropriate
+way the new estimate.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.sa.neighbor.GaussianNeighbor">
+<em class="property">class </em><tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">GaussianNeighbor</tt><big>(</big><em>variance=0.05</em><big>)</big><a class="headerlink" href="#peach.sa.neighbor.GaussianNeighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A new estimate based on a gaussian distribution</p>
+<p>This class creates a function that computes the neighbor of an estimate by
+adding a gaussian distributed randomly choosen vector with the same shape
+and size of the estimate.</p>
+<dl class="attribute">
+<dt id="peach.sa.neighbor.GaussianNeighbor.variance">
+<tt class="descname">variance</tt><a class="headerlink" href="#peach.sa.neighbor.GaussianNeighbor.variance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Variance of the gaussian distribution.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.sa.neighbor.InvertBitsNeighbor">
+<em class="property">class </em><tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">InvertBitsNeighbor</tt><big>(</big><em>nb=2</em><big>)</big><a class="headerlink" href="#peach.sa.neighbor.InvertBitsNeighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple neighborhood based on the change of a few bits.</p>
+<p>This neighbor will be computed by randomly choosing a bit in the bitarray
+representing the estimate and change a number of bits in the bitarray and
+inverting their value.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.sa.neighbor.UniformNeighbor">
+<em class="property">class </em><tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">UniformNeighbor</tt><big>(</big><em>xl=-1.0</em>, <em>xh=1.0</em><big>)</big><a class="headerlink" href="#peach.sa.neighbor.UniformNeighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A new estimate based on a uniform distribution</p>
+<p>This class creates a function that computes the neighbor of an estimate by
+adding a uniform distributed randomly choosen vector with the same shape
+and size of the estimate.</p>
+<dl class="attribute">
+<dt id="peach.sa.neighbor.UniformNeighbor.xh">
+<tt class="descname">xh</tt><a class="headerlink" href="#peach.sa.neighbor.UniformNeighbor.xh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper limit of the uniform distribution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.sa.neighbor.UniformNeighbor.xl">
+<tt class="descname">xl</tt><a class="headerlink" href="#peach.sa.neighbor.UniformNeighbor.xl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower limit of the uniform distribution.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.sa.neighbor.standard_normal">
+<tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">standard_normal</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.sa.neighbor.standard_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>standard_normal(size=None)</p>
+<p>Returns samples from a Standard Normal distribution (mean=0, stdev=1).</p>
+<dl class="docutils">
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Output shape. Default is None, in which case a single value is
+returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">float or ndarray</span></dt>
+<dd>Drawn samples.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">array([ 0.6888893 ,  0.78096262, -0.89086505, ...,  0.49876311, #random</span>
+<span class="go">       -0.38672696, -0.4685006 ])                               #random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(8000,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(3, 4, 2)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.sa.neighbor.uniform">
+<tt class="descclassname">peach.sa.neighbor.</tt><tt class="descname">uniform</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.sa.neighbor.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>uniform(low=0.0, high=1.0, size=1)</p>
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half-open interval
+<tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high)</span></tt> (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by <cite>uniform</cite>.</p>
+<dl class="docutils">
+<dt>low <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd>Lower boundary of the output interval.  All values generated will be
+greater than or equal to low.  The default value is 0.</dd>
+<dt>high <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Upper boundary of the output interval.  All values generated will be
+less than high.  The default value is 1.0.</dd>
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Shape of output.  If the given size is, for example, (m,n,k),
+m*n*k samples are generated.  If no shape is specified, a single sample
+is returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Drawn samples, with shape <cite>size</cite>.</dd>
+</dl>
+<p>randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed</p>
+<blockquote>
+<div>interval <tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high]</span></tt>.</div></blockquote>
+<p>random_sample : Floats uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.
+random : Alias for <cite>random_sample</cite>.
+rand : Convenience function that accepts dimensions as input, e.g.,</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">rand(2,2)</span></tt> would generate a 2-by-2 array of floats,
+uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</div></blockquote>
+<p>The probability density function of the uniform distribution is</p>
+<div class="math">
+<p><span class="math">p(x) = \frac{1}{b - a}</span></p>
+</div><p>anywhere within the interval <tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b)</span></tt>, and zero elsewhere.</p>
+<p>Draw samples from the distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All values are within the given interval:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Display the histogram of the samples, along with the
+probability density function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.sa.base.html"
+                        title="previous chapter">peach.sa.base</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.sa.neighbor.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.base.html" title="peach.sa.base"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.sa.html" >peach.sa</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

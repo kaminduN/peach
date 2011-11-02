@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.nn.lrules &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.nn.lrules">
+<span id="peach-nn-lrules"></span><h1>peach.nn.lrules<a class="headerlink" href="#module-peach.nn.lrules" title="Permalink to this headline">¶</a></h1>
+<p>Learning rules for neural networks and base classes for custom learning.</p>
+<p>This sub-package implements learning methods commonly used with neural networks.
+There are a lot of different topologies and different learning methods for each
+one. It is very difficult to find a consistent framework for defining learning
+methods, in consequence. This method defines some base classes that are coupled
+with the neural networks that they are supposed to work with. Also, based on
+these classes, some of the traditional methods are implemented.</p>
+<p>If you want to implement a different learning method, you must subclass the
+correct base class. Consult the classes below. Also, pay attention to how the
+implementation is expected to behave. Since learning algorithms are usually
+somewhat complex, care should be taken to make everything work accordingly.</p>
+<dl class="class">
+<dt id="peach.nn.lrules.BackPropagation">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">BackPropagation</tt><big>(</big><em>lrate=0.05</em><big>)</big><a class="headerlink" href="#peach.nn.lrules.BackPropagation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The BackPropagation learning method.</p>
+<p>The backpropagation method is a very simple method of learning, thoroughly
+described in virtually every book about the subject. Please, consult a good
+book on neural networks for more information. This implementation tries to
+use the <tt class="docutils literal"><span class="pre">numpy</span></tt> routines as much as possible for better efficiency.</p>
+<dl class="attribute">
+<dt id="peach.nn.lrules.BackPropagation.lrate">
+<tt class="descname">lrate</tt><a class="headerlink" href="#peach.nn.lrules.BackPropagation.lrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learning rate used in the algorithm.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.lrules.Competitive">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">Competitive</tt><big>(</big><em>lrate=0.05</em>, <em>tl=1000.0</em><big>)</big><a class="headerlink" href="#peach.nn.lrules.Competitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Competitive learning with time adjust of the learning rate.</p>
+<p>A competitive strategy detects the winner on the self-organizing map and
+adjusts it in the direction of the input vector, scaled by the learning
+rate. Its tendency is to cluster around the gravity center of the points in
+the training set. As time passes, the learning rate grows smaller, this
+allows for better adjustment of the synaptic weights.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.lrules.Cooperative">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">Cooperative</tt><big>(</big><em>lrate=0.05</em>, <em>tl=1000</em>, <em>tn=1000</em><big>)</big><a class="headerlink" href="#peach.nn.lrules.Cooperative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cooperative learning with time adjust of the learning rate and neighborhood
+function to propagate cooperation</p>
+<p>A cooperative strategy detects the winner on the self-organizing map and
+adjusts it in the direction of the input vector, scaled by the learning
+rate. Its tendency is to cluster around the gravity center of the points in
+the training set. As time passes, the learning rate grows smaller, this
+allows for better adjustment of the synaptic weights.</p>
+<p>Also, a neighborhood is defined on the winner. Neurons close to the winner
+are also updated in the direction of the input vector, although with a
+smaller scale determined by the neighborhood function. A neighborhood
+function is 1. at 0., and decreases monotonically as the distance increases.</p>
+<p><em>There are issues with this class!</em> &#8211; some of the class capabilities are
+yet to be developed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.lrules.DeltaRule">
+<tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">DeltaRule</tt><a class="headerlink" href="#peach.nn.lrules.DeltaRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for the LMS class</p>
+<p>alias of <a class="reference internal" href="#peach.nn.lrules.LMS" title="peach.nn.lrules.LMS"><tt class="xref py py-class docutils literal"><span class="pre">LMS</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.lrules.FFLearning">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">FFLearning</tt><a class="headerlink" href="#peach.nn.lrules.FFLearning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for FeedForwarding Multilayer neural networks.</p>
+<p>As a base class, this class doesn&#8217;t do anything. You should subclass this
+class if you want to implement a learning method for multilayer networks.</p>
+<p>A learning method for a neural net of this kind must deal with a
+<tt class="docutils literal"><span class="pre">FeedForward</span></tt> instance. A <tt class="docutils literal"><span class="pre">FeedForward</span></tt> object is a list of <tt class="docutils literal"><span class="pre">Layers</span></tt>
+(consulting the documentation of these classes is important!). Each layer is
+a bidimensional array, where each line represents the synaptic weights of a
+single neuron. So, a multilayer network is actually a three-dimensional
+array, if you will. Usually, though, learning methods for this kind of net
+propagate some measure of the error from the output back to the input (the
+<tt class="docutils literal"><span class="pre">BackPropagation</span></tt> method, for instance).</p>
+<p>A class implementing a learning method should have at least two methods:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__init__</span></tt> method should initialize the object. It is in general
+used to configure some property of the learning algorithm, such as the
+learning rate.</dd>
+<dt>__call__</dt>
+<dd><p class="first">The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface is how the method should interact with the
+neural network. It should have the following signature:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">where <tt class="docutils literal"><span class="pre">nn</span></tt> is the <tt class="docutils literal"><span class="pre">FeedForward</span></tt> instance to be modified <em>in loco</em>,
+<tt class="docutils literal"><span class="pre">x</span></tt> is the input vector and <tt class="docutils literal"><span class="pre">d</span></tt> is the desired response of the net
+for that particular input vector. It should return nothing.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.lrules.LMS">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">LMS</tt><big>(</big><em>lrate=0.05</em><big>)</big><a class="headerlink" href="#peach.nn.lrules.LMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Least-Mean-Square (LMS) learning method.</p>
+<p>The LMS method is a very simple method of learning, thoroughly described in
+virtually every book about the subject. Please, consult a good book on
+neural networks for more information. This implementation tries to use the
+<tt class="docutils literal"><span class="pre">numpy</span></tt> routines as much as possible for better efficiency.</p>
+<dl class="attribute">
+<dt id="peach.nn.lrules.LMS.lrate">
+<tt class="descname">lrate</tt><a class="headerlink" href="#peach.nn.lrules.LMS.lrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learning rate used in the algorithm.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.lrules.SOMLearning">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">SOMLearning</tt><a class="headerlink" href="#peach.nn.lrules.SOMLearning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for Self-Organizing Maps.</p>
+<p>As a base class, this class doesn&#8217;t do anything. You should subclass this
+class if you want to implement a learning method for self-organizing maps.</p>
+<p>A learning method for a neural net of this kind must deal with a <tt class="docutils literal"><span class="pre">SOM</span></tt>
+instance. A <tt class="docutils literal"><span class="pre">SOM</span></tt> object is a <tt class="docutils literal"><span class="pre">Layer</span></tt> (consulting the documentation of
+these classes is important!).</p>
+<p>A class implementing a learning method should have at least two methods:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>__init__</dt>
+<dd>The <tt class="docutils literal"><span class="pre">__init__</span></tt> method should initialize the object. It is in general
+used to configure some property of the learning algorithm, such as the
+learning rate.</dd>
+<dt>__call__</dt>
+<dd><p class="first">The <tt class="docutils literal"><span class="pre">__call__</span></tt> interface is how the method should interact with the
+neural network. It should have the following signature:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nn</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">where <tt class="docutils literal"><span class="pre">nn</span></tt> is the <tt class="docutils literal"><span class="pre">SOM</span></tt> instance to be modified <em>in loco</em>, and <tt class="docutils literal"><span class="pre">x</span></tt>
+is the input vector. It should return nothing.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.lrules.WTA">
+<tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">WTA</tt><a class="headerlink" href="#peach.nn.lrules.WTA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for the <tt class="docutils literal"><span class="pre">WinnerTakesAll</span></tt> class</p>
+<p>alias of <a class="reference internal" href="#peach.nn.lrules.WinnerTakesAll" title="peach.nn.lrules.WinnerTakesAll"><tt class="xref py py-class docutils literal"><span class="pre">WinnerTakesAll</span></tt></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.nn.lrules.WidrowHoff">
+<tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">WidrowHoff</tt><a class="headerlink" href="#peach.nn.lrules.WidrowHoff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for the LMS class</p>
+<p>alias of <a class="reference internal" href="#peach.nn.lrules.LMS" title="peach.nn.lrules.LMS"><tt class="xref py py-class docutils literal"><span class="pre">LMS</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.nn.lrules.WinnerTakesAll">
+<em class="property">class </em><tt class="descclassname">peach.nn.lrules.</tt><tt class="descname">WinnerTakesAll</tt><big>(</big><em>lrate=0.05</em><big>)</big><a class="headerlink" href="#peach.nn.lrules.WinnerTakesAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Purely competitive learning method without learning rate adjust.</p>
+<p>A winner-takes-all strategy detects the winner on the self-organizing map
+and adjusts it in the direction of the input vector, scaled by the learning
+rate. Its tendency is to cluster around the gravity center of the points in
+the training set.</p>
+<dl class="attribute">
+<dt id="peach.nn.lrules.WinnerTakesAll.lrate">
+<tt class="descname">lrate</tt><a class="headerlink" href="#peach.nn.lrules.WinnerTakesAll.lrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learning rate used with the algorithm.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.nn.lrules.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

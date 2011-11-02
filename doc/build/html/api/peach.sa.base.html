@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.sa.base &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.sa" href="peach.sa.html" />
+    <link rel="next" title="peach.sa.neighbor" href="peach.sa.neighbor.html" />
+    <link rel="prev" title="peach.sa" href="peach.sa.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.neighbor.html" title="peach.sa.neighbor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.html" title="peach.sa"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.sa.html" accesskey="U">peach.sa</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.sa.base">
+<span id="peach-sa-base"></span><h1>peach.sa.base<a class="headerlink" href="#module-peach.sa.base" title="Permalink to this headline">¶</a></h1>
+<p>This package implements two versions of simulated annealing optimization. One
+works with numeric data, and the other with a codified bit string. This last
+method can be used in discrete optimization problems.</p>
+<dl class="class">
+<dt id="peach.sa.base.BinarySA">
+<em class="property">class </em><tt class="descclassname">peach.sa.base.</tt><tt class="descname">BinarySA</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=</em><span class="optional">[</span><span class="optional">]</span>, <em>fmt=None</em>, <em>neighbor=&lt;class 'peach.sa.neighbor.InvertBitsNeighbor'&gt;</em>, <em>T0=1000.0</em>, <em>rt=0.95</em>, <em>emax=1e-08</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.sa.base.BinarySA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulated Annealing binary optimization.</p>
+<p>This is a simulated annealing optimizer implemented to work with vectors of
+bits, which can be floating point or integer numbers, characters or anything
+allowed by the <tt class="docutils literal"><span class="pre">struct</span></tt> module of the Python standard library. The
+neighborhood of an estimate is calculated by an appropriate method given in
+the class instantiation. Given the nature of this implementation, no
+alternate convergence can be used in the case of rejection of an estimate.</p>
+<dl class="attribute">
+<dt id="peach.sa.base.BinarySA.best">
+<tt class="descname">best</tt><a class="headerlink" href="#peach.sa.base.BinarySA.best" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">fx)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the best estimate so far, and
+<tt class="docutils literal"><span class="pre">fx</span></tt> is its value on the objective function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.sa.base.BinarySA.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em>, <em>ranges=None</em>, <em>T0=1000.0</em>, <em>rt=0.95</em>, <em>h=0.5</em><big>)</big><a class="headerlink" href="#peach.sa.base.BinarySA.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate. Restartings are essential to the working of
+simulated annealing algorithms, to allow them to leave local minima.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">New estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</p>
+</dd>
+<dt>ranges</dt>
+<dd><p class="first last">Ranges of values allowed for each component of the input vector. If
+given, ranges are checked and a new estimate is generated in case
+any of the components fall beyond the value. <tt class="docutils literal"><span class="pre">range</span></tt> can be a
+tuple containing the inferior and superior limits of the interval;
+in that case, the same range is used for every variable in the input
+vector. <tt class="docutils literal"><span class="pre">range</span></tt> can also be a list of tuples of the same format,
+inferior and superior limits; in that case, the first tuple is
+assumed as the range allowed for the first variable, the second
+tuple is assumed as the range allowed for the second variable and so
+on.</p>
+</dd>
+<dt>T0</dt>
+<dd><p class="first last">Initial temperature of the system. The temperature is, of course, an
+analogy. Defaults to 1000.</p>
+</dd>
+<dt>rt</dt>
+<dd><p class="first last">Temperature decreasing rate. The temperature must slowly decrease in
+simulated annealing algorithms. In this implementation, this is
+controlled by this parameter. At each step, the temperature is
+multiplied by this value, so it is necessary that <tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">rt</span> <span class="pre">&lt;</span> <span class="pre">1</span></tt>.
+Defaults to 0.95, smaller values make the temperature decay faster,
+while larger values make the temperature decay slower.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.sa.base.BinarySA.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.sa.base.BinarySA.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>One step of the search.</p>
+<p>In this method, a neighbor of the given estimate is obtained from the
+present estimate by choosing <tt class="docutils literal"><span class="pre">nb</span></tt> bits and inverting them. It is
+accepted as a new estimate if it performs better in the cost function
+<em>or</em> if the temperature is high enough. In case it is not accepted, the
+previous estimate is mantained.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">This method returns a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the updated
+estimate of the minimum, and <tt class="docutils literal"><span class="pre">e</span></tt> is the estimated error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.sa.base.BinarySA.x">
+<tt class="descname">x</tt><a class="headerlink" href="#peach.sa.base.BinarySA.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimate of the minimum</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.sa.base.ContinuousSA">
+<em class="property">class </em><tt class="descclassname">peach.sa.base.</tt><tt class="descname">ContinuousSA</tt><big>(</big><em>f</em>, <em>x0</em>, <em>ranges=None</em>, <em>neighbor=&lt;class 'peach.sa.neighbor.GaussianNeighbor'&gt;</em>, <em>optm=None</em>, <em>T0=1000.0</em>, <em>rt=0.95</em>, <em>emax=1e-08</em>, <em>imax=1000</em><big>)</big><a class="headerlink" href="#peach.sa.base.ContinuousSA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulated Annealing continuous optimization.</p>
+<p>This is a simulated annealing optimizer implemented to work with vectors of
+continuous variables (obviouslly, implemented as floating point numbers). In
+general, simulated annealing methods searches for neighbors of one estimate,
+which makes a lot more sense in discrete problems. While in this class the
+method is implemented in a different way (to deal with continuous
+variables), the principle is pretty much the same &#8211; the neighbor is found
+based on a gaussian neighborhood.</p>
+<p>A simulated annealing algorithm adapted to deal with continuous variables
+has an enhancement that can be used: a gradient vector can be given and, in
+case the neighbor is not accepted, the estimate is updated in the downhill
+direction.</p>
+<dl class="attribute">
+<dt id="peach.sa.base.ContinuousSA.fx">
+<tt class="descname">fx</tt><a class="headerlink" href="#peach.sa.base.ContinuousSA.fx" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the objective function at the present estimate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.sa.base.ContinuousSA.ranges">
+<tt class="descname">ranges</tt><a class="headerlink" href="#peach.sa.base.ContinuousSA.ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the ranges for every variable. Although it is a writable
+property, care should be taken in changing parameters before ending the
+convergence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.sa.base.ContinuousSA.restart">
+<tt class="descname">restart</tt><big>(</big><em>x0</em>, <em>T0=1000.0</em>, <em>rt=0.95</em>, <em>h=0.5</em><big>)</big><a class="headerlink" href="#peach.sa.base.ContinuousSA.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the optimizer, returning to its original state, and allowing to
+use a new first estimate. Restartings are essential to the working of
+simulated annealing algorithms, to allow them to leave local minima.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>x0</dt>
+<dd><p class="first last">New estimate of the minimum. Estimates can be given in any format,
+but internally they are converted to a one-dimension vector, where
+each component corresponds to the estimate of that particular
+variable. The vector is computed by flattening the array.</p>
+</dd>
+<dt>T0</dt>
+<dd><p class="first last">Initial temperature of the system. The temperature is, of course, an
+analogy. Defaults to 1000.</p>
+</dd>
+<dt>rt</dt>
+<dd><p class="first last">Temperature decreasing rate. The temperature must slowly decrease in
+simulated annealing algorithms. In this implementation, this is
+controlled by this parameter. At each step, the temperature is
+multiplied by this value, so it is necessary that <tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">rt</span> <span class="pre">&lt;</span> <span class="pre">1</span></tt>.
+Defaults to 0.95, smaller values make the temperature decay faster,
+while larger values make the temperature decay slower.</p>
+</dd>
+<dt>h</dt>
+<dd><p class="first last">The initial step of the search. Defaults to 0.5</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.sa.base.ContinuousSA.step">
+<tt class="descname">step</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.sa.base.ContinuousSA.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>One step of the search.</p>
+<p>In this method, a neighbor of the given estimate is chosen at random,
+using a gaussian neighborhood. It is accepted as a new estimate if it
+performs better in the cost function <em>or</em> if the temperature is high
+enough. In case it is not accepted, a gradient step is executed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body">This method returns a tuple <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">e)</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the updated
+estimate of the minimum, and <tt class="docutils literal"><span class="pre">e</span></tt> is the estimated error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.sa.base.ContinuousSA.x">
+<tt class="descname">x</tt><a class="headerlink" href="#peach.sa.base.ContinuousSA.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimate of the position of the minimum.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.sa.base.standard_normal">
+<tt class="descclassname">peach.sa.base.</tt><tt class="descname">standard_normal</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.sa.base.standard_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>standard_normal(size=None)</p>
+<p>Returns samples from a Standard Normal distribution (mean=0, stdev=1).</p>
+<dl class="docutils">
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Output shape. Default is None, in which case a single value is
+returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">float or ndarray</span></dt>
+<dd>Drawn samples.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">array([ 0.6888893 ,  0.78096262, -0.89086505, ...,  0.49876311, #random</span>
+<span class="go">       -0.38672696, -0.4685006 ])                               #random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(8000,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(3, 4, 2)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.sa.base.uniform">
+<tt class="descclassname">peach.sa.base.</tt><tt class="descname">uniform</tt><big>(</big><big>)</big><a class="headerlink" href="#peach.sa.base.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>uniform(low=0.0, high=1.0, size=1)</p>
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half-open interval
+<tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high)</span></tt> (includes low, but excludes high).  In other words,
+any value within the given interval is equally likely to be drawn
+by <cite>uniform</cite>.</p>
+<dl class="docutils">
+<dt>low <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd>Lower boundary of the output interval.  All values generated will be
+greater than or equal to low.  The default value is 0.</dd>
+<dt>high <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Upper boundary of the output interval.  All values generated will be
+less than high.  The default value is 1.0.</dd>
+<dt>size <span class="classifier-delimiter">:</span> <span class="classifier">int or tuple of ints, optional</span></dt>
+<dd>Shape of output.  If the given size is, for example, (m,n,k),
+m*n*k samples are generated.  If no shape is specified, a single sample
+is returned.</dd>
+</dl>
+<dl class="docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Drawn samples, with shape <cite>size</cite>.</dd>
+</dl>
+<p>randint : Discrete uniform distribution, yielding integers.
+random_integers : Discrete uniform distribution over the closed</p>
+<blockquote>
+<div>interval <tt class="docutils literal"><span class="pre">[low,</span> <span class="pre">high]</span></tt>.</div></blockquote>
+<p>random_sample : Floats uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.
+random : Alias for <cite>random_sample</cite>.
+rand : Convenience function that accepts dimensions as input, e.g.,</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">rand(2,2)</span></tt> would generate a 2-by-2 array of floats,
+uniformly distributed over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</div></blockquote>
+<p>The probability density function of the uniform distribution is</p>
+<div class="math">
+<p><span class="math">p(x) = \frac{1}{b - a}</span></p>
+</div><p>anywhere within the interval <tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b)</span></tt>, and zero elsewhere.</p>
+<p>Draw samples from the distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All values are within the given interval:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Display the histogram of the samples, along with the
+probability density function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.sa.html"
+                        title="previous chapter">peach.sa</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.sa.neighbor.html"
+                        title="next chapter">peach.sa.neighbor</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.sa.base.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.neighbor.html" title="peach.sa.neighbor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.sa.html" title="peach.sa"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.sa.html" >peach.sa</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

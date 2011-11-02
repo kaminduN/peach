@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.fuzzy.defuzzy &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="peach.fuzzy" href="peach.fuzzy.html" />
+    <link rel="next" title="peach.fuzzy.mf" href="peach.fuzzy.mf.html" />
+    <link rel="prev" title="peach.fuzzy.cmeans" href="peach.fuzzy.cmeans.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.mf.html" title="peach.fuzzy.mf"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.cmeans.html" title="peach.fuzzy.cmeans"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" accesskey="U">peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.fuzzy.defuzzy">
+<span id="peach-fuzzy-defuzzy"></span><h1>peach.fuzzy.defuzzy<a class="headerlink" href="#module-peach.fuzzy.defuzzy" title="Permalink to this headline">¶</a></h1>
+<p>This package implements defuzzification methods for use with fuzzy controllers.</p>
+<p>Defuzzification methods take a set of numerical values, their corresponding
+fuzzy membership values and calculate a defuzzified value for them. They&#8217;re
+implemented as functions, not as classes. So, to implement your own, use the
+directions below.</p>
+<p>These methods are implemented as functions with the signature <tt class="docutils literal"><span class="pre">(mf,</span> <span class="pre">y)</span></tt>, where
+<tt class="docutils literal"><span class="pre">mf</span></tt> is the fuzzy set, and <tt class="docutils literal"><span class="pre">y</span></tt> is an array of values. That is, <tt class="docutils literal"><span class="pre">mf</span></tt> is a
+fuzzy set containing the membership values of each one in the <tt class="docutils literal"><span class="pre">y</span></tt> array, in
+the respective order. Both arrays should have the same dimensions, or else the
+methods won&#8217;t work.</p>
+<p>See the example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">peach</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m_y</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Centroid</span><span class="p">(</span><span class="n">m_y</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+<span class="go">2.0001030715316435</span>
+</pre></div>
+</div>
+<p>The methods defined here are the most commonly used.</p>
+<dl class="function">
+<dt id="peach.fuzzy.defuzzy.Bisector">
+<tt class="descclassname">peach.fuzzy.defuzzy.</tt><tt class="descname">Bisector</tt><big>(</big><em>mf</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.defuzzy.Bisector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bisection method</p>
+<p>The bisection method finds a coordinate <tt class="docutils literal"><span class="pre">y</span></tt> in domain that divides the
+fuzzy set in two subsets with the same area. Integrals are calculated using
+the trapezoid method. This method only works if the values in <tt class="docutils literal"><span class="pre">y</span></tt> are
+equally spaced, otherwise, the method will fail.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>mf</dt>
+<dd><p class="first last">Fuzzy set containing the membership values of the elements in the
+vector given in sequence</p>
+</dd>
+<dt>y</dt>
+<dd><p class="first last">Array of domain values of the defuzzified variable.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">Defuzzified value by the bisection method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.defuzzy.Centroid">
+<tt class="descclassname">peach.fuzzy.defuzzy.</tt><tt class="descname">Centroid</tt><big>(</big><em>mf</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.defuzzy.Centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Center of gravity method.</p>
+<p>The center of gravity is calculate using the standard formula found in any
+calculus book. The integrals are calculated using the trapezoid method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>mf</dt>
+<dd><p class="first last">Fuzzy set containing the membership values of the elements in the
+vector given in sequence</p>
+</dd>
+<dt>y</dt>
+<dd><p class="first last">Array of domain values of the defuzzified variable.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">The center of gravity of the fuzzy set.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.defuzzy.LargestOfMaxima">
+<tt class="descclassname">peach.fuzzy.defuzzy.</tt><tt class="descname">LargestOfMaxima</tt><big>(</big><em>mf</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.defuzzy.LargestOfMaxima" title="Permalink to this definition">¶</a></dt>
+<dd><p>Largest of maxima method.</p>
+<p>This method finds all the points in the domain which have maximum membership
+value in the fuzzy set, and returns the largest of them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>mf</dt>
+<dd><p class="first last">Fuzzy set containing the membership values of the elements in the
+vector given in sequence</p>
+</dd>
+<dt>y</dt>
+<dd><p class="first last">Array of domain values of the defuzzified variable.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">Defuzzified value by the largest of maxima method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.defuzzy.MeanOfMaxima">
+<tt class="descclassname">peach.fuzzy.defuzzy.</tt><tt class="descname">MeanOfMaxima</tt><big>(</big><em>mf</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.defuzzy.MeanOfMaxima" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean of maxima method.</p>
+<p>This method finds the smallest and largest of maxima, and returns their
+average.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>mf</dt>
+<dd><p class="first last">Fuzzy set containing the membership values of the elements in the
+vector given in sequence</p>
+</dd>
+<dt>y</dt>
+<dd><p class="first last">Array of domain values of the defuzzified variable.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">Defuzzified value by the  of maxima method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="peach.fuzzy.defuzzy.SmallestOfMaxima">
+<tt class="descclassname">peach.fuzzy.defuzzy.</tt><tt class="descname">SmallestOfMaxima</tt><big>(</big><em>mf</em>, <em>y</em><big>)</big><a class="headerlink" href="#peach.fuzzy.defuzzy.SmallestOfMaxima" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smallest of maxima method.</p>
+<p>This method finds all the points in the domain which have maximum membership
+value in the fuzzy set, and returns the smallest of them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>mf</dt>
+<dd><p class="first last">Fuzzy set containing the membership values of the elements in the
+vector given in sequence</p>
+</dd>
+<dt>y</dt>
+<dd><p class="first last">Array of domain values of the defuzzified variable.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">Defuzzified value by the smallest of maxima method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="peach.fuzzy.cmeans.html"
+                        title="previous chapter">peach.fuzzy.cmeans</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="peach.fuzzy.mf.html"
+                        title="next chapter">peach.fuzzy.mf</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.fuzzy.defuzzy.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.mf.html" title="peach.fuzzy.mf"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="peach.fuzzy.cmeans.html" title="peach.fuzzy.cmeans"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >API</a> &raquo;</li>
+          <li><a href="peach.fuzzy.html" >peach.fuzzy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

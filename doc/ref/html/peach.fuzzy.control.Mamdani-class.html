@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>peach.fuzzy.control.Mamdani</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="peach-module.html">Package&nbsp;peach</a> ::
+        <a href="peach.fuzzy-module.html">Package&nbsp;fuzzy</a> ::
+        <a href="peach.fuzzy.control-module.html">Module&nbsp;control</a> ::
+        Class&nbsp;Mamdani
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="peach.fuzzy.control.Mamdani-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Mamdani</h1><p class="nomargin-top"><span class="codelink"><a href="peach.fuzzy.control-pysrc.html#Mamdani">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_peach_fu_4" name="uml_class_diagram_for_peach_fu_4">
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#y" title="Property that returns the output variable interval. Not writable" alt="" coords="17,31,1885,49"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#rules" title="Property that returns the list of decision rules. Not writable" alt="" coords="17,49,1885,68"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#__init__" title="Creates and initialize the controller." alt="" coords="17,71,1885,89"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#set_norm" title="Sets the norm (and) to be used." alt="" coords="17,89,1885,108"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#set_conorm" title="Sets the conorm (or) to be used." alt="" coords="17,108,1885,127"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#set_negation" title="Sets the negation (not) to be used." alt="" coords="17,127,1885,145"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#set_implication" title="Sets the implication to be used." alt="" coords="17,145,1885,164"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#set_aglutination" title="Sets the aglutination to be used." alt="" coords="17,164,1885,183"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#add_rule" title="Adds a decision rule to the knowledge base." alt="" coords="17,183,1885,201"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#add_table" title="Adds a table of decision rules in a two variable controller." alt="" coords="17,201,1885,220"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#eval" title="Evaluates one decision rule in this controller" alt="" coords="17,220,1885,239"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#eval_all" title="Evaluates all the rules and aglutinates the results." alt="" coords="17,239,1885,257"/>
+<area shape="rect" id="node6" href="peach.fuzzy.control.Controller-class.html#__call__" title="Apply the controller to the set of input variables" alt="" coords="17,257,1885,276"/>
+<area shape="rect" id="node1" href="peach.fuzzy.control.Controller-class.html" title="Basic Mamdani controller" alt="" coords="5,6,1896,282"/>
+<area shape="rect" id="node2" href="peach.fuzzy.control.Mamdani-class.html" title="Mandani is an alias to Controller" alt="" coords="912,302,989,346"/>
+</map>
+  <img src="uml_class_diagram_for_peach_fu_4.gif" alt='' usemap="#uml_class_diagram_for_peach_fu_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">Mandani</tt> is an alias to <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">Controller</tt>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.fuzzy.control.Controller-class.html">Controller</a></code></b>:
+      <code><a href="peach.fuzzy.control.Controller-class.html#__call__">__call__</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#__init__">__init__</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#add_rule">add_rule</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#add_table">add_table</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#eval">eval</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#eval_all">eval_all</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#set_aglutination">set_aglutination</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#set_conorm">set_conorm</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#set_implication">set_implication</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#set_negation">set_negation</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#set_norm">set_norm</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="peach.fuzzy.control.Controller-class.html">Controller</a></code></b>:
+      <code><a href="peach.fuzzy.control.Controller-class.html#rules">rules</a></code>,
+      <code><a href="peach.fuzzy.control.Controller-class.html#y">y</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="peach-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a href="http://code.google.com/p/peach">Peach - Computational Intelligence for Python</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Jul 31 16:59:33 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

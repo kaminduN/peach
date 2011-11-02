@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dealing with Binary Objective Functions &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="tutorial.html" />
+    <link rel="next" title="Demos" href="../demos/demos.html" />
+    <link rel="prev" title="Optimization by Particle Swarms" href="particle-swarm-optimization.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../demos/demos.html" title="Demos"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="particle-swarm-optimization.html" title="Optimization by Particle Swarms"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dealing-with-binary-objective-functions">
+<h1>Dealing with Binary Objective Functions<a class="headerlink" href="#dealing-with-binary-objective-functions" title="Permalink to this headline">¶</a></h1>
+<p>There are a number of algorithms implemented in Peach that works with binary
+optimization, such as the binary simulated annealing and genetic algorithms.
+These algorithms, instead of dealing with arrays of floating point variables,
+deal with arrays of bits, that are converted to values of whatever type.</p>
+<p>Usually, Peach deals with them in a very graceful way &#8211; by using the <tt class="docutils literal"><span class="pre">struct</span></tt>
+module, that is standard in any Python distribution, Peach converts arrays of
+bits before passing them to your objective function. Thus, you program any
+function in the way you expect: by operating over numbers. Binary algorithms
+always accept a <tt class="docutils literal"><span class="pre">format</span></tt> parameter to make the conversion. Please, consult the
+<tt class="docutils literal"><span class="pre">struct</span></tt> and the respective algorithms documentation for more information.</p>
+<p>Alas, not all of our problems in life will be so well behaved that standard
+functions are enough. Sometimes, you need to deal with a different pattern of
+values, and the <tt class="docutils literal"><span class="pre">struct</span></tt> module won&#8217;t help you. For situations like this,
+Peach can also pass to the objective function an array of bits, without any
+conversion. In this case, your function is responsible for decoding the
+information in the bitstream and compute a real number that is the value of the
+objective function.</p>
+<p>In this tutorial, we show how to deal with that. Besides using the <tt class="docutils literal"><span class="pre">numpy</span></tt> and
+<tt class="docutils literal"><span class="pre">peach</span></tt> modules, we will need the <tt class="docutils literal"><span class="pre">bitarray</span></tt> module. Unfortunatelly, it is
+not part of the standard Python distribution, so you will have to install it
+separatelly. Also, consult the documentation on the module. Anyway, it is very
+easy to work with <tt class="docutils literal"><span class="pre">bitarray</span></tt>&#8216;s. They work exactly as an array, except for the
+fact that each element is a bit, instead of an integer or a float.</p>
+<p>Here, we will implement the simplified Rosenbrock function that will work in
+pretty much the same way as before, except that here it will receive two
+fields of 12 bits, each representing an integer from 0 to 4096. We divide these
+integers by 2048 to represent numbers from 0. to 2. This number representation
+scheme is called <em>fixed-point</em> &#8211; there are lots of ways to represent numbers,
+and notice that ours does not takes signs into account! Also, notice that,
+unfortunatelly, there is no way to extract these numbers using <tt class="docutils literal"><span class="pre">struct</span></tt>, so we
+have to invent our own way.</p>
+<p>We start by importing the modules. To define the function, only the <tt class="docutils literal"><span class="pre">numpy</span></tt>
+and <tt class="docutils literal"><span class="pre">bitarray</span></tt> modules are needed, so we will omit the other imports:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">bitarray</span>
+</pre></div>
+</div>
+<p>Now, we must define the function. The algorithm &#8211; whatever it is &#8211; will pass
+a bitarray as a single object to your function. Treat this as an array. To
+extract the first 12 bits, just issue <tt class="docutils literal"><span class="pre">x[:12]</span></tt>, and to extract the last 12
+bits, use <tt class="docutils literal"><span class="pre">x[12:]</span></tt>. Use the result as you like. It can be useful to create a
+function just to do the conversion:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2048.</span>
+</pre></div>
+</div>
+<p>What this function does is to create an array with the values of powers of 2,
+multiply it by the bits, sum it all and divide by 2048. Now, we define our
+objective function. It will receive the bitarray, separate the two numbers,
+convert them and apply to the Rosenbrock function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">12</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">2.</span>
+</pre></div>
+</div>
+<p>And that&#8217;s it. You can pass it to any algorithm that does binary optimization,
+such as the <tt class="docutils literal"><span class="pre">BinarySA</span></tt> or <tt class="docutils literal"><span class="pre">GeneticAlgorithm</span></tt>. Please, check the
+documentation on these classes for more information. Below is a table with some
+values of the conversion:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">bits</th>
+<th class="head">x</th>
+<th class="head">y</th>
+<th class="head">f(x, y)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>000000000000,  000000000000</td>
+<td>0.0000</td>
+<td>0.0000</td>
+<td>1.0000</td>
+</tr>
+<tr><td>000000000001,  000000000001</td>
+<td>0.0005</td>
+<td>0.0005</td>
+<td>0.9990</td>
+</tr>
+<tr><td>000001000000,  000001000000</td>
+<td>0.0312</td>
+<td>0.0312</td>
+<td>0.9394</td>
+</tr>
+<tr><td>000001000000,  000000000001</td>
+<td>0.0312</td>
+<td>0.0005</td>
+<td>0.9385</td>
+</tr>
+<tr><td>000000000001,  000001000000</td>
+<td>0.0005</td>
+<td>0.0312</td>
+<td>1.0000</td>
+</tr>
+<tr><td>001010110010,  100101110101</td>
+<td>0.3369</td>
+<td>1.1821</td>
+<td>1.5816</td>
+</tr>
+<tr><td>010101101010,  110101010101</td>
+<td>0.6768</td>
+<td>1.6665</td>
+<td>1.5650</td>
+</tr>
+<tr><td>101010101010,  101010101010</td>
+<td>1.3330</td>
+<td>1.3330</td>
+<td>0.3079</td>
+</tr>
+<tr><td>111111111111,  111111111111</td>
+<td>1.9995</td>
+<td>1.9995</td>
+<td>4.9932</td>
+</tr>
+<tr><td>010000000000,  010000000000</td>
+<td>0.5000</td>
+<td>0.5000</td>
+<td>0.3125</td>
+</tr>
+<tr><td>100000000000,  100000000000</td>
+<td>1.0000</td>
+<td>1.0000</td>
+<td>0.0000</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="particle-swarm-optimization.html"
+                        title="previous chapter">Optimization by Particle Swarms</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../demos/demos.html"
+                        title="next chapter">Demos</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tutorial/binary-objective-function.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../demos/demos.html" title="Demos"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="particle-swarm-optimization.html" title="Optimization by Particle Swarms"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>

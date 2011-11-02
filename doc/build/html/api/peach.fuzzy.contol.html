@@ -1,0 +1,474 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>peach.fuzzy.control &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-peach.fuzzy.control">
+<span id="peach-fuzzy-control"></span><h1>peach.fuzzy.control<a class="headerlink" href="#module-peach.fuzzy.control" title="Permalink to this headline">¶</a></h1>
+<p>This package implements fuzzy controllers, of fuzzy inference systems.</p>
+<p>There are two types of controllers implemented in this package. The Mamdani
+controller is the traditional approach, where input (or controlled) variables
+are fuzzified, a set of decision rules determine the outcome in a fuzzified way,
+and a defuzzification method is applied to obtain the numerical result.</p>
+<p>The Sugeno controller operates in a similar way, but there is no defuzzification
+step. Instead, the value of the output (or manipulated) variable is determined
+by parametric models, and the final result is determined by a weighted average
+based on the decision rules. This type of controller is also known as parametric
+controller.</p>
+<dl class="class">
+<dt id="peach.fuzzy.control.Controller">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.control.</tt><tt class="descname">Controller</tt><big>(</big><em>yrange</em>, <em>rules=</em><span class="optional">[</span><span class="optional">]</span>, <em>defuzzy=&lt;function Centroid at 0x039C8730&gt;</em>, <em>norm=&lt;function ZadehAnd at 0x039BADB0&gt;</em>, <em>conorm=&lt;function ZadehOr at 0x039BADF0&gt;</em>, <em>negation=&lt;function ZadehNot at 0x039BAE30&gt;</em>, <em>imply=&lt;function MamdaniImplication at 0x039BAFB0&gt;</em>, <em>aglutinate=&lt;function MamdaniAglutination at 0x039C8030&gt;</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic Mamdani controller</p>
+<p>This class implements a standard Mamdani controller. A controller based on
+fuzzy logic has a somewhat complex behaviour, so it is not explained here.
+There are numerous references that can be consulted.</p>
+<p>It is essential to understand the format that decision rules must follow to
+obtain correct behaviour of the controller. A rule is a tuple given by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="n">mx0</span><span class="p">,</span> <span class="n">mx1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">mxn</span><span class="p">),</span> <span class="n">my</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">mx0</span></tt> is a membership function of the first input variable, <tt class="docutils literal"><span class="pre">mx1</span></tt>
+is a membership function of the second input variable and so on; and <tt class="docutils literal"><span class="pre">my</span></tt>
+is a membership function or a fuzzy set of the output variable.</p>
+<p>Notice that <tt class="docutils literal"><span class="pre">mx</span></tt>&#8216;s are <em>functions</em> not fuzzy sets! They will be applied to
+the values of the input variables given in the function call, so, if they
+are anything different from a membership function, an exception will be
+raised. Please, consult the examples to see how they must be used.</p>
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.add_rule">
+<tt class="descname">add_rule</tt><big>(</big><em>rule</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.add_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a decision rule to the knowledge base.</p>
+<p>It is essential to understand the format that decision rules must follow
+to obtain correct behaviour of the controller. A rule is a tuple must
+have the following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="n">mx0</span><span class="p">,</span> <span class="n">mx1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">mxn</span><span class="p">),</span> <span class="n">my</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">mx0</span></tt> is a membership function of the first input variable,
+<tt class="docutils literal"><span class="pre">mx1</span></tt> is a membership function of the second input variable and so on;
+and <tt class="docutils literal"><span class="pre">my</span></tt> is a membership function or a fuzzy set of the output
+variable.</p>
+<p>Notice that <tt class="docutils literal"><span class="pre">mx</span></tt>&#8216;s are <em>functions</em> not fuzzy sets! They will be
+applied to the values of the input variables given in the function call,
+so, if they are anything different from a membership function, an
+exception will be raised when the controller is used. Please, consult
+the examples to see how they must be used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.add_table">
+<tt class="descname">add_table</tt><big>(</big><em>lx1</em>, <em>lx2</em>, <em>table</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.add_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a table of decision rules in a two variable controller.</p>
+<p>Typically, fuzzy controllers are used to control two variables. In that
+case, the set of decision rules are given in the form of a table, since
+that is a more compact format and very easy to visualize. This is a
+convenience function that allows to add decision rules in the form of a
+table. Notice that the resulting knowledge base will be the same if this
+function is used or the <tt class="docutils literal"><span class="pre">add_rule</span></tt> method is used with every single
+rule. The second method is in general easier to read in a script, so
+consider well.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>lx1</dt>
+<dd><p class="first last">The set of membership functions to the variable <tt class="docutils literal"><span class="pre">x1</span></tt>, or the
+lines of the table</p>
+</dd>
+<dt>lx2</dt>
+<dd><p class="first last">The set of membership functions to the variable <tt class="docutils literal"><span class="pre">x2</span></tt>, or the
+columns of the table</p>
+</dd>
+<dt>table</dt>
+<dd><p class="first last">The consequent of the rule where the condition is the line <tt class="docutils literal"><span class="pre">and</span></tt>
+the column. These can be the membership functions or fuzzy sets.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.eval">
+<tt class="descname">eval</tt><big>(</big><em>r</em>, <em>xs</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates one decision rule in this controller</p>
+<p>Takes a rule from the controller and evaluates it given the values of
+the input variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>r</dt>
+<dd><p class="first last">The rule in the standard format, or an integer number. If <tt class="docutils literal"><span class="pre">r</span></tt> is
+an integer, then the <tt class="docutils literal"><span class="pre">r</span></tt> th rule in the knowledge base will be
+evaluated.</p>
+</dd>
+<dt>xs</dt>
+<dd><p class="first last">A tuple, a list or an array containing the values of the input
+variables. The dimension must be coherent with the given rule.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">This method evaluates each membership function in the rule for each
+given value, and <tt class="docutils literal"><span class="pre">and</span></tt> &#8216;s the results to obtain the condition. If
+the condition is zero, a tuple <tt class="docutils literal"><span class="pre">(0.0,</span> <span class="pre">None)</span> <span class="pre">is</span> <span class="pre">returned.</span> <span class="pre">Otherwise,</span>
+<span class="pre">the</span> <span class="pre">condition</span> <span class="pre">is</span> <span class="pre">``imply</span></tt> ed in the membership function of the output
+variable. A tuple containing <tt class="docutils literal"><span class="pre">(condition,</span> <span class="pre">imply)</span></tt> (the membership
+value associated to the condition and the result of the implication)
+is returned.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.eval_all">
+<tt class="descname">eval_all</tt><big>(</big><em>*xs</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.eval_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates all the rules and aglutinates the results.</p>
+<p>Given the values of the input variables, evaluate and apply every rule
+in the knowledge base (with the <tt class="docutils literal"><span class="pre">eval</span></tt> method) and aglutinates the
+results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>xs</dt>
+<dd><p class="first last">A tuple, a list or an array with the values of the input variables.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">A fuzzy set containing the result of the evaluation of every rule in
+the knowledge base, with the results aglutinated.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.fuzzy.control.Controller.rules">
+<tt class="descname">rules</tt><a class="headerlink" href="#peach.fuzzy.control.Controller.rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the list of decision rules. Not writable</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.set_aglutination">
+<tt class="descname">set_aglutination</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.set_aglutination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the aglutination to be used.</p>
+<p>This method must be used to change the behavior of the aglutination
+operation of the controller.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the aglutination
+result.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.set_conorm">
+<tt class="descname">set_conorm</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.set_conorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the conorm (<tt class="docutils literal"><span class="pre">or</span></tt>) to be used.</p>
+<p>This method must be used to change the behavior of the <tt class="docutils literal"><span class="pre">or</span></tt> operation
+of the controller.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the <tt class="docutils literal"><span class="pre">or</span></tt> result.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.set_implication">
+<tt class="descname">set_implication</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.set_implication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the implication to be used.</p>
+<p>This method must be used to change the behavior of the implication
+operation of the controller.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the implication
+result.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.set_negation">
+<tt class="descname">set_negation</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.set_negation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the negation (<tt class="docutils literal"><span class="pre">not</span></tt>) to be used.</p>
+<p>This method must be used to change the behavior of the <tt class="docutils literal"><span class="pre">not</span></tt> operation
+of the controller.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">The function can be any function that takes one numerical value and
+return one numerical value, that corresponds to the <tt class="docutils literal"><span class="pre">not</span></tt> result.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Controller.set_norm">
+<tt class="descname">set_norm</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Controller.set_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the norm (<tt class="docutils literal"><span class="pre">and</span></tt>) to be used.</p>
+<p>This method must be used to change the behavior of the <tt class="docutils literal"><span class="pre">and</span></tt> operation
+of the controller.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first last docutils">
+<dt>f</dt>
+<dd><p class="first last">The function can be any function that takes two numerical values and
+return one numerical value, that corresponds to the <tt class="docutils literal"><span class="pre">and</span></tt> result.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.fuzzy.control.Controller.y">
+<tt class="descname">y</tt><a class="headerlink" href="#peach.fuzzy.control.Controller.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the output variable interval. Not writable</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.control.Mamdani">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.control.</tt><tt class="descname">Mamdani</tt><big>(</big><em>yrange</em>, <em>rules=</em><span class="optional">[</span><span class="optional">]</span>, <em>defuzzy=&lt;function Centroid at 0x039C8730&gt;</em>, <em>norm=&lt;function ZadehAnd at 0x039BADB0&gt;</em>, <em>conorm=&lt;function ZadehOr at 0x039BADF0&gt;</em>, <em>negation=&lt;function ZadehNot at 0x039BAE30&gt;</em>, <em>imply=&lt;function MamdaniImplication at 0x039BAFB0&gt;</em>, <em>aglutinate=&lt;function MamdaniAglutination at 0x039C8030&gt;</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Mamdani" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">Mandani</span></tt> is an alias to <tt class="docutils literal"><span class="pre">Controller</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.control.Parametric">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.control.</tt><tt class="descname">Parametric</tt><big>(</big><em>rules=</em><span class="optional">[</span><span class="optional">]</span>, <em>norm=&lt;function ProbabilisticAnd at 0x039C8070&gt;</em>, <em>conorm=&lt;function ProbabilisticOr at 0x039C80B0&gt;</em>, <em>negation=&lt;function ProbabilisticNot at 0x039C80F0&gt;</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Parametric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic Parametric controller</p>
+<p>This class implements a standard parametric (or Takagi-Sugeno) controller. A
+controller based on fuzzy logic has a somewhat complex behaviour, so it is
+not explained here. There are numerous references that can be consulted.</p>
+<p>It is essential to understand the format that decision rules must follow to
+obtain correct behaviour of the controller. A rule is a tuple given by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="n">mx0</span><span class="p">,</span> <span class="n">mx1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">mxn</span><span class="p">),</span> <span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">an</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">mx0</span></tt> is a membership function of the first input variable, <tt class="docutils literal"><span class="pre">mx1</span></tt>
+is a membership function of the second input variable and so on; and <tt class="docutils literal"><span class="pre">a0</span></tt>
+is the linear parameter, <tt class="docutils literal"><span class="pre">a1</span></tt> is the parameter associated with the first
+input variable, <tt class="docutils literal"><span class="pre">a2</span></tt> is the parameter associated with the second input
+variable and so on. The response to the rule is calculated by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">y</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">+</span> <span class="n">a1</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="n">a2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="o">...</span> <span class="o">+</span> <span class="n">an</span><span class="o">*</span><span class="n">xn</span>
+</pre></div>
+</div>
+<p>Notice that <tt class="docutils literal"><span class="pre">mx</span></tt>&#8216;s are <em>functions</em> not fuzzy sets! They will be applied to
+the values of the input variables given in the function call, so, if they
+are anything different from a membership function, an exception will be
+raised. Please, consult the examples to see how they must be used.</p>
+<dl class="method">
+<dt id="peach.fuzzy.control.Parametric.add_rule">
+<tt class="descname">add_rule</tt><big>(</big><em>rule</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Parametric.add_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a decision rule to the knowledge base.</p>
+<p>It is essential to understand the format that decision rules must follow
+to obtain correct behaviour of the controller. A rule is a tuple given
+by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="n">mx0</span><span class="p">,</span> <span class="n">mx1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">mxn</span><span class="p">),</span> <span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">an</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">mx0</span></tt> is a membership function of the first input variable,
+<tt class="docutils literal"><span class="pre">mx1</span></tt> is a membership function of the second input variable and so on;
+and <tt class="docutils literal"><span class="pre">a0</span></tt> is the linear parameter, <tt class="docutils literal"><span class="pre">a1</span></tt> is the parameter associated
+with the first input variable, <tt class="docutils literal"><span class="pre">a2</span></tt> is the parameter associated with
+the second input variable and so on.</p>
+<p>Notice that <tt class="docutils literal"><span class="pre">mx</span></tt>&#8216;s are <em>functions</em> not fuzzy sets! They will be
+applied to the values of the input variables given in the function call,
+so, if they are anything different from a membership function, an
+exception will be raised. Please, consult the examples to see how they
+must be used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="peach.fuzzy.control.Parametric.eval">
+<tt class="descname">eval</tt><big>(</big><em>r</em>, <em>xs</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Parametric.eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates one decision rule in this controller</p>
+<p>Takes a rule from the controller and evaluates it given the values of
+the input variables. The format of the rule is as given, and the
+response to the rule is calculated by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">y</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">+</span> <span class="n">a1</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="n">a2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="o">...</span> <span class="o">+</span> <span class="n">an</span><span class="o">*</span><span class="n">xn</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><dl class="first docutils">
+<dt>r</dt>
+<dd><p class="first last">The rule in the standard format, or an integer number. If <tt class="docutils literal"><span class="pre">r</span></tt> is
+an integer, then the <tt class="docutils literal"><span class="pre">r</span></tt> th rule in the knowledge base will be
+evaluated.</p>
+</dd>
+<dt>xs</dt>
+<dd><p class="first last">A tuple, a list or an array containing the values of the input
+variables. The dimension must be coherent with the given rule.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last">This method evaluates each membership function in the rule for each
+given value, and <tt class="docutils literal"><span class="pre">and</span></tt> &#8216;s the results to obtain the condition. If
+the condition is zero, a tuple <tt class="docutils literal"><span class="pre">(0.0,</span> <span class="pre">0.0)</span> <span class="pre">is</span> <span class="pre">returned.</span> <span class="pre">Otherwise,</span>
+<span class="pre">the</span> <span class="pre">result</span> <span class="pre">as</span> <span class="pre">given</span> <span class="pre">above</span> <span class="pre">is</span> <span class="pre">calculate,</span> <span class="pre">and</span> <span class="pre">a</span> <span class="pre">tuple</span> <span class="pre">containing</span>
+<span class="pre">``(condition,</span> <span class="pre">result)</span></tt> (the membership value associated to the
+condition and the result of the calculation) is returned.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="peach.fuzzy.control.Parametric.rules">
+<tt class="descname">rules</tt><a class="headerlink" href="#peach.fuzzy.control.Parametric.rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that returns the list of decision rules. Not writable</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="peach.fuzzy.control.Sugeno">
+<em class="property">class </em><tt class="descclassname">peach.fuzzy.control.</tt><tt class="descname">Sugeno</tt><big>(</big><em>rules=</em><span class="optional">[</span><span class="optional">]</span>, <em>norm=&lt;function ProbabilisticAnd at 0x039C8070&gt;</em>, <em>conorm=&lt;function ProbabilisticOr at 0x039C80B0&gt;</em>, <em>negation=&lt;function ProbabilisticNot at 0x039C80F0&gt;</em><big>)</big><a class="headerlink" href="#peach.fuzzy.control.Sugeno" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="docutils literal"><span class="pre">Sugeno</span></tt> is an alias to <tt class="docutils literal"><span class="pre">Parametric</span></tt></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/api/peach.fuzzy.contol.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>
