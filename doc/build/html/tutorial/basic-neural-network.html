@@ -62,7 +62,7 @@ neural network with two inputs, one hidden layer with two neurons and one output
 layer with one layer. We will use a sigmoidal function as its activation
 function and backpropagation as its learning algorithm. These are, in general,
 the default choices.</p>
-<div align="center" class="align-center"><img alt="../_images/basic-neural-network.png" class="align-center" src="../_images/basic-neural-network.png" /></div>
+<img alt="../_images/basic-neural-network.png" class="align-center" src="../_images/basic-neural-network.png" />
 <p>We will assume that we are using the Python command line to see what we are
 doing. So, the first thing we need to do is to import the Peach library. We do
 this with the command:</p>
@@ -104,7 +104,7 @@ biased. It defaults to <tt class="xref docutils literal"><span class="pre">False
 <p>There are a number of properties that we can consult to inspect the neural
 network. Some of these are given below:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">nlayers</span></tt></dt>
 <dd>The number of layers in the network.</dd>
 <dt><tt class="docutils literal"><span class="pre">bias</span></tt></dt>
@@ -119,11 +119,11 @@ be used, however, after the network is fed some input vector.</dd>
 <dd>The <tt class="docutils literal"><span class="pre">[]</span></tt> operator can be used to access a specific <tt class="docutils literal"><span class="pre">Layer</span></tt> of the
 network. There are some properties of the layers that can be very useful.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>A <tt class="docutils literal"><span class="pre">Layer</span></tt> is an object that represents exactly that: a layer of neurons. It
 has some properties that are very useful, some of them are listed below:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">size</span></tt></dt>
 <dd>The number of neurons on the layer.</dd>
 <dt><tt class="docutils literal"><span class="pre">inputs</span></tt></dt>
@@ -145,7 +145,7 @@ an input, and will give the activation potential to the last input.</dd>
 available and can only be used after the layer was fed an input, and
 will give the output to the last input.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>When the neural network is created, a randomized array of synaptic weights is
 created for every layer. We can inspect and modify those using the <tt class="docutils literal"><span class="pre">weights</span></tt>
 property of a <tt class="docutils literal"><span class="pre">Layer</span></tt>. The synaptic weights are <tt class="docutils literal"><span class="pre">numpy</span></tt> arrays of floating
@@ -251,7 +251,7 @@ array.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

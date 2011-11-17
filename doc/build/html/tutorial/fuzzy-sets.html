@@ -25,7 +25,7 @@
     <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
     <link rel="up" title="Tutorials" href="tutorial.html" />
     <link rel="next" title="Using Membership Functions" href="membership-functions.html" />
-    <link rel="prev" title="Extended Example on Self-Organizing Maps" href="self-organizing-maps.html" /> 
+    <link rel="prev" title="Interpolation using Radial Basis Networks" href="radial-basis-function.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
           <a href="membership-functions.html" title="Using Membership Functions"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+          <a href="radial-basis-function.html" title="Interpolation using Radial Basis Networks"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
           <li><a href="tutorial.html" accesskey="U">Tutorials</a> &raquo;</li> 
@@ -96,7 +96,7 @@ are done for all <tt class="docutils literal"><span class="pre">FuzzySets</span>
 <tt class="docutils literal"><span class="pre">a.set_norm(...)</span></tt> or from the class itself (that is,
 <tt class="docutils literal"><span class="pre">FuzzySet.set_norm(...)</span></tt>):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">set_norm(f)</span></tt></dt>
 <dd>Sets the <em>and</em> operation to that indicated by the <tt class="docutils literal"><span class="pre">f</span></tt> function. The
 <tt class="docutils literal"><span class="pre">f</span></tt> function must take two arguments and return the <em>and</em> value of the
@@ -110,11 +110,11 @@ operation.</dd>
 <tt class="docutils literal"><span class="pre">f</span></tt> function must take one argument and return the <em>not</em> value of the
 operation.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>There are a number of available norms, conorms and negations to use. Some of
 them are described below:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><tt class="docutils literal"><span class="pre">ZadehAnd</span></tt>, <tt class="docutils literal"><span class="pre">ZadehOr</span></tt>, <tt class="docutils literal"><span class="pre">ZadehNot</span></tt></dt>
 <dd>The logic operations as defined by Lofti Zadeh, that is, respectively, the
 minimum, maximum and one complement.</dd>
@@ -127,7 +127,7 @@ minimum, maximum and one complement.</dd>
 the probabilistic theory, that is: the product, the independent sum and the
 one complement.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>See the example below on how to use them. We will set the norm and conorm for
 fuzzy set <tt class="docutils literal"><span class="pre">a</span></tt> as the probabilistic norms:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">set_norm</span><span class="p">(</span><span class="n">ProbabilisticAnd</span><span class="p">)</span>
@@ -178,8 +178,8 @@ arrays. So, simple functions are okay.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="self-organizing-maps.html"
-                        title="previous chapter">Extended Example on Self-Organizing Maps</a></p>
+  <p class="topless"><a href="radial-basis-function.html"
+                        title="previous chapter">Interpolation using Radial Basis Networks</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="membership-functions.html"
                         title="next chapter">Using Membership Functions</a></p>
@@ -215,7 +215,7 @@ arrays. So, simple functions are okay.</p>
           <a href="membership-functions.html" title="Using Membership Functions"
              >next</a> |</li>
         <li class="right" >
-          <a href="self-organizing-maps.html" title="Extended Example on Self-Organizing Maps"
+          <a href="radial-basis-function.html" title="Interpolation using Radial Basis Networks"
              >previous</a> |</li>
         <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
           <li><a href="tutorial.html" >Tutorials</a> &raquo;</li> 
@@ -223,7 +223,7 @@ arrays. So, simple functions are okay.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

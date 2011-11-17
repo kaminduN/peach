@@ -59,7 +59,7 @@ are infinite ways to define fuzzy set intersection, union and complement.</p>
 <p>Intersections are defined as a function <em>t</em>(<em>x</em>, <em>y</em>) taking two arguments and
 returning one result, and satisfying the properties:</p>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>It is comutative, that is: <em>t</em>(<em>x</em>, <em>y</em>) = <em>t</em>(<em>y</em>, <em>x</em>)</li>
 <li>Its neutral element is 1, that is <em>t</em>(<em>x</em>, 1) = <em>x</em></li>
 <li>It has the property <em>t</em>(<em>x</em>, 0) = 0</li>
@@ -68,7 +68,7 @@ returning one result, and satisfying the properties:</p>
 <li>It is monotonic, that is, if <em>w</em> &lt; <em>x</em> and <em>z</em> &lt; <em>y</em>, then
 <em>t</em>(<em>w</em>, <em>z</em>) &lt; <em>t</em>(<em>x</em>, <em>y</em>)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <p>Functions with these properties are called norms, or <em>t</em>-norms. The traditional
 function used as intersection operator over fuzzy sets is the minimum function,
 that takes two values and returns the smallest of them. This is called the
@@ -76,7 +76,7 @@ that takes two values and returns the smallest of them. This is called the
 <p>Unions are defined as a function <em>s</em>(<em>x</em>, <em>y</em>) taking two arguments and
 returning one result, and satisfying the properties:</p>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>It is comutative, that is: <em>s</em>(<em>x</em>, <em>y</em>) = <em>s</em>(<em>y</em>, <em>x</em>)</li>
 <li>Its neutral element is 0, that is <em>s</em>(<em>x</em>, 0) = <em>x</em></li>
 <li>It has the property <em>s</em>(<em>x</em>, 1) = 1</li>
@@ -85,7 +85,7 @@ returning one result, and satisfying the properties:</p>
 <li>It is monotonic, that is, if <em>w</em> &lt; <em>x</em> and <em>z</em> &lt; <em>y</em>, then
 <em>s</em>(<em>w</em>, <em>z</em>) &lt; <em>s</em>(<em>x</em>, <em>y</em>)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <p>Functions with these properties are called conorms, or <em>s</em>-norms. The
 traditional function used as union operator over fuzzy sets is the maximum
 function, that takes two values and returns the largest of them. This is called
@@ -93,13 +93,13 @@ the <em>Zadeh union</em>, or <em>Zadeh or</em>.</p>
 <p>Complements are implemented by negations. Negations are functions of one
 variable with the following properties:</p>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li><em>n</em>(0) = 1</li>
 <li><em>n</em>(1) = 0</li>
 <li><em>n</em>(<em>n</em>(x)) = x</li>
 <li>if <em>y</em> &lt; <em>x</em>, then <em>n</em>(<em>y</em>) &gt; <em>n</em>(<em>x</em>)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <p>The standard negation used in fuzzy logic is the 1-complement, that is 1 - <em>x</em>.</p>
 <p>In Peach, to set norms, conorms and negations, we use, respectively, the methods
 <tt class="docutils literal"><span class="pre">set_norm</span></tt>, <tt class="docutils literal"><span class="pre">set_conorm</span></tt> and <tt class="docutils literal"><span class="pre">set_negation</span></tt>. Notice that those are class
@@ -139,7 +139,7 @@ on the corresponding operations in probability. We will configure the
 <p>There are other norms that we could use. Please, check the documentation for a
 complete list. Here are some of them:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt>Norms:</dt>
 <dd><tt class="docutils literal"><span class="pre">ZadehAnd</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticAnd</span></tt>, <tt class="docutils literal"><span class="pre">DrasticProduct</span></tt>,
 <tt class="docutils literal"><span class="pre">EinsteinProduct</span></tt></dd>
@@ -148,7 +148,7 @@ complete list. Here are some of them:</p>
 <dt>Negations:</dt>
 <dd><tt class="docutils literal"><span class="pre">ZadehNot</span></tt>, <tt class="docutils literal"><span class="pre">ProbabilisticNot</span></tt></dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>You can easily create your own norms, too. Norms and negations are simple
 functions, with no need to instantiation of classes. To create a norm or a
 conorm, implement it as a function that takes two arguments and return the
@@ -156,7 +156,7 @@ result of the operation. To create a negation, implement it as a function that
 takes one argument and return the result of the operation. These functions can
 be used anywhere a norm, a conorm or a negation are expected.</p>
 <p>The figure below shows the results of the using the norms.</p>
-<div align="center" class="align-center"><img alt="../_images/norms-conorms.png" class="align-center" src="../_images/norms-conorms.png" /></div>
+<img alt="../_images/norms-conorms.png" class="align-center" src="../_images/norms-conorms.png" />
 </div>
 
 
@@ -211,7 +211,7 @@ be used anywhere a norm, a conorm or a negation are expected.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2009, José Alexandre Nalon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

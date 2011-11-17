@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Linear Regression demo &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Demos" href="demos.html" />
+    <link rel="prev" title="The Flock demo" href="flock.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="flock.html" title="The Flock demo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="demos.html" accesskey="U">Demos</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-linear-regression-demo">
+<h1>The Linear Regression demo<a class="headerlink" href="#the-linear-regression-demo" title="Permalink to this headline">¶</a></h1>
+<p>This program demonstrates the action of a single neuron with linear activation
+in the task of linear regression of a single variable, single valued function.
+Although linear neurons can do more than one-to-one regression, this case is
+specially good for visualization. This is a demonstration of the Neural Network
+package <em class="xref std std-ref">nnet</em>. To run it, you must have the <a class="reference external" href="http://www.riverbankcomputing.co.uk/">PyQt4</a> library installed. The demo shows a
+window representing the line obtained by the regression, update at each example
+shown to the neuron.</p>
+<div class="section" id="starting-the-program">
+<h2>Starting the Program<a class="headerlink" href="#starting-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Before trying to run the program, please make sure that the required libraries
+are installed and working. Usually, they are not difficult to install: Windows
+builds come with an installer, and Linux versions can be installed using a
+package manager.</p>
+<p>The program resides in the <tt class="docutils literal"><span class="pre">demos\flock</span></tt> folder. If you use Windows, use the
+file browser to navigate to that folder and double-click the <tt class="docutils literal"><span class="pre">IPApp.py</span></tt> file,
+and the program should start. In Linux, you can start it by the command line
+interface, navigating to the program folder and typing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># python LRApp.py</span>
+</pre></div>
+</div>
+<p>The main window of the program will be shown as in the picture below.</p>
+<img alt="../_images/linear-regression2.png" src="../_images/linear-regression2.png" style="width: 700px;" />
+</div>
+<div class="section" id="the-visualization-tabs">
+<h2>The Visualization Tabs<a class="headerlink" href="#the-visualization-tabs" title="Permalink to this headline">¶</a></h2>
+<p>In the left side of the window there is a set of two tabs that allow
+visualization of the process. When the program starts, no data is shown &#8211; the
+simulation must start for data to appear. These are the different
+visualizations:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Model</dt>
+<dd><p class="first">Allows one to see the adaptation of the model. Three distinct sets of
+objects are shown in this plot: a dark yellow line representing the
+regression line obtained until the moment; a set of blue dots
+representing the past examples shown to the neuron; and a red dot
+representing the last example shown to the neuron. This screen is
+updated at the presentation of each example: as soon as the neuron
+learns, the line is updated, the red dot is transformed to a blue dot,
+and a new example is randomly choosed.</p>
+<p class="last">It is interesting to notice that examples are computed from a given
+model (see more in Controlling, below) with some noise added.</p>
+</dd>
+<dt>Error</dt>
+<dd>This tab shows the progression of the error as a function of the number
+of presented examples. The plot is updated to include the computed error
+(the euclidian norm of the difference from the computed and the desired
+response) for every example presented to the neuron.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="control-panel">
+<h2>Control Panel<a class="headerlink" href="#control-panel" title="Permalink to this headline">¶</a></h2>
+<p>With this panel it is possible to control the simulation. Three buttons allow to
+start, stop and step over the animation, and the visualization in the active
+tab is updated accordingly.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Start</dt>
+<dd>Starts the animation. When the animation is running, this button is
+made inactive.</dd>
+<dt>Stop</dt>
+<dd>Stops the animation if it is running. This button is normally inactive,
+but is made active when the animation is running.</dd>
+<dt>Step</dt>
+<dd>Performs a single step of the control: given the values of the angular
+position and speed, calculates the force that should be applied to the
+cart and updates the view. This button is made inactive when the
+animation is running.</dd>
+<dt>Delay</dt>
+<dd>This spin box allows to set an interval of time as a delay between
+updates. Between the presentation of one example and another, there will
+be a delay of the duration given by this box (in miliseconds). This will
+allow to understand better what the simulation is doing. Notice that the
+value here can be made 0 &#8211; in this case, no wait will happen.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="configuration-panel">
+<h2>Configuration Panel<a class="headerlink" href="#configuration-panel" title="Permalink to this headline">¶</a></h2>
+<p>The configuration allows to change the parameters of the task. The model being
+mapped can be changed, and the learning rate of the neuron can be set.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>a0</dt>
+<dd>This sets the linear coefficient of the model being mapped. This is the
+basic line from where the examples are taken: the independent variable
+is randomly chosen in the interval (-1, 1), and the desired response is
+computed with the model given by <cite>a0</cite> and <cite>a1</cite> (see below), with a small
+amount of gaussian noise added. Changing this value will change the
+model. Notice that this will only be effective once the <cite>Reset</cite> button
+is pressed.</dd>
+<dt>a1</dt>
+<dd>This sets the angular coefficient of the model being mapped. This is the
+basic line from where the examples are taken: the independent variable
+is randomly chosen in the interval (-1, 1), and the desired response is
+computed with the model given by <cite>a0</cite> (see above) and <cite>a1</cite>, with a small
+amount of gaussian noise added. Changing this value will change the
+model. Notice that this will only be effective once the <cite>Reset</cite> button
+is pressed.</dd>
+<dt>Learning Rate</dt>
+<dd>This parameter controls the speed of the convergence. It is the standard
+learning rate parameter. When this is made small, the convergence is
+slower, but more precise. When this is made large, the convergence is
+faster, but less precise. If this is made really large, the algorithm
+diverges. It can be fun toying with this value to see its effect on
+learning.</dd>
+<dt>Reset</dt>
+<dd>The modifications made in the boxes above are only made effective once
+this button is pressed.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>This panel shows the example being shown to the neuron. Its coordinates
+corresponds to the position of the red dot in the plot window. Once the example
+is presented to the neuron, it is automatically updated: the horizontal
+coordinate is randomly chosen in the interval (-1, 1) with uniform distribution,
+and the vertical coordinate is computed from the model given by <cite>a0</cite> and <cite>a1</cite>
+(see above) with a small amount of gaussian noise added. Notice that these boxes
+cannot be edited: their only purpose is feedback.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>x</dt>
+<dd>The horizontal coordinate of the example</dd>
+<dt>y</dt>
+<dd>The vertical coordinate of the example</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<p>This panel will show how well the neuron is learning the task. The internal
+model is of a single input biased neuron, so it has two synaptic weights.
+Ideally, with convergence, these weights will converge to the values of <cite>a0</cite> and
+<cite>a1</cite> above. Notice that these boxes cannot be edited: their only purpose is
+feedback on the learning process.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>w0</dt>
+<dd>The bias synaptic weight. Ideally, this value will converge to the <cite>a0</cite>
+value of the model.</dd>
+<dt>w1</dt>
+<dd>The input synaptic weight. Ideally, this value will converge to the <cite>a1</cite>
+value of the model.</dd>
+<dt>Estimate</dt>
+<dd>Shows the prediction estimate of the neuron given the input <cite>x</cite> and the
+values of synaptic weights of the neuron.</dd>
+<dt>Error</dt>
+<dd>Shows the prediction error for this particular example.</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Linear Regression demo</a><ul>
+<li><a class="reference internal" href="#starting-the-program">Starting the Program</a></li>
+<li><a class="reference internal" href="#the-visualization-tabs">The Visualization Tabs</a></li>
+<li><a class="reference internal" href="#control-panel">Control Panel</a></li>
+<li><a class="reference internal" href="#configuration-panel">Configuration Panel</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#model">Model</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="flock.html"
+                        title="previous chapter">The Flock demo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/demos/linear-regression.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="flock.html" title="The Flock demo"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="demos.html" >Demos</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
