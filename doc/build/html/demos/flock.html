@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Flock demo &mdash; Peach v0.3.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.3.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Peach v0.3.1 documentation" href="../index.html" />
+    <link rel="up" title="Demos" href="demos.html" />
+    <link rel="next" title="The Linear Regression demo" href="linear-regression.html" />
+    <link rel="prev" title="The Inverted Pendulum demo" href="inverted-pendulum.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="linear-regression.html" title="The Linear Regression demo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inverted-pendulum.html" title="The Inverted Pendulum demo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="demos.html" accesskey="U">Demos</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-flock-demo">
+<h1>The Flock demo<a class="headerlink" href="#the-flock-demo" title="Permalink to this headline">¶</a></h1>
+<p>This program implements a demonstration of the action of a Particle Swarm
+Optimizer using the <em class="xref std std-ref">pso</em> package. To run it, you must have the <a class="reference external" href="http://www.riverbankcomputing.co.uk/">PyQt4</a> library installed. The demo shows a
+small window representing a two-dimensional space, with a red dot being the
+goal, and several white dots representing the particles. The program animates
+the swarm searching for the goal.</p>
+<div class="section" id="starting-the-program">
+<h2>Starting the Program<a class="headerlink" href="#starting-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Before trying to run the program, please make sure that the required libraries
+are installed and working. Usually, they are not difficult to install: Windows
+builds come with an installer, and Linux versions can be installed using a
+package manager.</p>
+<p>The program resides in the <tt class="docutils literal"><span class="pre">demos\flock</span></tt> folder. If you use Windows, use the
+file browser to navigate to that folder and double-click the <tt class="docutils literal"><span class="pre">IPApp.py</span></tt> file,
+and the program should start. In Linux, you can start it by the command line
+interface, navigating to the program folder and typing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># python FlockApp.py</span>
+</pre></div>
+</div>
+<p>The main window of the program will be shown as in the picture below.</p>
+<img alt="../_images/flock2.png" src="../_images/flock2.png" style="width: 700px;" />
+</div>
+<div class="section" id="controlling">
+<h2>Controlling<a class="headerlink" href="#controlling" title="Permalink to this headline">¶</a></h2>
+<p>The program itself is very simple. In the left side of the window, there is a
+black field representing some space. In it, the red dot represents the goal, the
+optimal point to be found by the swarm (internally, it is represented as the
+maximum point in a quadratic function). White points represent each individual
+in the swarm. At each iteration of the algorithm, the position of the white dots
+is updated in the visualization space to reflect the search. After a fixed
+interval, the spot is randomly moved to another point and the swarm is reset.</p>
+<p>In the right side of the window, there are control buttons, explained below:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Start</dt>
+<dd>Starts the animation. When the animation is running, this button is
+made inactive.</dd>
+<dt>Stop</dt>
+<dd>Stops the animation if it is running. This button is normally inactive,
+but is made active when the animation is running.</dd>
+<dt>Step</dt>
+<dd>Performs a single step of the control: given the values of the angular
+position and speed, calculates the force that should be applied to the
+cart and updates the view. This button is made inactive when the
+animation is running.</dd>
+<dt>Change Spot</dt>
+<dd>By pressing this button, the red spot representing the search goal is
+immediatly moved to another randomly selected point.</dd>
+<dt>Reset</dt>
+<dd>With the activation of this command, every parameter in the simulation
+is randomly modified: the goal spot is moved to another position and a
+new swarm is generated.</dd>
+<dt>Delay (ms)</dt>
+<dd>The simulation waits a small amount of time between each iteration, to
+make the animation smoother and help visualizing what is actually
+happening. If you change this value, this interval is changed. Be aware
+that the wait time is given in miliseconds.</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Flock demo</a><ul>
+<li><a class="reference internal" href="#starting-the-program">Starting the Program</a></li>
+<li><a class="reference internal" href="#controlling">Controlling</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inverted-pendulum.html"
+                        title="previous chapter">The Inverted Pendulum demo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="linear-regression.html"
+                        title="next chapter">The Linear Regression demo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/demos/flock.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="linear-regression.html" title="The Linear Regression demo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="inverted-pendulum.html" title="The Inverted Pendulum demo"
+             >previous</a> |</li>
+        <li><a href="../index.html">Peach v0.3.1 documentation</a> &raquo;</li>
+          <li><a href="demos.html" >Demos</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, José Alexandre Nalon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

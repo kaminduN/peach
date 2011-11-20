@@ -139,8 +139,8 @@ class ConfigFrame(QGroupBox):
     '''
     def __init__(self, *cnf):
         QGroupBox.__init__(self, *cnf)
-        self.setTitle("Configuration")
 
+        self.setTitle("Configuration:")
         self.logic_label = QLabel("Fuzzy Logic:")
         self.logic_combo = QComboBox(self)
         self.logic_combo.addItems([ "Zadeh", "Probabilistic", "Einstein",

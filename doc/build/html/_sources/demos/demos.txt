@@ -13,3 +13,5 @@ These are the current demos:
 .. toctree::
 
     inverted-pendulum.rst
+    flock.rst
+    linear-regression.rst

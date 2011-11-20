@@ -28,7 +28,7 @@ a fuzzy partition of the universe.
 
 ################################################################################
 import numpy
-from numpy import dot, array, sum, zeros, outer
+from numpy import dot, array, sum, zeros, outer, any
 
 
 ################################################################################
@@ -88,7 +88,7 @@ class FuzzyCMeans(object):
     def __getc(self):
         return self.__c
     def __setc(self, c):
-        self.__c = array(reshape(c, self.__c.shape))
+        self.__c = array(c).reshape(self.__c.shape)
     c = property(__getc, __setc)
     '''A ``numpy`` array containing the centers of the classes in the algorithm.
     Each line represents a center, and the number of lines is the number of
@@ -125,8 +125,8 @@ class FuzzyCMeans(object):
           algorithm.
         '''
         mm = self.__mu ** self.m
-        c = dot(self.__x.transpose(), mm) / sum(mm, axis=0)
-        self.__c = c.transpose()
+        c = dot(self.__x.T, mm) / sum(mm, axis=0)
+        self.__c = c.T
         return self.__c
 
     def membership(self):
@@ -149,6 +149,8 @@ class FuzzyCMeans(object):
         m1 = 1./(self.m-1.)
         for k in range(M):
             den = sum((x[k] - c)**2., axis=1)
+            if any(den == 0):
+                return self.__mu
             frac = outer(den, 1./den)**m1
             r[k, :] = 1. / sum(frac, axis=1)
         self.__mu = r

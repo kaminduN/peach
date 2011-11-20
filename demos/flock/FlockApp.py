@@ -84,7 +84,7 @@ class ControlFrame(QGroupBox):
 # to allow dynamic change of parameters.
 class Function(object):
     def __init__(self):
-        self.center = array((0.5, 0.5))
+        self.center = array([ [ 0.5 ], [ 0.5 ] ])
         self.offset = 0.
     def __call__(self, x):
         x = x - self.center
